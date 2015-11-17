@@ -1,7 +1,5 @@
 
-node_modules/
 .svn/
-public/node_modules
 /bootstrap/compiled.php
 /vendor/*
 /app/config/qiniu.php
@@ -10,6 +8,7 @@ public/node_modules
 /app/test_routes.php
 /app/views/test.blade.php
 /public/dist/
+/public/node_modules
 composer.phar
 composer.lock
 .env.*.php
