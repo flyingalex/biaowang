@@ -1,4 +1,5 @@
-
+/databaseset.php
+node_modules/
 .svn/
 /bootstrap/compiled.php
 /vendor/*

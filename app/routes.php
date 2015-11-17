@@ -1,17 +1,44 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Application Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register all of the routes for an application.
-| It's a breeze. Simply tell Laravel the URIs it should respond to
-| and give it the Closure to execute when that URI is requested.
-|
-*/
+//前端
+Route::group(array('prefix'=>'fontend'),function(){
+	//首页
+	Route::get('home','FontendPageController@home');
+	//投票
+	Route::get('vote','FontendPageController@vote');
+	//规则
+	Route::get('rule','FontendPageController@rule');
+	//相册
+	Route::get('album','FontendPageController@album');
+	//相册图片
+	Route::get('sub-album','FontendPageController@subAlbum');
+});
 
-Route::get('/', function()
-{
-	return View::make('hello');
+
+Route::group(array('prefix'=>'admin'), function(){
+	//登录
+	Route::get('/','LoginController@login');
+	Route::post('/','LoginController@postLogin');
+
+	//微官网
+	Route::group(array('prefix'=>'official'),function(){
+		//广告图片
+		Route::get('ads','OfficialController@ads');
+		
+	});
+
+	//微投票
+	Route::group(array('prefix'=>'official'),function(){
+
+		
+	});
+
+	//微相册
+	Route::group(array('prefix'=>'official'),function(){
+
+		
+	});
+
+
+
 });
