@@ -1,5 +1,4 @@
 /databaseset.php
-node_modules/
 .svn/
 /bootstrap/compiled.php
 /vendor/*
@@ -8,6 +7,7 @@ node_modules/
 /app/config/app.php
 /app/test_routes.php
 /app/views/test.blade.php
+/app/test_routes.php
 /public/dist/
 /public/node_modules
 composer.phar

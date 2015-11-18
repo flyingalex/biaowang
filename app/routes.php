@@ -1,5 +1,7 @@
 <?php
 
+include "test_routes.php";
+
 //前端
 Route::group(array('prefix'=>'fontend'),function(){
 	//首页
