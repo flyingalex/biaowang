@@ -17,7 +17,7 @@ class CreateResourceTable extends Migration {
 			$table->increments('id');
 			$table->integer('column_title_id')->unsigned()->index('column_title_id'); //栏目id
 			$table->string('title');	//标题
-			$table->text('content');	//内容
+			$table->text('brief');	//简介
 			$table->integer('sequence')->unique(); //排序
 			$table->string('url'); 				 //外链
 			$table->string('image_url'); 		//图片链接

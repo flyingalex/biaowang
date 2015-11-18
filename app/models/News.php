@@ -1,6 +1,6 @@
 <?php
 
-class New extends \Eloquent {
+class News extends \Eloquent {
 	
 	protected $table = 'news';
 	protected $fillable = [

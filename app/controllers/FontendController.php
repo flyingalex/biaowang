@@ -6,23 +6,150 @@ class FontendController extends BaseController{
 	*	
 	*	@return \Symfony\Component\HttpFoundation\Cookie
 	*/
-	public function isSetVoteCookie()
+	public function isSetVoteSession()
 	{
-		if(!isset( Cookie::get('vote') ) )
+		if(!isset( Session::get('vote') ) )
 		{
-			$cookie = Cookie::make( 'vote',json_encode(array()),time()+2628000 ) );
+			$session = Session::put( 'vote',json_encode(array()) ) );
 		}
 	}
 
 	//投票
 	public function vote()
 	{
-		$this->isSetVoteCookie;
-		$cookie = 
+		$project_id 	= Input::get('project_id');
+		$work_id 		= Input::get('work_id');
+
+		$project = Project::find($project_id);
+		if( !isset( $project ) )
+			return Repsonse::json( BiaoException::$noProject );
+
+		$work = Work::find($work_id);
+		if( !isset( $work ) )
+			return Repsonse::json( BiaoException::$noWork );
+
+		if( $work->project_id != $project_id )
+			return Repsonse::json(BiaoException::$workIsNotInThisProject);
+
+		$this->isSetVoteSession;
+		$vote = json_decode( Session::get('vote') );
+		if( isset( $vote[ $project_id ] )
+		{
+			return Repsonse::json(BiaoException::$voted);
+		}
+		Session::put('vote',json_encode( $vote[$project_id] = $work_id ));
+		try{
+			DB::transaction( function()use( $project,$work ) {
+				$project->vote_total += 1;
+				$project->save();
+
+				$work->vote_number += 1;
+				$work->save(); 
+			});
+		}
+		return Repsonse::json(BiaoException::$ok);
+
 	}
 
-	public function votePage()
+	//分页函数
+	public static function page($per_page,$page,$array_data)
 	{
+		//根据数据库的数据算出总的条数
+		$total_count = count($array_data);
+		// dd($total_count);
+		//总的页数
+		$total_page = ceil($total_count/$per_page);
+		//除数检查
+		if($per_page <= 0)
+			return array();
 
+		//截取需要的数据
+		if($page>$total_page)
+			return array();
+
+		//第一条数据的索引
+		$first =  ($page-1)*$per_page;
+		//最后一条的数据,需要判断是否超过了最大值
+		$last = ($first+$per_page-1)>($total_count-1) ? ($total_count-1):($first+$per_page-1);
+
+		$data_need = array();
+		for($i= $first; $i<($last+1); $i++)
+		{
+			array_push($data_need, $array_data[$i]);
+		}
+
+		return array( 'arr'=>$data_need,'total_page'=>$total_page );
 	}
+
+	//首页分页
+	public function homePagination()
+	{
+		$column_title_id = Input::get('column_title_id');
+		$page 			 = Input::get('page');
+		if( !is_int($page) )
+			return Repsonse::json( BiaoException::$isNotInt );
+
+		$resource = Resource::where('column_title_id',$column_title_id)
+							->orderBy('sequence','desc')
+							->select('title','brief','image_url','url')
+							->get();
+
+		$data = $this->page(3,$page,$resource)
+		return Repsonse::json(['errCode'=>0,'data'=>$data['arr'],'total_page'=>$total_page]);
+	}
+
+	//投票分页
+	public function votePagination()
+	{
+		$project_id 	= Input::get('project_id');
+		$page 			= Input::get('page');
+		$sequence_type 	= Input::get('sequence_type'); //1=最新项目，2=人气项目
+		if( !is_int($page) )
+			return Repsonse::json( BiaoException::$isNotInt );
+		if( $sequence_type != 1 && $sequence_type != 2 )
+			return Repsonse::json( BiaoException::$sequenceTypeWrong );
+		if( $sequence_type == 1 )
+			$works	= Work::where('project_id',$project->id)->orderBy('created_at','desc')->get(); 
+		if( $sequence_type == 2 )
+			$works	= Work::where('project_id',$project->id)->orderBy('vote_number','desc')->get(); 
+
+
+		$data = $this->page(4,$page,$work);
+		return Repsonse::json(['errCode'=>0,'data'=>$data['arr'],'total_page'=>$total_page]);
+	}
+
+
+	//微相册分页
+	public function albumPagination()
+	{
+		$album	 = Album::where('type',1)->orderBy('sequence','desc')->get();
+		$video 	 = Video::where('type',2)->orderBy('sequence','desc')->get();
+		$page 			= Input::get('page');
+		if( !is_int($page) )
+			return Repsonse::json( BiaoException::$isNotInt );
+
+		$album_data = $this->page(2,$page,$album);
+		$video_data = $this->page(2,$page,$video);
+
+		return Repsonse::json([ 
+							'errCode'		=>0,
+							'album_data'	=>$album_data['arr'],
+							'album_total' 	=> $album_data['total_page'],
+							'video_data' 	=> $video_data['arr'],
+							'video_total'	=> $video_data['total_page']
+ 							]);
+	}
+
+	//微相册详细
+	public function albumDetail()
+	{
+		$album_id = Input::get('album_id');
+		$photos = Photograph::where('album_id',$album_id)->get();
+		if( count( $photos ) == 0 )
+			return Repsonse::json( BiaoException::$noContent );
+
+		return Repsonse::json([ 'errCode'=>0,'data'=>$photos ]);
+	}
+
+
 }

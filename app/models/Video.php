@@ -1,5 +1,12 @@
 <?php
 
 class Video extends \Eloquent {
-	protected $fillable = [];
+	
+	protected $table = 'video';
+	protected $fillable = [
+		'title',
+		'url',
+		'image_url',
+		'type'
+	];
 }

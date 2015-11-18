@@ -9,7 +9,6 @@ class Project extends \Eloquent {
 			'view_total',
 			'title',
 			'vote_close',
-			'url',
 			'content',
 			'image_url',
 			'sign_up_start',
@@ -17,6 +16,7 @@ class Project extends \Eloquent {
 			'vote_start',
 			'vote_stop',
 			'activity_rule',
+			'award_site'
 			'display'
 	];
 }

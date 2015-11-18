@@ -20,7 +20,6 @@ class CreateProjectTable extends Migration {
 			$table->integer('view_total');		//访问量
 			$table->string('title');			//投票标题
 			$table->date('vote_close');			//投票截止
-			$table->string('url');				//外链
 			$table->text('content');			//活动介绍
 			$table->string('image_url');		//活动图片链接
 			$table->date('sign_up_start');		//报名开始时间
@@ -28,6 +27,7 @@ class CreateProjectTable extends Migration {
 			$table->date('vote_start');			//投票开始时间
 			$table->date('vote_stop');			//投票截止时间
 			$table->text('activity_rule');		//活动规则
+			$table->text('award_site');			//奖项设置
 			$table->boolean('display')->default(false);//是否显示
 			$table->timestamps();
 		});

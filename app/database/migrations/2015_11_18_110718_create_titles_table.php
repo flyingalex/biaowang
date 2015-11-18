@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateVideoTable extends Migration {
+class CreateTitlesTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -11,14 +11,14 @@ class CreateVideoTable extends Migration {
 	 * @return void
 	 */
 	public function up()
-	{					//视频
-		Schema::create('video', function(Blueprint $table)
+	{
+		Schema::create('titles', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->string('title'); 		// 标题
-			$table->string('url');   		//外链
-			$table->string('image_url');    //图片链接
-			$table->integer('type'); 		//1=标王相册，2=标王视频
+			$table->('middle_title');
+			$table->('middle_subtitle');
+			$table->('bottom_title');
+			$table->('bottom_subtitle');
 			$table->timestamps();
 		});
 	}
@@ -31,7 +31,7 @@ class CreateVideoTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('video');
+		Schema::drop('titles');
 	}
 
 }

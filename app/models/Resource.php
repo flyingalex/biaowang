@@ -6,7 +6,7 @@ class Resource extends \Eloquent {
 	protected $fillable = [
 		'column_title_id',
 		'title',
-		'content',
+		'brief',
 		'sequence',
 		'url',
 		'image_url'

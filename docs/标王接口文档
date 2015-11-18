@@ -1,0 +1,102 @@
+1.投票
+	请求方式：POST
+	请求路由：/wetchat/vote
+	请求参数：
+			project_id,			项目id
+			work_id,			作品id
+
+	返回参数：{
+				errCode, 			0返回正常
+				message,			
+			}
+
+2.首页分页
+	请求方式：POST
+	请求路由：/wetchat/home-pagination
+	请求参数：
+			column_title_id,
+			page, 
+	返回参数：
+			{
+				errCode, 			0返回正常
+				message,			非0时返回此信息
+				data:[
+					{
+						title,		文标题	
+						brief,		正文
+						image_url,	图片路径
+						url,		外链
+					},...
+				],
+				total_page			总页数
+			}
+
+3.投票分页
+	请求方式：POST
+	请求路由：/wetchat/vote-pagination
+	请求参数：
+			project_id，
+			page,
+			sequence_type,
+	返回参数：
+			{
+				errCode, 			0返回正常
+				message,			非0时返回此信息
+				data:[
+					{
+						url,			外链			
+						vote_number,	投票数
+						image_url		图片路径
+					}...
+				],
+				total_page				总页数
+			}
+
+4.微相册分页
+	请求方式：POST
+	请求路由：/wetchat/album-pagination
+	请求参数：
+			page,
+	返回参数：
+			{
+				errCode, 			0返回正常
+				message,			非0时返回此信息
+				album_data:[
+					{
+						id,			相册id
+						title,		相册标题
+						image_url,	相册封面图片路径
+					},....
+				],
+				album_total,		相册总页数
+				video_data:[
+					{
+						title,		视频标题
+						url,		外链
+						image_url	视频封面图片路径
+					},....
+				],
+				video_total, 		视频总页数
+			}
+
+5.相册详情
+	请求方式：POST
+	请求路由：/wetchat/album-detail
+	请求参数：
+			album_id,				相册id
+	返回参数：
+			{
+				errCode, 			0返回正常
+				message,			非0时返回此信息
+				data:[
+					image_url, 		图片路径
+				]
+			}
+
+
+
+
+请求方式：
+请求路由：
+请求参数：
+返回参数：
