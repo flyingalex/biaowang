@@ -11,7 +11,7 @@
     <ul class="menu">
         <li class="sub-menu active-menu">
             <div href="#" class="dropdown-btn">
-                <img src="/images/icon/" class="dropdown-btn-icon">
+                <img src="/images/icon/official.png" class="dropdown-btn-icon">
                 <a href="#" class="dropdown-btn-title">微官网</a>
             </div>
             <ul class="sub-menu-item">
@@ -31,7 +31,7 @@
         </li>
         <li class="sub-menu">
             <div href="#" class="dropdown-btn">
-                <img src="/images/icon/" class="dropdown-btn-icon">
+                <img src="/images/icon/vote.png" class="dropdown-btn-icon">
                 <a href="#" class="dropdown-btn-title">微投票</a>
             </div>
             <ul class="sub-menu-item">
@@ -51,7 +51,7 @@
         </li>
         <li class="sub-menu">
             <div href="#" class="dropdown-btn">
-                <img src="/images/icon/" class="dropdown-btn-icon">
+                <img src="/images/icon/album.png" class="dropdown-btn-icon">
                 <a href="#" class="dropdown-btn-title">微相册</a>
             </div>
             <ul class="sub-menu-item">
@@ -75,7 +75,7 @@
         </li>
         <li class="sub-menu">
             <div href="#" class="dropdown-btn">
-                <img src="/images/icon/" class="dropdown-btn-icon">
+                <img src="/images/icon/setting.png" class="dropdown-btn-icon">
                 <a href="#" class="dropdown-btn-title">系统管理</a>
             </div>
             <ul class="sub-menu-item">

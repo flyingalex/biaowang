@@ -32,9 +32,9 @@
 <!-- 头部logo end -->
 
 <!-- 编辑主模块 start -->
-<div class="content">
-
-</div>
+@section( 'content' )
+@include( 'admin.components.content')
+@show
 <!-- 编辑主模块 end -->
 
 </div>
