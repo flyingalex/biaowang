@@ -15,10 +15,10 @@ class CreateTitlesTable extends Migration {
 		Schema::create('titles', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->('middle_title');
-			$table->('middle_subtitle');
-			$table->('bottom_title');
-			$table->('bottom_subtitle');
+			$table->string('middle_title');
+			$table->string('middle_subtitle');
+			$table->string('bottom_title');
+			$table->string('bottom_subtitle');
 			$table->timestamps();
 		});
 	}

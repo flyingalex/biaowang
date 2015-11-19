@@ -15,7 +15,7 @@ class CreateColumnTitleTable extends Migration {
 		Schema::create('column_title', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->string('classification');  //栏目分类标题
+			$table->string('classification')->nullable();  //栏目分类标题
 			$table->timestamps();
 		});
 	}

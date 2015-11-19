@@ -8,6 +8,6 @@ class ActivityAdvertisement extends \Eloquent {
 		'sub_title',
 		'image_url',
 		'sequence',
-		'display'
+		// 'display'
 	];
 }	

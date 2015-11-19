@@ -42,8 +42,8 @@ Route::filter('auth', function()
 			return Response::make('Unauthorized', 401);
 		}
 		else
-		{
-			return Redirect::guest('login');
+		{	
+			return Redirect::to('admin/login');
 		}
 	}
 });

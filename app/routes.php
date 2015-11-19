@@ -31,29 +31,38 @@ Route::group(array('prefix'=>'wetchat'),function(){
 
 
 Route::group(array('prefix'=>'admin'), function(){
+	//验证码
+	Route::get('captcha','LoginController@captcha');
 	//登录
-	Route::get('/','LoginController@login');
-	Route::post('/','LoginController@postLogin');
+	Route::get('login','LoginController@login');
+	Route::post('login','LoginController@postLogin');
 
-	//微官网
-	Route::group(array('prefix'=>'official'),function(){
-		//广告图片
-		Route::get('ads','OfficialController@ads');
-		
+	Route::group(array('before'=>'auth'),function(){
+
+		Route::post('logout','LoginController@logout');
+		//微官网
+		Route::group(array('prefix'=>'official'),function(){
+			//广告图片－浏览
+			Route::get('ads','adsController@index');
+			//广告图片－增加
+			Route::post('ads-create','adsController@create');
+			//广告图片－删
+			Route::post('ads-delete','adsController@delete');
+			//广告图片－编辑
+			 Route::post('ads-edit','adsController@edit');
+
+		});
+
+		//微投票
+		Route::group(array('prefix'=>'vote'),function(){
+
+			
+		});
+
+		//微相册
+		Route::group(array('prefix'=>'album'),function(){
+
+			
+		});
 	});
-
-	//微投票
-	Route::group(array('prefix'=>'vote'),function(){
-
-		
-	});
-
-	//微相册
-	Route::group(array('prefix'=>'album'),function(){
-
-		
-	});
-
-
-
 });

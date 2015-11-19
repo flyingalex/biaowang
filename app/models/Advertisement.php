@@ -8,7 +8,7 @@ class Advertisement extends \Eloquent {
 		'image_url',
 		'title',
 		'sequence',
-		'display',
+		// 'display',
 		'type'
 	];
 }

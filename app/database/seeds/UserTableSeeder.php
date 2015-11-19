@@ -10,17 +10,17 @@ class UserTableSeeder extends Seeder {
 		
 			User::create([
 				'account' => 'admin',
-				'password'=> 'admin'
+				'password'=> Hash::make('admin')
 			]);
 
 			User::create([
 				'account' => 'admin2',
-				'password'=> 'admin2'
+				'password'=> Hash::make('admin2')
 			]);
 
 			User::create([
 				'account' => 'admin3',
-				'password'=> 'admin3'
+				'password'=> Hash::make('admin3')
 			]);
 	}
 

@@ -6,8 +6,8 @@ class FontendPageController extends BaseController{
 	public function home()
 	{
 		$news 			= New::all();//新闻
-		$ads 			= Advertisement::where('type',1)->where('display','true')->get(); 
-		$activity_ads 	= ActivityAdvertisement::where('display',true)->get();	
+		$ads 			= Advertisement::where('type',1)->get(); 
+		$activity_ads 	= ActivityAdvertisement::all();	
 		$column_title  	= ColumnTitle::all();
 		$resource 		= Resource::where('column_title_id',1)->select('title','brief','image_url','url')->take(3)->get();
 		$titles 		= Title::all();	
@@ -24,7 +24,7 @@ class FontendPageController extends BaseController{
 	//微投票
 	public function vote()
 	{
-		$ads 	 = Advertisement::where('type',2)->where('display','true')->get(); 
+		$ads 	 = Advertisement::where('type',2)->get(); 
 		$project = Project::where('display','true')
 					->select('sign_up_total','vote_total','view_total','title','vote_close','content')
 					->first();
@@ -47,7 +47,7 @@ class FontendPageController extends BaseController{
 	public function rule()
 	{
 		$project_id = Input::get('project_id');
-		$ads 	 	= Advertisement::where('type',2)->where('display','true')->get(); 
+		$ads 	 	= Advertisement::all(); 
 		$project 	= Project::where('display','true')
 					->where('id',$project_id)
 					->select('sign_up_start','sign_up_stop','vote_start','vote_stop','content')
@@ -65,7 +65,7 @@ class FontendPageController extends BaseController{
 	//奖项设置
 	public function award()
 	{
-		$ads 	 = Advertisement::where('type',2)->where('display','true')->get(); 
+		$ads 	 = Advertisement::all(); 
 		$project = Project::where('display','true')
 					->select('award_site')
 					->first();
@@ -81,7 +81,7 @@ class FontendPageController extends BaseController{
 	//微相册
 	public function album()
 	{
-		$ads 	 = Advertisement::where('type',3)->where('display','true')->get(); 
+		$ads 	 = Advertisement::where('type',3)->get(); 
 		$album	 = Album::where('type',1)->orderBy('sequence','desc')->take(2)->get();
 		$video 	 = Video::where('type',2)->orderBy('sequence','desc')->take(2)->get();
 		return View::make('album')->with([

@@ -18,8 +18,8 @@ class CreateActivityAdvertisementTable extends Migration {
 			$table->string('title');			//标题<12
 			$table->string('sub_title');		//副标题<14
 			$table->string('image_url');		//图片链接
-			$table->integer('sequence')->unique();//排序
-			$table->boolean('display')->defalut(true);//是否呈现
+			$table->integer('sequence')->unique()->nullable();//排序
+			// $table->boolean('display')->defalut(true);//是否呈现
 			$table->timestamps();
 		});
 	}
