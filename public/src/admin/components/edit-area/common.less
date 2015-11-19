@@ -1,14 +1,85 @@
 
 @import './settings.less';
 
-.picture-wrap{
-    position: relative;
+// --- 通用编辑区域样式 start ---
+
+.@{edit-area-class-prefix}-container{
+    @border-radius: 6px;
+    margin-top: 30px;
+    overflow: hidden;
+    background-color: #d2dada;
+
+    -webkit-border-radius: @border-radius;
+    -moz-border-radius: @border-radius;
+    border-radius: @border-radius;
 }
 
-.pic-mask{
+.@{edit-area-class-prefix}-top{
+    color: #fff;
+    background-color: #0c85ad;
+}
+
+.@{edit-area-class-prefix}-title{
+    font-size: 16px;
+    margin-left: 10px;
+    display: inline-block;
+    line-height: @edit-area-title-height;
+}
+
+.@{edit-area-class-prefix}-body{
+    width: 100%;
+    color: #000;
+    font-size: 16px;
+}
+
+.@{edit-area-class-prefix}-header{
+    line-height: 40px;
+    background-color: #ecf0f1;
+}
+
+.@{edit-area-class-prefix}-row{
+}
+
+.@{edit-area-class-prefix}-picture-row{
+    margin-top: 15px;
+    .thumbnail{
+        vertical-align: text-top;
+    }
+}
+
+.@{edit-area-class-prefix}-label{
+    width: 60px;
+    display: inline-block;
+}
+
+.@{edit-area-class-prefix}-input{
+    width: 600px;
+    height: 35px;
+    display: inline-block;
+}
+
+.@{edit-area-class-prefix}-item, .@{edit-area-class-prefix}-item-input{
+    font-size: 14px;
+    text-align: center;
+}
+
+.@{edit-area-class-prefix}-item-operation{
+    width: 140px;
+}
+
+// --- 通用编辑区域演示 end ---
+
+// --- 通用操作模块样式 start ---
+
+.@{edit-area-picture-class-prefix}-wrap{
+    position: relative;
+    display: inline-block;
+}
+
+.@{edit-area-picture-class-prefix}-mask{
     width: @picture-width;
     height: @picture-height;
-    margin: ( @table-item-height - @picture-height ) / 2 auto;
+    margin: ( @edit-area-item-height - @picture-height ) / 2 auto;
     position: absolute;
 }
 
@@ -19,24 +90,32 @@
     vertical-align: middle;
 }
 
-.op-btn{
+.@{operation-class-prefix}-btn{
     cursor: pointer;
 }
 
-.op-new{
+.@{operation-class-prefix}-select{
+    width: 100px;
+    height: 25px;
+    margin-left: 5px;
+}
+
+.@{operation-class-prefix}-new{
     float: right;
     width: 80px;
-    height: @table-title-height;
+    height: @edit-area-title-height;
     margin-right: 20px;
     cursor: pointer;
     display: inline-block;
     background: url( '/images/icon/new.png' ) no-repeat center;
 }
 
-.op-delete{
+.@{operation-class-prefix}-btn{
     margin-left: 5px;
 }
 
-.op-icon{
+.@{operation-class-prefix}-icon{
     vertical-align: middle;
 }
+
+// --- 通用操作模块样式 end ---

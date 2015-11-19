@@ -44,7 +44,10 @@ module.exports = (grunt)->
                         'src/admin/components/sidebar/sidebar.less'
                         'src/admin/components/content/content.less'
                     ]
-                    'dist/admin/css/official/advert.css': ['src/admin/pages/official/advert/advert.less']
+                    'dist/admin/css/official/advert/browse-advert.css': ['src/admin/pages/official/advert/browse-advert.less']
+                    'dist/admin/css/official/advert/add-advert.css': ['src/admin/pages/official/advert/add-advert.less']
+                    'dist/admin/css/official/advert/edit-advert.css': ['src/admin/pages/official/advert/edit-advert.less']
+                    'dist/admin/css/official/add-resource.css': ['src/admin/pages/official/add-resource/add-resource.less']
 
     grunt.loadNpmTasks 'grunt-browserify'
     grunt.loadNpmTasks 'grunt-contrib-less'
