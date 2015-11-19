@@ -1,0 +1,42 @@
+
+@import './settings.less';
+
+.picture-wrap{
+    position: relative;
+}
+
+.pic-mask{
+    width: @picture-width;
+    height: @picture-height;
+    margin: ( @table-item-height - @picture-height ) / 2 auto;
+    position: absolute;
+}
+
+.thumbnail{
+    width: @picture-width;
+    height: @picture-height;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.op-btn{
+    cursor: pointer;
+}
+
+.op-new{
+    float: right;
+    width: 80px;
+    height: @table-title-height;
+    margin-right: 20px;
+    cursor: pointer;
+    display: inline-block;
+    background: url( '/images/icon/new.png' ) no-repeat center;
+}
+
+.op-delete{
+    margin-left: 5px;
+}
+
+.op-icon{
+    vertical-align: middle;
+}
