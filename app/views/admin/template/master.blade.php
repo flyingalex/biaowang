@@ -7,7 +7,8 @@
 <title>标王 --- 后台管理系统</title>
 
 @section( 'styles' )
-<link rel="stylesheet" href="/dist/admin/css/common/common.css">
+<link rel="stylesheet" href="/dist/admin/css/common.css">
+<link rel="stylesheet" href="/dist/admin/css/component.css">
 @show
 
 </head>

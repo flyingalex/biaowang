@@ -35,11 +35,13 @@ module.exports = (grunt)->
         less:
             admin:
                 files:
-                    'dist/admin/css/common/common.css': [ 
+                    'dist/admin/css/common.css': [ 
                         'src/common/reset.less'
-                        'src/admin/common/common.less',
-                        'src/admin/components/header/header.less',
-                        'src/admin/components/sidebar/sidebar.less',
+                        'src/admin/common/common.less'
+                    ]
+                    'dist/admin/css/component.css':[
+                        'src/admin/components/header/header.less'
+                        'src/admin/components/sidebar/sidebar.less'
                         'src/admin/components/content/content.less'
                     ]
                     'dist/admin/css/official/advert.css': ['src/admin/pages/official/advert/advert.less']
