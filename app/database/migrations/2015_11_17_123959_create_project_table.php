@@ -19,7 +19,7 @@ class CreateProjectTable extends Migration {
 			$table->integer('vote_total');		//投票人数	
 			$table->integer('view_total');		//访问量
 			$table->string('title');			//投票标题
-			$table->date('vote_close');			//投票截止
+			// $table->date('vote_close');			//投票截止
 			$table->text('content');			//活动介绍
 			// $table->string('image_url');		//活动图片链接
 			$table->date('sign_up_start');		//报名开始时间

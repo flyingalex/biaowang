@@ -32,5 +32,21 @@ class InputController extends BaseController{
 		return false;
 	}
 
+	//时间正则匹配
+	public function isPregMatch( $arrs )
+	{
+		foreach( $arrs as $ $arr )
+		{
+			if( !preg_match( '/^201[5-9]-[0,1][0-9]-[0-3][0-9]$/', $arr ) )
+				return false;
+		}
+		return true;
+	}
+
+	//对时间对作判断
+	public function isTimeSetRight( $time1,$time2 )
+	{
+		
+	}
 
 }

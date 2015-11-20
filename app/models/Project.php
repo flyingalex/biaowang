@@ -8,7 +8,7 @@ class Project extends \Eloquent {
 			'vote_total',
 			'view_total',
 			'title',
-			'vote_close',
+			// 'vote_close',
 			'content',
 			// 'image_url',
 			'sign_up_start',

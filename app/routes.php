@@ -1,7 +1,7 @@
 <?php
 
 try{
-	include_once 'test_route.php';
+	include_once 'test_routes.php';
 }catch( Exception $e){
 	
 }

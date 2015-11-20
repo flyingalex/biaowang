@@ -38,6 +38,7 @@ class BiaoException{
 	public static $noUrl;
 	public static $isNotUnique;
 	public static $parameterIncomplete;
+	public static $regularNotMatch
 }
 
 BiaoException::$ok 						= (new BiaoException('0','正常'))->getArray(); 
@@ -65,7 +66,7 @@ BiaoException::$notExist	 			= (new BiaoException('database02','数据库不存�
 BiaoException::$noUrl	 				= (new BiaoException('url01','请输入外链'))->getArray();
 BiaoException::$isNotUnique	 			= (new BiaoException('unique01','排序号重复，请重新输入'))->getArray();
 BiaoException::$parameterIncomplete	 	= (new BiaoException('param01','参数填写不完整'))->getArray();
-	
+BiaoException::$regularNotMatch 		= (new BiaoException('regular01','时间格式错误，请重新输入'))->getArray();
 
 
 
