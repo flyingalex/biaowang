@@ -19,6 +19,7 @@ class CreateActivityAdvertisementTable extends Migration {
 			$table->string('sub_title');		//副标题<14
 			$table->string('image_url');		//图片链接
 			$table->integer('sequence')->unique()->nullable();//排序
+			$table->string('url');
 			// $table->boolean('display')->defalut(true);//是否呈现
 			$table->timestamps();
 		});

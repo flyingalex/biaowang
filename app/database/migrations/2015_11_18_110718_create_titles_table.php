@@ -11,7 +11,7 @@ class CreateTitlesTable extends Migration {
 	 * @return void
 	 */
 	public function up()
-	{
+	{					//栏目标题
 		Schema::create('titles', function(Blueprint $table)
 		{
 			$table->increments('id');

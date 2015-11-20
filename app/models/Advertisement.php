@@ -9,6 +9,7 @@ class Advertisement extends \Eloquent {
 		'title',
 		'sequence',
 		// 'display',
+		'url',
 		'type'
 	];
 }

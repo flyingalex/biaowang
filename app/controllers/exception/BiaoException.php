@@ -32,9 +32,12 @@ class BiaoException{
 	public static $fileUnvalid;
 	public static $fileStorageErr;
 	public static $noTitle;
+	public static $noFile;
 	public static $databaseErr;
 	public static $notExist;
 	public static $noUrl;
+	public static $isNotUnique;
+	public static $parameterIncomplete;
 }
 
 BiaoException::$ok 						= (new BiaoException('0','正常'))->getArray(); 
@@ -55,12 +58,14 @@ BiaoException::$mimeErr					= (new BiaoException('file01','非图片格式文件
 BiaoException::$fileSizeErr				= (new BiaoException('file02','文件过大'))->getArray();
 BiaoException::$fileUnvalid				= (new BiaoException('file03','无效文件'))->getArray();
 BiaoException::$fileStorageErr			= (new BiaoException('file04','存储文件错误'))->getArray();
+BiaoException::$noFile					= (new BiaoException('file05','请传入文件'))->getArray();
 BiaoException::$noTitle	 				= (new BiaoException('title01','请输入标题'))->getArray();
 BiaoException::$databaseErr	 			= (new BiaoException('database01','数据库错误'))->getArray();
 BiaoException::$notExist	 			= (new BiaoException('database02','数据库不存在此数据'))->getArray();
-BiaoException::$noUrl	 				= (new BiaoException('url0','无链接传入'))->getArray();
-
-
+BiaoException::$noUrl	 				= (new BiaoException('url01','请输入外链'))->getArray();
+BiaoException::$isNotUnique	 			= (new BiaoException('unique01','排序号重复，请重新输入'))->getArray();
+BiaoException::$parameterIncomplete	 	= (new BiaoException('param01','参数填写不完整'))->getArray();
+	
 
 
 

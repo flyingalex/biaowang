@@ -19,3 +19,4 @@ Thumbs.db
 /*.mwb.bak
 *.log
 /.idea/
+/app/views/test.blade.php

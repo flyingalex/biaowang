@@ -19,6 +19,7 @@ class CreateAdvertisementTable extends Migration {
 			$table->string('title');					//标题
 			$table->integer('sequence')->unique()->nullable();		//排序
 			// $table->boolean('display')->default(true);	//是否显示
+			$table->string('url'); 						//外链
 			$table->integer('type');					//1=微官网广告,2=微投票广告，3=微相册广告
 			$table->timestamps();
 		});

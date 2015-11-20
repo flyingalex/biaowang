@@ -10,7 +10,7 @@ class Project extends \Eloquent {
 			'title',
 			'vote_close',
 			'content',
-			'image_url',
+			// 'image_url',
 			'sign_up_start',
 			'sign_up_stop',
 			'vote_start',

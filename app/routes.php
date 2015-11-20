@@ -49,8 +49,31 @@ Route::group(array('prefix'=>'admin'), function(){
 			//广告图片－删
 			Route::post('ads-delete','adsController@delete');
 			//广告图片－编辑
-			 Route::post('ads-edit','adsController@edit');
+			Route::post('ads-edit','adsController@edit');
+			//活动广告－增加
+			Route::post('activity-ads-create','ActivityAdsController@create');
+			//活动广告－删
+			Route::post('activity-ads-delete','ActivityAdsController@delete');
+			//活动广告－编辑
+			Route::post('activity-ads-edit','ActivityAdsController@edit');
+			
+			//栏目标题－浏览
+			Route::get('title-index','TitleController@index');
+			//栏目标题-编辑
+			Route::post('title-edit','TitleController@edit');	
+			//干货版块标题－浏览
+			Route::get('column-title-index','ColumnTitleController@index');
+			//干货版块标题－编辑
+			Route::post('column-title-edit','ColumnTitleController@edit');
 
+			//干货－浏览
+			Route::get('resource-index','ResourceController@index');
+			//干货－添加
+			Route::post('resource-create','ResourceController@create');
+			//干货－删除
+			Route::post('resource-delete','ResourceController@delete');
+			//干货－编辑
+			Route::post('resource-edit','ResourceController@edit');
 		});
 
 		//微投票

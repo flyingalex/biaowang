@@ -1,6 +1,9 @@
 <?php 
 
 Route::get('/',function(){
+	 $date = new date();
+	 return $date;
+
 	return View::make('test');
 });
 

@@ -21,7 +21,7 @@ class CreateProjectTable extends Migration {
 			$table->string('title');			//投票标题
 			$table->date('vote_close');			//投票截止
 			$table->text('content');			//活动介绍
-			$table->string('image_url');		//活动图片链接
+			// $table->string('image_url');		//活动图片链接
 			$table->date('sign_up_start');		//报名开始时间
 			$table->date('sign_up_stop');		//报名截止时间
 			$table->date('vote_start');			//投票开始时间
