@@ -7,7 +7,8 @@
 <title>标王 --- 后台管理系统</title>
 
 @section( 'styles' )
-<link rel="stylesheet" href="/dist/admin/css/common/common.css">
+<link rel="stylesheet" href="/dist/admin/css/common.css">
+<link rel="stylesheet" href="/dist/admin/css/component.css">
 @show
 
 </head>
@@ -32,9 +33,9 @@
 <!-- 头部logo end -->
 
 <!-- 编辑主模块 start -->
-<div class="content">
-
-</div>
+@section( 'content' )
+@include( 'admin.components.content')
+@show
 <!-- 编辑主模块 end -->
 
 </div>

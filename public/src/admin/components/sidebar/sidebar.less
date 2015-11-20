@@ -5,9 +5,11 @@
 
 .sidebar{
     color: #fff;
-    float: left;
     width: @sidebar-width;
-    padding-bottom: 50px;
+    height: 100%;
+    left: @sidebar-width;
+    margin-left: -@sidebar-width;
+    position: fixed;
     background-color: @sidebar_background_color;
 }
 
@@ -52,12 +54,12 @@
 // ---------- 菜单 start ----------
 
 @active-menu-background-color: #21333c;
-@sub-menu-border-top: solid #364a56 1px;
-@sub-menu-border-bottom: solid #1f333d 1px;
+@sub-menu-border-top: solid #364956 1px;
+@sub-menu-border-bottom: solid #21323d 1px;
 
 .sub-menu{
-    padding-top: 35px;
-    padding-bottom: 35px;
+    padding-top: 15px;
+    padding-bottom: 15px;
     border-top: @sub-menu-border-top;
     border-bottom: @sub-menu-border-bottom;
 }
@@ -68,13 +70,13 @@
 
 .dropdown-btn-icon{
     margin-left: 30px;
-    vertical-align: middle;
+    vertical-align: text-bottom;
     display: inline-block;
 }
 
 .dropdown-btn-title{
     color: #fff;
-    font-size: 24px;
+    font-size: 18px;
     margin-left: 12px;
     display: inline-block;
 }
@@ -89,7 +91,7 @@
 
 .sub-menu-link{
     color: #cccccc;
-    font-size: 16px;
+    font-size: 14px;
     text-align: center;
     display: block;
 }
@@ -97,7 +99,7 @@
 // 当前选择的子菜单和按钮
 
 .menu > .active-menu{
-    padding-top: 40px;
+    padding-top: 20px;
     background-color: @active-menu-background-color;
 }
 
