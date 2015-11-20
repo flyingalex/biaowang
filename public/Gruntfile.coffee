@@ -39,15 +39,24 @@ module.exports = (grunt)->
                         'src/common/reset.less'
                         'src/admin/common/common.less'
                     ]
+                    'dist/admin/css/common/edit-area-table.css':[
+                        'src/admin/components/edit-area/common.less',
+                        'src/admin/components/edit-area/table/table.less'
+                    ]
+                    'dist/admin/css/common/edit-area-list.css':[
+                        'src/admin/components/edit-area/common.less',
+                        'src/admin/components/edit-area/list/list.less'
+                    ]
                     'dist/admin/css/component.css':[
                         'src/admin/components/header/header.less'
                         'src/admin/components/sidebar/sidebar.less'
                         'src/admin/components/content/content.less'
                     ]
-                    'dist/admin/css/official/advert/browse-advert.css': ['src/admin/pages/official/advert/browse-advert.less']
-                    'dist/admin/css/official/advert/add-advert.css': ['src/admin/pages/official/advert/add-advert.less']
-                    'dist/admin/css/official/advert/edit-advert.css': ['src/admin/pages/official/advert/edit-advert.less']
-                    'dist/admin/css/official/add-resource.css': ['src/admin/pages/official/add-resource/add-resource.less']
+
+            official:
+                files:{
+                    'dist/admin/css/official/': 
+                }
 
     grunt.loadNpmTasks 'grunt-browserify'
     grunt.loadNpmTasks 'grunt-contrib-less'
