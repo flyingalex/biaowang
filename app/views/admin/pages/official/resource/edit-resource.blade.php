@@ -21,6 +21,8 @@
     </select>
 </div>
 
+<form action="" class="edit-area-form">
+
 <ul class="edit-area-body">
 
     <li class="edit-area-row">
@@ -40,7 +42,7 @@
         <input type="text" class="edit-area-input">
     </li>
     <li class="edit-area-picture-row">
-        <label class="edit-area-label">缩略图</label>
+        <label class="edit-area-label">图片</label>
         <div class="picture-wrap">
             <div class="picture-mask"></div>
             <img src="/images/test/test1.jpg" class="thumbnail">
@@ -49,6 +51,8 @@
     
     <button class="operation-confirm btn">发布</button>
 </ul>
+
+</form>
 
 </div>
 <!-- 编辑干货 end -->

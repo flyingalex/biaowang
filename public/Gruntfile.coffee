@@ -53,11 +53,6 @@ module.exports = (grunt)->
                         'src/admin/components/content/content.less'
                     ]
 
-            official:
-                files:{
-                    'dist/admin/css/official/': 
-                }
-
     grunt.loadNpmTasks 'grunt-browserify'
     grunt.loadNpmTasks 'grunt-contrib-less'
     grunt.loadNpmTasks 'grunt-contrib-clean'

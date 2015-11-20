@@ -42,6 +42,7 @@
 
 .@{edit-area-class-prefix}-picture-row{
     margin-top: 15px;
+
     .thumbnail{
         vertical-align: text-top;
     }
@@ -54,7 +55,7 @@
 
 .@{edit-area-class-prefix}-input{
     width: 600px;
-    height: 35px;
+    height: @edit-area-input-height;
     display: inline-block;
 }
 
@@ -83,11 +84,41 @@
     position: absolute;
 }
 
+.@{edit-area-picture-class-prefix}-input-wrap{
+    width: @picture-width;
+    height: @picture-height;
+    position: relative;
+    display: inline-block;
+    vertical-align: text-top;
+}
+
 .thumbnail{
     width: @picture-width;
     height: @picture-height;
+    position: relative;
     display: inline-block;
     vertical-align: middle;
+}
+
+.@{edit-area-picture-class-prefix}-input-btn{
+    top: 0px;
+    right: 0px;
+    outline: none;
+    cursor: pointer;
+    font-size: 50px;
+    position: absolute;
+}
+
+.@{edit-area-picture-class-prefix}-input-holder{
+    color: #fff;
+    font-size: 16px;
+    line-height: 30px;
+    text-align: center;
+    background: #7f7f7f;
+}
+
+.@{edit-area-picture-class-prefix}-input-icon{
+    font-size: 30px;
 }
 
 .@{operation-class-prefix}-btn{
@@ -110,8 +141,19 @@
     background: url( '/images/icon/new.png' ) no-repeat center;
 }
 
-.@{operation-class-prefix}-btn{
-    margin-left: 5px;
+.@{operation-class-prefix}-wrap{
+
+    .@{operation-class-prefix}-btn{
+        margin-left: 5px;
+    }
+
+    .@{operation-class-prefix}-blue-btn{
+        width: 80px;
+        height: @edit-area-input-height;
+        font-size: 18px;
+        display: inline-block;
+        vertical-align: middle;
+    }
 }
 
 .@{operation-class-prefix}-icon{

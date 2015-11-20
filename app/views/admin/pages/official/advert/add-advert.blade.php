@@ -11,8 +11,14 @@
 <div class="edit-area-container advert-edit-area-wrap">
 
 <div class="edit-area-top clearfix">
-    <h3 class="edit-area-title">广告图片</h3>
+    <h3 class="edit-area-title">选择类别</h3>
+    <select class="operation-select">
+        <option value="">广告图片</option>
+        <option value="">活动广告</option>
+    </select>
 </div>
+
+<form action="" class="edit-area-form">
 
 <ul class="edit-area-body">
 
@@ -32,15 +38,20 @@
     </li>
     
     <li class="edit-area-picture-row">
-        <label class="edit-area-label">缩略图</label>
-        <div class="picture-wrap">
-            <div class="picture-mask"></div>
-            <img src="/images/test/test1.jpg" class="thumbnail">
-        </div>
+        <label class="edit-area-label">图片</label>
+        <div class="picture-input-wrap">
+            <input type="file" class="picture-input-btn">
+            <div class="picture-input-holder">
+                <div class="picture-input-icon">+</div>
+                <div>添加图片</div>
+            </div>
+         </div>
     </li>
     
     <button class="operation-confirm btn">发布</button>
 </ul>
+
+</form>
 
 </div>
 <!-- 广告图片新建 end -->

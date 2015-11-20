@@ -2,20 +2,16 @@
 
 @section( 'styles' )
 @parent
-<link rel="stylesheet" href="/dist/admin/css/common/edit-area-list.css">
+<link rel="stylesheet" href="/dist/admin/css/common/edit-area-table.css">
 @stop
 
 @section( 'edit-area' )
 
-<!-- 广告图片新建 start -->
+<!-- 广告图片编辑 start -->
 <div class="edit-area-container advert-edit-area-wrap">
 
 <div class="edit-area-top clearfix">
-    <h3 class="edit-area-title">选择类别</h3>
-    <select class="operation-select">
-        <option value="">广告图片</option>
-        <option value="">活动广告</option>
-    </select>
+    <h3 class="edit-area-title">广告图片</h3>
 </div>
 
 <form action="" class="edit-area-form">
@@ -51,7 +47,7 @@
 </form>
 
 </div>
-<!-- 广告图片新建 end -->
+<!-- 广告图片编辑 end -->
 
 @stop
 

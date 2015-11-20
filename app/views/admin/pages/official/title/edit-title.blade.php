@@ -14,6 +14,8 @@
     <h3 class="edit-area-title">活动现场</h3>
 </div>
 
+<form action="" class="edit-area-form">
+
 <ul class="edit-area-body">
 
     <li class="edit-area-row">
@@ -36,6 +38,8 @@
     <button class="operation-confirm btn">发布</button>
 </ul>
 
+</form>
+
 </div>
 <!-- 活动现场标题编辑 end -->
 
@@ -45,6 +49,8 @@
 <div class="edit-area-top clearfix">
     <h3 class="edit-area-title">软文干货</h3>
 </div>
+
+<form action="" class="edit-area-form">
 
 <ul class="edit-area-body">
 
@@ -74,6 +80,8 @@
     
     <button class="operation-confirm btn">发布</button>
 </ul>
+
+</form>
 
 </div>
 <!-- 栏目标题编辑 end -->
