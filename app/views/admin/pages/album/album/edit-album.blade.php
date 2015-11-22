@@ -7,15 +7,11 @@
 
 @section( 'edit-area' )
 
-<!-- 广告图片新建 start -->
-<div class="edit-area-container advert-edit-area-wrap">
+<!-- 相册编辑 start -->
+<div class="edit-area-container album-edit-area-wrap">
 
 <div class="edit-area-top clearfix">
-    <h3 class="edit-area-title">选择类别</h3>
-    <select class="operation-select">
-        <option value="">广告图片</option>
-        <option value="">活动广告</option>
-    </select>
+    <h3 class="edit-area-title">活动相册</h3>
 </div>
 
 <form action="" class="edit-area-form">
@@ -28,17 +24,17 @@
     </li>
 
     <li class="edit-area-row">
+        <label class="edit-area-label">栏目</label>
+        <input type="text" class="edit-area-input" value="标王相册">
+    </li>
+    
+    <li class="edit-area-row">
         <label class="edit-area-label">排序</label>
         <input type="text" class="edit-area-input">
     </li>
     
-    <li class="edit-area-row">
-        <label class="edit-area-label">外链</label>
-        <input type="text" class="edit-area-input">
-    </li>
-    
     <li class="edit-area-picture-row">
-        <label class="edit-area-label">缩略图</label>
+        <label class="edit-area-label">封面图片</label>
         <div class="picture-wrap">
             <div class="picture-mask"></div>
             <img src="/images/test/test1.jpg" class="thumbnail">
@@ -51,7 +47,7 @@
 </form>
 
 </div>
-<!-- 广告图片新建 end -->
+<!-- 相册编辑 end -->
 
 @stop
 

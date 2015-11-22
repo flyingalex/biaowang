@@ -19,6 +19,7 @@
         <option value="">榜单</option>
         <option value="">报名</option>
     </select>
+    <span class="operation-new"></span>
 </div>
 
 <table class="edit-area-body">
