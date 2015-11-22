@@ -7,6 +7,6 @@ class Video extends \Eloquent {
 		'title',
 		'url',
 		'image_url',
-		'type'
+		// 'type'
 	];
 }

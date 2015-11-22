@@ -1,8 +1,16 @@
 <?php 
-class ActivityAdsController extends BaseController{
+class ActivityAdvertController extends BaseController{
 
-	public function create()
-	{
+	public function createAndEdit()
+	{	
+		if( Input::has( 'activity_id') )
+		{
+			$activity_advert = ActivityAdvertisement::find( Input::get('activity_id') );
+			if( !isset( $activity_advert ))
+				return Response::json( BiaoException::$notExist );
+		}else{
+			$activity_advert = new ActivityAdvertisement;
+		}
 		$file 		= Input::file('image');
 		$title 		= Input::get('title');
 		$subtitle 	= Input::get('subtitle');
@@ -10,16 +18,15 @@ class ActivityAdsController extends BaseController{
 		$url 		= Input::get('url');
 		//讲照片存入public目录
 		$path = public_path().'/upload/offical/';
-
 		//判空
-		$arr = array( $file,$title,$subtitle,$sequence,$url );
+		$arr = array( $file,$title,$subtitle,$url );
 		if( InputController::isNullInArray( $arr ) )
 			return Response::json( BiaoException::$parameterIncomplete );
 		//排序号唯一性
 		if( !is_int( $sequence ) )
 			return Response::json( BiaoException::$isNotInt );
-		$sequences = Advertisement::where('type',2)->select('sequence')->get();
-		if( InputController::isNotUnique( $sequence,$sequences ) )
+		$sequences = ActivityAdvertisement::select('id','sequence')->get();
+		if( InputController::isNotUnique($activity_advert->id,$sequence,$sequences ) )
 			return Response::json( BiaoException::$isNotUnique );
 		//存文件
 		try{
@@ -32,45 +39,24 @@ class ActivityAdsController extends BaseController{
 		if( empty( $sequence ) )
 			$sequence = null;
 
-		//存入数据库
-		$result = StorageController::storageActivityAds( $title, $subtitle, $sequence, $image_url, $url );
-		if( !$result )
+		$activity_advert->title 		= $title;
+		$activity_advert->sub_title 	= $subtitle;
+		$activity_advert->sequence 		= $sequence;
+		$activity_advert->image_url 	= $image_url;
+		$activity_advert->url 			= $url;
+		if( !$activity_advert->save() )
 			return Response::json( BiaoException::$databaseErr );
 		return Response::json( BiaoException::$ok );
 	}
 
 	public function delete()
 	{
-		$ads_id = Input::get('ads_id');
+		$ads_id = Input::get('activity_id');
 		$ads = ActivityAdvertisement::find( $ads_id );
 		if( !isset( $ads ) )
 			return Response::json( BiaoException::$notExist );
 		$ads->delete();
 		return Response::json( BiaoException::$ok );
-	}
-
-	public function edit()
-	{	
-		$ads_id 	= Input::get('ads_id');
-		$file 		= Input::file('image');
-		$title 		= Input::get('title');
-		$subtitle 	= Input::get('subtitle');
-		$sequence 	= Input::get('sequence');
-		$url 		= Input::get('url');
-		$path 		= '/upload/offical/';
-
-		if( !empty($sequence) )
-		{
-			if( !is_int( $sequence ) )
-				return Response::json( BiaoException::$isNotInt );
-		}
-
-		$ads = ActivityAdvertisement::find( $ads_id );
-		if( !isset( $ads ) )
-			return Response::json( BiaoException::$notExist );
-
-		$result = StorageController::storageEditActivityAds($ads,$file,$path,$title,$subtitle,$sequence,$url,$ads_id);	
-		return $result;
 	}
 
 }

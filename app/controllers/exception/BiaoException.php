@@ -38,7 +38,13 @@ class BiaoException{
 	public static $noUrl;
 	public static $isNotUnique;
 	public static $parameterIncomplete;
-	public static $regularNotMatch
+	public static $regularNotMatch;
+	public static $dateWrong;
+	public static $displayStatusHasTrue;
+	public static $passwordErr;
+	public static $repasswordErr;
+	public static $passwordNotEqual;
+	public static $advertTypeErr;
 }
 
 BiaoException::$ok 						= (new BiaoException('0','正常'))->getArray(); 
@@ -67,6 +73,11 @@ BiaoException::$noUrl	 				= (new BiaoException('url01','请输入外链'))->get
 BiaoException::$isNotUnique	 			= (new BiaoException('unique01','排序号重复，请重新输入'))->getArray();
 BiaoException::$parameterIncomplete	 	= (new BiaoException('param01','参数填写不完整'))->getArray();
 BiaoException::$regularNotMatch 		= (new BiaoException('regular01','时间格式错误，请重新输入'))->getArray();
-
+BiaoException::$dateWrong 				= (new BiaoException('date01','日期输入错误'))->getArray();
+BiaoException::$displayStatusHasTrue 	= (new BiaoException('display01','请先关闭其他的显示'))->getArray();
+BiaoException::$passwordErr 			= (new BiaoException('password01','密码错误，请重新填写原密码'))->getArray();
+BiaoException::$repasswordErr 			= (new BiaoException('re_password01','重置密码需要6位以上且为字母、数字、破折号（-）以及底线（_）'))->getArray();
+BiaoException::$passwordNotEqual 		= (new BiaoException('password02','两次重置密码不一致'))->getArray();
+BiaoException::$advertTypeErr 			= (new BiaoException('advertType01','广告归类错误，请重新归类'))->getArray();
 
 

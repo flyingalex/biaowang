@@ -6,7 +6,7 @@ class Album extends \Eloquent {
 	protected $fillable = [
 		'title',
 		'image_url',
-		'sequence',
-		'type'
+		// 'sequence',
+		// 'type'
 	];
 }

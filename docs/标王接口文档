@@ -93,6 +93,330 @@
 				]
 			}
 
+			************************************
+			*********** 后台接口 ****************
+			************************************
+
+微官网
+1.广告图片添加和编辑
+	请求方式：POST
+	请求路由：/admin/offical/advert-create-edit
+	请求参数：
+			advert_id,				广告id（编辑时返回）
+			image,					图片
+			title,					标题
+			sequence,				排序号（int型）
+			url,					外链
+			type,					广告类型（int型，1=微官网广告,2=微投票广告，3=微相册广告）
+
+	返回参数：
+			{
+				errCode, 			0返回正常
+				message,			错误信息
+			}
+
+2.广告图片删除
+	请求方式：POST
+	请求路由：/admin/offical/advert-delete
+	请求参数：
+			advert_id,				 广告id
+
+	返回参数：
+			{
+				errCode, 			0返回正常
+				message,			错误信息
+			}
+
+3.活动广告图片添加和编辑
+	请求方式：POST
+	请求路由：/admin/offical/activity-create-edit
+	请求参数：
+			activity_id,			活动广告id（编辑时返回）
+			image,					图片
+			title,					标题
+			subtitle, 				副标题
+			sequence,				排序号（int型）
+			url,					外链
+
+	返回参数：
+			{
+				errCode, 			0返回正常
+				message,			错误信息
+			}
+
+4.活动广告图片删除
+	请求方式：POST
+	请求路由：/admin/offical/activity-delete
+	请求参数：
+			activity_id,				 广告id
+
+	返回参数：
+			{
+				errCode, 			0返回正常
+				message,			错误信息
+			}
+
+
+5.栏目标题-编辑
+	请求方式：POST
+	请求路由：/admin/offical/title-edit
+	请求参数：
+			title_id,						栏目id
+			middle_title,					中间部分标题
+			middle_subtitle,				中间部分小标题
+			bottom_title,					低部标题
+			bottom_subtitle					低部小标题
+
+	返回参数：
+			{
+				errCode, 			0返回正常
+				message,			错误信息
+			}
+
+
+6.干货版块标题－编辑
+	请求方式：POST
+	请求路由：/admin/offical/column-title-edit
+	请求参数：
+			column_title_id, 				干货版块标题－编辑id
+			classfication					内容
+
+	返回参数：
+			{
+				errCode, 			0返回正常
+				message,			错误信息
+			}
+
+7.干货－添加和编辑
+	请求方式：POST
+	请求路由：/admin/offical/resource-create-edit
+	请求参数：
+			column_title_id, 				干货版块标题－编辑id
+			resource_id,					干货id（编辑时传入）
+			image,							图片
+			title,							标题
+			brief,							正文
+			sequence,						排序号
+			url,							外链
+
+	返回参数：
+			{
+				errCode, 			0返回正常
+				message,			错误信息
+			}
+
+8.干货－删除
+	请求方式：POST
+	请求路由：/admin/offical/resource-delete
+	请求参数：
+			resource_id,				 干货id
+
+	返回参数：
+			{
+				errCode, 			0返回正常
+				message,			错误信息
+			}
+
+
+微投票
+1.项目创建和编辑
+	请求方式：POST
+	请求路由：/admin/vote/project-cretae-edit
+	请求参数：
+			project_id,				项目id（编辑时传入）
+			title,					项目标题
+			content,				活动介绍
+			sign_up_start,			报名开始时间
+			sign_up_stop,			报名结束时间
+			vote_start,				投票开始时间
+			vote_stop,				投票结束时间
+			activity_rule,			活动规则
+			award_site,				奖项设置
+
+	返回参数：
+			{
+				errCode, 			0返回正常
+				message,			错误信息
+			}
+
+2.项目删除
+	请求方式：POST
+	请求路由：/admin/vote/project-delete
+	请求参数：
+			project_id,				项目id
+
+	返回参数：
+			{
+				errCode, 			0返回正常
+				message,			错误信息
+			}
+
+3.项目是否显示
+	请求方式：POST
+	请求路由：/admin/vote/project-display
+	请求参数：
+			project_id,				项目id
+
+	返回参数：
+			{
+				errCode, 			0返回正常
+				message,			错误信息
+			}
+
+4.内容查创建和编辑
+	请求方式：POST
+	请求路由：/admin/vote/work-cretae-edit
+	请求参数：
+			project_id,				项目id
+			work_id,				内容id（编辑时传入）
+			title,					标题
+			url,					外链
+			vote_number,			投票人数
+			image 					图片				
+
+
+	返回参数：
+			{
+				errCode, 			0返回正常
+				message,			错误信息
+			}
+5.内容删除
+	请求方式：POST
+	请求路由：/admin/vote/work-delete
+	请求参数：
+			work_id,				内容id
+
+	返回参数：
+			{
+				errCode, 			0返回正常
+				message,			错误信息
+			}
+
+
+微相册
+1.相册创建和编辑
+	请求方式：POST
+	请求路由：/admin/album/album-cretae-edit
+	请求参数：
+			album_id,				相册id（编辑时传入）
+			title,					标题
+			image					图片
+
+
+	返回参数：
+			{
+				errCode, 			0返回正常
+				message,			错误信息
+			}
+
+2.相册删除
+	请求方式：POST
+	请求路由：/admin/album/album-delete
+	请求参数：
+			album_id,				相册id
+
+	返回参数：
+			{
+				errCode, 			0返回正常
+				message,			错误信息
+			}
+
+3.照片创建和编辑
+	请求方式：POST
+	请求路由：/admin/album/photo-cretae-edit
+	请求参数：
+			album_id,				相册id
+			photo_id，	 			照片id（编辑时传入）
+			title,					标题
+			image					图片
+
+	返回参数：
+			{
+				errCode, 			0返回正常
+				message,			错误信息
+			}
+
+4.照片删除
+	请求方式：POST
+	请求路由：/admin/album/photo-delete
+	请求参数：
+			photo_id,				相册id
+
+	返回参数：
+			{
+				errCode, 			0返回正常
+				message,			错误信息
+			}
+
+5.视频创建和编辑
+	请求方式：POST
+	请求路由：/admin/album/video-cretae-edit
+	请求参数：
+			video_id,	 			视频id（编辑时传入）
+			title,					标题
+			url, 					外链
+			image					图片
+
+
+	返回参数：
+			{
+				errCode, 			0返回正常
+				message,			错误信息
+			}
+
+6.视频删除
+	请求方式：POST
+	请求路由：/admin/album/video-delete
+	请求参数：
+			video_id,				视频id
+
+	返回参数：
+			{
+				errCode, 			0返回正常
+				message,			错误信息
+			}
+
+
+系统设置
+1.重置密码
+	请求方式：POST
+	请求路由：/admin/system/reset-password
+	请求参数：
+			source_code,			原密码
+			password,				重置密码
+			re_password				确认重置密码
+
+	返回参数：
+			{
+				errCode, 			0返回正常
+				message,			错误信息
+			}
+
+2.新闻编辑和创建，
+	置密码
+	请求方式：POST
+	请求路由：/admin/system/news-create-edit
+	请求参数：
+			news_id,				新闻id（编辑时传入）
+			content					内容
+
+	返回参数：
+			{
+				errCode, 			0返回正常
+				message,			错误信息
+			}
+
+3.新闻删除
+	请求方式：POST
+	请求路由：/admin/system/news-delete
+	请求参数：
+			news_id	 				新闻id
+
+	返回参数：
+			{
+				errCode, 			0返回正常
+				message,			错误信息
+			}
 
 
 

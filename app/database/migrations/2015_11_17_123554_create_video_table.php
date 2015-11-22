@@ -18,7 +18,7 @@ class CreateVideoTable extends Migration {
 			$table->string('title'); 		// 标题
 			$table->string('url');   		//外链
 			$table->string('image_url');    //图片链接
-			$table->integer('type'); 		//1=标王相册，2=标王视频
+			// $table->integer('type'); 		//1=标王相册，2=标王视频
 			$table->timestamps();
 		});
 	}

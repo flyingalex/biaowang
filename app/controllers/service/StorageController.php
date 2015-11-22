@@ -162,4 +162,23 @@ class StorageController extends BaseController{
 			return Response::json( BiaoException::$databaseErr );
 		return Response::json( BiaoException::$ok );
 	}
+
+	//存储干货
+	public static function storageProject($title,$content,$sign_up_start,$sign_up_stop,$vote_start,$vote_stop,$activity_rule,$award_site);
+	{
+		$project 				= new Project;
+		$project->title 		= $title;
+		$project->content 		= $content;
+		$project->sign_up_start = $sign_up_start;
+		$project->sign_up_stop	= $sign_up_stop;
+		$project->vote_start 	= $vote_start;
+		$project->vote_stop 	= $vote_stop;
+		$project->activity_rule = $activity_rule;
+		$project->award_site 	= $award_site;
+
+		if( !$project->save() )
+			return false;
+		return true;
+	}
+	
 }

@@ -16,7 +16,7 @@ class Project extends \Eloquent {
 			'vote_start',
 			'vote_stop',
 			'activity_rule',
-			'award_site'
+			'award_site',
 			'display'
 	];
 }
