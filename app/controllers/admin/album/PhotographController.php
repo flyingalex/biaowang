@@ -1,6 +1,21 @@
 <?php 
 class PhotographController extends BaseController{
 
+	public function add()
+	{
+
+	}
+
+	public function edit()
+	{
+		
+	}
+
+	public function manage()
+	{
+		
+	}
+	
 	public function createAndEdit()
 	{
 		$album_id = Input::get('album_id');

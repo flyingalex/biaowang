@@ -1,6 +1,21 @@
 <?php 
 class WorkController extends BaseController{
 
+	public function add()
+	{
+
+	}
+
+	public function edit()
+	{
+		
+	}
+
+	public function manage()
+	{
+		
+	}
+	
 	public function createAndEdit()
 	{	
 		$project_id = Input::get('project_id');
