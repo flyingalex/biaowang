@@ -3,17 +3,17 @@ class PhotographController extends BaseController{
 
 	public function add()
 	{
-
+		return View::make('admin.pages.album.photo.add-photo');
 	}
 
 	public function edit()
 	{
-		
+		return View::make('admin.pages.album.photo.edit-photo');
 	}
 
 	public function manage()
 	{
-		
+		return View::make('admin.pages.album.photo.manage-photo');
 	}
 	
 	public function createAndEdit()

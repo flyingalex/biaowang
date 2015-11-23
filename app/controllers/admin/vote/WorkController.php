@@ -3,17 +3,17 @@ class WorkController extends BaseController{
 
 	public function add()
 	{
-
+		return View::make('admin.pages.vote.content.add-content');
 	}
 
 	public function edit()
 	{
-		
+		return View::make('admin.pages.vote.content.edit-content');
 	}
 
 	public function manage()
 	{
-		
+		return View::make('admin.pages.vote.content.manage-content');
 	}
 	
 	public function createAndEdit()

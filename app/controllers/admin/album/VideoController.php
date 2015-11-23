@@ -3,17 +3,17 @@
 
  	public function add()
 	{
-
+		return View::make('admin.pages.album.video.add-video');
 	}
 
 	public function edit()
 	{
-		
+		return View::make('admin.pages.album.video.edit-video');
 	}
 
 	public function manage()
 	{
-		
+		return View::make('admin.pages.album.video.manage-video');
 	}
 
  	public function createAndEdit()

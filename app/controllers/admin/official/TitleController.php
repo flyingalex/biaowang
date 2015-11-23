@@ -2,8 +2,23 @@
 class TitleController extends BaseController{
 
 	public function titleEdit()
-	{
-		
+	{	
+		$title = Title::first();
+		$column_titles = ColumnTitle::all();
+		if( count($column_titles) == 0  )
+		{	
+			for( $i = 0; $i < 5; $i++)
+			{
+				$column_title = new ColumnTitle;
+				$column_title->save();
+			}
+			$column_titles = ColumnTitle::all();
+		}
+		return View::make('admin.pages.official.title.edit-title')
+							->with([
+								'title'			=> $title,
+								'column_titles' => $column_titles
+								]);
 	}
 
 	public function edit()

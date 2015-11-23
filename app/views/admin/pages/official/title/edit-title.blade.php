@@ -17,24 +17,26 @@
 <form action="" class="edit-area-form">
 
 <ul class="edit-area-body">
-
+    @if( isset( $title ) )
     <li class="edit-area-row">
         <label class="edit-area-label">标题1</label>
-        <input type="text" class="edit-area-input">
+        <input type="text" class="edit-area-input" value="{{$title->middle_title}}">
     </li>
     <li class="edit-area-row">
         <label class="edit-area-label"></label>
-        <input type="text" class="edit-area-input">
+        <input type="text" class="edit-area-input" value="{{$title->middle_subtitle}}">
     </li>
     <li class="edit-area-row">
         <label class="edit-area-label">标题2</label>
-        <input type="text" class="edit-area-input">
+        <input type="text" class="edit-area-input" value="{{$title->bottom_title}}">
     </li>
     <li class="edit-area-row">
         <label class="edit-area-label"></label>
-        <input type="text" class="edit-area-input">
+        <input type="text" class="edit-area-input" value="{{$title->bottom_subtitle}}">
     </li>
-    
+    @endif
+
+
     <button class="operation-confirm btn">发布</button>
 </ul>
 
@@ -53,31 +55,15 @@
 <form action="" class="edit-area-form">
 
 <ul class="edit-area-body">
+    @if( isset( $column_titles ) )
+        @foreach( $column_titles as $column_title )
+    <li class="edit-area-row">
+        <label class="edit-area-label">分类{{$column_title->id}}</label>
+        <input type="text" class="edit-area-input"  value="{{$column_title->classification}}">
+    </li>
+        @endforeach
+    @endif
 
-    <li class="edit-area-row">
-        <label class="edit-area-label">分类1</label>
-        <input type="text" class="edit-area-input">
-    </li>
-    <li class="edit-area-row">
-        <label class="edit-area-label">分类1</label>
-        <input type="text" class="edit-area-input">
-    </li>
-    <li class="edit-area-row">
-        <label class="edit-area-label">分类1</label>
-        <input type="text" class="edit-area-input">
-    </li>
-    <li class="edit-area-row">
-        <label class="edit-area-label">分类1</label>
-        <input type="text" class="edit-area-input">
-    </li>
-    <li class="edit-area-picture-row">
-        <label class="edit-area-label">分类1</label>
-        <div class="picture-wrap">
-            <div class="picture-mask"></div>
-            <img src="/images/test/test1.jpg" class="thumbnail">
-        </div>
-    </li>
-    
     <button class="operation-confirm btn">发布</button>
 </ul>
 

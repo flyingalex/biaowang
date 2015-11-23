@@ -10,7 +10,7 @@ class ResourceController extends BaseController{
 
 	public function edit()
 	{	
-		// $advert_id = Input::get('advert_id');
+		// $resource_id = Input::get('resource_id');
 		$resource_id = 2;
 		$resource = Resource::find( $resource_id );
 		if( !isset( $resource ) )
@@ -25,14 +25,29 @@ class ResourceController extends BaseController{
 
 	public function manage()
 	{	
-		if( Input::has())
-		$resource_id
-		$resources 		= Resource::all();
+		if( Input::has('column_title_id') )
+		{
+			// $column_title_id = Input::get('column_title_id');
+			$column_title_id = 6;
+			$column_title = ColumnTitle::find( $column_title_id );
+			if( !isset( $column_title ) )
+				return View::make('errors.error')->with(['error'=>BiaoException::$notExist['message']]);
+		}else{
+			$column_title = ColumnTitle::first();
+			if( !isset( $column_title ) )
+			{
+				$column_title_id = null;
+			}else{
+				$column_title_id = $column_title->id;
+			}
+		}
+		$resources 		= Resource::where('column_title_id',$column_title_id)->get();
 		$column_titles 	= ColumnTitle::all();
 		return View::make('admin.pages.official.resource.manage-resource')
 						->with([
-							'resources'		=>$resources,
-							'column_titles'	=>$column_titles
+							'resources'			=>$resources,
+							'column_titles'		=>$column_titles,
+							'column_title_id' 	=> $column_title_id
 							]);
 	}
 	

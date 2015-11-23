@@ -2,14 +2,18 @@
 class ProjectController extends BaseController{
 
 	public function add()
-	{
-
+	{	
+		return View::make('admin.pages.vote.project.add-project');
 	}
 
 	public function edit()
-	{
-		
-	}
+	{	
+		$project_id = Input::get('project_id');
+		$project = Project::find( $project_id );
+		if( !isset( $project ) )
+			return View::make('errors.error')->with(['error'=>BiaoException::$notExist['message']]); 
+		return View::make('admin.pages.vote.project.edit-project')->with(['project'=>$project]);
+	}	
 
 	public function manage()
 	{

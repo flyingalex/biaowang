@@ -7,6 +7,8 @@ class ColumnTitleController extends BaseController{
 		$column_title_id 	= Input::get('column_title_id');
 		$classification 	= Input::get('classification');
 		$column_title 		= ColumnTitle::find( $column_title_id );
+		if( !isset( $column_title ))
+			return Response::json( BiaoException::$notExist );
 		$column_title->classification = $classification;
 		if( !$column_title->save() )
 			return Response::json( BiaoException::$databaseErr );

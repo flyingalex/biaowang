@@ -3,17 +3,21 @@ class AlbumController extends BaseController{
 
 	public function add()
 	{
-
+		return View::make('admin.pages.album.album.add-album');
 	}
 
 	public function edit()
-	{
-		
+	{	
+		// $album = Album::find( Input::get('album_id') );
+		$album = Album::find( 2 );
+		if( !isset( $album ) )
+			return Response::json( BiaoException::$notExist );
+		return View::make('admin.pages.album.album.edit-album')->with(['album'=>$album]);
 	}
 
 	public function manage()
 	{
-		
+		return View::make('admin.pages.album.album.manage-album');
 	}
 	
 	public function createAndEdit()

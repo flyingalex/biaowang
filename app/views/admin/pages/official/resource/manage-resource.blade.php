@@ -13,11 +13,15 @@
 <div class="edit-area-top clearfix">
     <h3 class="edit-area-title">干货管理</h3>
     <select class="operation-select">
-        <option value="">课堂</option>
-        <option value="">案例</option>
-        <option value="">笔记</option>
-        <option value="">榜单</option>
-        <option value="">报名</option>
+    @if( isset( $column_titles ) )
+        @foreach( $column_titles as $column_title)
+            @if( $column_title->id == $column_title_id )
+                <option value="{{$column_title->id}}" selected="selected"> {{$column_title->classification}} </option>
+            @else
+                <option value="{{$column_title->id}}" > {{$column_title->classification}} </option>
+            @endif
+        @endforeach
+    @endif
     </select>
     <span class="operation-new"></span>
 </div>
@@ -32,25 +36,27 @@
         <th class="edit-area-item table-column resource-order">排序</th>
         <th class="edit-area-item table-column edit-area-item-operation">操作</th>
     </tr>
-
+        
+    @if( isset( $resources ) )
+        @foreach( $resources as $resource )
     <tr class="edit-area-row">
         <td class="edit-area-item resource-picture">
             <div class="picture-wrap">
                 <div class="picture-mask"></div>
-                <img src="/images/test/test1.jpg" class="thumbnail">
+                <img src="{{$resource->image_url}}" class="thumbnail">
             </div>
         </td>
         <td class="edit-area-item resource-title">
-            干货标题
+            {{$resource->title}}
         </td>
          <td class="edit-area-item resource-content">
-            浩总好帅
+            {{$resource->brief}}
         </td>
         <td class="edit-area-item resource-link">
-            http://www.zerioi.com/test/test/test
+            {{$resource->url}}
         </td>
         <td class="edit-area-item resource-order">
-            1
+            {{$resource->sequence}}            
         </td>
         <td class="edit-area-item edit-area-item-operation">
             <span class="operation-btn operation-edit">
@@ -63,6 +69,8 @@
             </span>
         </td>
     </tr>
+        @endforeach
+    @endif
 
 </table>
 
