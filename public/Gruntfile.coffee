@@ -14,16 +14,16 @@ module.exports = (grunt)->
             dist: ['dist']
 
         browserify:
-            components:
+            admin:
                 options:
                   preBundleCB: (b)->
                     b.transform(coffeeify)
                     b.transform(stringify({extensions: ['.hbs', '.html', '.tpl', '.txt']}))
                 expand: true
                 flatten: true
-                files: {
-                    #'dist/js/components.js': ['src/components/**/*.coffee']
-                }
+                src: ['src/admin/pages/**/*.coffee']
+                dest: 'dist/admin/js/pages/'
+                ext: '.js'
 
         watch:
             compile:
@@ -52,6 +52,7 @@ module.exports = (grunt)->
                         'src/admin/components/sidebar/sidebar.less'
                         'src/admin/components/content/content.less'
                     ]
+                    'dist/admin/css/pages/login.css': ['src/admin/pages/login/login.less']
 
     grunt.loadNpmTasks 'grunt-browserify'
     grunt.loadNpmTasks 'grunt-contrib-less'

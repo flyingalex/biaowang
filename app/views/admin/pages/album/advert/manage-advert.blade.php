@@ -88,10 +88,10 @@
             </div>
         </td>
         <td class="edit-area-item activity-advert-title">
-            我草好坑爹啊想嘻嘻嘻嘻嘻嘻
+            menu想嘻嘻嘻嘻嘻嘻
         </td>
         <td class="edit-area-item activity-advert-subtitle">
-            我草好坑爹啊想嘻嘻嘻嘻嘻嘻
+            menu想嘻嘻嘻嘻嘻嘻
         </td>
         <td class="edit-area-item activity-advert-link">
             http://www.zerioi.com/test/test/test
