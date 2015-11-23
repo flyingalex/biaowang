@@ -13,42 +13,48 @@
 <div class="edit-area-top clearfix">
     <h3 class="edit-area-title">选择类别</h3>
     <select class="operation-select">
-        <option value="">课堂</option>
-        <option value="">案例</option>
-        <option value="">笔记</option>
-        <option value="">榜单</option>
-        <option value="">报名</option>
+    @if( isset( $column_titles ) )  
+        @if( isset( $resource ) )
+            @foreach( $column_titles as $column_title )
+                @if( $resource->column_title_id == $column_title->id )
+                    <option value="{{$column_title->id}}" selected="selected">{{$column_title->classification}}</option>
+                @else
+                    <option value="{{$column_title->id}}">{{$column_title->classification}}</option>
+                @endif
+            @endforeach
+        @endif
+    @endif
     </select>
 </div>
 
 <form action="" class="edit-area-form">
 
 <ul class="edit-area-body">
-
+    @if( isset( $resource ) )
     <li class="edit-area-row">
         <label class="edit-area-label">标题</label>
-        <input type="text" class="edit-area-input">
+        <input type="text" class="edit-area-input" value="{{$resource->title}}">
     </li>
     <li class="edit-area-row">
         <label class="edit-area-label">正文</label>
-        <input type="text" class="edit-area-input">
+        <input type="text" class="edit-area-input" value="{{$resource->brief}}">
     </li>
     <li class="edit-area-row">
         <label class="edit-area-label">排序</label>
-        <input type="text" class="edit-area-input">
+        <input type="text" class="edit-area-input" value="{{$resource->sequence}}">
     </li>
     <li class="edit-area-row">
         <label class="edit-area-label">外链</label>
-        <input type="text" class="edit-area-input">
+        <input type="text" class="edit-area-input" value="{{$resource->url}}">
     </li>
     <li class="edit-area-picture-row">
         <label class="edit-area-label">图片</label>
         <div class="picture-wrap">
             <div class="picture-mask"></div>
-            <img src="/images/test/test1.jpg" class="thumbnail">
+            <img src="{{$resource->image_url}}" class="thumbnail">
         </div>
     </li>
-    
+    @endif
     <button class="operation-confirm btn">发布</button>
 </ul>
 

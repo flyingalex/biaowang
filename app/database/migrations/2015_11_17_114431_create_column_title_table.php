@@ -11,7 +11,7 @@ class CreateColumnTitleTable extends Migration {
 	 * @return void
 	 */
 	public function up()
-	{					//栏目标题
+	{					//栏目分类标题
 		Schema::create('column_title', function(Blueprint $table)
 		{
 			$table->increments('id');

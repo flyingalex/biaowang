@@ -24,22 +24,24 @@
         <th class="edit-area-item table-column advert-order">排序</th>
         <th class="edit-area-item table-column edit-area-item-operation">操作</th>
     </tr>
-
+    
+     @if( isset( $adverts ) )
+        @foreach( $adverts as $advert)
     <tr class="edit-area-row">
         <td class="edit-area-item advert-picture">
             <div class="picture-wrap">
                 <div class="picture-mask"></div>
-                <img src="/images/test/test1.jpg" class="thumbnail">
+                <img src="{{$advert->image_url}}" class="thumbnail">
             </div>
         </td>
         <td class="edit-area-item advert-title">
-            advert
+            {{$advert->title}}
         </td>
         <td class="edit-area-item advert-link">
-            http://www.zerioi.com/test/test/test
+            {{$advert->url}}
         </td>
         <td class="edit-area-item advert-order">
-            1
+            {{$advert->sequence}}
         </td>
         <td class="edit-area-item edit-area-item-operation">
             <span class="operation-btn operation-edit">
@@ -52,7 +54,8 @@
             </span>
         </td>
     </tr>
-
+       @endforeach
+    @endif
 </table>
 
 </div>

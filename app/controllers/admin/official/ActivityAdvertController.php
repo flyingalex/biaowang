@@ -32,7 +32,7 @@ class ActivityAdvertController extends BaseController{
 		$sequence 	= Input::get('sequence');
 		$url 		= Input::get('url');
 		//讲照片存入public目录
-		$path = public_path().'/upload/offical/';
+		$path = public_path().'/upload/official/';
 		//判空
 		$arr = array( $file,$title,$subtitle,$url );
 		if( InputController::isNullInArray( $arr ) )
@@ -50,7 +50,7 @@ class ActivityAdvertController extends BaseController{
 			return FileController::errMessage( $e->getCode() );
 		}
 		
-		$image_url = '/upload/offical/'.$image_url;
+		$image_url = '/upload/official/'.$image_url;
 		if( empty( $sequence ) )
 			$sequence = null;
 

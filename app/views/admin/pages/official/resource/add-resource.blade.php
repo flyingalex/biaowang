@@ -13,11 +13,11 @@
 <div class="edit-area-top clearfix">
     <h3 class="edit-area-title">选择类别</h3>
     <select class="operation-select">
-        <option value="">课堂</option>
-        <option value="">案例</option>
-        <option value="">笔记</option>
-        <option value="">榜单</option>
-        <option value="">报名</option>
+    @if( isset( $column_titles ) )  
+        @foreach( $column_titles as $column_title )
+        <option value="{{$column_title->id}}">{{$column_title->classification}}</option>
+        @endforeach
+    @endif
     </select>
 </div>
 

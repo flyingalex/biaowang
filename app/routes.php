@@ -94,7 +94,18 @@ Route::group(array('prefix'=>'admin'), function(){
 
 		//微投票
 		Route::group(array('prefix'=>'vote'),function(){
-				
+			
+
+			//广告模块
+			Route::group(array('prefix'=>'advert'),function(){
+				//添加
+				Route::get('add','VoteAdvertController@add');
+				//编辑
+				Route::get('edit','VoteAdvertController@edit');
+				//管理
+				Route::get('manage','VoteAdvertController@manage');
+			});
+
 			//内容模块
 			Route::group(array('prefix'=>'content'),function(){
 				//添加
@@ -107,7 +118,6 @@ Route::group(array('prefix'=>'admin'), function(){
 				Route::post('create-edit','WorkController@createAndEdit');
 				//内容删除
 				Route::post('delete','WorkController@delete');
-
 			});
 
 			//项目模块
@@ -131,6 +141,16 @@ Route::group(array('prefix'=>'admin'), function(){
 
 		//微相册
 		Route::group(array('prefix'=>'album'),function(){
+			
+			//广告模块
+			Route::group(array('prefix'=>'advert'),function(){
+				//添加
+				Route::get('add','AlbumAdvertController@add');
+				//编辑
+				Route::get('edit','AlbumAdvertController@edit');
+				//管理
+				Route::get('manage','AlbumAdvertController@manage');
+			});
 				
 			//相册模块
 			Route::group(array('prefix'=>'album'),function(){

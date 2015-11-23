@@ -2,18 +2,38 @@
 class ResourceController extends BaseController{
 
 	public function add()
-	{
-
+	{	
+		$column_titles 	= ColumnTitle::all();
+		return View::make('admin.pages.official.resource.add-resource')
+							->with(['column_titles'	=>$column_titles]);
 	}
 
 	public function edit()
-	{
-		
+	{	
+		// $advert_id = Input::get('advert_id');
+		$resource_id = 2;
+		$resource = Resource::find( $resource_id );
+		if( !isset( $resource ) )
+			return View::make('errors.error')->with(['error'=>BiaoException::$notExist['message']]);
+		$column_titles 	= ColumnTitle::all();
+		return View::make('admin.pages.official.resource.edit-resource')
+							->with([
+								'resource'=>$resource,
+								'column_titles'	=>$column_titles
+								]);
 	}
 
 	public function manage()
-	{
-		
+	{	
+		if( Input::has())
+		$resource_id
+		$resources 		= Resource::all();
+		$column_titles 	= ColumnTitle::all();
+		return View::make('admin.pages.official.resource.manage-resource')
+						->with([
+							'resources'		=>$resources,
+							'column_titles'	=>$column_titles
+							]);
 	}
 	
 	public function createAndEdit()
@@ -33,7 +53,7 @@ class ResourceController extends BaseController{
 		$sequence 			= Input::get('sequence');
 		$url 				= Input::get('url');
 		//讲照片存入public目录
-		$path = public_path().'/upload/offical/';
+		$path = public_path().'/upload/official/';
 
 		//判空
 		$arr = array( $column_title_id,$file,$title,$brief,$url );
@@ -52,7 +72,7 @@ class ResourceController extends BaseController{
 			return FileController::errMessage( $e->getCode() );
 		}
 		
-		$image_url = '/upload/offical/'.$image_url;
+		$image_url = '/upload/official/'.$image_url;
 		if( empty( $sequence ) )
 			$sequence = null;
 

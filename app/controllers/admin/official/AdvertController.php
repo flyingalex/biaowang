@@ -1,6 +1,28 @@
 <?php  
 class AdvertController extends Basecontroller{
 
+	public function add()
+	{
+		return View::make('admin.pages.official.advert.add-advert');
+	}
+
+	public function edit()
+	{	
+		// $advert_id = Input::get('advert_id');
+		$advert_id = 1;
+		$advert = Advertisement::find( $advert_id );
+		if( !isset( $advert ) )
+			return View::make('errors.error')->with(['error'=>BiaoException::$notExist['message']]);
+		return View::make('admin.pages.official.advert.edit-advert')->with(['advert'=>$advert]);
+	}
+
+	public function manage()
+	{	
+		$adverts = Advertisement::where('type',1)->get();
+		$activity_adverts = ActivityAdvertisement::all();
+		return View::make('admin.pages.official.advert.manage-advert')->with(['adverts'=>$adverts,'activity_adverts'=>$activity_adverts]);
+	}
+
 	public function createAndEdit()
 	{	
 		if( Input::has( 'advert_id') )
@@ -19,7 +41,7 @@ class AdvertController extends Basecontroller{
 		$type 		= Input::get('type');//1=微官网广告,2=微投票广告，3=微相册广告
 		// $type = 2;
 		//讲照片存入public目录
-		$path = public_path().'/upload/offical/';
+		$path = public_path().'/upload/official/';
 		
 		//判空
 		$arr = array( $file,$title,$url,$type );
@@ -40,7 +62,7 @@ class AdvertController extends Basecontroller{
 		}catch( Exception $e ){
 			return FileController::errMessage( $e->getCode() );
 		}
-		$image_url = '/upload/offical/'.$image_url;
+		$image_url = '/upload/official/'.$image_url;
 		if( empty( $sequence ) )
 			$sequence = null;
 
