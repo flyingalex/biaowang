@@ -2,6 +2,11 @@
 
 class NewsController extends BaseController{
 
+	public function index()
+	{
+		
+	}
+
 	public function createAndEdit()
 	{
 		if( Input::has('news_id') )

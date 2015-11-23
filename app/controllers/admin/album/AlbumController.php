@@ -1,6 +1,21 @@
 <?php 
 class AlbumController extends BaseController{
 
+	public function add()
+	{
+
+	}
+
+	public function edit()
+	{
+		
+	}
+
+	public function manage()
+	{
+		
+	}
+	
 	public function createAndEdit()
 	{	
 		if( Input::has('album_id') )

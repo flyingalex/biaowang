@@ -1,6 +1,11 @@
 <?php 
 class TitleController extends BaseController{
 
+	public function titleEdit()
+	{
+		
+	}
+
 	public function edit()
 	{
 		$title_id = Input::get('title_id');

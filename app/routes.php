@@ -61,9 +61,9 @@ Route::group(array('prefix'=>'admin'), function(){
 				//广告图片－删
 				Route::post('advert-delete','AdvertController@delete');
 				//活动广告－增加和编辑
-				Route::post('activity-advert-create-edit','ActivityAdvertController@createAndEdit');
+				Route::post('activity-create-edit','ActivityAdvertController@createAndEdit');
 				//活动广告－删
-				Route::post('activity-advert-delete','ActivityAdvertController@delete');
+				Route::post('activity-delete','ActivityAdvertController@delete');
 			});
 			
 			//干货模块
@@ -83,7 +83,7 @@ Route::group(array('prefix'=>'admin'), function(){
 			//标题模块
 			Route::group(array('prefix'=>'title'),function(){
 				//编辑
-				Route::get('edit','ResourceController@titleEdit');
+				Route::get('edit','TitleController@titleEdit');
 				//栏目标题-编辑
 				Route::post('title-edit','TitleController@edit');	
 				//干货版块标题－编辑
@@ -98,11 +98,11 @@ Route::group(array('prefix'=>'admin'), function(){
 			//内容模块
 			Route::group(array('prefix'=>'content'),function(){
 				//添加
-				Route::get('add','AdvertController@add');
+				Route::get('add','WorkController@add');
 				//编辑
-				Route::get('edit','AdvertController@edit');
+				Route::get('edit','WorkController@edit');
 				//管理
-				Route::get('manage','AdvertController@manage');
+				Route::get('manage','WorkController@manage');
 				//内容查创建和编辑
 				Route::post('create-edit','WorkController@createAndEdit');
 				//内容删除
@@ -113,11 +113,11 @@ Route::group(array('prefix'=>'admin'), function(){
 			//项目模块
 			Route::group(array('prefix'=>'project'),function(){
 				//添加
-				Route::get('add','AdvertController@add');
+				Route::get('add','ProjectController@add');
 				//编辑
-				Route::get('edit','AdvertController@edit');
+				Route::get('edit','ProjectController@edit');
 				//管理
-				Route::get('manage','AdvertController@manage');
+				Route::get('manage','ProjectController@manage');
 				//项目创建和编辑
 				Route::post('cretae-edit','ProjectController@createAndEdit');
 				//项目删除
@@ -135,11 +135,11 @@ Route::group(array('prefix'=>'admin'), function(){
 			//相册模块
 			Route::group(array('prefix'=>'album'),function(){
 				//添加
-				Route::get('add','AdvertController@add');
+				Route::get('add','AlbumController@add');
 				//编辑
-				Route::get('edit','AdvertController@edit');
+				Route::get('edit','AlbumController@edit');
 				//管理
-				Route::get('manage','AdvertController@manage');
+				Route::get('manage','AlbumController@manage');
 				//相册创建和编辑
 				Route::post('create-edit','AlbumController@createAndEdit');
 				//相册删除
@@ -149,24 +149,25 @@ Route::group(array('prefix'=>'admin'), function(){
 			//照片模块
 			Route::group(array('prefix'=>'photo'),function(){
 				//添加
-				Route::get('add','AdvertController@add');
+				Route::get('add','PhotographController@add');
 				//编辑
-				Route::get('edit','AdvertController@edit');
+				Route::get('edit','PhotographController@edit');
 				//管理
-				Route::get('manage','AdvertController@manage');
+				Route::get('manage','PhotographController@manage');
 				//照片创建和编辑
 				Route::post('create-edit','PhotographController@createAndEdit');
 				//照片删除
 				Route::post('delete','PhotographController@delete');
 			});
+
 			//视频模块
 			Route::group(array('prefix'=>'video'),function(){
 				//添加
-				Route::get('add','AdvertController@add');
+				Route::get('add','VideoController@add');
 				//编辑
-				Route::get('edit','AdvertController@edit');
+				Route::get('edit','VideoController@edit');
 				//管理
-				Route::get('manage','AdvertController@manage');
+				Route::get('manage','VideoController@manage');
 				//视频创建和编辑
 				Route::post('create-edit','VideoController@createAndEdit');
 				//视频删除

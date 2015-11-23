@@ -1,7 +1,12 @@
 <?php 
 
 class UserController extends BaseController{
-									
+		
+	public function index()
+	{
+		
+	}
+								
 	public function resetPassword()
 	{
 		$source_code	= Input::get('source_code');

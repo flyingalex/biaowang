@@ -1,6 +1,21 @@
 <?php 
  class VideoController extends BaseController{
 
+ 	public function add()
+	{
+
+	}
+
+	public function edit()
+	{
+		
+	}
+
+	public function manage()
+	{
+		
+	}
+
  	public function createAndEdit()
 	{
 		if( Input::has('video_id') )

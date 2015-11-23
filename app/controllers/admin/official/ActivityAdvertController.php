@@ -1,6 +1,21 @@
 <?php 
 class ActivityAdvertController extends BaseController{
 
+	public function add()
+	{
+
+	}
+
+	public function edit()
+	{
+		
+	}
+
+	public function manage()
+	{
+		
+	}
+
 	public function createAndEdit()
 	{	
 		if( Input::has( 'activity_id') )
