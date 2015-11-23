@@ -16,34 +16,20 @@
 </div>
 
 <ul class="edit-area-body">
-
+    
+    @if( isset( $news ) )
+        @foreach( $news as $new )
     <li class="edit-area-row">
-        <label class="edit-area-label">新闻1</label>
-        <input type="text" class="edit-area-input">
+        <label class="edit-area-label">新闻{{$new->id}}</label>
+        <input type="text" class="edit-area-input" value="{{$new->content}}">
         <span class="operation-wrap">
             <button class="operation-edit operation-btn operation-blue-btn btn">编辑</button>
             <button class="operation-delete operation-btn operation-blue-btn btn">删除</button>
             <button class="operation-modify operation-btn operation-blue-btn btn">确认</button>
         </span>
     </li>
-    <li class="edit-area-row">
-        <label class="edit-area-label">新闻2</label>
-        <input type="text" class="edit-area-input">
-        <span class="operation-wrap">
-            <button class="operation-edit operation-btn operation-blue-btn btn">编辑</button>
-            <button class="operation-delete operation-btn operation-blue-btn btn">删除</button>
-            <button class="operation-modify operation-btn operation-blue-btn btn">确认</button>
-        </span>
-    </li>
-    <li class="edit-area-row">
-        <label class="edit-area-label">新闻3</label>
-        <input type="text" class="edit-area-input">
-        <span class="operation-wrap">
-            <button class="operation-edit operation-btn operation-blue-btn btn">编辑</button>
-            <button class="operation-delete operation-btn operation-blue-btn btn">删除</button>
-            <button class="operation-modify operation-btn operation-blue-btn btn">确认</button>
-        </span>
-    </li>
+        @endforeach
+    @endif
 </ul>
 
 </div>

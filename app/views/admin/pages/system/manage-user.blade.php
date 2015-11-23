@@ -19,12 +19,16 @@
 <ul>
     <li class="edit-area-row">
         <label class="edit-area-label">账号</label>
-        <span class="edit-area-text">biaowangyihao</span>
+        @if( isset( $user ) )
+        <span class="edit-area-text">{{$user->account}}</span>
+        @endif
     </li>
 
     <li class="edit-area-row">
         <label class="edit-area-label">密码</label>
-        <span class="edit-area-text">*************</span>
+        @if( isset( $user ) )
+        <span class="edit-area-text">{{$user->password}}</span>
+        @endif
     </li>
 </ul>
 

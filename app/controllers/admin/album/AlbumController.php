@@ -16,8 +16,9 @@ class AlbumController extends BaseController{
 	}
 
 	public function manage()
-	{
-		return View::make('admin.pages.album.album.manage-album');
+	{	
+		$albums = Album::all();
+		return View::make('admin.pages.album.album.manage-album')->with(['albums'=>$albums]);
 	}
 	
 	public function createAndEdit()

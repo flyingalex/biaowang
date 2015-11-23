@@ -2,18 +2,39 @@
 class PhotographController extends BaseController{
 
 	public function add()
-	{
-		return View::make('admin.pages.album.photo.add-photo');
+	{	
+		$albums = Album::all();
+		return View::make('admin.pages.album.photo.add-photo')->with(['albums'=>$albums]);
 	}
 
 	public function edit()
-	{
-		return View::make('admin.pages.album.photo.edit-photo');
+	{	
+		// $photo_id = Input::get('photo_id');
+		$photo_id = 3;
+		$photo = Photograph::find( $photo_id );
+		if( !isset( $photo ) )
+			return View::make('errors.error')->with(['error'=>BiaoException::$notExist['message']]);
+		$albums = Album::all();
+		return View::make('admin.pages.album.photo.edit-photo')->with(['photo'=>$photo,'albums'=>$albums]);
 	}
 
 	public function manage()
-	{
-		return View::make('admin.pages.album.photo.manage-photo');
+	{	
+		$album_id = Input::get('album_id');
+		$album = Album::find( $album_id );
+		if( !isset( $album ) )
+		{
+			$photos = Photograph::all();
+		}else{
+			$photos = Photograph::where('album_id',$album_id)->get();
+		}
+		foreach( $photos as $photo )
+		{
+			$photo->album_title = $photo->album->title;
+			$photo->album_id = $photo->album->id;
+		}
+		
+		return View::make('admin.pages.album.photo.manage-photo')->with(['photos'=>$photos]);
 	}
 	
 	public function createAndEdit()

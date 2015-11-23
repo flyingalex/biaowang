@@ -31,9 +31,11 @@
     <li class="edit-area-row">
         <label class="edit-area-label">相册</label>
         <select name="" class="edit-area-select">
-            <option value="">相册1</option>
-            <option value="">相册2</option>
-            <option value="">相册3</option>
+            @if( isset( $albums ) )
+                @foreach( $albums as $album )
+            <option value="{{$album->id}}">{{$album->title}}</option>
+                @endforeach
+            @endif
         </select>
     </li>
     

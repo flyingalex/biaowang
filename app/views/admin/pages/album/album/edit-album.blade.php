@@ -17,10 +17,10 @@
 <form action="" class="edit-area-form">
 
 <ul class="edit-area-body">
-
+    @if( isset( $album ) )
     <li class="edit-area-row">
         <label class="edit-area-label">标题</label>
-        <input type="text" class="edit-area-input">
+        <input type="text" class="edit-area-input" value="{{ $album->title }}">
     </li>
 
     <li class="edit-area-row">
@@ -28,19 +28,14 @@
         <input type="text" class="edit-area-input" value="标王相册">
     </li>
     
-    <li class="edit-area-row">
-        <label class="edit-area-label">排序</label>
-        <input type="text" class="edit-area-input">
-    </li>
-    
     <li class="edit-area-picture-row">
         <label class="edit-area-label">封面图片</label>
         <div class="picture-wrap">
             <div class="picture-mask"></div>
-            <img src="/images/test/test1.jpg" class="thumbnail">
+            <img src="{{$album->image_url}}" class="thumbnail">
         </div>
     </li>
-    
+    @endif
     <button class="operation-confirm btn">发布</button>
 </ul>
 

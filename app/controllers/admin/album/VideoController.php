@@ -7,13 +7,18 @@
 	}
 
 	public function edit()
-	{
-		return View::make('admin.pages.album.video.edit-video');
+	{	
+		// $video = Video::find( Input::get('video_id') );
+		$video = Video::find( 2 );
+		if( !isset( $video ) )
+			return Response::json( BiaoException::$notExist );
+		return View::make('admin.pages.album.video.edit-video')->with(['video'=>$video]);
 	}
 
 	public function manage()
-	{
-		return View::make('admin.pages.album.video.manage-video');
+	{	
+		$videos = Video::all();
+		return View::make('admin.pages.album.video.manage-video')->with(['videos'=>$videos]);
 	}
 
  	public function createAndEdit()

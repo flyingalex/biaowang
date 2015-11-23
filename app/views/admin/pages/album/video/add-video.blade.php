@@ -17,7 +17,7 @@
 <form action="" class="edit-area-form">
 
 <ul class="edit-area-body">
-
+    
     <li class="edit-area-row">
         <label class="edit-area-label">标题</label>
         <input type="text" class="edit-area-input">

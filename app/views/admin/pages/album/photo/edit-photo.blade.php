@@ -17,10 +17,12 @@
 <form action="" class="edit-area-form">
 
 <ul class="edit-area-body">
-
+    
     <li class="edit-area-row">
         <label class="edit-area-label">标题</label>
-        <input type="text" class="edit-area-input">
+        @if( isset( $photo ))    
+        <input type="text" class="edit-area-input" value="{{$photo->title}}">
+        @endif
     </li>
 
     <li class="edit-area-row">
@@ -31,19 +33,29 @@
     <li class="edit-area-row">
         <label class="edit-area-label">相册</label>
         <select name="" class="edit-area-select">
-            <option value="">相册1</option>
-            <option value="">相册2</option>
-            <option value="">相册3</option>
+        @if( isset( $photo ))    
+        @if( isset( $albums ))    
+            @foreach( $albums as $album )
+                @if( $album->id == $photo->album_id )
+                    <option value="{{$album->id}}" selected="selected">{{$album->title}}</option>
+                @else
+                    <option value="{{$album->id}}">{{$album->title}}</option>
+                @endif 
+            @endforeach
+        @endif
+        @endif
         </select>
     </li>
-    
+        
+        @if( isset( $photo ))
     <li class="edit-area-picture-row">
         <label class="edit-area-label">相片</label>
         <div class="picture-wrap">
             <div class="picture-mask"></div>
-            <img src="/images/test/test1.jpg" class="thumbnail">
+            <img src="{{$photo->image_url}}" class="thumbnail">
         </div>
     </li>
+        @endif
     
     <button class="operation-confirm btn">发布</button>
 </ul>

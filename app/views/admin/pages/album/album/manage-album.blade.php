@@ -20,25 +20,23 @@
         <th class="edit-area-item table-column">封面图片</th>
         <th class="edit-area-item table-column">标题</th>
         <th class="edit-area-item table-column">栏目</th>
-        <th class="edit-area-item table-column">排序</th>
         <th class="edit-area-item table-column edit-area-item-operation">操作</th>
     </tr>
-
+    
+    @if( isset( $albums ) )
+        @foreach( $albums as $album )
     <tr class="edit-area-row">
         <td class="edit-area-item">
             <div class="picture-wrap">
                 <div class="picture-mask"></div>
-                <img src="/images/test/test1.jpg" class="thumbnail">
+                <img src="{{$album->image_url}}" class="thumbnail">
             </div>
         </td>
         <td class="edit-area-item">
-            标题
+            {{$album->title}}
         </td>
          <td class="edit-area-item">
-            栏目
-        </td>
-        <td class="edit-area-item">
-            1
+            标王相册
         </td>
         <td class="edit-area-item edit-area-item-operation">
             <span class="operation-btn operation-edit">
@@ -55,6 +53,8 @@
             </span>
         </td>
     </tr>
+        @endforeach
+    @endif
 
 </table>
 

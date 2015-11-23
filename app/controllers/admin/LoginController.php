@@ -6,7 +6,7 @@ class LoginController extends BaseController{
 	//登录静态页
 	public function login()
 	{
-		return View::make('');
+		return View::make('admin.pages.login.login');
 	}
 
 	//生成验证码

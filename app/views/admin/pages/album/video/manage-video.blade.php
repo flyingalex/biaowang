@@ -22,23 +22,24 @@
         <th class="edit-area-item table-column">栏目</th>
         <th class="edit-area-item table-column">链接</th>
         <th class="edit-area-item table-column edit-area-item-operation">操作</th>
-    </tr>
-
+    </tr>   
+    @if( isset( $videos ) )
+        @foreach( $videos as $video )
     <tr class="edit-area-row">
         <td class="edit-area-item">
             <div class="picture-wrap">
                 <div class="picture-mask"></div>
-                <img src="/images/test/test1.jpg" class="thumbnail">
+                <img src="{{$video->image_url}}" class="thumbnail">
             </div>
         </td>
         <td class="edit-area-item">
-            标题
+            {{$video->title}}
         </td>
          <td class="edit-area-item">
             栏目
         </td>
         <td class="edit-area-item">
-            链接
+            {{$video->url}}
         </td>
         <td class="edit-area-item edit-area-item-operation">
             <span class="operation-btn operation-edit">
@@ -51,7 +52,8 @@
             </span>
         </td>
     </tr>
-
+        @endforeach
+    @endif
 </table>
 
 </div>

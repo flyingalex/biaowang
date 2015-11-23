@@ -3,8 +3,9 @@
 class NewsController extends BaseController{
 
 	public function index()
-	{
-		
+	{	
+		$news = News::all();
+		return View::make('admin.pages.system.manage-news')->with(['news'=>$news]);
 	}
 
 	public function createAndEdit()
@@ -39,9 +40,4 @@ class NewsController extends BaseController{
 		return Response::json( BiaoException::$ok );
 	}
 
-	public function index()
-	{
-		$news = News::all();
-		return View::make('')->with(['videos'=>$vedios]);
-	}
 }

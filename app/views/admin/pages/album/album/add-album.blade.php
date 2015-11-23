@@ -28,11 +28,6 @@
         <input type="text" class="edit-area-input" value="标王相册">
     </li>
     
-    <li class="edit-area-row">
-        <label class="edit-area-label">排序</label>
-        <input type="text" class="edit-area-input">
-    </li>
-    
     <li class="edit-area-picture-row">
         <label class="edit-area-label">封面图片</label>
         <div class="picture-input-wrap">

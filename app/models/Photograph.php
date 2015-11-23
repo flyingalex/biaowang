@@ -8,4 +8,9 @@ class Photograph extends \Eloquent {
 		'title',
 		'image_url'
 	];
+
+	public function album()
+    {
+        return $this->belongsTo('Album','album_id','id');
+    }
 }
