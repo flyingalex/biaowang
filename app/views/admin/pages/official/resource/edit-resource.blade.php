@@ -2,7 +2,7 @@
 
 @section( 'styles' )
 @parent
-<link rel="stylesheet" href="/dist/admin/css/official/resource/edit-resource.css">
+<link rel="stylesheet" href="/dist/admin/css/common/edit-area-list.css">
 @stop
 
 @section( 'edit-area' )

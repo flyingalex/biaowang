@@ -44,7 +44,7 @@
 </div>
 
 @section( 'scripts' )
-<script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+<script type="text/javascript" src="/lib/scripts/jquery-1.11.3.min.js"></script>
 @show
 
 </body>

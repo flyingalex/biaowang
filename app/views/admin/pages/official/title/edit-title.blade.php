@@ -21,18 +21,34 @@
     <li class="edit-area-row">
         <label class="edit-area-label">标题1</label>
         <input type="text" class="edit-area-input">
+        <span class="operation-wrap">
+            <button class="operation-edit operation-btn operation-blue-btn btn">编辑</button>
+            <button class="operation-modify operation-btn operation-blue-btn btn">确认</button>
+        </span>
     </li>
     <li class="edit-area-row">
         <label class="edit-area-label"></label>
         <input type="text" class="edit-area-input">
+        <span class="operation-wrap">
+            <button class="operation-edit operation-btn operation-blue-btn btn">编辑</button>
+            <button class="operation-modify operation-btn operation-blue-btn btn">确认</button>
+        </span>
     </li>
     <li class="edit-area-row">
         <label class="edit-area-label">标题2</label>
         <input type="text" class="edit-area-input">
+        <span class="operation-wrap">
+            <button class="operation-edit operation-btn operation-blue-btn btn">编辑</button>
+            <button class="operation-modify operation-btn operation-blue-btn btn">确认</button>
+        </span>
     </li>
     <li class="edit-area-row">
         <label class="edit-area-label"></label>
         <input type="text" class="edit-area-input">
+        <span class="operation-wrap">
+            <button class="operation-edit operation-btn operation-blue-btn btn">编辑</button>
+            <button class="operation-modify operation-btn operation-blue-btn btn">确认</button>
+        </span>
     </li>
     
     <button class="operation-confirm btn">发布</button>
@@ -57,25 +73,42 @@
     <li class="edit-area-row">
         <label class="edit-area-label">分类1</label>
         <input type="text" class="edit-area-input">
+        <span class="operation-wrap">
+            <button class="operation-edit operation-btn operation-blue-btn btn">编辑</button>
+            <button class="operation-modify operation-btn operation-blue-btn btn">确认</button>
+        </span>
     </li>
     <li class="edit-area-row">
         <label class="edit-area-label">分类1</label>
         <input type="text" class="edit-area-input">
+        <span class="operation-wrap">
+            <button class="operation-edit operation-btn operation-blue-btn btn">编辑</button>
+            <button class="operation-modify operation-btn operation-blue-btn btn">确认</button>
+        </span>
     </li>
     <li class="edit-area-row">
         <label class="edit-area-label">分类1</label>
         <input type="text" class="edit-area-input">
+        <span class="operation-wrap">
+            <button class="operation-edit operation-btn operation-blue-btn btn">编辑</button>
+            <button class="operation-modify operation-btn operation-blue-btn btn">确认</button>
+        </span>
     </li>
     <li class="edit-area-row">
         <label class="edit-area-label">分类1</label>
         <input type="text" class="edit-area-input">
+        <span class="operation-wrap">
+            <button class="operation-edit operation-btn operation-blue-btn btn">编辑</button>
+            <button class="operation-modify operation-btn operation-blue-btn btn">确认</button>
+        </span>
     </li>
-    <li class="edit-area-picture-row">
+    <li class="edit-area-row">
         <label class="edit-area-label">分类1</label>
-        <div class="picture-wrap">
-            <div class="picture-mask"></div>
-            <img src="/images/test/test1.jpg" class="thumbnail">
-        </div>
+        <input type="text" class="edit-area-input">
+        <span class="operation-wrap">
+            <button class="operation-edit operation-btn operation-blue-btn btn">编辑</button>
+            <button class="operation-modify operation-btn operation-blue-btn btn">确认</button>
+        </span>
     </li>
     
     <button class="operation-confirm btn">发布</button>

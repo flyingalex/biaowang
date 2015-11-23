@@ -49,14 +49,40 @@
 }
 
 .@{edit-area-class-prefix}-label{
-    width: 60px;
+    width: 4em;
+    margin-right: 10px;
     display: inline-block;
+}
+
+.@{edit-area-class-prefix}-textarea-row .@{edit-area-class-prefix}-label{
+    vertical-align: top;
+}
+
+.input-common(){
+    height: @edit-area-input-height;
+    display: inline-block;
+}
+
+.@{edit-area-class-prefix}-select{
+    width: 150px;
+    font-size: 14px;
+    .input-common();
 }
 
 .@{edit-area-class-prefix}-input{
     width: 600px;
-    height: @edit-area-input-height;
-    display: inline-block;
+    .input-common();
+}
+
+.@{edit-area-class-prefix}-date-input{
+    width: 274px;
+    .input-common();
+}
+
+.@{edit-area-class-prefix}-textarea{
+    resize: none;
+    width: 600px;
+    height: 100px;
 }
 
 .@{edit-area-class-prefix}-item, .@{edit-area-class-prefix}-item-input{
@@ -65,7 +91,7 @@
 }
 
 .@{edit-area-class-prefix}-item-operation{
-    width: 140px;
+    width: 180px;
 }
 
 // --- 通用编辑区域演示 end ---
@@ -150,7 +176,7 @@
     .@{operation-class-prefix}-blue-btn{
         width: 80px;
         height: @edit-area-input-height;
-        font-size: 18px;
+        font-size: 16px;
         display: inline-block;
         vertical-align: middle;
     }

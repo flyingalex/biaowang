@@ -39,10 +39,12 @@
     
     <li class="edit-area-picture-row">
         <label class="edit-area-label">相片</label>
-        <div class="picture-wrap">
-            <div class="picture-mask"></div>
-            <img src="/images/test/test1.jpg" class="thumbnail">
-        </div>
+        <div class="picture-input-wrap">
+            <input type="file" class="picture-input-btn">
+            <div class="picture-input-holder">
+                +<br>添加图片
+            </div>
+         </div>
     </li>
     
     <button class="operation-confirm btn">发布</button>
