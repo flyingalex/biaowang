@@ -49,7 +49,7 @@ Route::group(array('prefix'=>'admin'), function(){
 		Route::group(array('prefix'=>'official'),function(){
 
 			//广告模块
-			Route::group('advert',function(){
+			Route::group(array('prefix'=>'advert'),function(){
 				//添加
 				Route::get('add','AdvertController@add');
 				//编辑
@@ -67,7 +67,7 @@ Route::group(array('prefix'=>'admin'), function(){
 			});
 			
 			//干货模块
-			Route::group('resource',function(){
+			Route::group(array('prefix'=>'resource'),function(){
 				//添加
 				Route::get('add','ResourceController@add');
 				//编辑
@@ -81,7 +81,7 @@ Route::group(array('prefix'=>'admin'), function(){
 			});
 
 			//标题模块
-			Route::group('title',function(){
+			Route::group(array('prefix'=>'title'),function(){
 				//编辑
 				Route::get('edit','ResourceController@titleEdit');
 				//栏目标题-编辑
@@ -96,7 +96,7 @@ Route::group(array('prefix'=>'admin'), function(){
 		Route::group(array('prefix'=>'vote'),function(){
 				
 			//内容模块
-			Route::group('content',function(){
+			Route::group(array('prefix'=>'content'),function(){
 				//添加
 				Route::get('add','AdvertController@add');
 				//编辑
@@ -111,7 +111,7 @@ Route::group(array('prefix'=>'admin'), function(){
 			});
 
 			//项目模块
-			Route::group('project',function(){
+			Route::group(array('prefix'=>'project'),function(){
 				//添加
 				Route::get('add','AdvertController@add');
 				//编辑
@@ -133,7 +133,7 @@ Route::group(array('prefix'=>'admin'), function(){
 		Route::group(array('prefix'=>'album'),function(){
 				
 			//相册模块
-			Route::group('album',function(){
+			Route::group(array('prefix'=>'album'),function(){
 				//添加
 				Route::get('add','AdvertController@add');
 				//编辑
@@ -147,7 +147,7 @@ Route::group(array('prefix'=>'admin'), function(){
 			});
 
 			//照片模块
-			Route::group('photo',function(){
+			Route::group(array('prefix'=>'photo'),function(){
 				//添加
 				Route::get('add','AdvertController@add');
 				//编辑
@@ -160,7 +160,7 @@ Route::group(array('prefix'=>'admin'), function(){
 				Route::post('delete','PhotographController@delete');
 			});
 			//视频模块
-			Route::group('video',function(){
+			Route::group(array('prefix'=>'video'),function(){
 				//添加
 				Route::get('add','AdvertController@add');
 				//编辑
