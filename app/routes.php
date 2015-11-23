@@ -47,81 +47,142 @@ Route::group(array('prefix'=>'admin'), function(){
 		Route::post('logout','LoginController@logout');
 		//微官网
 		Route::group(array('prefix'=>'official'),function(){
-			//广告图片－浏览
-			Route::get('advert-index','AdvertController@index');
-			//广告图片－增加和编辑
-			Route::post('advert-create-edit','AdvertController@createAndEdit');
-			//广告图片－删
-			Route::post('advert-delete','AdvertController@delete');
-			//活动广告－增加和编辑
-			Route::post('activity-advert-create-edit','ActivityAdvertController@createAndEdit');
-			//活动广告－删
-			Route::post('activity-advert-delete','ActivityAdvertController@delete');
-			
-			//栏目标题－浏览
-			Route::get('title-index','TitleController@index');
-			//栏目标题-编辑
-			Route::post('title-edit','TitleController@edit');	
-			//干货版块标题－浏览
-			Route::get('column-title-index','ColumnTitleController@index');
-			//干货版块标题－编辑
-			Route::post('column-title-edit','ColumnTitleController@edit');
 
-			//干货－浏览
-			Route::get('resource-index','ResourceController@index');
-			//干货－添加和编辑
-			Route::post('resource-create-edit','ResourceController@createAndEdit');
-			//干货－删除
-			Route::post('resource-delete','ResourceController@delete');
+			//广告模块
+			Route::group('advert',function(){
+				//添加
+				Route::get('add','AdvertController@add');
+				//编辑
+				Route::get('edit','AdvertController@edit');
+				//管理
+				Route::get('manage','AdvertController@manage');
+				//广告图片－增加和编辑
+				Route::post('advert-create-edit','AdvertController@createAndEdit');
+				//广告图片－删
+				Route::post('advert-delete','AdvertController@delete');
+				//活动广告－增加和编辑
+				Route::post('activity-advert-create-edit','ActivityAdvertController@createAndEdit');
+				//活动广告－删
+				Route::post('activity-advert-delete','ActivityAdvertController@delete');
+			});
+			
+			//干货模块
+			Route::group('resource',function(){
+				//添加
+				Route::get('add','ResourceController@add');
+				//编辑
+				Route::get('edit','ResourceController@edit');
+				//管理
+				Route::get('manage','ResourceController@manage');
+				//干货－添加和编辑
+				Route::post('create-edit','ResourceController@createAndEdit');
+				//干货－删除
+				Route::post('delete','ResourceController@delete');
+			});
+
+			//标题模块
+			Route::group('title',function(){
+				//编辑
+				Route::get('edit','ResourceController@titleEdit');
+				//栏目标题-编辑
+				Route::post('title-edit','TitleController@edit');	
+				//干货版块标题－编辑
+				Route::post('column-title-edit','ColumnTitleController@edit');
+			});
+
 		});
 
 		//微投票
 		Route::group(array('prefix'=>'vote'),function(){
-			//项目浏览
-			Route::get('project-index','ProjectController@index');
-			//项目创建和编辑
-			Route::post('project-cretae-edit','ProjectController@createAndEdit');
-			//项目删除
-			Route::post('project-delete','ProjectController@delete');
-			//项目是否显示
-			Route::post('project-display','ProjectController@display');
-			//内容浏览
-			Route::get('work-index','WorkController@index');
-			//内容查创建和编辑
-			Route::post('work-create-edit','WorkController@createAndEdit');
-			//内容删除
-			Route::post('work-delete','WorkController@delete');
+				
+			//内容模块
+			Route::group('content',function(){
+				//添加
+				Route::get('add','AdvertController@add');
+				//编辑
+				Route::get('edit','AdvertController@edit');
+				//管理
+				Route::get('manage','AdvertController@manage');
+				//内容查创建和编辑
+				Route::post('create-edit','WorkController@createAndEdit');
+				//内容删除
+				Route::post('delete','WorkController@delete');
+
+			});
+
+			//项目模块
+			Route::group('project',function(){
+				//添加
+				Route::get('add','AdvertController@add');
+				//编辑
+				Route::get('edit','AdvertController@edit');
+				//管理
+				Route::get('manage','AdvertController@manage');
+				//项目创建和编辑
+				Route::post('cretae-edit','ProjectController@createAndEdit');
+				//项目删除
+				Route::post('delete','ProjectController@delete');
+				//项目是否显示
+				Route::post('display','ProjectController@display');
+			});
+
+
 		});
 
 		//微相册
 		Route::group(array('prefix'=>'album'),function(){
-			//相册浏览
-			Route::get('album-index','AlbumController@index');
-			//相册创建和编辑
-			Route::post('album-create-edit','AlbumController@createAndEdit');
-			//相册删除
-			Route::post('album-delete','AlbumController@delete');
-			//照片浏览
-			Route::get('photo-index','PhotographController@index');
-			//照片创建和编辑
-			Route::post('photo-create-edit','PhotographController@createAndEdit');
-			//照片删除
-			Route::post('photo-delete','PhotographController@delete');
-			//视频浏览
-			Route::get('video-index','VideoController@index');
-			//视频创建和编辑
-			Route::post('video-create-edit','VideoController@createAndEdit');
-			//视频删除
-			Route::post('video-delete','VideoController@delete');
+				
+			//相册模块
+			Route::group('album',function(){
+				//添加
+				Route::get('add','AdvertController@add');
+				//编辑
+				Route::get('edit','AdvertController@edit');
+				//管理
+				Route::get('manage','AdvertController@manage');
+				//相册创建和编辑
+				Route::post('create-edit','AlbumController@createAndEdit');
+				//相册删除
+				Route::post('delete','AlbumController@delete');
+			});
+
+			//照片模块
+			Route::group('photo',function(){
+				//添加
+				Route::get('add','AdvertController@add');
+				//编辑
+				Route::get('edit','AdvertController@edit');
+				//管理
+				Route::get('manage','AdvertController@manage');
+				//照片创建和编辑
+				Route::post('create-edit','PhotographController@createAndEdit');
+				//照片删除
+				Route::post('delete','PhotographController@delete');
+			});
+			//视频模块
+			Route::group('video',function(){
+				//添加
+				Route::get('add','AdvertController@add');
+				//编辑
+				Route::get('edit','AdvertController@edit');
+				//管理
+				Route::get('manage','AdvertController@manage');
+				//视频创建和编辑
+				Route::post('create-edit','VideoController@createAndEdit');
+				//视频删除
+				Route::post('delete','VideoController@delete');
+			});
 			
 		});
 
 		//系统设置
 		Route::group(array('prefix'=>'system'),function(){
+			//新闻管理
+			Route::get('manage-news','NewsController@index');
+			//用户管理
+			Route::get('manage-user','UserController@index');
 			//重置密码
 			Route::post('reset-password','UserController@resetPassword');
-			//新闻浏览
-			Route::get('news-index','NewsController@index');
 			//新闻编辑和创建
 			Route::post('news-create-edit','NewsController@createAndEdit');
 			//新闻删除
