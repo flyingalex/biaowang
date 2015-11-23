@@ -10,43 +10,43 @@
     </div>
     <ul class="menu">
         <li class="sub-menu">
-            <div href="#" class="dropdown-btn">
+            <div class="dropdown-btn">
                 <img src="/images/icon/official.png" class="dropdown-btn-icon">
                 <a href="#" class="dropdown-btn-title">微官网</a>
             </div>
             <ul class="sub-menu-item">
                 <li class="sub-menu-link-wrap">
-                    <a href="#" class="sub-menu-link">标题设置</a>
+                    <a href="/admin/official/title/manage" class="sub-menu-link">标题设置</a>
                 </li>
                 
                 <li class="sub-menu-link-wrap">
-                    <a href="#" class="sub-menu-link">干货管理</a>
+                    <a href="/admin/official/resource/manage" class="sub-menu-link">干货管理</a>
                     <!-- 三级下拉菜单 start 万一你要这玩意呢？-->
                     <ul class="three-level-menu">
                         <li class="three-level-menu-item">
-                            <a href="" class="three-level-menu-item">添加干货</a>
+                            <a href="/admin/official/resource/add" class="three-level-menu-item-link">添加干货</a>
                         </li>
                         <li class="three-level-menu-item">
-                            <a href="" class="three-level-menu-item">编辑干货</a>
+                            <a href="/admin/official/resource/edit" class="three-level-menu-item-link">编辑干货</a>
                         </li>
                         <li class="three-level-menu-item">
-                            <a href="" class="three-level-menu-item">干货管理</a>
+                            <a href="/admin/official/resource/manage" class="three-level-menu-item-link">干货管理</a>
                         </li>
                     </ul>
                     <!-- 三级下拉菜单 end -->
                 </li>
                 <li class="sub-menu-link-wrap">
-                    <a href="#" class="sub-menu-link active-link">广告图片</a>
+                    <a href="/admin/official/advert/manage" class="sub-menu-link">广告管理</a>
                     <!-- 三级下拉菜单 start 万一你要这玩意呢？-->
                     <ul class="three-level-menu">
                         <li class="three-level-menu-item">
-                            <a href="" class="three-level-menu-item">添加广告</a>
+                            <a href="/admin/official/advert/add" class="three-level-menu-item-link">添加广告</a>
                         </li>
                         <li class="three-level-menu-item">
-                            <a href="" class="three-level-menu-item">编辑广告</a>
+                            <a href="/admin/official/advert/edit" class="three-level-menu-item-link">编辑广告</a>
                         </li>
                         <li class="three-level-menu-item">
-                            <a href="" class="three-level-menu-item">广告管理</a>
+                            <a href="/admin/official/advert/manage" class="three-level-menu-item-link">广告管理</a>
                         </li>
                     </ul>
                     <!-- 三级下拉菜单 end -->
@@ -54,39 +54,55 @@
             </ul>
         </li>
         <li class="sub-menu">
-            <div href="#" class="dropdown-btn">
+            <div class="dropdown-btn">
                 <img src="/images/icon/vote.png" class="dropdown-btn-icon">
                 <a href="#" class="dropdown-btn-title">微投票</a>
             </div>
             <ul class="sub-menu-item">
                 <li class="sub-menu-link-wrap">
-                    <a href="#" class="sub-menu-link">项目管理</a>
+                    <a href="/admin/official/project/manage" class="sub-menu-link">项目管理</a>
                     <!-- 三级下拉菜单 start 万一你要这玩意呢？-->
                     <ul class="three-level-menu">
                         <li class="three-level-menu-item">
-                            <a href="" class="three-level-menu-item">添加项目</a>
+                            <a href="/admin/official/project/add" class="three-level-menu-item-link">添加项目</a>
                         </li>
                         <li class="three-level-menu-item">
-                            <a href="" class="three-level-menu-item">编辑项目</a>
+                            <a href="/admin/official/project/edit" class="three-level-menu-item-link">编辑项目</a>
                         </li>
                         <li class="three-level-menu-item">
-                            <a href="" class="three-level-menu-item">项目管理</a>
+                            <a href="/admin/official/project/manage" class="three-level-menu-item-link">项目管理</a>
                         </li>
                     </ul>
                     <!-- 三级下拉菜单 end -->
                 </li>
                 <li class="sub-menu-link-wrap">
-                    <a href="#" class="sub-menu-link">内容管理</a>
+                    <a href="/admin/vote/content/manage" class="sub-menu-link">内容管理</a>
                     <!-- 三级下拉菜单 start 万一你要这玩意呢？-->
                     <ul class="three-level-menu">
                         <li class="three-level-menu-item">
-                            <a href="" class="three-level-menu-item">添加内容</a>
+                            <a href="/admin/vote/content/add" class="three-level-menu-item-link">添加内容</a>
                         </li>
                         <li class="three-level-menu-item">
-                            <a href="" class="three-level-menu-item">编辑内容</a>
+                            <a href="/admin/vote/content/edit" class="three-level-menu-item-link">编辑内容</a>
                         </li>
                         <li class="three-level-menu-item">
-                            <a href="" class="three-level-menu-item">内容管理</a>
+                            <a href="/admin/vote/content/manage" class="three-level-menu-item-link">内容管理</a>
+                        </li>
+                    </ul>
+                    <!-- 三级下拉菜单 end -->
+                </li>
+                <li class="sub-menu-link-wrap">
+                    <a href="#" class="sub-menu-link active-link">广告管理</a>
+                    <!-- 三级下拉菜单 start 万一你要这玩意呢？-->
+                    <ul class="three-level-menu">
+                        <li class="three-level-menu-item">
+                            <a href="" class="three-level-menu-item-link">添加广告</a>
+                        </li>
+                        <li class="three-level-menu-item">
+                            <a href="" class="three-level-menu-item-link">编辑广告</a>
+                        </li>
+                        <li class="three-level-menu-item">
+                            <a href="" class="three-level-menu-item-link">广告管理</a>
                         </li>
                     </ul>
                     <!-- 三级下拉菜单 end -->
@@ -94,55 +110,55 @@
             </ul>
         </li>
         <li class="sub-menu active-menu">
-            <div href="#" class="dropdown-btn">
+            <div class="dropdown-btn">
                 <img src="/images/icon/album.png" class="dropdown-btn-icon">
                 <a href="#" class="dropdown-btn-title">微相册</a>
             </div>
             <ul class="sub-menu-item">
                 <li class="sub-menu-link-wrap">
-                    <a href="#" class="sub-menu-link">相片管理</a>
+                    <a href="/admin/official/photo/manage" class="sub-menu-link">相片管理</a>
                     <!-- 三级下拉菜单 start 万一你要这玩意呢？-->
                     <ul class="three-level-menu">
                         <li class="three-level-menu-item">
-                            <a href="" class="three-level-menu-item">添加相片</a>
+                            <a href="/admin/official/photo/add" class="three-level-menu-item-link">添加相片</a>
                         </li>
                         <li class="three-level-menu-item">
-                            <a href="" class="three-level-menu-item">编辑相片</a>
+                            <a href="/admin/official/photo/edit" class="three-level-menu-item-link">编辑相片</a>
                         </li>
                         <li class="three-level-menu-item">
-                            <a href="" class="three-level-menu-item">相片管理</a>
+                            <a href="/admin/official/photo/manage" class="three-level-menu-item-link">相片管理</a>
                         </li>
                     </ul>
                     <!-- 三级下拉菜单 end -->
                 </li>
                 <li class="sub-menu-link-wrap">
-                    <a href="#" class="sub-menu-link">相册管理</a>
+                    <a href="/admin/official/album/manage" class="sub-menu-link">相册管理</a>
                     <!-- 三级下拉菜单 start 万一你要这玩意呢？-->
                     <ul class="three-level-menu">
                         <li class="three-level-menu-item">
-                            <a href="" class="three-level-menu-item">添加相册</a>
+                            <a href="/admin/official/album/add" class="three-level-menu-item-link">添加相册</a>
                         </li>
                         <li class="three-level-menu-item">
-                            <a href="" class="three-level-menu-item">编辑相册</a>
+                            <a href="/admin/official/album/edit" class="three-level-menu-item-link">编辑相册</a>
                         </li>
                         <li class="three-level-menu-item">
-                            <a href="" class="three-level-menu-item">相册管理</a>
+                            <a href="/admin/official/album/manage" class="three-level-menu-item-link">相册管理</a>
                         </li>
                     </ul>
                     <!-- 三级下拉菜单 end -->
                 </li>
                 <li class="sub-menu-link-wrap">
-                    <a href="#" class="sub-menu-link">视频管理</a>
+                    <a href="/admin/official/video/manage" class="sub-menu-link">视频管理</a>
                     <!-- 三级下拉菜单 start 万一你要这玩意呢？-->
                     <ul class="three-level-menu">
                         <li class="three-level-menu-item">
-                            <a href="" class="three-level-menu-item">添加视频</a>
+                            <a href="/admin/official/video/add" class="three-level-menu-item-link">添加视频</a>
                         </li>
                         <li class="three-level-menu-item">
-                            <a href="" class="three-level-menu-item">编辑视频</a>
+                            <a href="/admin/official/video/edit" class="three-level-menu-item-link">编辑视频</a>
                         </li>
                         <li class="three-level-menu-item">
-                            <a href="" class="three-level-menu-item">视频管理</a>
+                            <a href="/admin/official/video/manage" class="three-level-menu-item-link">视频管理</a>
                         </li>
                     </ul>
                     <!-- 三级下拉菜单 end -->
@@ -152,13 +168,13 @@
                     <!-- 三级下拉菜单 start 万一你要这玩意呢？-->
                     <ul class="three-level-menu">
                         <li class="three-level-menu-item">
-                            <a href="" class="three-level-menu-item">添加广告</a>
+                            <a href="" class="three-level-menu-item-link">添加广告</a>
                         </li>
                         <li class="three-level-menu-item">
-                            <a href="" class="three-level-menu-item">编辑广告</a>
+                            <a href="" class="three-level-menu-item-link">编辑广告</a>
                         </li>
                         <li class="three-level-menu-item">
-                            <a href="" class="three-level-menu-item">广告管理</a>
+                            <a href="" class="three-level-menu-item-link">广告管理</a>
                         </li>
                     </ul>
                     <!-- 三级下拉菜单 end -->
@@ -166,16 +182,16 @@
             </ul>
         </li>
         <li class="sub-menu">
-            <div href="#" class="dropdown-btn">
+            <div class="dropdown-btn">
                 <img src="/images/icon/setting.png" class="dropdown-btn-icon">
                 <a href="#" class="dropdown-btn-title">系统管理</a>
             </div>
             <ul class="sub-menu-item">
                 <li class="sub-menu-link-wrap">
-                    <a href="#" class="sub-menu-link">用户管理</a>
+                    <a href="/admin/system/manage-user" class="sub-menu-link">用户管理</a>
                 </li>
                 <li class="sub-menu-link-wrap">
-                    <a href="#" class="sub-menu-link">新闻管理</a>
+                    <a href="/admin/system/manage-news" class="sub-menu-link">新闻管理</a>
                 </li>
             </ul>
         </li>

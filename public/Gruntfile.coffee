@@ -14,7 +14,7 @@ module.exports = (grunt)->
             dist: ['dist']
 
         browserify:
-            admin:
+            admin_pages:
                 options:
                   preBundleCB: (b)->
                     b.transform(coffeeify)
@@ -24,6 +24,19 @@ module.exports = (grunt)->
                 src: ['src/admin/pages/**/*.coffee']
                 dest: 'dist/admin/js/pages/'
                 ext: '.js'
+
+            admin_components:
+                options:
+                  preBundleCB: (b)->
+                    b.transform(coffeeify)
+                    b.transform(stringify({extensions: ['.hbs', '.html', '.tpl', '.txt']}))
+                expand: true
+                flatten: true
+                files: {
+                    'dist/admin/js/component.js': [
+                        'src/admin/components/sidebar/sidebar.coffee'
+                    ]
+                }
 
         watch:
             compile:
