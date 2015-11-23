@@ -23,16 +23,19 @@
         <th class="edit-area-item table-column content-link">总投票数</th>
         <th class="edit-area-item table-column edit-area-item-operation">操作</th>
     </tr>
+    
 
+    @if( isset( $projects ) )
+        @foreach( $projects as $project )
     <tr class="edit-area-row">
         <td class="edit-area-item content-title">
-            标题
+            {{$project->title}}
         </td>
         <td class="edit-area-item content-link">
-            1111
+            {{$project->sign_up_total}}
         </td>
         <td class="edit-area-item content-vote-count">
-            1111
+            {{$project->view_total}}
         </td>
         <td class="edit-area-item edit-area-item-operation">
             <span class="operation-btn operation-edit">
@@ -41,7 +44,11 @@
             </span>
             <span class="operation-btn operation-close">
                 <img src="/images/icon/close.png" class="operation-icon">
-                <span>关闭</span>
+                @if( $project->display )
+                    <span>开启</span>
+                @else
+                    <span>关闭</span>
+                @endif
             </span>
             <span class="operation-btn operation-delete">
                 <img src="/images/icon/delete.png" class="operation-icon">
@@ -49,7 +56,8 @@
             </span>
         </td>
     </tr>
-
+        @endforeach
+    @endif
 </table>
 
 </div>

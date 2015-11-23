@@ -15,49 +15,47 @@
 </div>
 
 <form action="" class="edit-area-form">
-
+    @if( isset( $project ) )
 <ul class="edit-area-body">
-
+    
     <li class="edit-area-row">
         <label class="edit-area-label">投票主题</label>
-        <input type="text" class="edit-area-input">
+        <input type="text" class="edit-area-input" value="{{$project->title}}"> 
     </li>
     <li class="edit-area-row">
         <label class="edit-area-label">投票时间</label>
-        <input type="text" class="edit-area-date-input">
+        <input type="text" class="edit-area-date-input" value="{{$project->vote_start}}">
         <span>------</span>
-        <input type="text" class="edit-area-date-input">
+        <input type="text" class="edit-area-date-input" value="{{$project->vote_stop}}">
     </li>
     <li class="edit-area-row">
         <label class="edit-area-label">报名时间</label>
-        <input type="text" class="edit-area-date-input">
+        <input type="text" class="edit-area-date-input" value="{{$project->sign_up_start}}">
         <span>------</span>
-        <input type="text" class="edit-area-date-input">
+        <input type="text" class="edit-area-date-input" value="{{$project->sign_up_stop}}">
     </li>
     <li class="edit-area-row">
         <label class="edit-area-label">投票类型</label>
         <select name="" class="edit-area-select">
-            <option value="">类型1</option>
-            <option value="">类型2</option>
-            <option value="">类型3</option>
+            <option value="">单选</option>
         </select>
     </li>
     <li class="edit-area-row edit-area-textarea-row">
         <label class="edit-area-label">活动介绍</label>
-        <textarea name="" class="edit-area-textarea"></textarea>
+        <textarea name="" class="edit-area-textarea">{{$project->content}}</textarea>
     </li>
     <li class="edit-area-row edit-area-textarea-row">
         <label class="edit-area-label">活动规则</label>
-        <textarea name="" class="edit-area-textarea"></textarea>
+        <textarea name="" class="edit-area-textarea">{{$project->activity_rule}}</textarea>
     </li>
     <li class="edit-area-row edit-area-textarea-row">
         <label class="edit-area-label">奖项设置</label>
-        <textarea name="" class="edit-area-textarea"></textarea>
+        <textarea name="" class="edit-area-textarea">{{$project->award_site}}</textarea>
     </li>
     
     <button class="operation-confirm btn">发布</button>
 </ul>
-
+    @endif
 </form>
 
 </div>

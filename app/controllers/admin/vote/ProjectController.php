@@ -8,7 +8,8 @@ class ProjectController extends BaseController{
 
 	public function edit()
 	{	
-		$project_id = Input::get('project_id');
+		// $project_id = Input::get('project_id');
+		$project_id = 2;
 		$project = Project::find( $project_id );
 		if( !isset( $project ) )
 			return View::make('errors.error')->with(['error'=>BiaoException::$notExist['message']]); 
@@ -16,8 +17,9 @@ class ProjectController extends BaseController{
 	}	
 
 	public function manage()
-	{
-		
+	{	
+		$projects = Project::select('id','title','sign_up_total','vote_total','display')->get();
+		return View::make('admin.pages.vote.project.manage-project')->with(['projects'=>$projects]);
 	}
 
 	
