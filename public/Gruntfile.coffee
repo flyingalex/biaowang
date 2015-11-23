@@ -35,6 +35,7 @@ module.exports = (grunt)->
                 files: {
                     'dist/admin/js/component.js': [
                         'src/admin/components/sidebar/sidebar.coffee'
+                        'src/admin/components/content/content.coffee'
                     ]
                 }
 

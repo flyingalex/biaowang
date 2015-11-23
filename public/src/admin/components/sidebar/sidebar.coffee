@@ -1,12 +1,12 @@
 
-_active_sub_menu_link = ( link_elements, target_link )->
+active_sub_menu_link = ( three_level_elements, target_link )->
 
-    link_elements.removeClass 'active-link'
+    three_level_elements.each ( index, element )->
+        _element = $ element
 
-    for link_element in link_elements
-        if link_element.prop( 'href' ) is target_link
-            link_element.addClass 'active-link'
-            return
+        if _element.prop( 'href' ) is target_link
+            _element.parents( '.sub-menu' ).addClass( 'active-menu' )
+            _element.parents( '.three-level-menu' ).siblings( '.sub-menu-link' ).addClass( 'active-link' )
 
 $ ()->
     _sub_menus = $ '.sub-menu'
@@ -14,8 +14,10 @@ $ ()->
     _dropdown_btn_titles = $ '.dropdown-btn-title'
     _three_level_menu_item_links = $ '.three-level-menu-item-link'
 
+    _sub_menu_links.removeClass 'active-link'
+
     # 当前页面所属子菜单项高亮显示
-    _active_sub_menu_link _sub_menu_links, window.location.href
+    active_sub_menu_link _three_level_menu_item_links, window.location.href
 
     # 主菜单项点击事件
     _dropdown_btn_titles.on 'click', ( event )->

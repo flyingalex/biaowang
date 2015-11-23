@@ -41,6 +41,10 @@ $ ()->
     _username_input = $ '#username-input'
     _password_input = $ '#password-input'
     _captcha_input  = $ '#captcha-input'
+    _captcha_img = $ '#captcha-img'
+
+    _captcha_img.on 'click', ( event )->
+        $( this ).prop 'src', '/admin/captcha?' + new Date().getTime()
 
     _login_form.on 'submit', ( event )->
 

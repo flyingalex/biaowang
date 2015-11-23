@@ -9,7 +9,7 @@
         </div>
     </div>
     <ul class="menu">
-        <li class="sub-menu">
+        <li class="sub-menu"> <!--  active-menu -->
             <div class="dropdown-btn">
                 <img src="/images/icon/official.png" class="dropdown-btn-icon">
                 <a href="#" class="dropdown-btn-title">微官网</a>
@@ -17,10 +17,15 @@
             <ul class="sub-menu-item">
                 <li class="sub-menu-link-wrap">
                     <a href="/admin/official/title/manage" class="sub-menu-link">标题设置</a>
+                    <ul class="three-level-menu">
+                        <li class="three-level-menu-item">
+                            <a href="/admin/official/title/manage" class="three-level-menu-item-link">标题设置</a>
+                        </li>
+                    </ul>
                 </li>
                 
                 <li class="sub-menu-link-wrap">
-                    <a href="/admin/official/resource/manage" class="sub-menu-link">干货管理</a>
+                    <a href="/admin/official/resource/manage" class="sub-menu-link">干货管理</a> <!-- active-link -->
                     <!-- 三级下拉菜单 start 万一你要这玩意呢？-->
                     <ul class="three-level-menu">
                         <li class="three-level-menu-item">
@@ -91,25 +96,25 @@
                     </ul>
                     <!-- 三级下拉菜单 end -->
                 </li>
+                <!--
                 <li class="sub-menu-link-wrap">
                     <a href="#" class="sub-menu-link active-link">广告管理</a>
-                    <!-- 三级下拉菜单 start 万一你要这玩意呢？-->
                     <ul class="three-level-menu">
                         <li class="three-level-menu-item">
-                            <a href="" class="three-level-menu-item-link">添加广告</a>
+                            <a href="#" class="three-level-menu-item-link">添加广告</a>
                         </li>
                         <li class="three-level-menu-item">
-                            <a href="" class="three-level-menu-item-link">编辑广告</a>
+                            <a href="#" class="three-level-menu-item-link">编辑广告</a>
                         </li>
                         <li class="three-level-menu-item">
-                            <a href="" class="three-level-menu-item-link">广告管理</a>
+                            <a href="#" class="three-level-menu-item-link">广告管理</a>
                         </li>
                     </ul>
-                    <!-- 三级下拉菜单 end -->
                 </li>
+                -->
             </ul>
         </li>
-        <li class="sub-menu active-menu">
+        <li class="sub-menu">
             <div class="dropdown-btn">
                 <img src="/images/icon/album.png" class="dropdown-btn-icon">
                 <a href="#" class="dropdown-btn-title">微相册</a>
@@ -163,22 +168,22 @@
                     </ul>
                     <!-- 三级下拉菜单 end -->
                 </li>
+                <!--
                 <li class="sub-menu-link-wrap">
                     <a href="#" class="sub-menu-link">广告图片</a>
-                    <!-- 三级下拉菜单 start 万一你要这玩意呢？-->
                     <ul class="three-level-menu">
                         <li class="three-level-menu-item">
-                            <a href="" class="three-level-menu-item-link">添加广告</a>
+                            <a href="#" class="three-level-menu-item-link">添加广告</a>
                         </li>
                         <li class="three-level-menu-item">
-                            <a href="" class="three-level-menu-item-link">编辑广告</a>
+                            <a href="#" class="three-level-menu-item-link">编辑广告</a>
                         </li>
                         <li class="three-level-menu-item">
-                            <a href="" class="three-level-menu-item-link">广告管理</a>
+                            <a href="#" class="three-level-menu-item-link">广告管理</a>
                         </li>
                     </ul>
-                    <!-- 三级下拉菜单 end -->
                 </li>
+                -->
             </ul>
         </li>
         <li class="sub-menu">
@@ -189,9 +194,19 @@
             <ul class="sub-menu-item">
                 <li class="sub-menu-link-wrap">
                     <a href="/admin/system/manage-user" class="sub-menu-link">用户管理</a>
+                    <ul class="three-level-menu">
+                        <li class="three-level-menu-item">
+                            <a href="/admin/system/manage-user" class="three-level-menu-item-link">用户管理</a>
+                        </li>
+                    </ul>
                 </li>
                 <li class="sub-menu-link-wrap">
                     <a href="/admin/system/manage-news" class="sub-menu-link">新闻管理</a>
+                    <ul class="three-level-menu">
+                        <li class="three-level-menu-item">
+                            <a href="/admin/system/manage-news" class="three-level-menu-item-link">新闻管理</a>
+                        </li>
+                    </ul>
                 </li>
             </ul>
         </li>

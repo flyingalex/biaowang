@@ -38,7 +38,7 @@
                 <label class="captcha-label">验证码</label>
                 <input name="captcha" type="text" class="captcha-input input-area" id="captcha-input">
                 <span class="captcha-content">
-                    <img src="/admin/captcha" class="captcha-img">
+                    <img src="/admin/captcha" class="captcha-img" id="captcha-img">
                 </span>
             </div>
             <input type="submit" class="login-confirm input-wrap btn" value="登陆">
