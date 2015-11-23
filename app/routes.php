@@ -6,6 +6,11 @@ try{
 	
 }
 
+Route::get('admin',function(){
+	return View::make('admin.pages.official.advert.manage-advert');
+});
+
+
 //前端
 Route::group(array('prefix'=>'wetchat'),function(){
 	//首页
@@ -41,7 +46,7 @@ Route::group(array('prefix'=>'admin'), function(){
 
 		Route::post('logout','LoginController@logout');
 		//微官网
-		Route::group(array('prefix'=>'offical'),function(){
+		Route::group(array('prefix'=>'official'),function(){
 			//广告图片－浏览
 			Route::get('advert-index','AdvertController@index');
 			//广告图片－增加和编辑
