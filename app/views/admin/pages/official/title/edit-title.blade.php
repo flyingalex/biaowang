@@ -20,7 +20,6 @@
     @if( isset( $title ) )
     <li class="edit-area-row">
         <label class="edit-area-label">标题1</label>
-<<<<<<< HEAD
         <input type="text" class="edit-area-input" value="{{$title->middle_title}}">
         <span class="operation-wrap">
             <button class="operation-edit operation-btn operation-blue-btn btn">编辑</button>
