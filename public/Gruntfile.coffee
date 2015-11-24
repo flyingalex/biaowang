@@ -36,6 +36,7 @@ module.exports = (grunt)->
                     'dist/admin/js/component.js': [
                         'src/admin/components/sidebar/sidebar.coffee'
                         'src/admin/components/content/content.coffee'
+                        'src/admin/components/edit-area/operation/operation.coffee'
                     ]
                 }
 
@@ -54,12 +55,14 @@ module.exports = (grunt)->
                         'src/admin/common/common.less'
                     ]
                     'dist/admin/css/common/edit-area-table.css':[
-                        'src/admin/components/edit-area/common.less',
-                        'src/admin/components/edit-area/table/table.less'
+                        'src/admin/components/edit-area/common.less'
+                        'src/admin/components/edit-area/edit-table/edit-table.less'
+                        'src/admin/components/edit-area/operation/operation.less'
                     ]
                     'dist/admin/css/common/edit-area-list.css':[
-                        'src/admin/components/edit-area/common.less',
-                        'src/admin/components/edit-area/list/list.less'
+                        'src/admin/components/edit-area/common.less'
+                        'src/admin/components/edit-area/edit-list/edit-list.less'
+                        'src/admin/components/edit-area/operation/operation.less'
                     ]
                     'dist/admin/css/component.css':[
                         'src/admin/components/header/header.less'
