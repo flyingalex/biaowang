@@ -22,24 +22,29 @@
         <th class="edit-area-item table-column content-title">标题</th>
         <th class="edit-area-item table-column content-link">链接</th>
         <th class="edit-area-item table-column content-vote-count">投票数</th>
+        <th class="edit-area-item table-column content-vote-project">所属项目</th>
         <th class="edit-area-item table-column edit-area-item-operation">操作</th>
     </tr>
-
+    @if( isset( $works ) )
+        @foreach( $works as $work )
     <tr class="edit-area-row">
         <td class="edit-area-item content-picture">
             <div class="picture-wrap">
                 <div class="picture-mask"></div>
-                <img src="/images/test/test1.jpg" class="thumbnail">
+                <img src="{{$work->image_url}}" class="thumbnail">
             </div>
         </td>
         <td class="edit-area-item content-title">
-            标题
+            {{$work->title}}
         </td>
         <td class="edit-area-item content-link">
-            http://www.zerioi.com/test/test/test
+            {{$work->url}}
         </td>
         <td class="edit-area-item content-vote-count">
-            1111
+            {{$work->vote_number}}
+        </td>
+         <td class="edit-area-item content-vote-project">
+            {{$work->project}}
         </td>
         <td class="edit-area-item edit-area-item-operation">
             <span class="operation-btn operation-edit">
@@ -52,7 +57,8 @@
             </span>
         </td>
     </tr>
-
+        @endforeach
+    @endif
 </table>
 
 </div>
