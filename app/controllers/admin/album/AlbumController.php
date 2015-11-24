@@ -8,8 +8,8 @@ class AlbumController extends BaseController{
 
 	public function edit()
 	{	
-		// $album = Album::find( Input::get('album_id') );
-		$album = Album::find( 2 );
+		$album = Album::find( Input::get('album_id') );
+		// $album = Album::find( 2 );
 		if( !isset( $album ) )
 			return Response::json( BiaoException::$notExist );
 		return View::make('admin.pages.album.album.edit-album')->with(['album'=>$album]);

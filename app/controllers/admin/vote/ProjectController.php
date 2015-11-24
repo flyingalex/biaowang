@@ -8,8 +8,7 @@ class ProjectController extends BaseController{
 
 	public function edit()
 	{	
-		// $project_id = Input::get('project_id');
-		$project_id = 2;
+		$project_id = Input::get('project_id');
 		$project = Project::find( $project_id );
 		if( !isset( $project ) )
 			return View::make('errors.error')->with(['error'=>BiaoException::$notExist['message']]); 
