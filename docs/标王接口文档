@@ -102,11 +102,11 @@
 
 微官网静态页面
 广告管理		/admin/official/advert/manage
-广告编辑		/admin/official/advert/edit
+广告编辑		/admin/official/advert/edit?advert_id
 广告添加		/admin/official/advert/add
 
 干货管理		/admin/official/resource/manage
-干货编辑		/admin/official/resource/edit
+干货编辑		/admin/official/resource/edit?resource_id
 干货添加		/admin/official/resource/add
 
 标题管理		/admin/official/title/manage
@@ -114,33 +114,33 @@
 
 微投票静态页面
 广告管理		/admin/vote/advert/manage
-广告编辑		/admin/vote/advert/edit
+广告编辑		/admin/vote/advert/edit?advert_id
 广告添加		/admin/vote/advert/add
 
 项目管理		/admin/vote/project/manage
-项目编辑		/admin/vote/project/edit
+项目编辑		/admin/vote/project/edit?project_id
 项目添加		/admin/vote/project/add
 
 内容管理		/admin/vote/content/manage
-内容编辑		/admin/vote/content/edit
+内容编辑		/admin/vote/content/edit?work_id
 内容添加		/admin/vote/content/add
 
 
 微相册静态页面
 广告管理		/admin/album/advert/manage
-广告编辑		/admin/album/advert/edit
+广告编辑		/admin/album/advert/edit?advert_id
 广告添加		/admin/album/advert/add
 
 相册管理		/admin/album/album/manage
-相册编辑		/admin/album/album/edit
+相册编辑		/admin/album/album/edit?album_id
 相册添加		/admin/album/album/add
 
 照片管理		/admin/album/photo/manage
-照片编辑		/admin/album/photo/edit
+照片编辑		/admin/album/photo/edit?photo_id
 照片添加		/admin/album/photo/add
 
 视频管理		/admin/album/video/manage
-视频编辑		/admin/album/video/edit
+视频编辑		/admin/album/video/edit?video_id
 视频添加		/admin/album/video/add
 
 新闻管理		/admin/system/manage-news	
