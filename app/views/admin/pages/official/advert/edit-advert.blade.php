@@ -12,10 +12,6 @@
 
 <div class="edit-area-top clearfix">
     <h3 class="edit-area-title">选择类别</h3>
-    <select class="operation-select">
-        <option value="">广告图片</option>
-        <option value="">活动广告</option>
-    </select>
 </div>
 
 <form action="" class="edit-area-form">

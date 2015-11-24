@@ -46,7 +46,7 @@ class AdvertController extends Basecontroller{
 		if( InputController::isNullInArray( $arr ) )
 			return Response::json( BiaoException::$parameterIncomplete );
 		//序号唯一性检查
-		if( !is_int( $sequence ) )
+		if( !is_numeric( $sequence ) )
 			return Response::json( BiaoException::$isNotInt );
 		$sequences = Advertisement::where('type',$type)->select('id','sequence')->get();
 		if( InputController::isNotUnique($advert->id,$sequence,$sequences ) )

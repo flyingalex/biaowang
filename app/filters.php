@@ -13,13 +13,13 @@
 
 App::before(function($request)
 {
-	//
+
 });
 
 
 App::after(function($request, $response)
 {
-	//
+	$response->header( 'Content-Type', 'text/html' );
 });
 
 /*

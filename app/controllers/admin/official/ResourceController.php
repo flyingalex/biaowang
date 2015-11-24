@@ -10,8 +10,8 @@ class ResourceController extends BaseController{
 
 	public function edit()
 	{	
-		// $resource_id = Input::get('resource_id');
-		$resource_id = 2;
+		$resource_id = Input::get('resource_id');
+		//$resource_id = 2;
 		$resource = Resource::find( $resource_id );
 		if( !isset( $resource ) )
 			return View::make('errors.error')->with(['error'=>BiaoException::$notExist['message']]);
@@ -64,7 +64,7 @@ class ResourceController extends BaseController{
 		$file 				= Input::file('image');
 		$title 				= Input::get('title');
 		$brief 				= Input::get('brief');
-		$sequence 			= Input::get('sequence');
+		$sequence 			= (int)Input::get('sequence');
 		$url 				= Input::get('url');
 		//讲照片存入public目录
 		$path = public_path().'/upload/official/';
@@ -74,7 +74,7 @@ class ResourceController extends BaseController{
 		if( InputController::isNullInArray( $arr ) )
 			return Response::json( BiaoException::$parameterIncomplete );
 		//排序号唯一性
-		if( !is_int( $sequence ) )
+		if( !is_numeric( $sequence ) )
 			return Response::json( BiaoException::$isNotInt );
 		$sequences = Resource::select('id','sequence')->get();
 		if( InputController::isNotUnique($resource->id,$sequence,$sequences ) )

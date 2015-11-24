@@ -32,22 +32,24 @@
     </li>
 </ul>
 
-<form action="" class="edit-area-form">
+<form action="/admin/system/reset-password" method="POST" target="form-target" class="edit-area-form">
     <div class="edit-area-row">
-        <label for="" class="edit-area-label">旧密码</label>
-        <input type="password" class="edit-area-input">
+        <label class="edit-area-label">旧密码</label>
+        <input name="source_code" type="password" class="edit-area-input">
     </div>
     <div class="edit-area-row">
-        <label for="" class="edit-area-label">新密码</label>
-        <input type="password" class="edit-area-input">
+        <label class="edit-area-label">新密码</label>
+        <input name="password" type="password" class="edit-area-input">
     </div>
     <div class="edit-area-row">
-        <label for="" class="edit-area-label">确认</label>
-        <input type="password" class="edit-area-input">
+        <label class="edit-area-label">确认</label>
+        <input name="re_password" type="password" class="edit-area-input">
     </div>
     
     <input type="submit" class="operation-confirm btn" value="确认修改">
 </form>
+
+<iframe name="form-target" id="form-target"></iframe>
 
 </div>
 
