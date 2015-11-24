@@ -12,7 +12,7 @@ class ResourceTableSeeder extends Seeder {
 				'brief' =>'活动是由共同目的联合起来并完成一定社会职能的动作的总和。活动目的，动机',
 				'sequence'=> $i,
 				'url' => 'http://www.liyububai.com/',
-				'image_url'=> '/upload/100.jpg'
+				'image_url'=> '/upload/111.jpg'
 			]);
 		}
 
@@ -24,7 +24,7 @@ class ResourceTableSeeder extends Seeder {
 				'brief' =>'活动是由共同目的联合起来并完成一定社会职能的动作的总和。活动目的，动机',
 				'sequence'=> $i,
 				'url' => 'http://www.liyububai.com/',
-				'image_url'=> '/upload/100.jpg'
+				'image_url'=> '/upload/111.jpg'
 			]);
 		}
 
@@ -36,7 +36,7 @@ class ResourceTableSeeder extends Seeder {
 				'brief' =>'活动是由共同目的联合起来并完成一定社会职能的动作的总和。活动目的，动机',
 				'sequence'=> $i,
 				'url' => 'http://www.liyububai.com/',
-				'image_url'=> '/upload/100.jpg'
+				'image_url'=> '/upload/111.jpg'
 			]);
 		}
 
@@ -48,7 +48,7 @@ class ResourceTableSeeder extends Seeder {
 				'brief' =>'活动是由共同目的联合起来并完成一定社会职能的动作的总和。活动目的，动机',
 				'sequence'=> $i,
 				'url' => 'http://www.liyububai.com/',
-				'image_url'=> '/upload/100.jpg'
+				'image_url'=> '/upload/111.jpg'
 			]);
 		}
 
@@ -60,7 +60,7 @@ class ResourceTableSeeder extends Seeder {
 				'brief' =>'活动是由共同目的联合起来并完成一定社会职能的动作的总和。活动目的，动机',
 				'sequence'=> $i,
 				'url' => 'http://www.liyububai.com/',
-				'image_url'=> '/upload/100.jpg'
+				'image_url'=> '/upload/111.jpg'
 			]);
 		}
 	}
