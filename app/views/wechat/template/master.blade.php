@@ -14,7 +14,6 @@
 
 <body>
 
-
 @section( 'scripts' )
 @show
 
