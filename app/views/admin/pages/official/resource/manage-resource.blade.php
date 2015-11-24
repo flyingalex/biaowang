@@ -17,9 +17,13 @@
     @if( isset( $column_titles ) )
         @foreach( $column_titles as $column_title)
             @if( $column_title->id == $column_title_id )
-                <option value="{{$column_title->id}}" selected="selected"> {{$column_title->classification}} </option>
+                <option value="/admin/official/resource/manage?column_title_id={{ $column_title->id }}" selected="selected">
+                    {{$column_title->classification}}
+                </option>
             @else
-                <option value="{{$column_title->id}}" > {{$column_title->classification}} </option>
+                <option value="/admin/official/resource/manage?column_title_id={{ $column_title->id }}">
+                    {{$column_title->classification}}
+                </option>
             @endif
         @endforeach
     @endif
@@ -87,4 +91,5 @@
 
 @section( 'scripts' )
 @parent
+<script type="text/javascript" src="/dist/admin/js/pages/manage-resource.js"></script>
 @stop

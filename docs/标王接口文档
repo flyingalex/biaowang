@@ -105,7 +105,7 @@
 广告编辑		/admin/official/advert/edit?advert_id
 广告添加		/admin/official/advert/add
 
-干货管理		/admin/official/resource/manage
+干货管理		/admin/official/resource/manage?column_title_id
 干货编辑		/admin/official/resource/edit?resource_id
 干货添加		/admin/official/resource/add
 

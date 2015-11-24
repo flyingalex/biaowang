@@ -11,14 +11,7 @@
 <div class="edit-area-container add-resource-area-wrap">
 
 <div class="edit-area-top clearfix">
-    <h3 class="edit-area-title">选择类别</h3>
-    <select class="operation-select">
-    @if( isset( $column_titles ) )  
-        @foreach( $column_titles as $column_title )
-        <option value="{{$column_title->id}}">{{$column_title->classification}}</option>
-        @endforeach
-    @endif
-    </select>
+    <h3 class="edit-area-title">新建干货</h3>
 </div>
 
 <form action="" class="edit-area-form">
@@ -40,6 +33,16 @@
     <li class="edit-area-row">
         <label class="edit-area-label">外链</label>
         <input type="text" class="edit-area-input">
+    </li>
+    <li class="edit-area-row">
+        <label class="edit-area-label">类别</label>
+        <select name="" class="edit-area-select">
+        @if( isset( $column_titles ) )
+            @foreach( $column_titles as $column_title )
+                <option value="{{$column_title->id}}">{{$column_title->classification}}</option>
+            @endforeach
+        @endif
+        </select>
     </li>
     <li class="edit-area-picture-row">
         <label class="edit-area-label">图片</label>

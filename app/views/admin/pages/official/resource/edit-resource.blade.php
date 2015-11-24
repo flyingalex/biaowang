@@ -11,20 +11,7 @@
 <div class="edit-area-container edit-resource-area-wrap">
 
 <div class="edit-area-top clearfix">
-    <h3 class="edit-area-title">选择类别</h3>
-    <select class="operation-select">
-    @if( isset( $column_titles ) )  
-        @if( isset( $resource ) )
-            @foreach( $column_titles as $column_title )
-                @if( $resource->column_title_id == $column_title->id )
-                    <option value="{{$column_title->id}}" selected="selected">{{$column_title->classification}}</option>
-                @else
-                    <option value="{{$column_title->id}}">{{$column_title->classification}}</option>
-                @endif
-            @endforeach
-        @endif
-    @endif
-    </select>
+    <h3 class="edit-area-title">编辑干货</h3>
 </div>
 
 <form action="" class="edit-area-form">
@@ -46,6 +33,20 @@
     <li class="edit-area-row">
         <label class="edit-area-label">外链</label>
         <input type="text" class="edit-area-input" value="{{$resource->url}}">
+    </li>
+    <li class="edit-area-row">
+        <label class="edit-area-label">类别</label>
+        <select name="" class="edit-area-select">
+        @if( isset( $column_titles ) )  
+            @foreach( $column_titles as $column_title )
+                @if( $resource->column_title_id == $column_title->id )
+                    <option value="{{$column_title->id}}" selected="selected">{{$column_title->classification}}</option>
+                @else
+                    <option value="{{$column_title->id}}">{{$column_title->classification}}</option>
+                @endif
+            @endforeach
+        @endif
+        </select>
     </li>
     <li class="edit-area-picture-row">
         <label class="edit-area-label">图片</label>
