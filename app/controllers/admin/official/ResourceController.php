@@ -27,8 +27,7 @@ class ResourceController extends BaseController{
 	{	
 		if( Input::has('column_title_id') )
 		{
-			// $column_title_id = Input::get('column_title_id');
-			$column_title_id = 6;
+			$column_title_id = Input::get('column_title_id');
 			$column_title = ColumnTitle::find( $column_title_id );
 			if( !isset( $column_title ) )
 				return View::make('errors.error')->with(['error'=>BiaoException::$notExist['message']]);

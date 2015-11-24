@@ -8,8 +8,8 @@
 
 	public function edit()
 	{	
-		// $video = Video::find( Input::get('video_id') );
-		$video = Video::find( 2 );
+		$video = Video::find( Input::get('video_id') );
+		// $video = Video::find( 2 );
 		if( !isset( $video ) )
 			return Response::json( BiaoException::$notExist );
 		return View::make('admin.pages.album.video.edit-video')->with(['video'=>$video]);

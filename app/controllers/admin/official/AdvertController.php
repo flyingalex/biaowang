@@ -8,9 +8,7 @@ class AdvertController extends Basecontroller{
 
 	public function edit()
 	{	
-		// $advert_id = Input::get('advert_id');
-		$advert_id = 1;
-		$advert = Advertisement::find( $advert_id );
+		$advert = Advertisement::find( Input::get('advert_id') );
 		if( !isset( $advert ) )
 			return View::make('errors.error')->with(['error'=>BiaoException::$notExist['message']]);
 		return View::make('admin.pages.official.advert.edit-advert')->with(['advert'=>$advert]);

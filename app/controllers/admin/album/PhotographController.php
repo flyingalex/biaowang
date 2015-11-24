@@ -9,9 +9,7 @@ class PhotographController extends BaseController{
 
 	public function edit()
 	{	
-		// $photo_id = Input::get('photo_id');
-		$photo_id = 3;
-		$photo = Photograph::find( $photo_id );
+		$photo = Photograph::find( Input::get('photo_id') );
 		if( !isset( $photo ) )
 			return View::make('errors.error')->with(['error'=>BiaoException::$notExist['message']]);
 		$albums = Album::all();
