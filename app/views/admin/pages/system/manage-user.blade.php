@@ -27,7 +27,7 @@
     <li class="edit-area-row">
         <label class="edit-area-label">密码</label>
         @if( isset( $user ) )
-        <span class="edit-area-text">{{$user->password}}</span>
+        <span class="edit-area-text">****************</span>
         @endif
     </li>
 </ul>

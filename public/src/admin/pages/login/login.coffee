@@ -71,7 +71,7 @@ $ ()->
         }, ( response ) ->
             if response.errCode is "0"
                 alert '登陆成功'
-                window.location.href = '/admin/official/title/manage'
+                window.location.href = '/admin/official/resource/manage'
             else
                 alert response.message
 

@@ -1,7 +1,7 @@
 
 $ ()->
 
-    _current_url = window.location.href
+    _current_url = window.location.href.split('?')[0]
     _path_spliter = ' > '
     _site_path = $ '.site-path'
 

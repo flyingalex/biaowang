@@ -12,6 +12,7 @@
 
 <div class="edit-area-top clearfix">
     <h3 class="edit-area-title">视频管理</h3>
+    <a href="/admin/album/video/add" class="operation-new"></a>
 </div>
 
 <table class="edit-area-body">
@@ -42,13 +43,18 @@
             {{$video->url}}
         </td>
         <td class="edit-area-item edit-area-item-operation">
-            <span class="operation-btn operation-edit">
-                <img src="/images/icon/edit.png" class="operation-icon">
-                <span>编辑</span>
+            <input name="video_id" type="hidden" value="{{{ $video->id }}}" id="operation-id">
+            <span class="operation-edit">
+                <a href="/admin/album/video/edit?video_id={{{ $video->id }}}" class="operation-btn">
+                    <img src="/images/icon/edit.png" class="operation-icon">
+                    <span>编辑</span>
+                </a>
             </span>
-            <span class="operation-btn operation-delete">
-                <img src="/images/icon/delete.png" class="operation-icon">
-                <span>删除</span>
+            <span class="operation-delete">
+                <span href="/admin/album/video/delete" method="POST" class="operation-btn">
+                    <img src="/images/icon/delete.png" class="operation-icon">
+                    <span>删除</span>
+                </span>
             </span>
         </td>
     </tr>

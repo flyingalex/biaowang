@@ -12,7 +12,7 @@
 
 <div class="edit-area-top clearfix">
     <h3 class="edit-area-title">内容管理</h3>
-    <span class="operation-new"></span>
+    <a href="/admin/vote/content/add" class="operation-new"></a>
 </div>
 
 <table class="edit-area-body">
@@ -47,13 +47,18 @@
             {{$work->project}}
         </td>
         <td class="edit-area-item edit-area-item-operation">
-            <span class="operation-btn operation-edit">
-                <img src="/images/icon/edit.png" class="operation-icon">
-                <span>编辑</span>
+            <input name="work_id" type="hidden" value="{{{ $work->id }}}" id="operation-id">
+            <span class="operation-edit">
+                <a href="/admin/vote/content/edit?work_id={{{ $work->id }}}" class="operation-btn">
+                    <img src="/images/icon/edit.png" class="operation-icon">
+                    <span>编辑</span>
+                </a>
             </span>
-            <span class="operation-btn operation-delete">
-                <img src="/images/icon/delete.png" class="operation-icon">
-                <span>删除</span>
+            <span class="operation-delete">
+                <span href="/admin/vote/content/delete" method="POST" class="operation-btn">
+                    <img src="/images/icon/delete.png" class="operation-icon">
+                    <span>删除</span>
+                </span>
             </span>
         </td>
     </tr>

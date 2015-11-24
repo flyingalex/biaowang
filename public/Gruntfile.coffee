@@ -67,6 +67,7 @@ module.exports = (grunt)->
                         'src/admin/components/content/content.less'
                     ]
                     'dist/admin/css/pages/login.css': ['src/admin/pages/login/login.less']
+                    'dist/admin/css/pages/offical/manage-resource.css': ['src/admin/pages/official/resource/manage-resource.less']
 
     grunt.loadNpmTasks 'grunt-browserify'
     grunt.loadNpmTasks 'grunt-contrib-less'

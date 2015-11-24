@@ -12,7 +12,7 @@
 
 <div class="edit-area-top clearfix">
     <h3 class="edit-area-title">广告图片</h3>
-    <span class="operation-new">新建</span>
+    <a href="/admin/album/advert/add" class="operation-new"></a>
 </div>
 
 <table class="edit-area-body">
@@ -44,13 +44,18 @@
             {{$advert->sequence}}
         </td>
         <td class="edit-area-item edit-area-item-operation">
-            <span class="operation-btn operation-edit">
-                <img src="/images/icon/edit.png" class="operation-icon">
-                <span>编辑</span>
+            <input name="advert_id" type="hidden" value="{{{ $advert->id }}}" id="operation-id">
+            <span class="operation-edit">
+                <a href="/admin/album/advert/edit?advert_id={{{ $advert->id }}}" class="operation-btn">
+                    <img src="/images/icon/edit.png" class="operation-icon">
+                    <span>编辑</span>
+                </a>
             </span>
-            <span class="operation-btn operation-delete">
-                <img src="/images/icon/delete.png" class="operation-icon">
-                <span>删除</span>
+            <span class="operation-delete">
+                <span href="/admin/album/advert/delete" method="POST" class="operation-btn">
+                    <img src="/images/icon/delete.png" class="operation-icon">
+                    <span>删除</span>
+                </span>
             </span>
         </td>
     </tr>

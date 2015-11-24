@@ -3,6 +3,7 @@
 @section( 'styles' )
 @parent
 <link rel="stylesheet" href="/dist/admin/css/common/edit-area-table.css">
+<link rel="stylesheet" href="/dist/admin/css/pages/offical/manage-resource.css">
 @stop
 
 @section( 'edit-area' )
@@ -23,7 +24,7 @@
         @endforeach
     @endif
     </select>
-    <span class="operation-new"></span>
+    <a href="/admin/official/resource/add" class="operation-new"></a>
 </div>
 
 <table class="edit-area-body">
@@ -56,16 +57,21 @@
             {{$resource->url}}
         </td>
         <td class="edit-area-item resource-order">
-            {{$resource->sequence}}            
+            {{$resource->sequence}}
         </td>
         <td class="edit-area-item edit-area-item-operation">
-            <span class="operation-btn operation-edit">
-                <img src="/images/icon/edit.png" class="operation-icon">
-                <span>编辑</span>
+            <input name="resource_id" type="hidden" value="{{{ $resource->id }}}" id="operation-id">
+            <span class="operation-edit">
+                <a href="/admin/official/resource/edit?resource_id={{{ $resource->id }}}" class="operation-btn">
+                    <img src="/images/icon/edit.png" class="operation-icon">
+                    <span>编辑</span>
+                </a>
             </span>
-            <span class="operation-btn operation-delete">
-                <img src="/images/icon/delete.png" class="operation-icon">
-                <span>删除</span>
+            <span class="operation-delete">
+                <span href="/admin/official/resource/delete" method="POST" class="operation-btn">
+                    <img src="/images/icon/delete.png" class="operation-icon">
+                    <span>删除</span>
+                </span>
             </span>
         </td>
     </tr>

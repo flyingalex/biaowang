@@ -17,7 +17,7 @@ $ ()->
     _sub_menu_links.removeClass 'active-link'
 
     # 当前页面所属子菜单项高亮显示
-    active_sub_menu_link _three_level_menu_item_links, window.location.href
+    active_sub_menu_link _three_level_menu_item_links, window.location.href.split('?')[0]
 
     # 主菜单项点击事件
     _dropdown_btn_titles.on 'click', ( event )->

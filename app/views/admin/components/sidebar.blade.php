@@ -96,22 +96,20 @@
                     </ul>
                     <!-- 三级下拉菜单 end -->
                 </li>
-                <!--
                 <li class="sub-menu-link-wrap">
-                    <a href="#" class="sub-menu-link active-link">广告管理</a>
+                    <a href="/admin/vote/advert/manage" class="sub-menu-link active-link">广告管理</a>
                     <ul class="three-level-menu">
                         <li class="three-level-menu-item">
-                            <a href="#" class="three-level-menu-item-link">添加广告</a>
+                            <a href="/admin/vote/advert/add" class="three-level-menu-item-link">添加广告</a>
                         </li>
                         <li class="three-level-menu-item">
-                            <a href="#" class="three-level-menu-item-link">编辑广告</a>
+                            <a href="/admin/vote/advert/edit" class="three-level-menu-item-link">编辑广告</a>
                         </li>
                         <li class="three-level-menu-item">
-                            <a href="#" class="three-level-menu-item-link">广告管理</a>
+                            <a href="/admin/vote/advert/manage" class="three-level-menu-item-link">广告管理</a>
                         </li>
                     </ul>
                 </li>
-                -->
             </ul>
         </li>
         <li class="sub-menu">
@@ -168,22 +166,20 @@
                     </ul>
                     <!-- 三级下拉菜单 end -->
                 </li>
-                <!--
                 <li class="sub-menu-link-wrap">
-                    <a href="#" class="sub-menu-link">广告图片</a>
+                    <a href="/admin/album/advert/manage" class="sub-menu-link">广告管理</a>
                     <ul class="three-level-menu">
                         <li class="three-level-menu-item">
-                            <a href="#" class="three-level-menu-item-link">添加广告</a>
+                            <a href="/admin/album/advert/add" class="three-level-menu-item-link">添加广告</a>
                         </li>
                         <li class="three-level-menu-item">
-                            <a href="#" class="three-level-menu-item-link">编辑广告</a>
+                            <a href="/admin/album/advert/edit" class="three-level-menu-item-link">编辑广告</a>
                         </li>
                         <li class="three-level-menu-item">
-                            <a href="#" class="three-level-menu-item-link">广告管理</a>
+                            <a href="/admin/album/advert/manage" class="three-level-menu-item-link">广告管理</a>
                         </li>
                     </ul>
                 </li>
-                -->
             </ul>
         </li>
         <li class="sub-menu">
