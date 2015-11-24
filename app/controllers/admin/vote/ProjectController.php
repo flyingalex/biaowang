@@ -18,7 +18,7 @@ class ProjectController extends BaseController{
 
 	public function manage()
 	{	
-		$projects = Project::select('id','title','sign_up_total','vote_total','display')->get();
+		$projects = Project::select('id','title','sign_up_total','vote_total','view_total','display')->get();
 		return View::make('admin.pages.vote.project.manage-project')->with(['projects'=>$projects]);
 	}
 

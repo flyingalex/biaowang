@@ -83,7 +83,7 @@ Route::group(array('prefix'=>'admin'), function(){
 			//标题模块
 			Route::group(array('prefix'=>'title'),function(){
 				//编辑
-				Route::get('edit','TitleController@titleEdit');
+				Route::get('manage','TitleController@titleEdit');
 				//栏目标题-编辑
 				Route::post('title-edit','TitleController@edit');	
 				//干货版块标题－编辑
