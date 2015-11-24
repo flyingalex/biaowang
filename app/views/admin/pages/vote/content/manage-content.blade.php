@@ -27,7 +27,7 @@
     </tr>
     @if( isset( $works ) )
         @foreach( $works as $work )
-    <tr class="edit-area-row">
+    <tr class="edit-area-row" id="row-{{ $work->id }}">
         <td class="edit-area-item content-picture">
             <div class="picture-wrap">
                 <div class="picture-mask"></div>
@@ -47,7 +47,7 @@
             {{$work->project}}
         </td>
         <td class="edit-area-item edit-area-item-operation">
-            <input name="work_id" type="hidden" value="{{{ $work->id }}}" id="operation-id">
+            <input name="work_id" type="hidden" value="{{{ $work->id }}}" class="operation-id">
             <span class="operation-edit">
                 <a href="/admin/vote/content/edit?work_id={{{ $work->id }}}" class="operation-btn">
                     <img src="/images/icon/edit.png" class="operation-icon">
@@ -55,7 +55,7 @@
                 </a>
             </span>
             <span class="operation-delete">
-                <span href="/admin/vote/content/delete" method="POST" class="operation-btn">
+                <span action="/admin/vote/content/delete" method="POST" class="operation-btn">
                     <img src="/images/icon/delete.png" class="operation-icon">
                     <span>删除</span>
                 </span>

@@ -27,7 +27,7 @@
 
     @if( isset( $projects ) )
         @foreach( $projects as $project )
-    <tr class="edit-area-row">
+    <tr class="edit-area-row" id="row-{{ $project->id }}">
         <td class="edit-area-item project-title">
             {{$project->title}}
         </td>
@@ -38,7 +38,7 @@
             {{$project->view_total}}
         </td>
         <td class="edit-area-item edit-area-item-operation">
-            <input name="project_id" type="hidden" value="{{{ $project->id }}}" id="operation-id">
+            <input name="project_id" type="hidden" value="{{{ $project->id }}}" class="operation-id">
             <span class="operation-edit">
                 <a href="/admin/vote/project/edit?project_id={{{ $project->id }}}" class="operation-btn">
                     <img src="/images/icon/edit.png" class="operation-icon">
@@ -46,21 +46,21 @@
                 </a>
             </span>
             <span class="operation-delete">
-                <span href="/admin/vote/project/delete" method="POST" class="operation-btn">
+                <span action="/admin/vote/project/delete" method="POST" class="operation-btn">
                     <img src="/images/icon/delete.png" class="operation-icon">
                     <span>删除</span>
                 </span>
             </span>
             @if( $project->display )
             <span class="operation-btn operation-open">
-                <span href="/admin/vote/project/display" method="POST" class="operation-btn">
+                <span action="/admin/vote/project/display" method="POST" class="operation-btn">
                     <img src="/images/icon/close.png" class="operation-icon">
-                    <span>删除</span>
+                    <span>开启</span>
                 </span>
             </span>
             @else
             <span class="operation-btn operation-close">
-                <span href="/admin/vote/project/display" method="POST" class="operation-btn">
+                <span action="/admin/vote/project/display" method="POST" class="operation-btn">
                     <img src="/images/icon/close.png" class="operation-icon">
                     <span>关闭</span>
                 </span>

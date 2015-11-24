@@ -44,7 +44,7 @@
         
     @if( isset( $resources ) )
         @foreach( $resources as $resource )
-    <tr class="edit-area-row">
+    <tr class="edit-area-row" id="row-{{ $resource->id }}">
         <td class="edit-area-item resource-picture">
             <div class="picture-wrap">
                 <div class="picture-mask"></div>
@@ -64,7 +64,7 @@
             {{$resource->sequence}}
         </td>
         <td class="edit-area-item edit-area-item-operation">
-            <input name="resource_id" type="hidden" value="{{{ $resource->id }}}" id="operation-id">
+            <input name="resource_id" type="hidden" value="{{{ $resource->id }}}" class="operation-id">
             <span class="operation-edit">
                 <a href="/admin/official/resource/edit?resource_id={{{ $resource->id }}}" class="operation-btn">
                     <img src="/images/icon/edit.png" class="operation-icon">
@@ -72,7 +72,7 @@
                 </a>
             </span>
             <span class="operation-delete">
-                <span href="/admin/official/resource/delete" method="POST" class="operation-btn">
+                <span action="/admin/official/resource/delete" method="POST" class="operation-btn">
                     <img src="/images/icon/delete.png" class="operation-icon">
                     <span>删除</span>
                 </span>

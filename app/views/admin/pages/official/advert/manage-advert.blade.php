@@ -26,7 +26,7 @@
     </tr>
     @if( isset( $adverts ) )
         @foreach( $adverts as $advert)
-    <tr class="edit-area-row">
+    <tr class="edit-area-row" id="row-{{ $advert->id }}">
         <td class="edit-area-item advert-picture">
             <div class="picture-wrap">
                 <div class="picture-mask"></div>
@@ -43,7 +43,7 @@
             {{$advert->sequence}}
         </td>
         <td class="edit-area-item edit-area-item-operation">
-            <input name="advert_id" type="hidden" value="{{{ $advert->id }}}" id="operation-id">
+            <input name="advert_id" type="hidden" value="{{{ $advert->id }}}" class="operation-id">
             <span class="operation-edit">
                 <a href="/admin/official/advert/edit?advert_id={{{ $advert->id }}}" class="operation-btn">
                     <img src="/images/icon/edit.png" class="operation-icon">
@@ -51,7 +51,7 @@
                 </a>
             </span>
             <span class="operation-delete">
-                <span href="/admin/official/advert/delete" method="POST" class="operation-btn">
+                <span action="/admin/official/advert/advert-delete" method="POST" class="operation-btn">
                     <img src="/images/icon/delete.png" class="operation-icon">
                     <span>删除</span>
                 </span>
@@ -107,13 +107,18 @@
             {{$activity_advert->sequence}}
         </td>
         <td class="edit-area-item edit-area-item-operation">
-            <span class="operation-btn operation-edit">
-                <img src="/images/icon/edit.png" class="operation-icon">
-                <span>编辑</span>
+            <input name="activity_id" type="hidden" value="{{{ $activity_advert->id }}}" class="operation-id">
+            <span class="operation-edit">
+                <a href="/admin/official/advert/edit?activity_id={{{ $activity_advert->id }}}" class="operation-btn">
+                    <img src="/images/icon/edit.png" class="operation-icon">
+                    <span>编辑</span>
+                </a>
             </span>
-            <span class="operation-btn operation-delete">
-                <img src="/images/icon/delete.png" class="operation-icon">
-                <span>删除</span>
+            <span class="operation-delete">
+                <span action="/admin/official/advert/activity-delete" method="POST" class="operation-btn">
+                    <img src="/images/icon/delete.png" class="operation-icon">
+                    <span>删除</span>
+                </span>
             </span>
         </td>
     </tr>

@@ -27,7 +27,7 @@
     
      @if( isset( $adverts ) )
         @foreach( $adverts as $advert)
-    <tr class="edit-area-row">
+    <tr class="edit-area-row" id="row-{{ $advert->id }}">
         <td class="edit-area-item advert-picture">
             <div class="picture-wrap">
                 <div class="picture-mask"></div>
@@ -44,7 +44,7 @@
             {{$advert->sequence}}
         </td>
         <td class="edit-area-item edit-area-item-operation">
-            <input name="advert_id" type="hidden" value="{{{ $advert->id }}}" id="operation-id">
+            <input name="advert_id" type="hidden" value="{{{ $advert->id }}}" class="operation-id">
             <span class="operation-edit">
                 <a href="/admin/vote/advert/edit?advert_id={{{ $advert->id }}}" class="operation-btn">
                     <img src="/images/icon/edit.png" class="operation-icon">
@@ -52,7 +52,7 @@
                 </a>
             </span>
             <span class="operation-delete">
-                <span href="/admin/vote/advert/delete" method="POST" class="operation-btn">
+                <span action="/admin/official/advert/advert-delete" method="POST" class="operation-btn">
                     <img src="/images/icon/delete.png" class="operation-icon">
                     <span>删除</span>
                 </span>
