@@ -1,5 +1,5 @@
 <?php  
-class AdvertController extends Basecontroller{
+class AdvertController extends BaseController{
 
 	public function add()
 	{
