@@ -38,9 +38,7 @@
     <li class="edit-area-row">
         <label class="edit-area-label">投票类型</label>
         <select name="" class="edit-area-select">
-            <option value="">类型1</option>
-            <option value="">类型2</option>
-            <option value="">类型3</option>
+            <option value="">单选项目</option>
         </select>
     </li>
     <li class="edit-area-row edit-area-textarea-row">

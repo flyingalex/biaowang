@@ -1,7 +1,7 @@
 
 $ ()->
 
-    $( '.edit-area-item-operation' ).on 'click', '.operation-btn', ( event )->
+    $( '.edit-area-row' ).on 'click', '.operation-btn', ( event )->
         _this = $ this
 
         _post_info_element = _this.parent().siblings( '.operation-id' )
@@ -15,8 +15,16 @@ $ ()->
                 response = $.parseJSON response
 
                 if response.errCode is '0'
-                    alert '删除成功'
-                    _this.parents( '.edit-area-row' ).remove()
+
+                    _success_message = _this.attr 'success-message' || '操作成功'
+                    alert _success_message
+
+                    _success_action = _this.attr 'success-action'
+
+                    if _success_action is 'delete'
+                        _this.parents( '.edit-area-row' ).remove()
+                    else if _success_action is 'refresh'
+                        window.location.reload();
                 else
                     alert response.message
 

@@ -51,7 +51,7 @@
                 </a>
             </span>
             <span class="operation-delete">
-                <span action="/admin/album/video/delete" method="POST" class="operation-btn">
+                <span action="/admin/album/video/delete" method="POST" success-action="delete" success-message="删除成功" error-message="删除成功" class="operation-btn">
                     <img src="/images/icon/delete.png" class="operation-icon">
                     <span>删除</span>
                 </span>
