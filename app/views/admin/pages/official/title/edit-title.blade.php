@@ -62,7 +62,7 @@
     @endif
 
 
-    <button class="operation-confirm btn">发布</button>
+    <input type="submit" class="operation-confirm btn" value="发布">
 </ul>
 
 </form>
@@ -85,7 +85,7 @@
         @foreach( $column_titles as $column_title )
     <li class="edit-area-row">
         <label class="edit-area-label">分类{{$column_title->id}}</label>
-        <input type="hidden" name="news_id" value="{{ $new->id }}" class="operation-id">
+        <input type="hidden" name="news_id" value="{{ $column_title->id }}" class="operation-id">
         <input type="text" class="edit-area-input"  value="{{$column_title->classification}}" readonly="readonly">
         <span class="operation-wrap">
             <button class="operation-edit-blue-btn operation-btn operation-blue-btn btn">编辑</button>
@@ -95,7 +95,7 @@
         @endforeach
     @endif
 
-    <button class="operation-confirm btn">发布</button>
+    <input type="submit" class="operation-confirm btn" value="发布">
 </ul>
 
 </form>

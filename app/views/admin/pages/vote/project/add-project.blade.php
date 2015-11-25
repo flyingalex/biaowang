@@ -15,49 +15,51 @@
     <h3 class="edit-area-title">基本内容</h3>
 </div>
 
-<form action="" class="edit-area-form">
+<form action="/admin/vote/project/create-edit" method="POST" target="form-target" class="edit-area-form">
 
 <ul class="edit-area-body">
 
     <li class="edit-area-row">
         <label class="edit-area-label">投票主题</label>
-        <input type="text" class="edit-area-input">
+        <input name="title" type="text" class="edit-area-input">
     </li>
     <li class="edit-area-row">
         <label class="edit-area-label">投票时间</label>
-        <input type="text" class="edit-area-date-input">
+        <input name="vote_start" type="text" class="edit-area-date-input">
         <span>------</span>
-        <input type="text" class="edit-area-date-input">
+        <input name="vote_stop" type="text" class="edit-area-date-input">
     </li>
     <li class="edit-area-row">
         <label class="edit-area-label">报名时间</label>
-        <input type="text" class="edit-area-date-input">
+        <input name="sign_up_start" type="text" class="edit-area-date-input">
         <span>------</span>
-        <input type="text" class="edit-area-date-input">
+        <input name="sign_up_stop" type="text" class="edit-area-date-input">
     </li>
     <li class="edit-area-row">
         <label class="edit-area-label">投票类型</label>
-        <select name="" class="edit-area-select">
+        <select class="edit-area-select">
             <option value="">单选项目</option>
         </select>
     </li>
     <li class="edit-area-row edit-area-textarea-row">
         <label class="edit-area-label">活动介绍</label>
-        <textarea name="" class="edit-area-textarea"></textarea>
+        <textarea name="content" class="edit-area-textarea"></textarea>
     </li>
     <li class="edit-area-row edit-area-textarea-row">
         <label class="edit-area-label">活动规则</label>
-        <textarea name="" class="edit-area-textarea"></textarea>
+        <textarea name="activity_rule" class="edit-area-textarea"></textarea>
     </li>
     <li class="edit-area-row edit-area-textarea-row">
         <label class="edit-area-label">奖项设置</label>
-        <textarea name="" class="edit-area-textarea"></textarea>
+        <textarea name="award_site" class="edit-area-textarea"></textarea>
     </li>
     
-    <button class="operation-confirm btn">发布</button>
+    <input type="submit" class="operation-confirm btn" value="发布">
 </ul>
 
 </form>
+
+<iframe name="form-target" id="form-target" redirect-url="/admin/vote/project/manage"></iframe>
 
 </div>
 <!-- 创建项目 end -->

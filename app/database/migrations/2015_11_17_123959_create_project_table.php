@@ -15,9 +15,9 @@ class CreateProjectTable extends Migration {
 		Schema::create('project', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->integer('sign_up_total');	//已报名人数
-			$table->integer('vote_total');		//投票人数	
-			$table->integer('view_total');		//访问量
+			$table->integer('sign_up_total')->default(0);	//已报名人数
+			$table->integer('vote_total')->default(0);		//投票人数	
+			$table->integer('view_total')->default(0);		//访问量
 			$table->string('title');			//投票标题
 			// $table->date('vote_close');			//投票截止
 			$table->text('content');			//活动介绍

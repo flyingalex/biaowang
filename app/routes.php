@@ -129,7 +129,7 @@ Route::group(array('prefix'=>'admin'), function(){
 				//管理
 				Route::get('manage','ProjectController@manage');
 				//项目创建和编辑
-				Route::post('cretae-edit','ProjectController@createAndEdit');
+				Route::post('create-edit','ProjectController@createAndEdit');
 				//项目删除
 				Route::post('delete','ProjectController@delete');
 				//项目是否显示

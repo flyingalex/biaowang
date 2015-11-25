@@ -11,7 +11,7 @@
 <div class="edit-area-container advert-edit-area-wrap">
 
 <div class="edit-area-top clearfix">
-    <h3 class="edit-area-title">选择类别</h3>
+    <h3 class="edit-area-title">活动广告图片</h3>
 </div>
 
 <form action="" class="edit-area-form">
@@ -20,17 +20,22 @@
 
     <li class="edit-area-row">
         <label class="edit-area-label">标题</label>
-        <input type="text" class="edit-area-input" value="{{$advert->title}}">
+        <input name="title" type="text" class="edit-area-input">
+    </li>
+
+    <li class="edit-area-row">
+        <label class="edit-area-label">副标题</label>
+        <input name="subtitle" type="text" class="edit-area-input">
     </li>
 
     <li class="edit-area-row">
         <label class="edit-area-label">排序</label>
-        <input type="text" class="edit-area-input" value="{{$advert->sequence}}">
+        <input name="sequence" type="text" class="edit-area-input">
     </li>
     
     <li class="edit-area-row">
         <label class="edit-area-label">外链</label>
-        <input type="text" class="edit-area-input" value="{{$advert->url}}">
+        <input name="url" type="text" class="edit-area-input">
     </li>
     
     <li class="edit-area-picture-row">
@@ -41,7 +46,7 @@
         </div>
     </li>
     
-    <button class="operation-confirm btn">发布</button>
+    <input type="submit" class="operation-confirm btn" value="发布">
 </ul>
 
 </form>

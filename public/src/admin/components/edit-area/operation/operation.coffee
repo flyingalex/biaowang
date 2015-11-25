@@ -45,6 +45,20 @@ $ ()->
         else
             alert _response.message
 
+    $('.operation-add-blue-btn').on 'click', ( event )->
+
+        _this = $ this
+
+        $.post _this.attr( 'action' ), _this.parent().siblings( '.edit-area-input' ).serialize(), ( response )->
+
+            response = $.parseJSON response
+
+            if response.errCode is '0'
+                alert '添加成功'
+                window.location.reload()
+            else
+                alert response.message
+
     $('.operation-edit-blue-btn').on 'click', ( event )->
 
         $(this).parent().siblings( '.edit-area-input' ).prop 'readonly', ( i, val )->

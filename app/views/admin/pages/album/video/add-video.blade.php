@@ -44,7 +44,7 @@
          </div>
     </li>
     
-    <button class="operation-confirm btn">发布</button>
+    <input type="submit" class="operation-confirm btn" value="发布">
 </ul>
 
 </form>
