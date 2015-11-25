@@ -51,10 +51,10 @@
                             <a href="/admin/official/advert/edit" class="three-level-menu-item-link">编辑广告</a>
                         </li>
                         <li class="three-level-menu-item">
-                            <a href="/admin/advert/activity-add" class="three-level-menu-item-link">添加活动广告</a>
+                            <a href="/admin/official/advert/activity-add" class="three-level-menu-item-link">添加活动广告</a>
                         </li>
                         <li class="three-level-menu-item">
-                            <a href="/admin/advert/activity-edit" class="three-level-menu-item-link">编辑活动广告</a>
+                            <a href="/admin/official/advert/activity-edit" class="three-level-menu-item-link">编辑活动广告</a>
                         </li>
                         <li class="three-level-menu-item">
                             <a href="/admin/official/advert/manage" class="three-level-menu-item-link">广告管理</a>
