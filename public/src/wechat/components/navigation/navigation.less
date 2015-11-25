@@ -1,0 +1,40 @@
+
+@import './../../common/settings.less';
+
+@navigation-height: unit( 100px / @rem-design-unit, rem );
+@navigation-margin-left: unit( 120px / @rem-design-unit, rem );
+
+.navigation-wrap{
+    @padding-vertical: unit( 10px / @rem-design-unit, rem );
+    padding-top: @padding-vertical;
+    padding-bottom: @padding-vertical;
+    background: url( '/images/navigation-bg.png' ) no-repeat center;
+}
+
+.navigation-container{    
+    margin: 0 auto;
+    width: unit( 660px / @rem-design-unit, rem );
+}
+
+.navigation-link{
+    text-align: center;
+    display: inline-block;
+    width: @navigation-height;
+    height: @navigation-height;
+    margin-left: @navigation-margin-left / 2;
+    margin-right: @navigation-margin-left / 2;
+}
+
+.navigation-img-wrap{
+    line-height: unit( 60px / @rem-design-unit, rem );
+}
+
+.navigation-img{
+    max-height: 100%;
+}
+
+.navigation-text{
+    color: #004493;
+    font-size: unit( 22px / @rem-design-unit, rem );
+    line-height: unit( 40px / @rem-design-unit, rem );
+}

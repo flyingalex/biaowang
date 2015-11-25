@@ -1,0 +1,26 @@
+
+@import './../../common/settings.less';
+
+@news-height: unit( 50px / @rem-design-unit, rem );
+
+.news-container{
+    overflow: hidden;
+    height: @news-height;
+    background: url( '/images/news-bg.png' );
+}
+
+.news-item{
+    color: #004493;
+    line-height: @news-height;
+    font-size: unit( 24px / @rem-design-unit, rem );
+    text-indent: unit( 20px / @rem-design-unit, rem );
+}
+
+.news-icon{
+    height: unit( 35px / @rem-design-unit, rem );
+    vertical-align: text-bottom;
+}
+
+.news-content{
+    margin-left: unit( 12px / @rem-design-unit, rem );
+}
