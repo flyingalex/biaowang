@@ -38,7 +38,7 @@ class ActivityAdvertController extends BaseController{
 		if( InputController::isNullInArray( $arr ) )
 			return Response::json( BiaoException::$parameterIncomplete );
 		//排序号唯一性
-		if( !is_int( $sequence ) )
+		if( !is_numeric( $sequence ) )
 			return Response::json( BiaoException::$isNotInt );
 		$sequences = ActivityAdvertisement::select('id','sequence')->get();
 		if( InputController::isNotUnique($activity_advert->id,$sequence,$sequences ) )
