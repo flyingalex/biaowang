@@ -36,8 +36,10 @@ module.exports = (grunt)->
                     'dist/admin/js/component.js': [
                         'src/admin/components/sidebar/sidebar.coffee'
                         'src/admin/components/content/content.coffee'
+                        'src/admin/components/edit-area/common.coffee'
                         'src/admin/components/edit-area/operation/operation.coffee'
                     ]
+                    'dist/admin/js/pages/add-project.js': ['src/admin/pages/vote/project/project.coffee']
                 }
 
         watch:

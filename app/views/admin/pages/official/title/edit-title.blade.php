@@ -20,35 +20,43 @@
     @if( isset( $title ) )
     <li class="edit-area-row">
         <label class="edit-area-label">标题1</label>
-        <input type="text" class="edit-area-input" value="{{$title->middle_title}}">
+        <input type="text" class="edit-area-input" value="{{$title->middle_title}}" readonly="readonly">
+        <!--
         <span class="operation-wrap">
             <button class="operation-edit operation-btn operation-blue-btn btn">编辑</button>
             <button class="operation-modify operation-btn operation-blue-btn btn">确认</button>
         </span>
+        -->
     </li>
     <li class="edit-area-row">
         <label class="edit-area-label"></label>
-        <input type="text" class="edit-area-input" value="{{$title->middle_subtitle}}">
+        <input type="text" class="edit-area-input" value="{{$title->middle_subtitle}}" readonly="readonly">
+        <!--
         <span class="operation-wrap">
             <button class="operation-edit operation-btn operation-blue-btn btn">编辑</button>
             <button class="operation-modify operation-btn operation-blue-btn btn">确认</button>
         </span>
+        -->
     </li>
     <li class="edit-area-row">
         <label class="edit-area-label">标题2</label>
-        <input type="text" class="edit-area-input" value="{{$title->bottom_title}}">
+        <input type="text" class="edit-area-input" value="{{$title->bottom_title}}" readonly="readonly">
+        <!--
         <span class="operation-wrap">
             <button class="operation-edit operation-btn operation-blue-btn btn">编辑</button>
             <button class="operation-modify operation-btn operation-blue-btn btn">确认</button>
         </span>
+        -->
     </li>
     <li class="edit-area-row">
         <label class="edit-area-label"></label>
-        <input type="text" class="edit-area-input" value="{{$title->bottom_subtitle}}">
+        <input type="text" class="edit-area-input" value="{{$title->bottom_subtitle}}" readonly="readonly">
+        <!--
         <span class="operation-wrap">
             <button class="operation-edit operation-btn operation-blue-btn btn">编辑</button>
             <button class="operation-modify operation-btn operation-blue-btn btn">确认</button>
         </span>
+        -->
 
     </li>
     @endif
@@ -77,10 +85,11 @@
         @foreach( $column_titles as $column_title )
     <li class="edit-area-row">
         <label class="edit-area-label">分类{{$column_title->id}}</label>
-        <input type="text" class="edit-area-input"  value="{{$column_title->classification}}">
+        <input type="hidden" name="news_id" value="{{ $new->id }}" class="operation-id">
+        <input type="text" class="edit-area-input"  value="{{$column_title->classification}}" readonly="readonly">
         <span class="operation-wrap">
-            <button class="operation-edit operation-btn operation-blue-btn btn">编辑</button>
-            <button class="operation-modify operation-btn operation-blue-btn btn">确认</button>
+            <button class="operation-edit-blue-btn operation-btn operation-blue-btn btn">编辑</button>
+            <button class="operation-modify-blue-btn operation-btn operation-blue-btn btn">确认</button>
         </span>
     </li>
         @endforeach

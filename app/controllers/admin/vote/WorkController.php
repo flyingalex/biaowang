@@ -3,7 +3,7 @@ class WorkController extends BaseController{
 
 	public function add()
 	{	
-		return View::make('admin.pages.vote.content.add-content');
+		return View::make('admin.pages.vote.content.add-content')->with([ 'projects' => Project::all() ]);
 	}
 
 	public function edit()
@@ -56,7 +56,7 @@ class WorkController extends BaseController{
 		
 		if( !empty( $vote_number ) )
 		{
-			if( !is_int( $vote_number ) )
+			if( !is_numeric( $vote_number ) )
 				return Response::json( BiaoException::$isNotInt );
 		}
 

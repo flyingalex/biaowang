@@ -11,18 +11,21 @@
 <div class="edit-area-container advert-edit-area-wrap">
 
 <div class="edit-area-top clearfix">
-    <h3 class="edit-area-title">广告图片</h3>
+    <h3 class="edit-area-title">活动广告图片</h3>
 </div>
 
-<form action="/admin/official/advert/advert-create-edit" method="POST" enctype="multipart/form-data" target="form-target" class="edit-area-form">
+<form action="/admin/official/advert/activity-create-edit" method="POST" enctype="multipart/form-data" target="form-target" class="edit-area-form">
 
 <ul class="edit-area-body">
-
-    <input type="hidden" name="type" value="2">
 
     <li class="edit-area-row">
         <label class="edit-area-label">标题</label>
         <input name="title" type="text" class="edit-area-input">
+    </li>
+
+    <li class="edit-area-row">
+        <label class="edit-area-label">副标题</label>
+        <input name="subtitle" type="text" class="edit-area-input">
     </li>
 
     <li class="edit-area-row">

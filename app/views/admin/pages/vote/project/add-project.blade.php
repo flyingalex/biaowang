@@ -3,6 +3,7 @@
 @section( 'styles' )
 @parent
 <link rel="stylesheet" href="/dist/admin/css/common/edit-area-list.css">
+<link rel="stylesheet" href="/lib/styles/jquery-ui.min.css">
 @stop
 
 @section( 'edit-area' )
@@ -67,4 +68,6 @@
 
 @section( 'scripts' )
 @parent
+<script type="text/javascript" src="/lib/scripts/jquery-ui.min.js"></script>
+<script type="text/javascript" src="/dist/admin/js/pages/add-project.js"></script>
 @stop
