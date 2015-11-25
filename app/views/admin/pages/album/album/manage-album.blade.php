@@ -51,7 +51,7 @@
                 </span>
             </span>
             <span class="operation-manage">
-                <a action="/admin/album/photo/manage?album_id={{{ $album->id }}}" class="operation-btn">
+                <a href="/admin/album/photo/manage?album_id={{{ $album->id }}}" class="operation-btn">
                     <img src="/images/icon/edit.png" class="operation-icon">
                     <span>管理</span>
                 </a>

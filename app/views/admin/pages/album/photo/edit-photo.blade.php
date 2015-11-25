@@ -17,6 +17,8 @@
 <form action="/admin/album/photo/create-edit" method="POST" enctype="multipart/form-data" target="form-target" class="edit-area-form">
 
 <ul class="edit-area-body">
+
+    <input type="hidden" name="photo_id" value="{{ $photo->id }}">
     
     <li class="edit-area-row">
         <label class="edit-area-label">标题</label> 
@@ -25,7 +27,7 @@
 
     <li class="edit-area-row">
         <label class="edit-area-label">栏目</label>
-        <input type="text" class="edit-area-input" value="标王相册">
+        <input type="text" class="edit-area-input" value="标王相册" readonly="readonly">
     </li>
     
     <li class="edit-area-row">
