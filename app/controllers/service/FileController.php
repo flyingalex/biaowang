@@ -2,7 +2,7 @@
  class FileController extends BaseController{
 
  	// const SIZE = '11024';
- 	const SIZE = '10240';
+ 	const SIZE = '1024';
  	//文件上传
  	public static function upload( $file, $path )
  	{	

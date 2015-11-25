@@ -20,3 +20,4 @@ Thumbs.db
 *.log
 /.idea/
 /app/views/test.blade.php
+/public/home.css
