@@ -34,7 +34,7 @@
     </li>
     
     <li class="edit-area-picture-row">
-        <label class="edit-area-label">缩略图</label>
+        <label class="edit-area-label">图片</label>
         <div class="picture-wrap">
             <div class="picture-mask"></div>
             <img src="{{$advert->image_url}}" class="thumbnail">

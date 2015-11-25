@@ -17,9 +17,13 @@
     @if( isset( $column_titles ) )
         @foreach( $column_titles as $column_title)
             @if( $column_title->id == $column_title_id )
-                <option value="{{$column_title->id}}" selected="selected"> {{$column_title->classification}} </option>
+                <option value="/admin/official/resource/manage?column_title_id={{ $column_title->id }}" selected="selected">
+                    {{$column_title->classification}}
+                </option>
             @else
-                <option value="{{$column_title->id}}" > {{$column_title->classification}} </option>
+                <option value="/admin/official/resource/manage?column_title_id={{ $column_title->id }}">
+                    {{$column_title->classification}}
+                </option>
             @endif
         @endforeach
     @endif
@@ -40,7 +44,7 @@
         
     @if( isset( $resources ) )
         @foreach( $resources as $resource )
-    <tr class="edit-area-row">
+    <tr class="edit-area-row" id="row-{{ $resource->id }}">
         <td class="edit-area-item resource-picture">
             <div class="picture-wrap">
                 <div class="picture-mask"></div>
@@ -60,7 +64,7 @@
             {{$resource->sequence}}
         </td>
         <td class="edit-area-item edit-area-item-operation">
-            <input name="resource_id" type="hidden" value="{{{ $resource->id }}}" id="operation-id">
+            <input name="resource_id" type="hidden" value="{{{ $resource->id }}}" class="operation-id">
             <span class="operation-edit">
                 <a href="/admin/official/resource/edit?resource_id={{{ $resource->id }}}" class="operation-btn">
                     <img src="/images/icon/edit.png" class="operation-icon">
@@ -68,7 +72,7 @@
                 </a>
             </span>
             <span class="operation-delete">
-                <span href="/admin/official/resource/delete" method="POST" class="operation-btn">
+                <span action="/admin/official/resource/delete" method="POST" class="operation-btn">
                     <img src="/images/icon/delete.png" class="operation-icon">
                     <span>删除</span>
                 </span>
@@ -87,4 +91,5 @@
 
 @section( 'scripts' )
 @parent
+<script type="text/javascript" src="/dist/admin/js/pages/manage-resource.js"></script>
 @stop

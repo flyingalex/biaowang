@@ -21,11 +21,12 @@
         @foreach( $news as $new )
     <li class="edit-area-row">
         <label class="edit-area-label">新闻{{$new->id}}</label>
-        <input type="text" class="edit-area-input" value="{{$new->content}}">
+        <input type="hidden" name="news_id" value="{{ $new->id }}" class="operation-id">
+        <input type="text" name="content" class="edit-area-input" value="{{$new->content}}" readonly="readonly">
         <span class="operation-wrap">
-            <button class="operation-edit operation-btn operation-blue-btn btn">编辑</button>
-            <button class="operation-delete operation-btn operation-blue-btn btn">删除</button>
-            <button class="operation-modify operation-btn operation-blue-btn btn">确认</button>
+            <button class="operation-edit-blue-btn operation-btn operation-blue-btn btn">编辑</button>
+            <button class="operation-delete-blue-btn operation-btn operation-blue-btn btn" action="/admin/system/news-delete" method="POST">删除</button>
+            <button class="operation-modify-blue-btn operation-btn operation-blue-btn btn" action="/admin/system/news-create-edit" method="POST">确认</button>
         </span>
     </li>
         @endforeach

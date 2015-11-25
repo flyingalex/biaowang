@@ -80,7 +80,7 @@ class PhotographController extends BaseController{
 
 	public function delete()
 	{
-		$phpto = Photograph::find( Input::get('phpto_id') );
+		$phpto = Photograph::find( Input::get('photo_id') );
 		if( !isset( $phpto ) )
 			return Response::json( BiaoException::$notExist );
 		$phpto->delete();

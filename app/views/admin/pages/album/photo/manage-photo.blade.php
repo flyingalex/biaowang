@@ -26,7 +26,7 @@
     
     @if( isset( $photos ) )
         @foreach( $photos as $photo )
-    <tr class="edit-area-row">
+    <tr class="edit-area-row" id="row-{{ $photo->id }}">
         <td class="edit-area-item">
             <div class="picture-wrap">
                 <div class="picture-mask"></div>
@@ -40,7 +40,7 @@
             {{$photo->album_title}}
         </td>
         <td class="edit-area-item edit-area-item-operation">
-            <input name="photo_id" type="hidden" value="{{{ $photo->id }}}" id="operation-id">
+            <input name="photo_id" type="hidden" value="{{{ $photo->id }}}" class="operation-id">
             <span class="operation-edit">
                 <a href="/admin/album/photo/edit?photo_id={{{ $photo->id }}}" class="operation-btn">
                     <img src="/images/icon/edit.png" class="operation-icon">
@@ -48,7 +48,7 @@
                 </a>
             </span>
             <span class="operation-delete">
-                <span href="/admin/album/photo/delete" method="POST" class="operation-btn">
+                <span action="/admin/album/photo/delete" method="POST" class="operation-btn">
                     <img src="/images/icon/delete.png" class="operation-icon">
                     <span>删除</span>
                 </span>

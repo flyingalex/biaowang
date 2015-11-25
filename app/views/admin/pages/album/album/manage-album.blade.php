@@ -26,7 +26,7 @@
     
     @if( isset( $albums ) )
         @foreach( $albums as $album )
-    <tr class="edit-area-row">
+    <tr class="edit-area-row" id="row-{{ $album->id }}">
         <td class="edit-area-item">
             <div class="picture-wrap">
                 <div class="picture-mask"></div>
@@ -40,7 +40,7 @@
             标王相册
         </td>
         <td class="edit-area-item edit-area-item-operation">
-            <input name="album_id" type="hidden" value="{{{ $album->id }}}" id="operation-id">
+            <input name="album_id" type="hidden" value="{{{ $album->id }}}" class="operation-id">
             <span class="operation-edit">
                 <a href="/admin/album/album/edit?album_id={{{ $album->id }}}" class="operation-btn">
                     <img src="/images/icon/edit.png" class="operation-icon">
@@ -48,13 +48,13 @@
                 </a>
             </span>
             <span class="operation-delete">
-                <span href="/admin/album/album/delete" method="POST" class="operation-btn">
+                <span action="/admin/album/album/delete" method="POST" class="operation-btn">
                     <img src="/images/icon/delete.png" class="operation-icon">
                     <span>删除</span>
                 </span>
             </span>
-            <span class="operation-btn operation-manage">
-                <a href="/admin/album/photo/manage?album_id={{{ $album->id }}}" class="operation-btn">
+            <span class="operation-manage">
+                <a action="/admin/album/photo/manage?album_id={{{ $album->id }}}" class="operation-btn">
                     <img src="/images/icon/edit.png" class="operation-icon">
                     <span>管理</span>
                 </a>

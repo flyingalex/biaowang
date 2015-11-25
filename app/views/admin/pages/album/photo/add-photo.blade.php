@@ -14,13 +14,13 @@
     <h3 class="edit-area-title">相片</h3>
 </div>
 
-<form action="" class="edit-area-form">
+<form action="/admin/album/photo/cretae-edit" method="POST" enctype="multipart/form-data" target="form-target" class="edit-area-form">
 
 <ul class="edit-area-body">
 
     <li class="edit-area-row">
         <label class="edit-area-label">标题</label>
-        <input type="text" class="edit-area-input">
+        <input name="title" type="text" class="edit-area-input">
     </li>
 
     <li class="edit-area-row">
@@ -30,7 +30,7 @@
     
     <li class="edit-area-row">
         <label class="edit-area-label">相册</label>
-        <select name="" class="edit-area-select">
+        <select name="album_id" class="edit-area-select">
             @if( isset( $albums ) )
                 @foreach( $albums as $album )
             <option value="{{$album->id}}">{{$album->title}}</option>
@@ -40,11 +40,12 @@
     </li>
     
     <li class="edit-area-picture-row">
-        <label class="edit-area-label">相片</label>
+        <label class="edit-area-label">图片</label>
         <div class="picture-input-wrap">
-            <input type="file" class="picture-input-btn">
+            <input name="image" type="file" class="picture-input-btn">
             <div class="picture-input-holder">
-                +<br>添加图片
+                <div class="picture-input-icon">+</div>
+                <div>添加图片</div>
             </div>
          </div>
     </li>
@@ -53,6 +54,8 @@
 </ul>
 
 </form>
+
+<iframe name="form-target" id="form-target" redirect-url="/admin/album/photo/manage"></iframe>
 
 </div>
 <!-- 相片新建 end -->
