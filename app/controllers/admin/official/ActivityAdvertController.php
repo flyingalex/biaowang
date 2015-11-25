@@ -3,12 +3,17 @@ class ActivityAdvertController extends BaseController{
 
 	public function add()
 	{
-
+		return View::make('admin.pages.official.advert.add-activity-advert');
 	}
 
 	public function edit()
 	{
-		$activty_id = Input::get('activity_id');
+		// $activty_id = Input::get('activity_id');
+		$activity_id = 1;
+		$activity_advert = ActivityAdvertisement::find( $activity_id );
+		if( !isset( $activity_advert ) )
+			return View::make('errors.error')->with(['error'=>BiaoException::$notExist['message']]);
+		return View::make('admin.pages.official.advert.edit-activity-advert')->with(['activity_advert'=>$activity_advert]);
 	}
 
 	public function manage()

@@ -20,29 +20,29 @@
 
     <li class="edit-area-row">
         <label class="edit-area-label">标题</label>
-        <input name="title" type="text" class="edit-area-input">
+        <input name="title" type="text" class="edit-area-input" value="{{$activity_advert->title}}">
     </li>
 
     <li class="edit-area-row">
         <label class="edit-area-label">副标题</label>
-        <input name="subtitle" type="text" class="edit-area-input">
+        <input name="subtitle" type="text" class="edit-area-input" value="{{$activity_advert->sub_title}}">
     </li>
 
     <li class="edit-area-row">
         <label class="edit-area-label">排序</label>
-        <input name="sequence" type="text" class="edit-area-input">
+        <input name="sequence" type="text" class="edit-area-input" value="{{$activity_advert->sequence}}">
     </li>
     
     <li class="edit-area-row">
         <label class="edit-area-label">外链</label>
-        <input name="url" type="text" class="edit-area-input">
+        <input name="url" type="text" class="edit-area-input" value="{{$activity_advert->url}}">
     </li>
     
     <li class="edit-area-picture-row">
         <label class="edit-area-label">缩略图</label>
         <div class="picture-wrap">
             <div class="picture-mask"></div>
-            <img src="{{$advert->image_url}}" class="thumbnail">
+            <img src="{{$activity_advert->image_url}}" class="thumbnail">
         </div>
     </li>
     
