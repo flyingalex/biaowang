@@ -36,16 +36,18 @@
 				</div>
 			</div>
 			<div id="bottom-title resource">
-				<img class="bottom-title" src="/home/middle-title.png">
+				<img id="bottom-title" src="/home/middle-title.png">
+				<div id="resource-icon">
 				<img src="/home/class-icon.png">
 				<img src="/home/case-icon.png">
 				<img src="/home/note-icon.png">
 				<img src="/home/bang-icon-click.png">
 				<img src="/home/sign-icon.png">
 				<div class="column-title-icon"></div>
+				</div>
 			</div>
 
-			<div id="resource">
+			<div class="resource">
 				<img src="/home/notes-macbook-study-conference.jpg">
 				<p>徐小平：当创业处于十字路</p>
 				<p>活动是共同目的联合起来的</p>
