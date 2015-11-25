@@ -52,6 +52,11 @@ class ResourceController extends BaseController{
 	
 	public function createAndEdit()
 	{	
+		$column_title_id 	= Input::get('column_title_id');
+		$column_title = ColumnTitle::find( $column_title_id );
+		if( !isset( $column_title ) )
+			return Response::json( BiaoException::$notExist );
+
 		if( Input::has( 'resource_id') )
 		{
 			$resource = Resource::find( Input::get('resource_id') );
@@ -60,33 +65,32 @@ class ResourceController extends BaseController{
 		}else{
 			$resource = new Resource;
 		}
-		$column_title_id 	= Input::get('column_title_id');
 		$file 				= Input::file('image');
 		$title 				= Input::get('title');
 		$brief 				= Input::get('brief');
-		$sequence 			= (int)Input::get('sequence');
+		$sequence 			= Input::get('sequence');
 		$url 				= Input::get('url');
 		//讲照片存入public目录
 		$path = public_path().'/upload/official/';
 
-		//判空
-		$arr = array( $column_title_id,$file,$title,$brief,$url );
-		if( InputController::isNullInArray( $arr ) )
-			return Response::json( BiaoException::$parameterIncomplete );
+
+		$fullArr = array( $file,$title,$brief,$url );
+		$littleArr = array( $title,$brief,$url );
+		$dataPath = '/upload/album/';
+		$result = FileController::isFileUpload($resource,$file,$fullArr,$littleArr,$path,$dataPath);
+		if( $result != 'true' )
+			return $result;
+		
 		//排序号唯一性
 		if( !is_numeric( $sequence ) )
+		{
 			return Response::json( BiaoException::$isNotInt );
-		$sequences = Resource::select('id','sequence')->get();
-		if( InputController::isNotUnique($resource->id,$sequence,$sequences ) )
-			return Response::json( BiaoException::$isNotUnique );
-		//存文件
-		try{
-			$image_url = FileController::upload( $file, $path );
-		}catch( Exception $e ){
-			return FileController::errMessage( $e->getCode() );
+		}else{
+			$sequences = Resource::select('id','sequence')->get();
+			if( InputController::isNotUnique($resource->id,$sequence,$sequences ) )
+				return Response::json( BiaoException::$isNotUnique );
 		}
 		
-		$image_url = '/upload/official/'.$image_url;
 		if( empty( $sequence ) )
 			$sequence = null;
 
@@ -95,7 +99,6 @@ class ResourceController extends BaseController{
 		$resource->title 			= $title;
 		$resource->brief 			= $brief;
 		$resource->sequence 		= $sequence;
-		$resource->image_url 		= $image_url;
 		$resource->url 				= $url;
 		if( !$resource->save())
 			return Response::json( BiaoException::$databaseErr );

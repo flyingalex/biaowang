@@ -22,7 +22,7 @@ class AlbumController extends BaseController{
 	}
 	
 	public function createAndEdit()
-	{	
+	{		
 		if( Input::has('album_id') )
 		{
 			$album = Album::find( Input::get('album_id') );
@@ -37,36 +37,12 @@ class AlbumController extends BaseController{
 		//讲照片存入public目录
 		$path = public_path().'/upload/album/';
 
-		if( isset( $album->id ) )
-		{
-			$arr = array( $file,$title );
-			if( InputController::isNullInArray( $arr ) )
-			return Response::json( BiaoException::$parameterIncomplete );
-			try{
-				$image_url = FileController::upload( $file, $path );
-			}catch( Exception $e ){
-				return FileController::errMessage( $e->getCode() );
-			}
-			$image_url = '/upload/album/'.$image_url;
-			$album->image_url = $image_url;
-		}else{
-			//判空
-			if( Input::hasFile('image'))
-			{
-				$arr = array( $file,$title );
-				try{
-					$image_url = FileController::upload( $file, $path );
-				}catch( Exception $e ){
-					return FileController::errMessage( $e->getCode() );
-				}
-				$image_url = '/upload/album/'.$image_url;
-				$album->image_url = $image_url;
-			}else{
-				$arr = array( $title );
-			}
-			if( InputController::isNullInArray( $arr ) )
-				return Response::json( BiaoException::$parameterIncomplete );
-		}
+		$fullArr = array( $title, $file );
+		$littleArr = array( $title);
+		$dataPath = '/upload/album/';
+		$result = FileController::isFileUpload($album,$file,$fullArr,$littleArr,$path,$dataPath);
+		if( $result != 'true' )
+			return $result;
 		//存
 		$album->title = $title;
 		if( !$album->save() )
