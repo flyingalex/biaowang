@@ -58,21 +58,15 @@ class PhotographController extends BaseController{
 		//讲照片存入public目录
 		$path = public_path().'/upload/album/';
 
-		//判空
-		$arr = array( $file,$title );
-		if( InputController::isNullInArray( $arr ) )
-			return Response::json( BiaoException::$parameterIncomplete );
-
-		try{
-			$image_url = FileController::upload( $file, $path );
-		}catch( Exception $e ){
-			return FileController::errMessage( $e->getCode() );
-		}
-		$image_url = '/upload/album/'.$image_url;
+		$fullArr = array( $title, $file );
+		$littleArr = array( $title);
+		$dataPath = '/upload/album/';
+		$result = FileController::isFileUpload($photo,$file,$fullArr,$littleArr,$path,$dataPath);
+		if( $result != 'true' )
+			return $result;
 
 		$photo->album_id 	= $album_id;
 		$photo->title 		= $title;
-		$photo->image_url 	= $image_url;
 		if( !$photo->save() )
 			return Response::json( BiaoException::$databaseErr );
 		return Response::json( BiaoException::$ok );		

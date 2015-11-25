@@ -4,7 +4,7 @@
             <img class="portrait-img" src="/images/test/u70.png">
         </div>
         <div class="user-info">
-            <div class="user-name">李四</div>
+            <div class="user-name">{{Auth::user()->account}}</div>
             <div class="user-role">超级管理员</div>
         </div>
     </div>

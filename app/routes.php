@@ -60,6 +60,10 @@ Route::group(array('prefix'=>'admin'), function(){
 				Route::post('advert-create-edit','AdvertController@createAndEdit');
 				//广告图片－删
 				Route::post('advert-delete','AdvertController@delete');
+				//添加to do 
+				Route::get('activity-add','ActivityAdvertController@add');
+				//编辑to do 
+				Route::get('activity-edit','ActivityAdvertController@edit');
 				//活动广告－增加和编辑
 				Route::post('activity-create-edit','ActivityAdvertController@createAndEdit');
 				//活动广告－删

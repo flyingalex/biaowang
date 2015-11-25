@@ -49,30 +49,25 @@ class WorkController extends BaseController{
 		//讲照片存入public目录
 		$path = public_path().'/upload/vote/';
 
-		//判空
-		$arr = array( $file,$title,$url );
-		if( InputController::isNullInArray( $arr ) )
-			return Response::json( BiaoException::$parameterIncomplete );
-		
+
+		$fullArr = array( $file,$title,$url );
+		$littleArr = array( $title,$url );
+		$dataPath = '/upload/vote/';
+		$result = FileController::isFileUpload($work,$file,$fullArr,$littleArr,$path,$dataPath);
+		if( $result != 'true' )
+			return $result;
+
 		if( !empty( $vote_number ) )
 		{
 			if( !is_numeric( $vote_number ) )
 				return Response::json( BiaoException::$isNotInt );
 		}
 
-		//存储图片
-		try{
-			$image_url = FileController::upload( $file, $path );
-		}catch( Exception $e ){
-			return FileController::errMessage( $e->getCode() );
-		}
-		$image_url = '/upload/vote/'.$image_url;
 		//存入数据库
 		$work->project_id 	= $project_id;
 		$work->title 	 	= $title;
 		$work->url 			= $url;
 		$work->vote_number 	= $vote_number;
-		$work->image_url 	= $image_url;
 		if( !$work->save() )
 			return Response::json( BiaoException::$databaseErr );
 		return Response::json( BiaoException::$ok );
