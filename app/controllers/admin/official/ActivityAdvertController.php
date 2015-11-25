@@ -38,31 +38,30 @@ class ActivityAdvertController extends BaseController{
 		$url 		= Input::get('url');
 		//讲照片存入public目录
 		$path = public_path().'/upload/official/';
-		//判空
-		$arr = array( $file,$title,$subtitle,$url );
-		if( InputController::isNullInArray( $arr ) )
-			return Response::json( BiaoException::$parameterIncomplete );
+		
+		$fullArr = array( $file,$title,$subtitle,$url );
+		$littleArr = array( $title,$subtitle,$url );
+		$dataPath = '/upload/official/';
+		$result = FileController::isFileUpload($activity_advert,$file,$fullArr,$littleArr,$path,$dataPath);
+		if( $result != 'true' )
+			return $result;
+
 		//排序号唯一性
 		if( !is_numeric( $sequence ) )
+		{
 			return Response::json( BiaoException::$isNotInt );
-		$sequences = ActivityAdvertisement::select('id','sequence')->get();
-		if( InputController::isNotUnique($activity_advert->id,$sequence,$sequences ) )
-			return Response::json( BiaoException::$isNotUnique );
-		//存文件
-		try{
-			$image_url = FileController::upload( $file, $path );
-		}catch( Exception $e ){
-			return FileController::errMessage( $e->getCode() );
+		}{
+			$sequences = ActivityAdvertisement::select('id','sequence')->get();
+			if( InputController::isNotUnique($activity_advert->id,$sequence,$sequences ) )
+				return Response::json( BiaoException::$isNotUnique );
 		}
 		
-		$image_url = '/upload/official/'.$image_url;
 		if( empty( $sequence ) )
 			$sequence = null;
 
 		$activity_advert->title 		= $title;
 		$activity_advert->sub_title 	= $subtitle;
 		$activity_advert->sequence 		= $sequence;
-		$activity_advert->image_url 	= $image_url;
 		$activity_advert->url 			= $url;
 		if( !$activity_advert->save() )
 			return Response::json( BiaoException::$databaseErr );
