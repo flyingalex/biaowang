@@ -14,7 +14,7 @@
     <h3 class="edit-area-title">相片</h3>
 </div>
 
-<form action="/admin/album/photo/cretae-edit" method="POST" enctype="multipart/form-data" target="form-target" class="edit-area-form">
+<form action="/admin/album/photo/create-edit" method="POST" enctype="multipart/form-data" target="form-target" class="edit-area-form">
 
 <ul class="edit-area-body">
 

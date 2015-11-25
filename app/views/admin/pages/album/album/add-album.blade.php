@@ -14,7 +14,7 @@
     <h3 class="edit-area-title">活动相册</h3>
 </div>
 
-<form action="/admin/album/album/cretae-edit" method="POST" enctype="multipart/form-data" target="form-target" class="edit-area-form">
+<form action="/admin/album/album/create-edit" method="POST" enctype="multipart/form-data" target="form-target" class="edit-area-form">
 
 <ul class="edit-area-body">
 

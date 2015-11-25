@@ -14,7 +14,7 @@
     <h3 class="edit-area-title">添加内容</h3>
 </div>
 
-<form action="/admin/vote/content/cretae-edit" method="POST" enctype="multipart/form-data" target="form-target" class="edit-area-form">
+<form action="/admin/vote/content/create-edit" method="POST" enctype="multipart/form-data" target="form-target" class="edit-area-form">
 
 <ul class="edit-area-body">
 
@@ -29,6 +29,14 @@
     <li class="edit-area-row">
         <label class="edit-area-label">投票数</label>
         <input name="vote_number" type="text" class="edit-area-input">
+    </li>
+    <li class="edit-area-row">
+        <label class="edit-area-label">类别</label>
+        <select name="project_id" class="edit-area-select">
+        @foreach( $projects as $project )
+            <option value="{{$project->id}}">{{$project->title}}</option>
+        @endforeach
+        </select>
     </li>
     <li class="edit-area-picture-row">
         <label class="edit-area-label">图片</label>
