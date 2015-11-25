@@ -51,7 +51,7 @@
                 </a>
             </span>
             <span class="operation-delete">
-                <span action="/admin/official/advert/advert-delete" method="POST" class="operation-btn">
+                <span action="/admin/official/advert/advert-delete" method="POST" success-action="delete" success-message="删除成功" error-message="删除成功" class="operation-btn">
                     <img src="/images/icon/delete.png" class="operation-icon">
                     <span>删除</span>
                 </span>
@@ -71,7 +71,7 @@
 
 <div class="edit-area-top clearfix">
     <h3 class="edit-area-title">活动广告图片</h3>
-    <span class="operation-new"></span>
+    <a href="/admin/advert/activity-add" class="operation-new"></a>
 </div>
 
 <table class="edit-area-body">
@@ -109,13 +109,13 @@
         <td class="edit-area-item edit-area-item-operation">
             <input name="activity_id" type="hidden" value="{{{ $activity_advert->id }}}" class="operation-id">
             <span class="operation-edit">
-                <a href="/admin/official/advert/edit?activity_id={{{ $activity_advert->id }}}" class="operation-btn">
+                <a href="/admin/advert/activity-edit?activity_id={{{ $activity_advert->id }}}" class="operation-btn">
                     <img src="/images/icon/edit.png" class="operation-icon">
                     <span>编辑</span>
                 </a>
             </span>
             <span class="operation-delete">
-                <span action="/admin/official/advert/activity-delete" method="POST" class="operation-btn">
+                <span action="/admin/official/advert/activity-delete" method="POST" success-action="delete" success-message="删除成功" error-message="删除成功" class="operation-btn">
                     <img src="/images/icon/delete.png" class="operation-icon">
                     <span>删除</span>
                 </span>

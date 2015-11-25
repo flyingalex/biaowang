@@ -46,23 +46,23 @@
                 </a>
             </span>
             <span class="operation-delete">
-                <span action="/admin/vote/project/delete" method="POST" class="operation-btn">
+                <span action="/admin/vote/project/delete" method="POST" success-action="delete" success-message="删除成功" error-message="删除成功" class="operation-btn">
                     <img src="/images/icon/delete.png" class="operation-icon">
                     <span>删除</span>
                 </span>
             </span>
             @if( $project->display )
-            <span class="operation-btn operation-open">
-                <span action="/admin/vote/project/display" method="POST" class="operation-btn">
+            <span class="operation-close">
+                <span action="/admin/vote/project/display" method="POST" success-action="refresh" success-message="关闭成功" class="operation-btn">
                     <img src="/images/icon/close.png" class="operation-icon">
-                    <span>开启</span>
+                    <span>关闭</span>
                 </span>
             </span>
             @else
-            <span class="operation-btn operation-close">
-                <span action="/admin/vote/project/display" method="POST" class="operation-btn">
+            <span class="operation-open">
+                <span action="/admin/vote/project/display" method="POST" success-action="refresh" success-message="开启成功" class="operation-btn">
                     <img src="/images/icon/close.png" class="operation-icon">
-                    <span>关闭</span>
+                    <span>开启</span>
                 </span>
             </span>
             @endif
