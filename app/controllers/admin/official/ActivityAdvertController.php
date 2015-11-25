@@ -8,7 +8,7 @@ class ActivityAdvertController extends BaseController{
 
 	public function edit()
 	{
-		
+		$activty_id = Input::get('activity_id');
 	}
 
 	public function manage()

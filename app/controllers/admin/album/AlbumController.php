@@ -33,25 +33,42 @@ class AlbumController extends BaseController{
 		}
 		$title = Input::get('title');
 		$file = Input::file('image');
-
+		
 		//讲照片存入public目录
 		$path = public_path().'/upload/album/';
 
-		//判空
-		$arr = array( $file,$title );
-		if( InputController::isNullInArray( $arr ) )
+		if( isset( $album->id ) )
+		{
+			$arr = array( $file,$title );
+			if( InputController::isNullInArray( $arr ) )
 			return Response::json( BiaoException::$parameterIncomplete );
-
-		try{
-			$image_url = FileController::upload( $file, $path );
-		}catch( Exception $e ){
-			return FileController::errMessage( $e->getCode() );
+			try{
+				$image_url = FileController::upload( $file, $path );
+			}catch( Exception $e ){
+				return FileController::errMessage( $e->getCode() );
+			}
+			$image_url = '/upload/album/'.$image_url;
+			$album->image_url = $image_url;
+		}else{
+			//判空
+			if( Input::hasFile('image'))
+			{
+				$arr = array( $file,$title );
+				try{
+					$image_url = FileController::upload( $file, $path );
+				}catch( Exception $e ){
+					return FileController::errMessage( $e->getCode() );
+				}
+				$image_url = '/upload/album/'.$image_url;
+				$album->image_url = $image_url;
+			}else{
+				$arr = array( $title );
+			}
+			if( InputController::isNullInArray( $arr ) )
+				return Response::json( BiaoException::$parameterIncomplete );
 		}
-		$image_url = '/upload/album/'.$image_url;
-
 		//存
 		$album->title = $title;
-		$album->image_url = $image_url;
 		if( !$album->save() )
 			return Response::json( BiaoException::$databaseErr );
 		return Response::json( BiaoException::$ok );

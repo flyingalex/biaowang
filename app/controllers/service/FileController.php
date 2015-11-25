@@ -39,4 +39,37 @@
 		if( $errCode == 4)
 			return Response::make( BiaoException::$fileStorageErr );
 	}
+
+	public function isFileUpload($object,$file,$fullArr,$littlArr,$path,$dataPath)
+	{
+		if( isset( $object->id ) )
+		{
+			if( InputController::isNullInArray( $fullArr ) )
+			return Response::json( BiaoException::$parameterIncomplete );
+			try{
+				$image_url = FileController::upload( $file, $path );
+			}catch( Exception $e ){
+				return FileController::errMessage( $e->getCode() );
+			}
+			$image_url = $dataPath.$image_url;
+			$album->image_url = $image_url;
+		}else{
+			//判空
+			if( Input::hasFile('image'))
+			{
+				$arr = array( $file,$title );
+				try{
+					$image_url = FileController::upload( $file, $path );
+				}catch( Exception $e ){
+					return FileController::errMessage( $e->getCode() );
+				}
+				$image_url = '/upload/album/'.$image_url;
+				$album->image_url = $image_url;
+			}else{
+				$arr = array( $title );
+			}
+			if( InputController::isNullInArray( $arr ) )
+				return Response::json( BiaoException::$parameterIncomplete );
+		}
+	}
 }

@@ -23,20 +23,20 @@
 			<div id="advert">
 				<img src="/home/people-woman-coffee-meeting.jpg">
 			</div>
-			<div class="middle-title activity">
+			<div class="middle-title-activity">
 				<img src="/home/middle-title.png">
 				
-				<div>
-					<img class="middle-title activity img" src="/home/landscape-mountains-nature-man.jpg">
+				<div class="middle-title-activity-img-left">
+					<img  src="/home/landscape-mountains-nature-man.jpg">
 					<p>标题</p>
 				</div>
-				<div>
-					<img class="middle-title activity img" src="/home/pexels-photo.jpg">
+				<div class="middle-title-activity-img-right">
+					<img  src="/home/pexels-photo.jpg">
 					<p>标题</p>
 				</div>
 			</div>
 			<div id="bottom-title resource">
-				<img src="/home/middle-title.png">
+				<img class="bottom-title" src="/home/middle-title.png">
 				<img src="/home/class-icon.png">
 				<img src="/home/case-icon.png">
 				<img src="/home/note-icon.png">
