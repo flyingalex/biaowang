@@ -7,14 +7,14 @@
 
 @section( 'edit-area' )
 
-<!-- 广告图片新建 start -->
+<!-- 活动广告图片编辑 start -->
 <div class="edit-area-container advert-edit-area-wrap">
 
 <div class="edit-area-top clearfix">
     <h3 class="edit-area-title">活动广告图片</h3>
 </div>
 
-<form action="" class="edit-area-form">
+<form action="/admin/official/advert/activity-create-edit" method="POST" enctype="multipart/form-data" target="form-target" class="edit-area-form">
 
 <ul class="edit-area-body">
 
@@ -41,7 +41,7 @@
     <li class="edit-area-picture-row">
         <label class="edit-area-label">缩略图</label>
         <div class="picture-wrap">
-            <div class="picture-mask"></div>
+            <input name="image" type="file" class="picture-input-btn">
             <img src="{{$advert->image_url}}" class="thumbnail">
         </div>
     </li>
@@ -51,8 +51,10 @@
 
 </form>
 
+<iframe name="form-target" id="form-target" redirect-url="/admin/album/photo/manage"></iframe>
+
 </div>
-<!-- 广告图片新建 end -->
+<!-- 活动广告图片编辑 end -->
 
 @stop
 

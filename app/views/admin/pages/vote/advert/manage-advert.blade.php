@@ -29,10 +29,7 @@
         @foreach( $adverts as $advert)
     <tr class="edit-area-row" id="row-{{ $advert->id }}">
         <td class="edit-area-item advert-picture">
-            <div class="picture-wrap">
-                <div class="picture-mask"></div>
-                <img src="{{$advert->image_url}}" class="thumbnail">
-            </div>
+            <img src="{{$advert->image_url}}" class="thumbnail">
         </td>
         <td class="edit-area-item advert-title">
             {{$advert->title}}
