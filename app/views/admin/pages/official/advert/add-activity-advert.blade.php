@@ -7,7 +7,7 @@
 
 @section( 'edit-area' )
 
-<!-- 广告图片新建 start -->
+<!-- 活动广告图片新建 start -->
 <div class="edit-area-container advert-edit-area-wrap">
 
 <div class="edit-area-top clearfix">
@@ -57,7 +57,7 @@
 <iframe name="form-target" id="form-target" redirect-url="/admin/official/advert/manage"></iframe>
 
 </div>
-<!-- 广告图片新建 end -->
+<!-- 活动广告图片新建 end -->
 
 @stop
 

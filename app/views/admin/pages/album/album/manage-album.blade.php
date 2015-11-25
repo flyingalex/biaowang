@@ -28,10 +28,7 @@
         @foreach( $albums as $album )
     <tr class="edit-area-row" id="row-{{ $album->id }}">
         <td class="edit-area-item">
-            <div class="picture-wrap">
-                <div class="picture-mask"></div>
-                <img src="{{$album->image_url}}" class="thumbnail">
-            </div>
+            <img src="{{$album->image_url}}" class="thumbnail">
         </td>
         <td class="edit-area-item">
             {{$album->title}}

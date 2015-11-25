@@ -28,10 +28,7 @@
         @foreach( $videos as $video )
     <tr class="edit-area-row" id="row-{{ $video->id }}">
         <td class="edit-area-item">
-            <div class="picture-wrap">
-                <div class="picture-mask"></div>
-                <img src="{{$video->image_url}}" class="thumbnail">
-            </div>
+            <img src="{{$video->image_url}}" class="thumbnail">
         </td>
         <td class="edit-area-item">
             {{$video->title}}

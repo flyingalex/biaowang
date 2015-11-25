@@ -29,10 +29,7 @@
         @foreach( $works as $work )
     <tr class="edit-area-row" id="row-{{ $work->id }}">
         <td class="edit-area-item content-picture">
-            <div class="picture-wrap">
-                <div class="picture-mask"></div>
-                <img src="{{$work->image_url}}" class="thumbnail">
-            </div>
+            <img src="{{$work->image_url}}" class="thumbnail">
         </td>
         <td class="edit-area-item content-title">
             {{$work->title}}

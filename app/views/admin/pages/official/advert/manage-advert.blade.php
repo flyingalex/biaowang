@@ -28,10 +28,7 @@
         @foreach( $adverts as $advert)
     <tr class="edit-area-row" id="row-{{ $advert->id }}">
         <td class="edit-area-item advert-picture">
-            <div class="picture-wrap">
-                <div class="picture-mask"></div>
-                <img src="{{$advert->image_url}}" class="thumbnail">
-            </div>
+            <img src="{{$advert->image_url}}" class="thumbnail">
         </td>
         <td class="edit-area-item advert-title">
             {{$advert->title}}
@@ -71,7 +68,7 @@
 
 <div class="edit-area-top clearfix">
     <h3 class="edit-area-title">活动广告图片</h3>
-    <a href="/admin/advert/activity-add" class="operation-new"></a>
+    <a href="/admin/official/advert/activity-add" class="operation-new"></a>
 </div>
 
 <table class="edit-area-body">
@@ -109,7 +106,7 @@
         <td class="edit-area-item edit-area-item-operation">
             <input name="activity_id" type="hidden" value="{{{ $activity_advert->id }}}" class="operation-id">
             <span class="operation-edit">
-                <a href="/admin/advert/activity-edit?activity_id={{{ $activity_advert->id }}}" class="operation-btn">
+                <a href="/admin/official/advert/activity-edit?activity_id={{{ $activity_advert->id }}}" class="operation-btn">
                     <img src="/images/icon/edit.png" class="operation-icon">
                     <span>编辑</span>
                 </a>

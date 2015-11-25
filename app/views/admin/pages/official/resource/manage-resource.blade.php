@@ -46,10 +46,7 @@
         @foreach( $resources as $resource )
     <tr class="edit-area-row" id="row-{{ $resource->id }}">
         <td class="edit-area-item resource-picture">
-            <div class="picture-wrap">
-                <div class="picture-mask"></div>
-                <img src="{{$resource->image_url}}" class="thumbnail">
-            </div>
+            <img src="{{$resource->image_url}}" class="thumbnail">
         </td>
         <td class="edit-area-item resource-title">
             {{$resource->title}}
