@@ -1,7 +1,7 @@
 
 <div class="navigation-wrap">
     <div class="navigation-container">
-        <a href="/" class="navigation-link">
+        <a href="/wechat/vote" class="navigation-link">
             <div class="navigation-img-wrap">
                 <img src="/images/icon/link-vote.png" class="navigation-img">
             </div>
@@ -17,7 +17,7 @@
                 活动规则
             </div>
         </a><!--
-        --><a href="/wechat/adward" class="navigation-link">
+        --><a href="/wechat/adward?project_id={{$project->id}}" class="navigation-link">
             <div class="navigation-img-wrap">
                 <img src="/images/icon/link-reward.png" class="navigation-img">
             </div>
