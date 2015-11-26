@@ -2,9 +2,13 @@
 @import './../../common/settings.less';
 
 .header{
+    top: 0px;
+    width: 100%;
+    position: fixed;
     text-align: center;
     background-color: #d1e5f6;
-    height: unit( 120px / @rem-design-unit, rem );
+    height: @header-height;
+    z-index: 2015;
 }
 
 .logo{

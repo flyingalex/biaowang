@@ -8,21 +8,22 @@
     @padding-vertical: unit( 10px / @rem-design-unit, rem );
     padding-top: @padding-vertical;
     padding-bottom: @padding-vertical;
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
     background: url( '/images/navigation-bg.png' ) no-repeat center;
 }
 
-.navigation-container{    
+.navigation-container{
     margin: 0 auto;
+    overflow: hidden;
     width: unit( 660px / @rem-design-unit, rem );
 }
 
 .navigation-link{
+    float: left;
     text-align: center;
-    display: inline-block;
-    width: @navigation-height;
-    height: @navigation-height;
-    margin-left: @navigation-margin-left / 2;
-    margin-right: @navigation-margin-left / 2;
+    width: @navigation-height + @navigation-margin-left;
 }
 
 .navigation-img-wrap{
