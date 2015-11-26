@@ -31,6 +31,9 @@ class FontendController extends BaseController{
 		if( $work->project_id != $project_id )
 			return Response::json(BiaoException::$workIsNotInThisProject);
 
+		$year =  date ( 'Y' ,strtotime( $project->created_at ) );
+		if( $year == '1970')
+			return Response::json(BiaoException::$timeOut);
 
 		$this->isSetVoteSession();
 		$vote = json_decode( Session::get('vote'),true );

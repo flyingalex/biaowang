@@ -45,6 +45,7 @@ class BiaoException{
 	public static $repasswordErr;
 	public static $passwordNotEqual;
 	public static $advertTypeErr;
+	public static $timeOut;
 }
 
 BiaoException::$ok 						= (new BiaoException('0','正常'))->getArray(); 
@@ -79,5 +80,5 @@ BiaoException::$passwordErr 			= (new BiaoException('password01','密码错误�
 BiaoException::$repasswordErr 			= (new BiaoException('re_password01','重置密码需要6位以上且为字母、数字、破折号（-）以及底线（_）'))->getArray();
 BiaoException::$passwordNotEqual 		= (new BiaoException('password02','两次重置密码不一致'))->getArray();
 BiaoException::$advertTypeErr 			= (new BiaoException('advertType01','广告归类错误，请重新归类'))->getArray();
-
+BiaoException::$timeOut 				= (new BiaoException('timeOut01','投票已结束，请等待下一轮投票'))->getArray();
 

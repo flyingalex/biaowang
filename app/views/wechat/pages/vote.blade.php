@@ -50,9 +50,15 @@
                 <span class="vote-info-item-key">
                     距离活动结束还有：
                 </span>
-                <span class="vote-info-item-message">
-                    28天19分52秒
-                </span>
+                @if( $isClosed )
+                    <span class="vote-info-item-message">
+                        该活动已关闭
+                    </span>
+                @else
+                    <span class="vote-info-item-message">
+                        {{$days}}天{{$hours}}小时{{$mins}}分种{{$seconds}}秒
+                    </span>
+                @endif
             </div>
         </div>
         <div class="vote-info-item">
