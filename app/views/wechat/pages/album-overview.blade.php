@@ -13,41 +13,49 @@
     <div class="section-content">
         <div class="section-column section-column-left">
             <h2 class="section-column-title">标王相册</h2>
-            <div class="section-column-item">
+            @if( isset( $albums ) )
+            @foreach( $albums as $album )
+                <div class="section-column-item">
+                    <div class="section-column-img-wrap">
+                        <img src="{{$album->image_url}}" class="section-column-img">
+                    </div>
+                    <div class="section-column-info">
+                        <div class="section-column-info-item-message">{{$album->title}}</div>
+                    </div>
+                </div>
+            @endforeach
+            @endif
+           {{--  <div class="section-column-item">
                 <div class="section-column-img-wrap">
                     <img src="/images/test/test2.jpeg" class="section-column-img">
                 </div>
                 <div class="section-column-info">
                     <div class="section-column-info-item-message">最新优惠活动</div>
                 </div>
-            </div>
-            <div class="section-column-item">
-                <div class="section-column-img-wrap">
-                    <img src="/images/test/test2.jpeg" class="section-column-img">
-                </div>
-                <div class="section-column-info">
-                    <div class="section-column-info-item-message">最新优惠活动</div>
-                </div>
-            </div>
+            </div> --}}
         </div>
         <div class="section-column">
             <h2 class="section-column-title">标王视频</h2>
-            <div class="section-column-item">
+         @if( isset( $videos ) )
+            @foreach( $videos as $video )
+                <div class="section-column-item">
+                    <div class="section-column-img-wrap">
+                        <img src="{{$video->image_url}}" class="section-column-img">
+                    </div>
+                    <div class="section-column-info">
+                        <div class="section-column-info-item-message">{{$video->title}}</div>
+                    </div>
+                </div>
+            @endforeach
+        @endif
+          {{--   <div class="section-column-item">
                 <div class="section-column-img-wrap">
                     <img src="/images/test/test3.jpg" class="section-column-img">
                 </div>
                 <div class="section-column-info">
                     <div class="section-column-info-item-message">最新优惠活动</div>
                 </div>
-            </div>
-            <div class="section-column-item">
-                <div class="section-column-img-wrap">
-                    <img src="/images/test/test3.jpg" class="section-column-img">
-                </div>
-                <div class="section-column-info">
-                    <div class="section-column-info-item-message">最新优惠活动</div>
-                </div>
-            </div>
+            </div> --}}
         </div>
     </div>
 </div>

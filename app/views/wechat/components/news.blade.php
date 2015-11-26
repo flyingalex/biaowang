@@ -1,18 +1,10 @@
 <div class="news-container">
+    @if( isset( $news ) )
+        @foreach( $news as $new )
     <div class="news-item">
         <img src="/images/icon/news.png" class="news-icon">
-        <span class="news-content">新闻：资本主义社会正水深火热中</span>
+        <span class="news-content">{{$new->content}}</span>
     </div>
-    <div class="news-item">
-        <img src="/images/icon/news.png" class="news-icon">
-        <span class="news-content">新闻：资本主义社会正水深火热中</span>
-    </div>
-    <div class="news-item">
-        <img src="/images/icon/news.png" class="news-icon">
-        <span class="news-content">新闻：资本主义社会正水深火热中</span>
-    </div>
-    <div class="news-item">
-        <img src="/images/icon/news.png" class="news-icon">
-        <span class="news-content">新闻：资本主义社会正水深火热中</span>
-    </div>
+        @endforeach
+    @endif
 </div>

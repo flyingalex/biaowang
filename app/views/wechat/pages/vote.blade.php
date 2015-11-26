@@ -12,24 +12,27 @@
         <img src="/images/resource-title.png">
     </div>
     <div class="section-content vote-statistics-wrap">
+        @if( isset( $project ))
         <div class="vote-statistics-item" id="vote-statistics-register">
             <div class="vote-statistics-key">已报名</div>
-            <div class="vote-statistics-value">1114</div>
+            <div class="vote-statistics-value">{{$project->sign_up_total}}</div>
         </div>
         <div class="vote-statistics-item" id="vote-statistics-total">
             <div class="vote-statistics-key">投票人数</div>
-            <div class="vote-statistics-value">53154</div>
+            <div class="vote-statistics-value">{{$project->vote_total}}</div>
         </div>
         <div class="vote-statistics-item" id="vote-statistics-pv">
             <div class="vote-statistics-key">访问量</div>
-            <div class="vote-statistics-value">952706</div>
+            <div class="vote-statistics-value">{{$project->view_total}}</div>
         </div>
+        @endif
     </div>
 </div>
 
 <hr class="split-line">
 
 <div class="section-wrap">
+    @if( $project )
     <div class="section-header">
         <img src="/images/resource-title.png">
     </div>
@@ -53,7 +56,7 @@
             </div>
             <div class="vote-info-item-content">
                 <span class="vote-info-item-key">
-                    立于不败明星企业家
+                    {{$project->title}}
                 </span>
             </div>
         </div>
@@ -63,7 +66,7 @@
             </div>
             <div class="vote-info-item-content">
                 <span class="vote-info-item-key">
-                    2015-11-10至2015-11-26
+                    {{$project->vote_start}}至{{$project->vote_stop}}
                 </span>
             </div>
         </div>
@@ -77,11 +80,12 @@
                 </span>
                 <br>
                 <span class="vote-info-item-message">
-                    本活动仅限山政在校大学生参加，男女不限
+                    {{$project->content}}
                 </span>
             </div>
         </div>
     </div>
+    @endif
 </div>
 
 <hr class="split-line">
@@ -93,53 +97,67 @@
     <div class="section-content">
         <div class="section-column section-column-left">
             <h2 class="section-column-title">最新项目</h2>
+            
+            @if( isset( $works[0] ))
             <div class="section-column-item">
                 <div class="section-column-img-wrap">
-                    <img src="/images/test/test2.jpeg" class="section-column-img">
+                    <img src="{{$works[0]->image_url}}" class="section-column-img">
                 </div>
                 <div class="section-column-info">
                     <div class="section-column-info-item">
                         <button class="section-column-btn">投票</button>
                     </div>
-                    <div class="section-column-info-item">15票</div>
+                    <div class="section-column-info-item">{{$works[0]->vote_number}}票</div>
                 </div>
             </div>
+            @endif
+           
+            @if( isset( $works[1] ))
             <div class="section-column-item">
                 <div class="section-column-img-wrap">
-                    <img src="/images/test/test2.jpeg" class="section-column-img">
+                    <img src="{{$works[1]->image_url}}" class="section-column-img">
                 </div>
                 <div class="section-column-info">
                     <div class="section-column-info-item">
                         <button class="section-column-btn">投票</button>
                     </div>
-                    <div class="section-column-info-item">15票</div>
+                    <div class="section-column-info-item">{{$works[1]->vote_number}}票</div>
                 </div>
             </div>
+            @endif
+
         </div>
         <div class="section-column">
             <h2 class="section-column-title">热门项目</h2>
+          
+            @if( isset( $works[2] ))
             <div class="section-column-item">
                 <div class="section-column-img-wrap">
-                    <img src="/images/test/test3.jpg" class="section-column-img">
+                    <img src="{{$works[2]->image_url}}" class="section-column-img">
                 </div>
                 <div class="section-column-info">
                     <div class="section-column-info-item">
                         <button class="section-column-btn">投票</button>
                     </div>
-                    <div class="section-column-info-item">15票</div>
+                    <div class="section-column-info-item">{{$works[2]->vote_number}}票</div>
                 </div>
             </div>
+            @endif
+
+            @if( isset( $works[3] ))
             <div class="section-column-item">
                 <div class="section-column-img-wrap">
-                    <img src="/images/test/test3.jpg" class="section-column-img">
+                    <img src="{{$works[3]->image_url}}" class="section-column-img">
                 </div>
                 <div class="section-column-info">
                     <div class="section-column-info-item">
                         <button class="section-column-btn">投票</button>
                     </div>
-                    <div class="section-column-info-item">15票</div>
+                    <div class="section-column-info-item">{{$works[3]->vote_number}}票</div>
                 </div>
             </div>
+            @endif
+
         </div>
     </div>
 </div>

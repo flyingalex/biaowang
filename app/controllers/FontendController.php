@@ -8,9 +8,9 @@ class FontendController extends BaseController{
 	*/
 	public function isSetVoteSession()
 	{
-		if(!isset( Session::get('vote') ) )
-		{
-			$session = Session::put( 'vote',json_encode(array()) ) );
+		if( !Session::has('vote') )
+		{	
+			$session = Session::put( 'vote',json_encode(array( ) ) );
 		}
 	}
 
@@ -22,22 +22,24 @@ class FontendController extends BaseController{
 
 		$project = Project::find($project_id);
 		if( !isset( $project ) )
-			return Repsonse::json( BiaoException::$noProject );
+			return Response::json( BiaoException::$noProject );
 
 		$work = Work::find($work_id);
 		if( !isset( $work ) )
-			return Repsonse::json( BiaoException::$noWork );
+			return Response::json( BiaoException::$noWork );
 
 		if( $work->project_id != $project_id )
-			return Repsonse::json(BiaoException::$workIsNotInThisProject);
+			return Response::json(BiaoException::$workIsNotInThisProject);
 
-		$this->isSetVoteSession;
-		$vote = json_decode( Session::get('vote') );
-		if( isset( $vote[ $project_id ] )
-		{
-			return Repsonse::json(BiaoException::$voted);
+
+		$this->isSetVoteSession();
+		$vote = json_decode( Session::get('vote'),true );
+		if( isset( $vote[ $project_id ] ) )
+		{	
+			return Response::json(BiaoException::$voted);
 		}
-		Session::put('vote',json_encode( $vote[$project_id] = $work_id ));
+		$vote[$project_id] = $work_id;
+		Session::put('vote',json_encode( $vote ) );
 		try{
 			DB::transaction( function()use( $project,$work ) {
 				$project->vote_total += 1;
@@ -46,8 +48,10 @@ class FontendController extends BaseController{
 				$work->vote_number += 1;
 				$work->save(); 
 			});
+		}catch( Exception $e ) {
+			return Response::json( BiaoException::$databaseErr );
 		}
-		return Repsonse::json(BiaoException::$ok);
+		return Response::json(BiaoException::$ok);
 
 	}
 
@@ -86,16 +90,16 @@ class FontendController extends BaseController{
 	{
 		$column_title_id = Input::get('column_title_id');
 		$page 			 = Input::get('page');
-		if( !is_int($page) )
-			return Repsonse::json( BiaoException::$isNotInt );
+		if( !is_numeric($page) )
+			return Response::json( BiaoException::$isNotInt );
 
 		$resource = Resource::where('column_title_id',$column_title_id)
 							->orderBy('sequence','desc')
 							->select('title','brief','image_url','url')
 							->get();
 
-		$data = $this->page(3,$page,$resource)
-		return Repsonse::json(['errCode'=>0,'data'=>$data['arr'],'total_page'=>$total_page]);
+		$data = $this->page(3,$page,$resource);
+		return Response::json(['errCode'=>0,'data'=>$data['arr'],'total_page'=>$total_page]);
 	}
 
 	//投票分页
@@ -104,10 +108,10 @@ class FontendController extends BaseController{
 		$project_id 	= Input::get('project_id');
 		$page 			= Input::get('page');
 		$sequence_type 	= Input::get('sequence_type'); //1=最新项目，2=人气项目
-		if( !is_int($page) )
-			return Repsonse::json( BiaoException::$isNotInt );
+		if( !is_numeric($page) )
+			return Response::json( BiaoException::$isNotInt );
 		if( $sequence_type != 1 && $sequence_type != 2 )
-			return Repsonse::json( BiaoException::$sequenceTypeWrong );
+			return Response::json( BiaoException::$sequenceTypeWrong );
 		if( $sequence_type == 1 )
 			$works	= Work::where('project_id',$project->id)->orderBy('created_at','desc')->get(); 
 		if( $sequence_type == 2 )
@@ -115,7 +119,7 @@ class FontendController extends BaseController{
 
 
 		$data = $this->page(4,$page,$work);
-		return Repsonse::json(['errCode'=>0,'data'=>$data['arr'],'total_page'=>$total_page]);
+		return Response::json(['errCode'=>0,'data'=>$data['arr'],'total_page'=>$total_page]);
 	}
 
 
@@ -125,13 +129,13 @@ class FontendController extends BaseController{
 		$album	 = Album::where('type',1)->orderBy('sequence','desc')->get();
 		$video 	 = Video::where('type',2)->orderBy('sequence','desc')->get();
 		$page 			= Input::get('page');
-		if( !is_int($page) )
-			return Repsonse::json( BiaoException::$isNotInt );
+		if( !is_numeric($page) )
+			return Response::json( BiaoException::$isNotInt );
 
 		$album_data = $this->page(2,$page,$album);
 		$video_data = $this->page(2,$page,$video);
 
-		return Repsonse::json([ 
+		return Response::json([ 
 							'errCode'		=>0,
 							'album_data'	=>$album_data['arr'],
 							'album_total' 	=> $album_data['total_page'],
@@ -146,10 +150,18 @@ class FontendController extends BaseController{
 		$album_id = Input::get('album_id');
 		$photos = Photograph::where('album_id',$album_id)->get();
 		if( count( $photos ) == 0 )
-			return Repsonse::json( BiaoException::$noContent );
+			return Response::json( BiaoException::$noContent );
 
-		return Repsonse::json([ 'errCode'=>0,'data'=>$photos ]);
+		return Response::json([ 'errCode'=>0,'data'=>$photos ]);
 	}
 
+	public function resource()
+	{
+		$column_title_id = Input::get('column_title_id');
+		$resources 		 = Resource::where('column_title_id', $column_title_id)->take(3)->get();
+		if( count( $resources )  == 0 )
+			return Response::json( BiaoException::$notExist );
+		return Response::json(['errCode'=>'0','resources'=> $resources]);
+	} 
 
 }

@@ -6,14 +6,11 @@
     <div class="section-header">
         <img src="/images/resource-title.png">
     </div>
+    @if( isset( $project ) )
     <div class="section-content">
-        1. 一等奖<br>
-        hhhhhhhhhhhhhhhhhh逗你玩
-        2. 二等奖<br>
-        hhhhhhhhhhhhhhhhhh逗你玩
-        3. 三等奖<br>
-        hhhhhhhhhhhhhhhhhh逗你玩
+        {{$project->award_site}}
     </div>
+    @endif
 </div>
 
 @stop
