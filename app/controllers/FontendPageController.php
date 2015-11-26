@@ -26,15 +26,6 @@ class FontendPageController extends BaseController{
 						'column_titles'	=> $column_titles,
 						'resources'		=> $resources
 						]);
-		return Response::json(
-						[
-						'news'			=>$news,
-						'adverts'		=> $adverts,
-						'activity_ads'	=> $activity_adverts,
-						'column_titles'	=> $column_titles,
-						'resources'		=> $resources
-						]
-			);
 	}
 
 	//微投票
@@ -62,16 +53,14 @@ class FontendPageController extends BaseController{
 	{
 		$project_id = Input::get('project_id');
 		$project 	= Project::find( $project_id );
-
+		$adverts 	= Advertisement::where('type',2)->get(); 
 		if( !isset( $project ))
 			return BiaoExceptionController::pageError( BiaoException::$noProject['message'] );
 		
 		return View::make('wechat.pages.rules')->with([
-					'project'	=>$project
+					'project'	=>$project,
+					'adverts'	=>$adverts
 					]);
-		return Response::json([
-					'project'	=>$project
-			]);	
 	}
 
 	//奖项设置
@@ -80,9 +69,10 @@ class FontendPageController extends BaseController{
 		$project = Project::find( Input::get('project_id') );
 		if( !isset( $project ))
 			return BiaoExceptionController::pageError( BiaoException::$noProject['message'] );
-		
+		$adverts 	= Advertisement::where('type',2)->get(); 
 		return View::make('wechat.pages.adward')->with([
-					'project'	=>$project
+					'project'	=>$project,
+					'adverts'	=>$adverts
 					]);
 	}
 

@@ -5,6 +5,11 @@
 <link rel="stylesheet" href="/dist/wechat/css/pages/vote.css">
 @stop
 
+@section( 'scripts' )
+@parent
+<script type="text/javascript" src="/dist/wechat/js/pages/vote.js"></script>
+@stop
+
 @section( 'content' )
 
 <div class="section-wrap">
@@ -79,10 +84,15 @@
                     活动介绍
                 </span>
                 <br>
-                <span class="vote-info-item-message">
-                    {{$project->content}}
-                </span>
             </div>
+        </div>
+        <div class="vote-info-item">
+            <div class="vote-info-item-content vote-info-intro-wrap vote-info-intro-content vote-info-intro-content-init">
+                {{$project->content}},不是吧，是的反腐干的噶山东高速，什么鬼，什么鬼，什么鬼，什么鬼，什么鬼，
+            </div>
+            <button class="vote-intro-content-display-btn">
+                <img src="/images/icon/arrow.png">
+            </button>
         </div>
     </div>
     @endif
@@ -101,14 +111,23 @@
             @if( isset( $work_news ))
                 @foreach( $work_news as $work_new )
             <div class="section-column-item">
-                <div class="section-column-img-wrap">
+                <a href="{{{ $work_new->url }}}" class="section-column-img-wrap">
                     <img src="{{$work_new->image_url}}" class="section-column-img">
-                </div>
+                </a>
                 <div class="section-column-info">
                     <div class="section-column-info-item">
-                        <button class="section-column-btn">投票</button>
+                        <input type="hidden" name="project_id" value="{{ $project->id }}" class="action-parameter">
+                        <input type="hidden" name="work_id" value="{{ $work_new->id }}" class="action-parameter">
+                        <button class="section-column-btn" 
+                        action="/wechat/vote"
+                        success-message="投票成功">投票</button>
                     </div>
-                    <div class="section-column-info-item">{{$work_new->vote_number}}票</div>
+                    <div class="section-column-info-item">
+                        <span class="vote-num">
+                            {{$work_new->vote_number}}
+                        </span>
+                        票
+                    </div>
                 </div>
             </div>
                 @endforeach
@@ -121,14 +140,23 @@
             @if( isset( $work_numbers ))
                 @foreach( $work_numbers as $work_number )
             <div class="section-column-item">
-                <div class="section-column-img-wrap">
+                <a href="{{{ $work_number->url }}}" class="section-column-img-wrap">
                     <img src="{{$work_number->image_url}}" class="section-column-img">
-                </div>
+                </a>
                 <div class="section-column-info">
                     <div class="section-column-info-item">
-                        <button class="section-column-btn">投票</button>
+                        <input type="hidden" name="project_id" value="{{ $project->id }}" class="action-parameter">
+                        <input type="hidden" name="work_id" value="{{ $work_number->id }}" class="action-parameter">
+                        <button class="section-column-btn" 
+                        action="/wechat/vote"
+                        success-message="投票成功">投票</button>
                     </div>
-                    <div class="section-column-info-item">{{$work_number->vote_number}}票</div>
+                    <div class="section-column-info-item">
+                        <span class="vote-num">
+                            {{$work_number->vote_number}}
+                        </span>
+                        票
+                    </div>
                 </div>
             </div>
                 @endforeach

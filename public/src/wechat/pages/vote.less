@@ -33,6 +33,7 @@
 
 .vote-info-item{
     overflow: hidden;
+    position: relative;
 }
 
 .vote-info-img-wrap{
@@ -61,4 +62,26 @@
 
 .vote-info-item-message{
     font-size: unit( 24px / @rem-design-unit, rem );
+}
+
+.vote-info-intro-content{
+    line-height: unit( 40px / @rem-design-unit, rem );
+    margin-left: unit( 100px / @rem-design-unit, rem );
+    padding-right: unit( 40px / @rem-design-unit, rem );
+}
+
+.vote-info-intro-content-init{
+    overflow: hidden;
+    height: unit( 40px / @rem-design-unit, rem );
+}
+
+.vote-intro-content-display-btn{
+    border: none;
+    outline: none;
+    position: absolute;
+    background: none;
+    top: unit( 5px / @rem-design-unit, rem );
+    right: unit( 5px / @rem-design-unit, rem );
+    width: unit( 18px / @rem-design-unit, rem );
+    height: unit( 32px / @rem-design-unit, rem );
 }
