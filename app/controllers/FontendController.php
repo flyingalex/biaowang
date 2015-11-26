@@ -51,7 +51,7 @@ class FontendController extends BaseController{
 		}catch( Exception $e ) {
 			return Response::json( BiaoException::$databaseErr );
 		}
-		return Response::json(BiaoException::$ok);
+		return Response::json( ['errCode'=>'0', 'vote_number'=>$work->vote_number ]);
 
 	}
 
