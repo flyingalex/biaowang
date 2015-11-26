@@ -69,6 +69,7 @@ $ ()->
             password: _password_input.val()
             captcha: _captcha_input.val()
         }, ( response ) ->
+            response = $.parseJSON( response )
             if response.errCode is "0"
                 alert '登陆成功'
                 window.location.href = '/admin/official/resource/manage'

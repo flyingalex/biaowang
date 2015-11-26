@@ -97,7 +97,7 @@ class FontendPageController extends BaseController{
 		$adverts 	 = Advertisement::where('type',3)->get(); 
 		$albums	 	 = Album::all();
 		$videos 	 = Video::all();
-		return View::make('wechat.pages.album-overview')->with([
+		return View::make('wechat.pages.album')->with([
 					'adverts'		=>$adverts,
 					'albums'		=>$albums,
 					'videos'		=>$videos
@@ -110,7 +110,7 @@ class FontendPageController extends BaseController{
 	{
 		$album_id 	= Input::get('album_id');
 		$photograph = Photograph::where('album_id',$album_id)->get();
-		return View::make('wechat.pages.album-detail')->with([
+		return View::make('wechat.pages.photo')->with([
 					'photos'=>$photograph
 					]);
 	}
