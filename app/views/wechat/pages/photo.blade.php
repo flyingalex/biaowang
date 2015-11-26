@@ -6,23 +6,21 @@
 @stop
 
 @section( 'scripts' )
-<script type="text/javascript" src="/lib/scripts/jquery-1.11.3.min.js"></script>
-<script type="text/javascript" src="/lib/scripts/swiper.jquery.min.js"></script>
-<script type="text/javascript" src="/dist/wechat/js/pages/video.js"></script>
+@parent
+<script type="text/javascript" src="/dist/wechat/js/pages/photo.js"></script>
 @stop
 
 @section( 'advert' )
 @stop
 
-@section( 'navigation' )
-@stop
-
 @section( 'header' )
-<div class="swiper-container gallery-thumbs">
-    <div class="swiper-wrapper">
+<div class="swiper-container album-thumbs-container">
+    <div class="swiper-wrapper album-thumbs-wrap">
         @if( isset( $photos ) )
             @foreach( $photos as $photo )
-        <div class="swiper-slide"><img src="{{$photo->image_url}}" alt=""></div>
+        <div class="swiper-slide album-thumbs-item">
+            <img src="{{$photo->image_url}}" alt="{{$photo->title}}" class="album-thumbs-img">
+        </div>
             @endforeach
         @endif
     </div>
@@ -30,16 +28,23 @@
 @stop
 
 @section( 'content' )
-<div class="swiper-container gallery-top">
-    <div class="swiper-wrapper">
-         @if( isset( $photos ) )
+<div class="swiper-container album-normal-container">
+    <div class="swiper-wrapper album-normal-wrap">
+        @if( isset( $photos ) )
             @foreach( $photos as $photo )
-        <div class="swiper-slide"><img src="{{$photo->image_url}}" alt="{{$photo->title}}"></div>
+        <div class="swiper-slide album-normal-item">
+            <img src="{{$photo->image_url}}" alt="{{$photo->title}}" class="album-normal">
+        </div>    
             @endforeach
         @endif
     </div>
-    <!-- Add Arrows -->
-    <div class="swiper-button-next swiper-button-white"></div>
-    <div class="swiper-button-prev swiper-button-white"></div>
+</div>
+@stop
+
+@section( 'navigation' )
+<div class="album-play-btn-container">
+    <div class="album-play-btn">
+        <img src="/images/icon/play.png" class="album-play-btn-img">
+    </div>
 </div>
 @stop
