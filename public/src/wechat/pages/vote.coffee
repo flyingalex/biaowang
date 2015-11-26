@@ -13,3 +13,10 @@ $ ()->
                 alert _this.attr 'success-message'
             else
                 alert response.message
+
+    $( '.vote-intro-content-display-btn' ).on 'click',( event )->
+
+        _this = $ this
+
+        _this.siblings( '.vote-info-item-content' ).removeClass( 'vote-info-intro-content-init' )
+        _this.remove()
