@@ -60,7 +60,6 @@ class FontendController extends BaseController{
 	{
 		//根据数据库的数据算出总的条数
 		$total_count = count($array_data);
-		// dd($total_count);
 		//总的页数
 		$total_page = ceil($total_count/$per_page);
 		//除数检查
@@ -99,7 +98,7 @@ class FontendController extends BaseController{
 							->get();
 
 		$data = $this->page(3,$page,$resource);
-		return Response::json(['errCode'=>0,'data'=>$data['arr'],'total_page'=>$total_page]);
+		return Response::json(['errCode'=>0,'data'=>$data['arr'],'total_page'=>$data['total_page'] ]);
 	}
 
 	//投票分页
@@ -119,7 +118,7 @@ class FontendController extends BaseController{
 
 
 		$data = $this->page(4,$page,$work);
-		return Response::json(['errCode'=>0,'data'=>$data['arr'],'total_page'=>$total_page]);
+		return Response::json(['errCode'=>0,'data'=>$data['arr'],'total_page'=>$data['total_page'] ]);
 	}
 
 

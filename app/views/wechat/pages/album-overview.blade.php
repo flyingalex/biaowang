@@ -25,6 +25,8 @@
                 </a>
             @endforeach
             @endif
+          
+          
         </div>
         <div class="section-column">
             <h2 class="section-column-title">标王视频</h2>
@@ -40,6 +42,7 @@
                 </a>
             @endforeach
         @endif
+          
         </div>
     </div>
 </div>
