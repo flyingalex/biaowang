@@ -12,18 +12,20 @@ Route::get('admin',function(){
 
 
 //前端
-Route::group(array('prefix'=>'wetchat'),function(){
+Route::group(array('prefix'=>'wechat'),function(){
 	//首页
-	Route::get('home','FontendPageController@home');
+	Route::get('official','FontendPageController@home');
 	//投票
 	Route::get('vote','FontendPageController@vote');
 	Route::post('vote','FontendController@vote');
 	//规则
 	Route::get('rule','FontendPageController@rule');
+	//奖项设置
+	Route::get('award','FontendPageController@award');
 	//相册
 	Route::get('album','FontendPageController@album');
 	//相册图片
-	Route::get('sub-album','FontendPageController@subAlbum');
+	Route::get('photos','FontendPageController@subAlbum');
 	//首页分页
 	Route::post('home-pagination','FontendController@homePagination');
 	//投票分页
