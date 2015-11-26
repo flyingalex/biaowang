@@ -2,7 +2,7 @@
 
 @section( 'styles' )
 @parent
-<link rel="stylesheet" href="/dist/wechat/css/pages/photos.css">
+<link rel="stylesheet" href="/dist/wechat/css/pages/photo.css">
 @stop
 
 @section( 'scripts' )

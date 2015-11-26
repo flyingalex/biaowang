@@ -14,7 +14,7 @@
 <!-- 活动现场 start -->
 <div class="section-wrap">
     <div class="section-header">
-        <img src="/images/resource-title.png">
+        <img src="/images/activity.png">
     </div>
     <div class="activity-column-wrap">
         <div class="activity-column activity-column-left">   
