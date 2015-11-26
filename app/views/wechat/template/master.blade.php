@@ -53,7 +53,6 @@
 <!-- main end -->
 
 @section( 'navigation' )
-@include( 'wechat.components.navigation' )
 @show
 
 @section( 'scripts' )
