@@ -40,11 +40,33 @@ class FontendPageController extends BaseController{
 		$work_news		= Work::where('project_id',$project->id)->orderBy('created_at','desc')->get(); 
 		$work_numbers	= Work::where('project_id',$project->id)->orderBy('vote_number','desc')->get(); 
 		
+		//计算时间
+		$zero1 =  strtotime(date("y-m-d h:i:s")); 
+		$zero2 = strtotime( $project->vote_stop );
+		if( !($zero1 >= $zero2) )
+		{
+			$isClosed = true;
+			$project->created_at = 1;
+			$project->save();
+		}else{
+			$isClosed = false;
+		}
+			$days =ceil(($zero2-$zero1)/86400);
+			$hours = 23 - date('h');
+			$mins = 60 - date( 'i');
+			$seconds = 60 -date( 's' );
+
+
 		return View::make('wechat.pages.vote')->with([
 							'adverts'		=> $adverts,
 							'project'		=> $project,
 							'work_news'		=> $work_news,
-							'work_numbers'	=> $work_numbers
+							'work_numbers'	=> $work_numbers,
+							'isClosed' 		=> $isClosed,
+							'days'			=> $days,
+							'hours'			=> $hours,
+							'mins' 			=> $mins,
+							'seconds' 		=> $seconds
 							]);
 	}
 
