@@ -14,3 +14,7 @@
 </div>
 
 @stop
+
+@section('navigation')
+@include( 'wechat.components.navigation' )
+@stop
