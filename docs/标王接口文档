@@ -251,7 +251,7 @@
 	请求路由：/admin/official/title/column-title-edit
 	请求参数：
 			column_title_id, 				干货版块标题－编辑id
-			classfication					内容
+			classification					内容
 
 	返回参数：
 			{
