@@ -94,12 +94,12 @@
 @section( 'navigation' )
 <div class="navigation-wrap">
     <div class="navigation-container">
-        <a href="http://www.liyububai.com/" class="navigation-link-home">
+        <a href="http://weidian.com/?userid=518781735&wfr=c" class="navigation-link-home">
             <div class="navigation-img-wrap">
                 <img src="/images/icon/link-vote.png" class="navigation-img">
             </div>
             <div class="navigation-text">
-                访问标王官网
+                立刻报名
             </div>
         </a>
     </div>
