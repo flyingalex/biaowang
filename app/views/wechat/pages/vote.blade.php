@@ -84,10 +84,15 @@
                     活动介绍
                 </span>
                 <br>
-                <span class="vote-info-item-message">
-                    {{$project->content}}
-                </span>
             </div>
+        </div>
+        <div class="vote-info-item">
+            <div class="vote-info-item-content vote-info-intro-wrap vote-info-intro-content vote-info-intro-content-init">
+                {{$project->content}},不是吧，是的反腐干的噶山东高速，什么鬼，什么鬼，什么鬼，什么鬼，什么鬼，
+            </div>
+            <button class="vote-intro-content-display-btn">
+                <img src="/images/icon/arrow.png">
+            </button>
         </div>
     </div>
     @endif
