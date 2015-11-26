@@ -30,3 +30,7 @@
 </div>
 @endif
 @stop
+
+@section('navigation')
+@include( 'wechat.components.navigation' )
+@stop
