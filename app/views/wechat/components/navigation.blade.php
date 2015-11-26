@@ -1,4 +1,4 @@
-<div class="navigation-wrap" style="position:fixed;bottom:0;text-align:center;width:10rem">
+<div class="navigation-wrap">
     <div class="navigation-container">
         <a href="/wechat/vote" class="navigation-link">
             <div class="navigation-img-wrap">
