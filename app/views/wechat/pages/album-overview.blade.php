@@ -25,14 +25,8 @@
                 </div>
             @endforeach
             @endif
-           {{--  <div class="section-column-item">
-                <div class="section-column-img-wrap">
-                    <img src="/images/test/test2.jpeg" class="section-column-img">
-                </div>
-                <div class="section-column-info">
-                    <div class="section-column-info-item-message">最新优惠活动</div>
-                </div>
-            </div> --}}
+          
+          
         </div>
         <div class="section-column">
             <h2 class="section-column-title">标王视频</h2>
@@ -48,14 +42,7 @@
                 </div>
             @endforeach
         @endif
-          {{--   <div class="section-column-item">
-                <div class="section-column-img-wrap">
-                    <img src="/images/test/test3.jpg" class="section-column-img">
-                </div>
-                <div class="section-column-info">
-                    <div class="section-column-info-item-message">最新优惠活动</div>
-                </div>
-            </div> --}}
+          
         </div>
     </div>
 </div>
