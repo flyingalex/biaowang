@@ -10,7 +10,7 @@ class Album extends \Eloquent {
 		// 'type'
 	];
 
-	public function album()
+	public function photo()
     {
         return $this->hasMany('Photograph','album_id','id');
     }

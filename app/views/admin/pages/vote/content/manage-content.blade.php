@@ -12,7 +12,7 @@
 
 <div class="edit-area-top clearfix">
     <h3 class="edit-area-title">内容管理</h3>
-    <span class="operation-new"></span>
+    <a href="/admin/vote/content/add" class="operation-new"></a>
 </div>
 
 <table class="edit-area-body">
@@ -22,37 +22,45 @@
         <th class="edit-area-item table-column content-title">标题</th>
         <th class="edit-area-item table-column content-link">链接</th>
         <th class="edit-area-item table-column content-vote-count">投票数</th>
+        <th class="edit-area-item table-column content-vote-project">所属项目</th>
         <th class="edit-area-item table-column edit-area-item-operation">操作</th>
     </tr>
-
-    <tr class="edit-area-row">
+    @if( isset( $works ) )
+        @foreach( $works as $work )
+    <tr class="edit-area-row" id="row-{{ $work->id }}">
         <td class="edit-area-item content-picture">
-            <div class="picture-wrap">
-                <div class="picture-mask"></div>
-                <img src="/images/test/test1.jpg" class="thumbnail">
-            </div>
+            <img src="{{$work->image_url}}" class="thumbnail">
         </td>
         <td class="edit-area-item content-title">
-            标题
+            {{$work->title}}
         </td>
         <td class="edit-area-item content-link">
-            http://www.zerioi.com/test/test/test
+            {{$work->url}}
         </td>
         <td class="edit-area-item content-vote-count">
-            1111
+            {{$work->vote_number}}
+        </td>
+         <td class="edit-area-item content-vote-project">
+            {{$work->project}}
         </td>
         <td class="edit-area-item edit-area-item-operation">
-            <span class="operation-btn operation-edit">
-                <img src="/images/icon/edit.png" class="operation-icon">
-                <span>编辑</span>
+            <input name="work_id" type="hidden" value="{{{ $work->id }}}" class="operation-id">
+            <span class="operation-edit">
+                <a href="/admin/vote/content/edit?work_id={{{ $work->id }}}" class="operation-btn">
+                    <img src="/images/icon/edit.png" class="operation-icon">
+                    <span>编辑</span>
+                </a>
             </span>
-            <span class="operation-btn operation-delete">
-                <img src="/images/icon/delete.png" class="operation-icon">
-                <span>删除</span>
+            <span class="operation-delete">
+                <span action="/admin/vote/content/delete" method="POST" success-action="delete" success-message="删除成功" error-message="删除成功" class="operation-btn">
+                    <img src="/images/icon/delete.png" class="operation-icon">
+                    <span>删除</span>
+                </span>
             </span>
         </td>
     </tr>
-
+        @endforeach
+    @endif
 </table>
 
 </div>

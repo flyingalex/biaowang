@@ -3,6 +3,7 @@
 @section( 'styles' )
 @parent
 <link rel="stylesheet" href="/dist/admin/css/common/edit-area-list.css">
+<link rel="stylesheet" href="/lib/styles/jquery-ui.min.css">
 @stop
 
 @section( 'edit-area' )
@@ -14,49 +15,53 @@
     <h3 class="edit-area-title">基本内容</h3>
 </div>
 
-<form action="" class="edit-area-form">
-    @if( isset( $project ) )
+<form action="/admin/vote/project/create-edit" method="POST" target="form-target" class="edit-area-form">
+
 <ul class="edit-area-body">
+
+    <input name="project_id" type="hidden" value="{{ $project->id }}">
     
     <li class="edit-area-row">
         <label class="edit-area-label">投票主题</label>
-        <input type="text" class="edit-area-input" value="{{$project->title}}"> 
+        <input name="title" type="text" class="edit-area-input" value="{{$project->title}}">
     </li>
     <li class="edit-area-row">
         <label class="edit-area-label">投票时间</label>
-        <input type="text" class="edit-area-date-input" value="{{$project->vote_start}}">
+        <input name="vote_start" type="text" class="edit-area-date-input" value="{{$project->vote_start}}">
         <span>------</span>
-        <input type="text" class="edit-area-date-input" value="{{$project->vote_stop}}">
+        <input name="vote_stop" type="text" class="edit-area-date-input" value="{{$project->vote_stop}}">
     </li>
     <li class="edit-area-row">
         <label class="edit-area-label">报名时间</label>
-        <input type="text" class="edit-area-date-input" value="{{$project->sign_up_start}}">
+        <input name="sign_up_start" type="text" class="edit-area-date-input" value="{{$project->sign_up_start}}">
         <span>------</span>
-        <input type="text" class="edit-area-date-input" value="{{$project->sign_up_stop}}">
+        <input name="sign_up_stop" type="text" class="edit-area-date-input" value="{{$project->sign_up_stop}}">
     </li>
     <li class="edit-area-row">
         <label class="edit-area-label">投票类型</label>
-        <select name="" class="edit-area-select">
+        <select class="edit-area-select">
             <option value="">单选</option>
         </select>
     </li>
     <li class="edit-area-row edit-area-textarea-row">
         <label class="edit-area-label">活动介绍</label>
-        <textarea name="" class="edit-area-textarea">{{$project->content}}</textarea>
+        <textarea name="content" class="edit-area-textarea">{{$project->content}}</textarea>
     </li>
     <li class="edit-area-row edit-area-textarea-row">
         <label class="edit-area-label">活动规则</label>
-        <textarea name="" class="edit-area-textarea">{{$project->activity_rule}}</textarea>
+        <textarea name="activity_rule" class="edit-area-textarea">{{$project->activity_rule}}</textarea>
     </li>
     <li class="edit-area-row edit-area-textarea-row">
         <label class="edit-area-label">奖项设置</label>
-        <textarea name="" class="edit-area-textarea">{{$project->award_site}}</textarea>
+        <textarea name="award_site" class="edit-area-textarea">{{$project->award_site}}</textarea>
     </li>
     
-    <button class="operation-confirm btn">发布</button>
+    <input type="submit" class="operation-confirm btn" value="发布">
 </ul>
-    @endif
+
 </form>
+
+<iframe name="form-target" id="form-target" redirect-url="/admin/vote/project/manage"></iframe>
 
 </div>
 <!-- 编辑项目 end -->
@@ -65,4 +70,6 @@
 
 @section( 'scripts' )
 @parent
+<script type="text/javascript" src="/lib/scripts/jquery-ui.min.js"></script>
+<script type="text/javascript" src="/dist/admin/js/pages/add-project.js"></script>
 @stop

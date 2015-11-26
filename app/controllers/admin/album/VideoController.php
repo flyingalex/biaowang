@@ -8,8 +8,8 @@
 
 	public function edit()
 	{	
-		// $video = Video::find( Input::get('video_id') );
-		$video = Video::find( 2 );
+		$video = Video::find( Input::get('video_id') );
+		// $video = Video::find( 2 );
 		if( !isset( $video ) )
 			return Response::json( BiaoException::$notExist );
 		return View::make('admin.pages.album.video.edit-video')->with(['video'=>$video]);
@@ -39,21 +39,15 @@
 		//讲照片存入public目录
 		$path = public_path().'/upload/album/';
 
-		//判空
-		$arr = array( $title,$url,$file );
-		if( InputController::isNullInArray( $arr ) )
-			return Response::json( BiaoException::$parameterIncomplete );
-
-		try{
-			$image_url = FileController::upload( $file, $path );
-		}catch( Exception $e ){
-			return FileController::errMessage( $e->getCode() );
-		}
-		$image_url = '/upload/album/'.$image_url;
+		$fullArr = array( $title, $file,$url );
+		$littleArr = array( $title, $url);
+		$dataPath = '/upload/album/';
+		$result = FileController::isFileUpload($video,$file,$fullArr,$littleArr,$path,$dataPath);
+		if( $result != 'true' )
+			return $result;
 
 		$video->title = $title;
 		$video->url = $url;
-		$video->image_url = $image_url;
 		if( !$video->save() )
 			return Response::json( BiaoException::$databaseErr );
 		return Response::json( BiaoException::$ok );		

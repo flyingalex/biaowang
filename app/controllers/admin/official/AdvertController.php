@@ -8,9 +8,7 @@ class AdvertController extends BaseController{
 
 	public function edit()
 	{	
-		// $advert_id = Input::get('advert_id');
-		$advert_id = 1;
-		$advert = Advertisement::find( $advert_id );
+		$advert = Advertisement::find( Input::get('advert_id') );
 		if( !isset( $advert ) )
 			return View::make('errors.error')->with(['error'=>BiaoException::$notExist['message']]);
 		return View::make('admin.pages.official.advert.edit-advert')->with(['advert'=>$advert]);
@@ -43,32 +41,31 @@ class AdvertController extends BaseController{
 		//讲照片存入public目录
 		$path = public_path().'/upload/official/';
 		
-		//判空
-		$arr = array( $file,$title,$url,$type );
-		if( InputController::isNullInArray( $arr ) )
-			return Response::json( BiaoException::$parameterIncomplete );
+
+		$fullArr = array( $file,$title,$url,$type );
+		$littleArr = array( $title,$url,$type);
+		$dataPath = '/upload/official/';
+		$result = FileController::isFileUpload($advert,$file,$fullArr,$littleArr,$path,$dataPath);
+		if( $result != 'true' )
+			return $result;
+
 		//序号唯一性检查
-		if( !is_int( $sequence ) )
+		if( !is_numeric( $sequence ) ){
 			return Response::json( BiaoException::$isNotInt );
-		$sequences = Advertisement::where('type',$type)->select('id','sequence')->get();
-		if( InputController::isNotUnique($advert->id,$sequence,$sequences ) )
-			return Response::json( BiaoException::$isNotUnique );
+		}else{
+			$sequences = Advertisement::where('type',$type)->select('id','sequence')->get();
+			if( InputController::isNotUnique($advert->id,$sequence,$sequences ) )
+				return Response::json( BiaoException::$isNotUnique );
+		}
 		//广告类型
 		if( $type != 1 && $type != 2 && $type != 3)
 			return Response::json( BiaoException::$advertTypeErr );
 
-		try{
-			$image_url = FileController::upload( $file, $path );
-		}catch( Exception $e ){
-			return FileController::errMessage( $e->getCode() );
-		}
-		$image_url = '/upload/official/'.$image_url;
 		if( empty( $sequence ) )
 			$sequence = null;
 
 		$advert->title 		= $title;
 		$advert->sequence 	= $sequence;
-		$advert->image_url 	= $image_url;
 		$advert->url 		= $url;
 		$advert->type 		= $type;
 		if( !$advert->save() )

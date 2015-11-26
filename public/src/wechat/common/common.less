@@ -1,0 +1,65 @@
+/* CSS Mobile Reset */
+
+@import './settings.less';
+
+html, body{
+    margin: 0;
+    padding: 0; 
+    border: 0;
+}
+
+body {
+    color: #000;
+    line-height:1;
+    background: #fff;
+    font-size: inherit;
+    word-wrap: break-word;
+    -webkit-text-size-adjust: none;
+    background: url( '/images/background.png' );
+    font-family: "Microsoft YaHei","SamHei", Arial, sans-serif;
+}
+
+ul, ol{
+    list-style: none;
+}
+
+h1, h2, h3, h4, h5, h6{ 
+    font-weight: normal; 
+}
+
+img { 
+    border: 0; 
+    max-width: 100%; 
+}
+
+table { 
+    width:auto; 
+    border-collapse: collapse;
+    border-spacing: 0; 
+}
+
+a{
+    text-decoration: none;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+.clearfix{
+    overflow: hidden;
+}
+
+.main{
+    @horizonal-padding: unit( 20px / @rem-design-unit, rem );
+    padding-left: @horizonal-padding;
+    padding-right: @horizonal-padding;
+    margin-top: unit( 30px / @rem-design-unit, rem );
+}
+
+.split-line{
+    width: 10rem;
+    border-top: none;
+    margin-left: -@horizontal-margin;
+    background-color: rgba(255, 255, 255, 0.22);
+}

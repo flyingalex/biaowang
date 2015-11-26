@@ -8,8 +8,8 @@ class VoteAdvertController extends Basecontroller{
 
 	public function edit()
 	{	
-		// $advert_id = Input::get('advert_id');
-		$advert_id = 1;
+		$advert_id = Input::get('advert_id');
+		// $advert_id = 1;
 		$advert = Advertisement::find( $advert_id );
 		if( !isset( $advert ) )
 			return View::make('errors.error')->with(['error'=>BiaoException::$notExist['message']]);

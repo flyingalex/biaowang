@@ -3,6 +3,7 @@
 @section( 'styles' )
 @parent
 <link rel="stylesheet" href="/dist/admin/css/common/edit-area-table.css">
+<link rel="stylesheet" href="/dist/admin/css/pages/offical/manage-resource.css">
 @stop
 
 @section( 'edit-area' )
@@ -16,14 +17,18 @@
     @if( isset( $column_titles ) )
         @foreach( $column_titles as $column_title)
             @if( $column_title->id == $column_title_id )
-                <option value="{{$column_title->id}}" selected="selected"> {{$column_title->classification}} </option>
+                <option value="/admin/official/resource/manage?column_title_id={{ $column_title->id }}" selected="selected">
+                    {{$column_title->classification}}
+                </option>
             @else
-                <option value="{{$column_title->id}}" > {{$column_title->classification}} </option>
+                <option value="/admin/official/resource/manage?column_title_id={{ $column_title->id }}">
+                    {{$column_title->classification}}
+                </option>
             @endif
         @endforeach
     @endif
     </select>
-    <span class="operation-new"></span>
+    <a href="/admin/official/resource/add" class="operation-new"></a>
 </div>
 
 <table class="edit-area-body">
@@ -39,12 +44,9 @@
         
     @if( isset( $resources ) )
         @foreach( $resources as $resource )
-    <tr class="edit-area-row">
+    <tr class="edit-area-row" id="row-{{ $resource->id }}">
         <td class="edit-area-item resource-picture">
-            <div class="picture-wrap">
-                <div class="picture-mask"></div>
-                <img src="{{$resource->image_url}}" class="thumbnail">
-            </div>
+            <img src="{{$resource->image_url}}" class="thumbnail">
         </td>
         <td class="edit-area-item resource-title">
             {{$resource->title}}
@@ -56,16 +58,21 @@
             {{$resource->url}}
         </td>
         <td class="edit-area-item resource-order">
-            {{$resource->sequence}}            
+            {{$resource->sequence}}
         </td>
         <td class="edit-area-item edit-area-item-operation">
-            <span class="operation-btn operation-edit">
-                <img src="/images/icon/edit.png" class="operation-icon">
-                <span>编辑</span>
+            <input name="resource_id" type="hidden" value="{{{ $resource->id }}}" class="operation-id">
+            <span class="operation-edit">
+                <a href="/admin/official/resource/edit?resource_id={{{ $resource->id }}}" class="operation-btn">
+                    <img src="/images/icon/edit.png" class="operation-icon">
+                    <span>编辑</span>
+                </a>
             </span>
-            <span class="operation-btn operation-delete">
-                <img src="/images/icon/delete.png" class="operation-icon">
-                <span>删除</span>
+            <span class="operation-delete">
+                <span action="/admin/official/resource/delete" method="POST" success-action="delete" success-message="删除成功" error-message="删除成功" class="operation-btn">
+                    <img src="/images/icon/delete.png" class="operation-icon">
+                    <span>删除</span>
+                </span>
             </span>
         </td>
     </tr>
@@ -81,4 +88,5 @@
 
 @section( 'scripts' )
 @parent
+<script type="text/javascript" src="/dist/admin/js/pages/manage-resource.js"></script>
 @stop

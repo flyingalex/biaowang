@@ -12,48 +12,60 @@
 
 <div class="edit-area-top clearfix">
     <h3 class="edit-area-title">管理项目</h3>
-    <span class="operation-new"></span>
+    <a href="/admin/vote/project/add" class="operation-new"></a>
 </div>
 
 <table class="edit-area-body">
 
     <tr class="edit-area-header">
-        <th class="edit-area-item table-column content-picture">项目标题</th>
-        <th class="edit-area-item table-column content-title">已报名</th>
-        <th class="edit-area-item table-column content-link">总投票数</th>
+        <th class="edit-area-item table-column project-picture">项目标题</th>
+        <th class="edit-area-item table-column project-title">已报名</th>
+        <th class="edit-area-item table-column project-link">总投票数</th>
         <th class="edit-area-item table-column edit-area-item-operation">操作</th>
     </tr>
     
 
     @if( isset( $projects ) )
         @foreach( $projects as $project )
-    <tr class="edit-area-row">
-        <td class="edit-area-item content-title">
+    <tr class="edit-area-row" id="row-{{ $project->id }}">
+        <td class="edit-area-item project-title">
             {{$project->title}}
         </td>
-        <td class="edit-area-item content-link">
+        <td class="edit-area-item project-link">
             {{$project->sign_up_total}}
         </td>
-        <td class="edit-area-item content-vote-count">
+        <td class="edit-area-item project-vote-count">
             {{$project->view_total}}
         </td>
         <td class="edit-area-item edit-area-item-operation">
-            <span class="operation-btn operation-edit">
-                <img src="/images/icon/edit.png" class="operation-icon">
-                <span>编辑</span>
+            <input name="project_id" type="hidden" value="{{{ $project->id }}}" class="operation-id">
+            <span class="operation-edit">
+                <a href="/admin/vote/project/edit?project_id={{{ $project->id }}}" class="operation-btn">
+                    <img src="/images/icon/edit.png" class="operation-icon">
+                    <span>编辑</span>
+                </a>
             </span>
-            <span class="operation-btn operation-close">
-                <img src="/images/icon/close.png" class="operation-icon">
-                @if( $project->display )
-                    <span>开启</span>
-                @else
+            <span class="operation-delete">
+                <span action="/admin/vote/project/delete" method="POST" success-action="delete" success-message="删除成功" error-message="删除成功" class="operation-btn">
+                    <img src="/images/icon/delete.png" class="operation-icon">
+                    <span>删除</span>
+                </span>
+            </span>
+            @if( $project->display )
+            <span class="operation-close">
+                <span action="/admin/vote/project/display" method="POST" success-action="refresh" success-message="关闭成功" class="operation-btn">
+                    <img src="/images/icon/close.png" class="operation-icon">
                     <span>关闭</span>
-                @endif
+                </span>
             </span>
-            <span class="operation-btn operation-delete">
-                <img src="/images/icon/delete.png" class="operation-icon">
-                <span>删除</span>
+            @else
+            <span class="operation-open">
+                <span action="/admin/vote/project/display" method="POST" success-action="refresh" success-message="开启成功" class="operation-btn">
+                    <img src="/images/icon/close.png" class="operation-icon">
+                    <span>开启</span>
+                </span>
             </span>
+            @endif
         </td>
     </tr>
         @endforeach

@@ -13,13 +13,13 @@
 
 App::before(function($request)
 {
-	//
+
 });
 
 
 App::after(function($request, $response)
 {
-	//
+	$response->header( 'Content-Type', 'text/html' );
 });
 
 /*
@@ -35,8 +35,6 @@ App::after(function($request, $response)
 
 Route::filter('auth', function()
 {	
-	$user = User::find(1);
-	Auth::login($user);
 	if (Auth::guest())
 	{
 		if (Request::ajax())

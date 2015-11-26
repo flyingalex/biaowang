@@ -9,9 +9,7 @@ class PhotographController extends BaseController{
 
 	public function edit()
 	{	
-		// $photo_id = Input::get('photo_id');
-		$photo_id = 3;
-		$photo = Photograph::find( $photo_id );
+		$photo = Photograph::find( Input::get('photo_id') );
 		if( !isset( $photo ) )
 			return View::make('errors.error')->with(['error'=>BiaoException::$notExist['message']]);
 		$albums = Album::all();
@@ -60,21 +58,15 @@ class PhotographController extends BaseController{
 		//讲照片存入public目录
 		$path = public_path().'/upload/album/';
 
-		//判空
-		$arr = array( $file,$title );
-		if( InputController::isNullInArray( $arr ) )
-			return Response::json( BiaoException::$parameterIncomplete );
-
-		try{
-			$image_url = FileController::upload( $file, $path );
-		}catch( Exception $e ){
-			return FileController::errMessage( $e->getCode() );
-		}
-		$image_url = '/upload/album/'.$image_url;
+		$fullArr = array( $title, $file );
+		$littleArr = array( $title);
+		$dataPath = '/upload/album/';
+		$result = FileController::isFileUpload($photo,$file,$fullArr,$littleArr,$path,$dataPath);
+		if( $result != 'true' )
+			return $result;
 
 		$photo->album_id 	= $album_id;
 		$photo->title 		= $title;
-		$photo->image_url 	= $image_url;
 		if( !$photo->save() )
 			return Response::json( BiaoException::$databaseErr );
 		return Response::json( BiaoException::$ok );		
@@ -82,7 +74,7 @@ class PhotographController extends BaseController{
 
 	public function delete()
 	{
-		$phpto = Photograph::find( Input::get('phpto_id') );
+		$phpto = Photograph::find( Input::get('photo_id') );
 		if( !isset( $phpto ) )
 			return Response::json( BiaoException::$notExist );
 		$phpto->delete();

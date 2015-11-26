@@ -14,37 +14,42 @@
     <h3 class="edit-area-title">编辑广告</h3>
 </div>
 
-<form action="" class="edit-area-form">
+<form action="/admin/official/advert/advert-create-edit" method="POST" enctype="multipart/form-data" target="form-target" class="edit-area-form">
 
 <ul class="edit-area-body">
 
+    <input type="hidden" name="type" value="3">
+    <input name="advert_id" type="hidden" value="{{ $advert->id }}">
+
     <li class="edit-area-row">
         <label class="edit-area-label">标题</label>
-        <input type="text" class="edit-area-input" value="{{$advert->title}}">
+        <input name="title" type="text" class="edit-area-input" value="{{$advert->title}}">
     </li>
 
     <li class="edit-area-row">
         <label class="edit-area-label">排序</label>
-        <input type="text" class="edit-area-input" value="{{$advert->sequence}}">
+        <input name="sequence" type="text" class="edit-area-input" value="{{$advert->sequence}}">
     </li>
     
     <li class="edit-area-row">
         <label class="edit-area-label">外链</label>
-        <input type="text" class="edit-area-input" value="{{$advert->url}}">
+        <input name="url" type="text" class="edit-area-input" value="{{$advert->url}}">
     </li>
     
     <li class="edit-area-picture-row">
         <label class="edit-area-label">缩略图</label>
         <div class="picture-wrap">
-            <div class="picture-mask"></div>
+            <input name="image" type="file" class="picture-input-btn">
             <img src="{{$advert->image_url}}" class="thumbnail">
         </div>
     </li>
     
-    <button class="operation-confirm btn">发布</button>
+    <input type="submit" class="operation-confirm btn" value="发布">
 </ul>
 
 </form>
+
+<iframe name="form-target" id="form-target" redirect-url="/admin/vote/advert/manage"></iframe>
 
 </div>
 <!-- 广告图片编辑 end -->

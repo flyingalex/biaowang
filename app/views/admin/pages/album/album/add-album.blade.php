@@ -14,13 +14,13 @@
     <h3 class="edit-area-title">活动相册</h3>
 </div>
 
-<form action="" class="edit-area-form">
+<form action="/admin/album/album/create-edit" method="POST" enctype="multipart/form-data" target="form-target" class="edit-area-form">
 
 <ul class="edit-area-body">
 
     <li class="edit-area-row">
         <label class="edit-area-label">标题</label>
-        <input type="text" class="edit-area-input">
+        <input name="title" type="text" class="edit-area-input">
     </li>
 
     <li class="edit-area-row">
@@ -29,17 +29,22 @@
     </li>
     
     <li class="edit-area-picture-row">
-        <label class="edit-area-label">封面图片</label>
+        <label class="edit-area-label">图片</label>
         <div class="picture-input-wrap">
-            <input type="file" class="picture-input-btn">
+            <input name="image" type="file" class="picture-input-btn">
             <div class="picture-input-holder">
-                +<br>添加图片
+                <div class="picture-input-icon">+</div>
+                <div>添加图片</div>
             </div>
          </div>
     </li>
     
-    <button class="operation-confirm btn">发布</button>
+    <input type="submit" class="operation-confirm btn" value="发布">
 </ul>
+
+<iframe name="form-target" id="form-target" redirect-url="/admin/album/album/manage"></iframe>
+
+</form>
 
 </div>
 <!-- 相册新建 end -->

@@ -102,38 +102,46 @@
 
 微官网静态页面
 广告管理		/admin/official/advert/manage
-广告添加		/admin/official/advert/edit
-广告编辑		/admin/official/advert/add
+广告编辑		/admin/official/advert/edit?advert_id
+广告添加		/admin/official/advert/add
 
-干货管理		/admin/official/resource/manage
-干货添加		/admin/official/resource/edit
-干货编辑		/admin/official/resource/add
+干货管理		/admin/official/resource/manage?column_title_id
+干货编辑		/admin/official/resource/edit?resource_id
+干货添加		/admin/official/resource/add
 
 标题管理		/admin/official/title/manage
 
 
 微投票静态页面
+广告管理		/admin/vote/advert/manage
+广告编辑		/admin/vote/advert/edit?advert_id
+广告添加		/admin/vote/advert/add
+
 项目管理		/admin/vote/project/manage
-项目添加		/admin/vote/project/edit
-项目编辑		/admin/vote/project/add
+项目编辑		/admin/vote/project/edit?project_id
+项目添加		/admin/vote/project/add
 
 内容管理		/admin/vote/content/manage
-内容添加		/admin/vote/content/edit
-内容编辑		/admin/vote/content/add
+内容编辑		/admin/vote/content/edit?work_id
+内容添加		/admin/vote/content/add
 
 
 微相册静态页面
+广告管理		/admin/album/advert/manage
+广告编辑		/admin/album/advert/edit?advert_id
+广告添加		/admin/album/advert/add
+
 相册管理		/admin/album/album/manage
-相册添加		/admin/album/album/edit
-相册编辑		/admin/album/album/add
+相册编辑		/admin/album/album/edit?album_id
+相册添加		/admin/album/album/add
 
 照片管理		/admin/album/photo/manage
-照片添加		/admin/album/photo/edit
-照片编辑		/admin/album/photo/add
+照片编辑		/admin/album/photo/edit?photo_id
+照片添加		/admin/album/photo/add
 
 视频管理		/admin/album/video/manage
-视频添加		/admin/album/video/edit
-视频编辑		/admin/album/video/add
+视频编辑		/admin/album/video/edit?video_id
+视频添加		/admin/album/video/add
 
 新闻管理		/admin/system/manage-news	
 用户管理		/admin/system/manage-user
@@ -285,7 +293,7 @@
 微投票
 1.项目创建和编辑
 	请求方式：POST
-	请求路由：/admin/vote/project/cretae-edit
+	请求路由：/admin/vote/project/create-edit
 	请求参数：
 			project_id,				项目id（编辑时传入）
 			title,					项目标题
@@ -329,7 +337,7 @@
 
 4.内容查创建和编辑
 	请求方式：POST
-	请求路由：/admin/vote/content/cretae-edit
+	请求路由：/admin/vote/content/create-edit
 	请求参数：
 			project_id,				项目id
 			work_id,				内容id（编辑时传入）
@@ -360,7 +368,7 @@
 微相册
 1.相册创建和编辑
 	请求方式：POST
-	请求路由：/admin/album/album/cretae-edit
+	请求路由：/admin/album/album/create-edit
 	请求参数：
 			album_id,				相册id（编辑时传入）
 			title,					标题
@@ -387,7 +395,7 @@
 
 3.照片创建和编辑
 	请求方式：POST
-	请求路由：/admin/album/photo/cretae-edit
+	请求路由：/admin/album/photo/create-edit
 	请求参数：
 			album_id,				相册id
 			photo_id，	 			照片id（编辑时传入）
@@ -414,7 +422,7 @@
 
 5.视频创建和编辑
 	请求方式：POST
-	请求路由：/admin/album/video/cretae-edit
+	请求路由：/admin/album/video/create-edit
 	请求参数：
 			video_id,	 			视频id（编辑时传入）
 			title,					标题

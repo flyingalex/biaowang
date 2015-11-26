@@ -8,8 +8,8 @@ class AlbumController extends BaseController{
 
 	public function edit()
 	{	
-		// $album = Album::find( Input::get('album_id') );
-		$album = Album::find( 2 );
+		$album = Album::find( Input::get('album_id') );
+		// $album = Album::find( 2 );
 		if( !isset( $album ) )
 			return Response::json( BiaoException::$notExist );
 		return View::make('admin.pages.album.album.edit-album')->with(['album'=>$album]);
@@ -22,7 +22,7 @@ class AlbumController extends BaseController{
 	}
 	
 	public function createAndEdit()
-	{	
+	{		
 		if( Input::has('album_id') )
 		{
 			$album = Album::find( Input::get('album_id') );
@@ -33,25 +33,18 @@ class AlbumController extends BaseController{
 		}
 		$title = Input::get('title');
 		$file = Input::file('image');
-
+		
 		//讲照片存入public目录
 		$path = public_path().'/upload/album/';
 
-		//判空
-		$arr = array( $file,$title );
-		if( InputController::isNullInArray( $arr ) )
-			return Response::json( BiaoException::$parameterIncomplete );
-
-		try{
-			$image_url = FileController::upload( $file, $path );
-		}catch( Exception $e ){
-			return FileController::errMessage( $e->getCode() );
-		}
-		$image_url = '/upload/album/'.$image_url;
-
+		$fullArr = array( $title, $file );
+		$littleArr = array( $title);
+		$dataPath = '/upload/album/';
+		$result = FileController::isFileUpload($album,$file,$fullArr,$littleArr,$path,$dataPath);
+		if( $result != 'true' )
+			return $result;
 		//存
 		$album->title = $title;
-		$album->image_url = $image_url;
 		if( !$album->save() )
 			return Response::json( BiaoException::$databaseErr );
 		return Response::json( BiaoException::$ok );

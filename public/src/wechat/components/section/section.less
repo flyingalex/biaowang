@@ -1,0 +1,97 @@
+
+@import './../../common/settings.less';
+
+.section-wrap{
+    overflow: auto;
+
+    .section-single-line{
+        text-align: center;
+        font-size: unit( 26px / @rem-design-unit, rem );
+        line-height: unit( 75px / @rem-design-unit, rem );
+    }
+}
+
+.section-header{
+    text-align: center;
+    height: unit( 128px / @rem-design-unit, rem );
+}
+
+.section-content{
+    color: #292929;
+    word-wrap: break-word;
+    border-radius: 0.2rem;
+    overflow: hidden;
+    background-color: @content-background-color;
+    font-size: unit( 22px / @rem-design-unit, rem );
+    line-height: unit( 30px / @rem-design-unit, rem );
+    margin-bottom: unit( 30px / @rem-design-unit, rem );
+    padding: unit( 25px / @rem-design-unit, rem ) unit( 30px / @rem-design-unit, rem );
+}
+
+.section-column{
+    float: left;
+    overflow: hidden;
+    border-radius: 0.2rem;
+    width: unit( 330px / @rem-design-unit, rem );
+}
+
+.section-column-item{
+    overflow: hidden;
+    border-radius: 0.1rem;
+    margin-bottom: unit( 15px / @rem-design-unit, rem );
+}
+
+.section-column-title{
+    color: @font-color-blue;
+    text-align: center;
+    font-size: unit( 32px / @rem-design-unit, rem );
+    line-height: unit( 75px / @rem-design-unit, rem );
+}
+
+.section-column-left{
+    margin-right: unit( 20px / @rem-design-unit, rem );
+}
+
+.section-column-img-wrap{
+}
+
+.section-column-img{
+    width: 100%;
+    display: block;
+}
+
+.section-column-info{
+    background-color: #3f84d4;
+    text-align: center;
+    overflow: hidden;
+}
+
+.section-column-info-item-message{
+    color: #fff;
+    font-size: unit( 24px / @rem-design-unit, rem );
+    line-height: unit( 70px / @rem-design-unit, rem );
+}
+
+.section-column-info-item{
+    line-height: unit( 50px / @rem-design-unit, rem );
+    @margin-vertical: unit( 10px / @rem-design-unit, rem );
+    margin-bottom: @margin-vertical;
+    margin-top: @margin-vertical;
+    color: #fff;
+    float: left;
+    width: 50%;
+}
+
+.section-column-btn{
+    color: #fff;
+    border: none;
+    margin: 0 auto;
+    display: block;
+    cursor: pointer;
+    overflow: hidden;
+    text-align: center;
+    border-radius: 0.2em;
+    background: url( '/images/btn-bg.png' );
+    width: unit( 130px / @rem-design-unit, rem );
+    line-height: unit( 50px / @rem-design-unit, rem );
+}

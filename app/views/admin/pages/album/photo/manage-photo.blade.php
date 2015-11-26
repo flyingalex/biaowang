@@ -12,6 +12,7 @@
 
 <div class="edit-area-top clearfix">
     <h3 class="edit-area-title">相片管理</h3>
+    <a href="/admin/album/photo/add" class="operation-new"></a>
 </div>
 
 <table class="edit-area-body">
@@ -25,12 +26,9 @@
     
     @if( isset( $photos ) )
         @foreach( $photos as $photo )
-    <tr class="edit-area-row">
+    <tr class="edit-area-row" id="row-{{ $photo->id }}">
         <td class="edit-area-item">
-            <div class="picture-wrap">
-                <div class="picture-mask"></div>
-                <img src="{{$photo->image_url}}" class="thumbnail">
-            </div>
+            <img src="{{$photo->image_url}}" class="thumbnail">
         </td>
         <td class="edit-area-item">
             {{$photo->title}}
@@ -39,13 +37,18 @@
             {{$photo->album_title}}
         </td>
         <td class="edit-area-item edit-area-item-operation">
-            <span class="operation-btn operation-edit">
-                <img src="/images/icon/edit.png" class="operation-icon">
-                <span>编辑</span>
+            <input name="photo_id" type="hidden" value="{{{ $photo->id }}}" class="operation-id">
+            <span class="operation-edit">
+                <a href="/admin/album/photo/edit?photo_id={{{ $photo->id }}}" class="operation-btn">
+                    <img src="/images/icon/edit.png" class="operation-icon">
+                    <span>编辑</span>
+                </a>
             </span>
-            <span class="operation-btn operation-delete">
-                <img src="/images/icon/delete.png" class="operation-icon">
-                <span>删除</span>
+            <span class="operation-delete">
+                <span action="/admin/album/photo/delete" method="POST" success-action="delete" success-message="删除成功" error-message="删除成功" class="operation-btn">
+                    <img src="/images/icon/delete.png" class="operation-icon">
+                    <span>删除</span>
+                </span>
             </span>
         </td>
     </tr>

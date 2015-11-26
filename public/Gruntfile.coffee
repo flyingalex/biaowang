@@ -36,6 +36,24 @@ module.exports = (grunt)->
                     'dist/admin/js/component.js': [
                         'src/admin/components/sidebar/sidebar.coffee'
                         'src/admin/components/content/content.coffee'
+                        'src/admin/components/edit-area/common.coffee'
+                        'src/admin/components/edit-area/operation/operation.coffee'
+                    ]
+                }
+
+            wechat:
+                options:
+                  preBundleCB: (b)->
+                    b.transform(coffeeify)
+                    b.transform(stringify({extensions: ['.hbs', '.html', '.tpl', '.txt']}))
+                expand: true
+                flatten: true
+                files: {
+                    'dist/wechat/js/component.js': [
+                        'src/wechat/components/advert/advert.coffee'
+                    ]
+                    'dist/wechat/js/pages/album-detail.js': [
+                        'src/wechat/pages/album-detail.coffee'
                     ]
                 }
 
@@ -54,12 +72,14 @@ module.exports = (grunt)->
                         'src/admin/common/common.less'
                     ]
                     'dist/admin/css/common/edit-area-table.css':[
-                        'src/admin/components/edit-area/common.less',
-                        'src/admin/components/edit-area/table/table.less'
+                        'src/admin/components/edit-area/common.less'
+                        'src/admin/components/edit-area/edit-table/edit-table.less'
+                        'src/admin/components/edit-area/operation/operation.less'
                     ]
                     'dist/admin/css/common/edit-area-list.css':[
-                        'src/admin/components/edit-area/common.less',
-                        'src/admin/components/edit-area/list/list.less'
+                        'src/admin/components/edit-area/common.less'
+                        'src/admin/components/edit-area/edit-list/edit-list.less'
+                        'src/admin/components/edit-area/operation/operation.less'
                     ]
                     'dist/admin/css/component.css':[
                         'src/admin/components/header/header.less'
@@ -67,6 +87,21 @@ module.exports = (grunt)->
                         'src/admin/components/content/content.less'
                     ]
                     'dist/admin/css/pages/login.css': ['src/admin/pages/login/login.less']
+                    'dist/admin/css/pages/offical/manage-resource.css': ['src/admin/pages/official/resource/manage-resource.less']
+            wechat:
+                files:
+                    'dist/wechat/css/common.css': [
+                        'src/wechat/common/common.less'
+                        'src/wechat/components/news/news.less'
+                        'src/wechat/components/advert/advert.less'
+                        'src/wechat/components/header/header.less'
+                        'src/wechat/components/section/section.less'
+                        'src/wechat/components/navigation/navigation.less'
+                    ]
+                    'dist/wechat/css/pages/vote.css': ['src/wechat/pages/vote.less']
+                    'dist/wechat/css/pages/official.css': ['src/wechat/pages/official.less']
+                    'dist/wechat/css/pages/album-detail.css': ['src/wechat/pages/album-detail.less']
+                    'dist/wechat/css/pages/album-overview.css': ['src/wechat/pages/album-overview.less']
 
     grunt.loadNpmTasks 'grunt-browserify'
     grunt.loadNpmTasks 'grunt-contrib-less'
