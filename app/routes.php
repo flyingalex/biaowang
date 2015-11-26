@@ -21,7 +21,7 @@ Route::group(array('prefix'=>'wechat'),function(){
 	//规则
 	Route::get('rule','FontendPageController@rule');
 	//奖项设置
-	Route::get('award','FontendPageController@award');
+	Route::get('adward','FontendPageController@award');
 	//相册
 	Route::get('album','FontendPageController@album');
 	//相册图片

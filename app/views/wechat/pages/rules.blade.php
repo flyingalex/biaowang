@@ -1,15 +1,13 @@
 @extends( 'wechat.template.master' )
 
 @section( 'content' )
-
+    @if( isset( $project ) )
 <div class="section-wrap">
     <div class="section-header">
         <img src="/images/resource-title.png">
     </div>
     <div class="section-content">
-        活动规则1: 请大保健 <br>
-        活动规则2: 请奶茶<br>
-        活动规则3: 规则1,2每周一次<br>
+        {{$project->content}}
     </div>
 </div>
 <hr class="split-line">
@@ -18,7 +16,7 @@
         <img src="/images/resource-title.png">
     </div>
     <div class="section-content section-single-line">
-        2015-11-11 --------- 2015-11-11
+        {{$project->sign_up_start}} --------- {{$project->sign_up_stop}}
     </div>
 </div>
 <hr class="split-line">
@@ -27,8 +25,8 @@
         <img src="/images/resource-title.png">
     </div>
     <div class="section-content section-single-line">
-        2015-11-11 --------- 2015-11-11
+         {{$project->vote_start}} ---------  {{$project->vote_stop}}
     </div>
 </div>
-
+@endif
 @stop
