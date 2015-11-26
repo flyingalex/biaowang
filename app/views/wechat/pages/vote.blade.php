@@ -9,7 +9,7 @@
 
 <div class="section-wrap">
     <div class="section-header">
-        <img src="/images/resource-title.png">
+        <img src="/images/statistic-title.png">
     </div>
     <div class="section-content vote-statistics-wrap">
         @if( isset( $project ))
@@ -34,7 +34,7 @@
 <div class="section-wrap">
     @if( $project )
     <div class="section-header">
-        <img src="/images/resource-title.png">
+        <img src="/images/active-status.png">
     </div>
     <div class="section-content">
         <div class="vote-info-item">
@@ -92,7 +92,7 @@
 
 <div class="section-wrap">
     <div class="section-header">
-        <img src="/images/resource-title.png">
+        <img src="/images/active-project.png">
     </div>
     <div class="section-content">
         <div class="section-column section-column-left">

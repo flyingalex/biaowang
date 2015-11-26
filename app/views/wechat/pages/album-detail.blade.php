@@ -2,13 +2,13 @@
 
 @section( 'styles' )
 @parent
-<link rel="stylesheet" href="/dist/wechat/css/pages/album-detail.css">
+<link rel="stylesheet" href="/dist/wechat/css/pages/photos.css">
 @stop
 
 @section( 'scripts' )
 <script type="text/javascript" src="/lib/scripts/jquery-1.11.3.min.js"></script>
 <script type="text/javascript" src="/lib/scripts/swiper.jquery.min.js"></script>
-<script type="text/javascript" src="/dist/wechat/js/pages/album-detail.js"></script>
+<script type="text/javascript" src="/dist/wechat/js/pages/video.js"></script>
 @stop
 
 @section( 'advert' )

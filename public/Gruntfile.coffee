@@ -52,8 +52,11 @@ module.exports = (grunt)->
                     'dist/wechat/js/component.js': [
                         'src/wechat/components/advert/advert.coffee'
                     ]
-                    'dist/wechat/js/pages/album-detail.js': [
-                        'src/wechat/pages/album-detail.coffee'
+                    'dist/wechat/js/pages/video.js': [
+                        'src/wechat/pages/video.coffee'
+                    ]
+                    'dist/wechat/js/pages/vote.js': [
+                        'src/wechat/pages/vote.coffee'
                     ]
                 }
 
@@ -100,8 +103,8 @@ module.exports = (grunt)->
                     ]
                     'dist/wechat/css/pages/vote.css': ['src/wechat/pages/vote.less']
                     'dist/wechat/css/pages/official.css': ['src/wechat/pages/official.less']
-                    'dist/wechat/css/pages/album-detail.css': ['src/wechat/pages/album-detail.less']
-                    'dist/wechat/css/pages/album-overview.css': ['src/wechat/pages/album-overview.less']
+                    'dist/wechat/css/pages/video.css': ['src/wechat/pages/video.less']
+                    'dist/wechat/css/pages/album.css': ['src/wechat/pages/album.less']
 
     grunt.loadNpmTasks 'grunt-browserify'
     grunt.loadNpmTasks 'grunt-contrib-less'
