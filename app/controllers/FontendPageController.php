@@ -61,10 +61,7 @@ class FontendPageController extends BaseController{
 	public function rule()
 	{
 		$project_id = Input::get('project_id');
-		$project 	= Project::where('display',1)
-					->where('id',$project_id)
-					->select('sign_up_start','sign_up_stop','vote_start','vote_stop','content')
-					->first();
+		$project 	= Project::find( $project_id );
 
 		if( !isset( $project ))
 			return BiaoExceptionController::pageError( BiaoException::$noProject['message'] );
@@ -80,9 +77,7 @@ class FontendPageController extends BaseController{
 	//奖项设置
 	public function award()
 	{
-		$project = Project::where('display',1)
-					->select('award_site')
-					->first();
+		$project = Project::find( Input::get('project_id') );
 		if( !isset( $project ))
 			return BiaoExceptionController::pageError( BiaoException::$noProject['message'] );
 		
