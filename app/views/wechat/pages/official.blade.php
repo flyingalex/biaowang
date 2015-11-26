@@ -79,7 +79,7 @@
                 <img src="{{$resource->image_url}}" class="resource-img">
             </span><!--
             --><span class="resource-info-wrap">
-                <a href="" class="resource-title">{{$resource->title}}</a>
+                <a href="{{$resource->url}}" class="resource-title">{{$resource->title}}</a>
                 <div class="resource-content">{{$resource->brief}}</div>
             </span>
         </li>
@@ -94,7 +94,7 @@
 @section( 'navigation' )
 <div class="navigation-wrap">
     <div class="navigation-container">
-        <a href="" class="navigation-link-home">
+        <a href="http://www.liyububai.com/" class="navigation-link-home">
             <div class="navigation-img-wrap">
                 <img src="/images/icon/link-vote.png" class="navigation-img">
             </div>
