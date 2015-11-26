@@ -1,9 +1,9 @@
 <div class="news-container">
-    @if( isset( $adverts ) )
-        @foreach( $adverts as $advert )
+    @if( isset( $news ) )
+        @foreach( $news as $new )
     <div class="news-item">
-        <img src="{{$advert->image_url}}" class="news-icon">
-        <span class="news-content">{{$advert->title}}</span>
+        <img src="/images/icon/news.png" class="news-icon">
+        <span class="news-content">{{$new->content}}</span>
     </div>
         @endforeach
     @endif

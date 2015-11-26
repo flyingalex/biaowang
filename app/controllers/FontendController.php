@@ -8,19 +8,17 @@ class FontendController extends BaseController{
 	*/
 	public function isSetVoteSession()
 	{
-		if( Session::get('vote') == null  )
+		if( !Session::has('vote') )
 		{	
-			$session = Session::put( 'vote',json_encode(array() ) );
+			$session = Session::put( 'vote',json_encode(array( ) ) );
 		}
 	}
 
 	//投票
 	public function vote()
 	{
-		// $project_id 	= Input::get('project_id');
-		// $work_id 		= Input::get('work_id');
-		$project_id = 2;
-		$work_id = 13;
+		$project_id 	= Input::get('project_id');
+		$work_id 		= Input::get('work_id');
 
 		$project = Project::find($project_id);
 		if( !isset( $project ) )
@@ -33,15 +31,15 @@ class FontendController extends BaseController{
 		if( $work->project_id != $project_id )
 			return Response::json(BiaoException::$workIsNotInThisProject);
 
-		dd( Session::all() );
 
 		$this->isSetVoteSession();
-		$vote = json_decode( Session::get('vote') );
+		$vote = json_decode( Session::get('vote'),true );
 		if( isset( $vote[ $project_id ] ) )
-		{
+		{	
 			return Response::json(BiaoException::$voted);
 		}
-		Session::put('vote',json_encode( $vote[$project_id] = $work_id ));
+		$vote[$project_id] = $work_id;
+		Session::put('vote',json_encode( $vote ) );
 		try{
 			DB::transaction( function()use( $project,$work ) {
 				$project->vote_total += 1;
