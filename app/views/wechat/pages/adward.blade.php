@@ -4,7 +4,7 @@
 
 <div class="section-wrap">
     <div class="section-header">
-        <img src="/images/resource-title.png">
+        <img src="/images/reward-desc.png">
     </div>
     @if( isset( $project ) )
     <div class="section-content">

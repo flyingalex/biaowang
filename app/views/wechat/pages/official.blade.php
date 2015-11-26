@@ -59,7 +59,7 @@
        @if( isset( $column_titles ) )
             @foreach( $column_titles as $column_title )
         <li class="resource-type-item">
-            <a href="" class="resource-type-link">
+            <a href="?column_title_id={{ $column_title->id }}" class="resource-type-link">
                 <div class="resource-type-img-wrap">
                     <img src="/images/icon/resource-type-lesson.png" class="resource-type-img">
                 </div>
@@ -70,46 +70,6 @@
         </li>
             @endforeach
         @endif
-       {{--  <li class="resource-type-item">
-            <a href="" class="resource-type-link">
-                <div class="resource-type-img-wrap">
-                    <img src="/images/icon/resource-type-case.png" class="resource-type-img">
-                </div>
-                <div class="resource-type-text">
-                    案例
-                </div>
-            </a>
-        </li>
-        <li class="resource-type-item">
-            <a href="" class="resource-type-link">
-                <div class="resource-type-img-wrap">
-                    <img src="/images/icon/resource-type-note.png" class="resource-type-img">
-                </div>
-                <div class="resource-type-text">
-                    笔记
-                </div>
-            </a>
-        </li>
-        <li class="resource-type-item">
-            <a href="" class="resource-type-link">
-                <div class="resource-type-img-wrap">
-                    <img src="/images/icon/resource-type-chart.png" class="resource-type-img">
-                </div>
-                <div class="resource-type-text">
-                    榜单
-                </div>
-            </a>
-        </li>
-        <li class="resource-type-item">
-            <a href="" class="resource-type-link">
-                <div class="resource-type-img-wrap">
-                    <img src="/images/icon/resource-type-register.png" class="resource-type-img">
-                </div>
-                <div class="resource-type-text">
-                    报名
-                </div>
-            </a>
-        </li> --}}
     </ul>
     <ul class="resource-list">
         @if( isset( $resources ) )
@@ -119,30 +79,12 @@
                 <img src="{{$resource->image_url}}" class="resource-img">
             </span><!--
             --><span class="resource-info-wrap">
-                <a href="" class="resource-title">{{$resource->title}}</a>
+                <a href="{{$resource->url}}" class="resource-title">{{$resource->title}}</a>
                 <div class="resource-content">{{$resource->brief}}</div>
             </span>
         </li>
             @endforeach
         @endif
-           {{--  <li class="resource-item">
-                <span class="resource-img-wrap">
-                    <img src="/images/test/test5.jpg" class="resource-img">
-                </span><!--
-                --><span class="resource-info-wrap">
-                    <a href="" class="resource-title">徐小平：当创业出于十字路口</a>
-                    <div class="resource-content">活动是由共同目的联合起来并完成一定社会职能</div>
-                </span>
-            </li>
-            <li class="resource-item">
-                <span class="resource-img-wrap">
-                    <img src="/images/test/test6.jpg" class="resource-img">
-                </span><!--
-                --><span class="resource-info-wrap">
-                    <a href="" class="resource-title">徐小平：当创业出于十字路口</a>
-                    <div class="resource-content">活动是由共同目的联合起来并完成一定社会职能</div>
-                </span>
-            </li> --}}
     </ul>
 </div>
 <!-- 软文干货 end -->
@@ -152,7 +94,7 @@
 @section( 'navigation' )
 <div class="navigation-wrap">
     <div class="navigation-container">
-        <a href="" class="navigation-link-home">
+        <a href="http://www.liyububai.com/" class="navigation-link-home">
             <div class="navigation-img-wrap">
                 <img src="/images/icon/link-vote.png" class="navigation-img">
             </div>

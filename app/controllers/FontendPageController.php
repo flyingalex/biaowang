@@ -4,12 +4,21 @@ class FontendPageController extends BaseController{
 
 	//官网首页
 	public function home()
-	{
+	{	
+		$column_title_id = Input::get('column_title_id');
+
 		$news 				= News::all();//新闻
 		$adverts 			= Advertisement::where('type',1)->get(); 
 		$activity_adverts 	= ActivityAdvertisement::take(2)->get();	
 		$column_titles  	= ColumnTitle::all();
-		$resources 			= Resource::where('column_title_id',1)->select('title','brief','image_url','url')->take(3)->get();
+		
+		if( !isset( $column_title_id ) )
+		{
+			$resources 	= Resource::where('column_title_id',1)->select('title','brief','image_url','url')->get();
+		}else{
+			$resources 	= Resource::where('column_title_id',$column_title_id)->select('title','brief','image_url','url')->get();
+		}
+
 		return View::make('wechat.pages.official')->with([
 						'news'			=>$news,
 						'adverts'			=> $adverts,
@@ -37,21 +46,15 @@ class FontendPageController extends BaseController{
 			return BiaoExceptionController::pageError( BiaoException::$noProject['message'] );
 		$project->view_total += 1;
 		$project->save();
-
-		$works	= Work::where('project_id',$project->id)->orderBy('created_at','desc')->take(4)->get(); 
+		$work_news		= Work::where('project_id',$project->id)->orderBy('created_at','desc')->get(); 
+		$work_numbers	= Work::where('project_id',$project->id)->orderBy('vote_number','desc')->get(); 
 		
 		return View::make('wechat.pages.vote')->with([
 							'adverts'		=> $adverts,
 							'project'		=> $project,
-							'works'			=> $works
+							'work_news'		=> $work_news,
+							'work_numbers'	=> $work_numbers
 							]);
-		return Response::json(
-							[
-							'adverts'		=> $adverts,
-							'project'		=> $project,
-							'works'			=> $works
-							]
-						);
 	}
 
 	//活动规则	
@@ -92,18 +95,13 @@ class FontendPageController extends BaseController{
 	public function album()
 	{
 		$adverts 	 = Advertisement::where('type',3)->get(); 
-		$albums	 = Album::take(2)->get();
-		$videos 	 = Video::take(2)->get();
+		$albums	 	 = Album::all();
+		$videos 	 = Video::all();
 		return View::make('wechat.pages.album-overview')->with([
 					'adverts'		=>$adverts,
 					'albums'		=>$albums,
 					'videos'		=>$videos
 					]);
-		// return 	Response::json([
-		// 			'adverts'		=>$adverts,
-		// 			'albums'			=>$albums,
-		// 			'videos'			=>$videos
-		// 	]);
 	}
 
 
