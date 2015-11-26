@@ -1,7 +1,7 @@
 <div class="sidebar">
     <div class="user clearfix">
         <div class="user-portrait">
-            <img class="portrait-img" src="/images/test/u70.png">
+            <img class="portrait-img" src="/images/user.jpg">
         </div>
         <div class="user-info">
             <div class="user-name">{{Auth::user()->account}}</div>

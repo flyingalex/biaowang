@@ -19,29 +19,29 @@
     <div class="activity-column-wrap">
         <div class="activity-column activity-column-left">   
             <div class="activity-item">
-                <div class="activity-img-wrap">
-            @if( isset( $activity_adverts[0] ) )
+                @if( isset( $activity_adverts[0] ) )
+                <a href="{{{ $activity_adverts[0]->url }}}" class="activity-img-wrap">
                     <img src="{{$activity_adverts[0]->image_url}}" class="activity-img">
-                </div>
+                </a>
                 <div class="activity-info">
                     <div class="activity-title">{{$activity_adverts[0]->title}}</div>
                     <div class="activity-content">{{$activity_adverts[0]->sub_title}}</div>
-            @endif
                 </div>
+                @endif
             </div>
         </div>
 
         <div class="activity-column">
             <div class="activity-item">
-                <div class="activity-img-wrap">
-            @if( isset( $activity_adverts[1] ) )
+                @if( isset( $activity_adverts[1] ) )
+                <a href="{{{ $activity_adverts[1]->url }}}" class="activity-img-wrap">
                     <img src="{{$activity_adverts[1]->image_url}}" class="activity-img">
-                </div>
+                </a>
                 <div class="activity-info">
                     <div class="activity-title">{{$activity_adverts[1]->title}}</div>
                     <div class="activity-content">{{$activity_adverts[1]->sub_title}}</div>
-            @endif
                 </div>
+                @endif
             </div>
         </div>
     </div>
@@ -94,12 +94,12 @@
 @section( 'navigation' )
 <div class="navigation-wrap">
     <div class="navigation-container">
-        <a href="http://www.liyububai.com/" class="navigation-link-home">
+        <a href="http://weidian.com/?userid=518781735&wfr=c" class="navigation-link-home">
             <div class="navigation-img-wrap">
                 <img src="/images/icon/link-vote.png" class="navigation-img">
             </div>
             <div class="navigation-text">
-                访问标王官网
+                立刻报名
             </div>
         </a>
     </div>
