@@ -18,6 +18,8 @@
 <form action="/admin/vote/project/create-edit" method="POST" target="form-target" class="edit-area-form">
 
 <ul class="edit-area-body">
+
+    <input name="project_id" type="hidden" value="{{ $project->id }}">
     
     <li class="edit-area-row">
         <label class="edit-area-label">投票主题</label>
@@ -59,7 +61,7 @@
 
 </form>
 
-<iframe name="form-target" id="form-target" redirect-url="/admin/album/photo/manage"></iframe>
+<iframe name="form-target" id="form-target" redirect-url="/admin/vote/project/manage"></iframe>
 
 </div>
 <!-- 编辑项目 end -->

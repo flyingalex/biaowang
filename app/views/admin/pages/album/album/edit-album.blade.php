@@ -18,6 +18,8 @@
 
 <ul class="edit-area-body">
 
+    <input type="hidden" name="album_id" value="{{ $album->id }}">
+
     <li class="edit-area-row">
         <label class="edit-area-label">标题</label>
         <input name="title" type="text" class="edit-area-input" value="{{ $album->title }}">
@@ -25,7 +27,7 @@
 
     <li class="edit-area-row">
         <label class="edit-area-label">栏目</label>
-        <input type="text" class="edit-area-input" value="标王相册">
+        <input type="text" class="edit-area-input" value="标王相册" readonly="readonly">
     </li>
     
     <li class="edit-area-picture-row">

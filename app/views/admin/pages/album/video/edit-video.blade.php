@@ -17,6 +17,8 @@
 <form action="/admin/album/video/create-edit" method="POST" enctype="multipart/form-data" target="form-target" class="edit-area-form">
 
 <ul class="edit-area-body">
+
+    <input name="video_id" type="hidden" value="{{ $video->id }}">
     
     <li class="edit-area-row">
         <label class="edit-area-label">标题</label>
@@ -25,7 +27,7 @@
 
     <li class="edit-area-row">
         <label class="edit-area-label">栏目</label>
-        <input type="text" class="edit-area-input" value="标王视频">
+        <input type="text" class="edit-area-input" value="标王视频" readonly="readonly">
     </li>
 
     <li class="edit-area-row">
@@ -46,7 +48,7 @@
 
 </form>
 
-<iframe name="form-target" id="form-target" redirect-url="/admin/album/photo/manage"></iframe>
+<iframe name="form-target" id="form-target" redirect-url="/admin/album/video/manage"></iframe>
 
 </div>
 <!-- 视频编辑 end -->

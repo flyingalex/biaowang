@@ -84,11 +84,10 @@ $ ()->
         _edit_area_input = _this.parent().siblings( '.edit-area-input' )
 
         if !_edit_area_input.prop 'readonly'
+
+            _data = $.merge _this.parent().siblings( '.operation-id' ).serializeArray(), _edit_area_input.serializeArray()
             
-            $.post _this.attr( 'action' ),{
-                news_id: _this.parent().siblings( '.operation-id' ).val()
-                content: _edit_area_input.val()
-            }, ( response )->
+            $.post _this.attr( 'action' ), _data, ( response )->
 
                 response = $.parseJSON response
 

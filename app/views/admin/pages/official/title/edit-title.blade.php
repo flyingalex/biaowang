@@ -62,7 +62,7 @@
     @endif
 
 
-    <input type="submit" class="operation-confirm btn" value="发布">
+    <!-- <input type="submit" class="operation-confirm btn" value="发布"> -->
 </ul>
 
 </form>
@@ -77,28 +77,24 @@
     <h3 class="edit-area-title">软文干货</h3>
 </div>
 
-<form action="" class="edit-area-form">
-
 <ul class="edit-area-body">
    
     @if( isset( $column_titles ) )
         @foreach( $column_titles as $column_title )
     <li class="edit-area-row">
         <label class="edit-area-label">分类{{$column_title->id}}</label>
-        <input type="hidden" name="news_id" value="{{ $column_title->id }}" class="operation-id">
-        <input type="text" class="edit-area-input"  value="{{$column_title->classification}}" readonly="readonly">
+        <input type="hidden" name="column_title_id" value="{{ $column_title->id }}" class="operation-id">
+        <input type="text" name="classification" class="edit-area-input"  value="{{$column_title->classification}}" readonly="readonly">
         <span class="operation-wrap">
-            <button class="operation-edit-blue-btn operation-btn operation-blue-btn btn">编辑</button>
-            <button class="operation-modify-blue-btn operation-btn operation-blue-btn btn">确认</button>
+            <button class="operation-edit-blue-btn operation-blue-btn btn">编辑</button>
+            <button class="operation-modify-blue-btn operation-blue-btn btn" action="/admin/official/title/column-title-edit" method="POST">确认</button>
         </span>
     </li>
         @endforeach
     @endif
 
-    <input type="submit" class="operation-confirm btn" value="发布">
+    <!-- <input type="submit" class="operation-confirm btn" value="发布"> -->
 </ul>
-
-</form>
 
 </div>
 <!-- 栏目标题编辑 end -->

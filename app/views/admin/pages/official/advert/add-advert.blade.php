@@ -18,7 +18,7 @@
 
 <ul class="edit-area-body">
 
-    <input type="hidden" name="type" value="2">
+    <input type="hidden" name="type" value="1">
 
     <li class="edit-area-row">
         <label class="edit-area-label">标题</label>

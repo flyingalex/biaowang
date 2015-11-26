@@ -18,7 +18,8 @@
 
 <ul class="edit-area-body">
 
-    <input name="advert_id" type="text" value="{{ $advert->id }}">
+    <input type="hidden" name="type" value="1">
+    <input name="advert_id" type="hidden" value="{{ $advert->id }}">
 
     <li class="edit-area-row">
         <label class="edit-area-label">标题</label>
@@ -48,7 +49,7 @@
 
 </form>
 
-<iframe name="form-target" id="form-target" redirect-url="/admin/album/photo/manage"></iframe>
+<iframe name="form-target" id="form-target" redirect-url="/admin/official/advert/manage"></iframe>
 
 </div>
 <!-- 广告图片新建 end -->

@@ -1,0 +1,61 @@
+
+@import './../../common/settings.less';
+
+// ----- 广告图片模块 start -----
+
+.advert-container{
+    width: 100%;
+    height: unit( 400px / @rem-design-unit, rem );
+}
+
+.advert-list{
+    z-index: 999;
+    position: relative;
+}
+
+.advert-item{
+    width: @main-content-width;
+    padding-left: @horizontal-margin;
+    padding-right: @horizontal-margin;
+}
+
+.advert-link{
+    display: block;
+}
+
+.advert-img{
+    width: 100%;
+}
+
+// ----- 广告图片模块 end -----
+
+// ----- 广告标题模块 start -----
+
+@advert-title-height: unit( 45px / @rem-design-unit, rem );
+
+.advert-title-wrap{
+    bottom: 0px;
+    left: @horizontal-margin;
+    width: @main-content-width;
+    z-index: 1000;
+    position: absolute;
+    height: @advert-title-height
+}
+
+.advert-title-mask{
+    width: 100%;
+    height: 100%;
+    opacity: 0.35;
+    position: absolute;
+    background: #fff;
+}
+
+.advert-title-content{
+    color: #333;
+    text-indent: 0.5rem;
+    position: relative;
+    line-height: @advert-title-height;
+    font-size: unit( 22px / @rem-design-unit, rem );
+}
+
+// ----- 广告标题模块 end -----

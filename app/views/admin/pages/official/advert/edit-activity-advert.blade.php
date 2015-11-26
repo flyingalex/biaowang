@@ -18,6 +18,8 @@
 
 <ul class="edit-area-body">
 
+    <input name="activity_id" type="hidden" value="{{ $activity_advert->id }}">
+
     <li class="edit-area-row">
         <label class="edit-area-label">标题</label>
         <input name="title" type="text" class="edit-area-input" value="{{$activity_advert->title}}">
@@ -41,7 +43,7 @@
     <li class="edit-area-picture-row">
         <label class="edit-area-label">缩略图</label>
         <div class="picture-wrap">
-            <div class="picture-mask"></div>
+            <input name="image" type="file" class="picture-input-btn">
             <img src="{{$activity_advert->image_url}}" class="thumbnail">
         </div>
     </li>
@@ -51,7 +53,7 @@
 
 </form>
 
-<iframe name="form-target" id="form-target" redirect-url="/admin/album/photo/manage"></iframe>
+<iframe name="form-target" id="form-target" redirect-url="/admin/official/advert/manage"></iframe>
 
 </div>
 <!-- 活动广告图片编辑 end -->

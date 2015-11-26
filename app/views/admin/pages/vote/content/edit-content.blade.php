@@ -17,6 +17,8 @@
 <form action="/admin/vote/content/create-edit" method="POST" enctype="multipart/form-data" target="form-target" class="edit-area-form">
 
 <ul class="edit-area-body">
+
+    <input name="work_id" type="hidden" value="{{ $work->id }}">
     
     <li class="edit-area-row">
         <label class="edit-area-label">标题</label>
@@ -33,7 +35,7 @@
 
     <li class="edit-area-row">
         <label class="edit-area-label">所属项目</label>
-         <select name="" class="edit-area-select"> 
+         <select name="project_id" class="edit-area-select"> 
         @foreach( $projects as $project )
             @if( $project->id == $work->project_id )
                 <option value="{{$project->id}}" selected="selected">{{$project->title}}</option>
@@ -57,7 +59,7 @@
 
 </form>
 
-<iframe name="form-target" id="form-target" redirect-url="/admin/album/photo/manage"></iframe>
+<iframe name="form-target" id="form-target" redirect-url="/admin/vote/content/manage"></iframe>
 
 </div>
 <!-- 编辑内容 end -->
