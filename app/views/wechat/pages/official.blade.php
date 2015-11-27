@@ -5,6 +5,11 @@
 <link rel="stylesheet" href="/dist/wechat/css/pages/official.css">
 @stop
 
+@section( 'scripts' )
+@parent
+<script src="/dist/wechat/js/pages/official.js"></script>
+@stop
+
 @section( 'news' )
 @include( 'wechat.components.news' )
 @stop
@@ -14,7 +19,7 @@
 <!-- 活动现场 start -->
 <div class="section-wrap">
     <div class="section-header">
-        <img src="/images/activity.png">
+        <img src="/images/activity.png" class="section-header-img">
     </div>
     <div class="activity-column-wrap">
         <div class="activity-column activity-column-left">   
@@ -53,7 +58,7 @@
 <!-- 软文干货 start -->
 <div class="section-wrap">
     <div class="section-header">
-        <img src="/images/resource-title.png">
+        <img src="/images/resource-title.png" class="section-header-img">
     </div>
     <ul class="resource-type-list">
      

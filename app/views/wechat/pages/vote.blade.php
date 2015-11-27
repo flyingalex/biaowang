@@ -14,7 +14,7 @@
 
 <div class="section-wrap">
     <div class="section-header">
-        <img src="/images/statistic-title.png">
+        <img src="/images/statistic-title.png" class="section-header-img">
     </div>
     <div class="section-content vote-statistics-wrap">
         @if( isset( $project ))
@@ -39,7 +39,7 @@
 <div class="section-wrap">
     @if( $project )
     <div class="section-header">
-        <img src="/images/active-status.png">
+        <img src="/images/active-status.png" class="section-header-img">
     </div>
     <div class="section-content">
         <div class="vote-info-item">
@@ -56,7 +56,10 @@
                     </span>
                 @else
                     <span class="vote-info-item-message">
-                        {{$days}}天{{$hours}}小时{{$mins}}分种{{$seconds}}秒
+                        <span>{{$days}}</span>天
+                        <span>{{$hours}}</span>小时
+                        <span>{{$mins}}</span>分种
+                        <span>{{$seconds}}</span>秒
                     </span>
                 @endif
             </div>
@@ -109,7 +112,7 @@
 
 <div class="section-wrap">
     <div class="section-header">
-        <img src="/images/active-project.png">
+        <img src="/images/active-project.png" class="section-header-img">
     </div>
     <div class="section-content">
         <div class="section-link">

@@ -28,12 +28,13 @@
 @stop
 
 @section( 'content' )
-<div class="swiper-container album-normal-container">
+<div class="swiper-container img-container album-normal-container">
     <div class="swiper-wrapper album-normal-wrap">
         @if( isset( $photos ) )
             @foreach( $photos as $photo )
         <div class="swiper-slide album-normal-item">
-            <img src="{{$photo->image_url}}" alt="{{$photo->title}}" class="album-normal">
+            <span class="img-vertical-middle-helper"></span>
+            <img src="{{$photo->image_url}}" alt="{{$photo->title}}" class="album-normal-img img-to-vertical-middle">
         </div>    
             @endforeach
         @endif
@@ -42,9 +43,9 @@
 @stop
 
 @section( 'navigation' )
-<div class="album-play-btn-container">
-    <div class="album-play-btn">
-        <img src="/images/icon/play.png" class="album-play-btn-img">
+<div class="album-fullscreen-play-btn-container">
+    <div class="album-fullscreen-play-btn">
+        <img src="/images/icon/play.png" class="album-fullscreen-play-btn-img">
     </div>
 </div>
 @stop
