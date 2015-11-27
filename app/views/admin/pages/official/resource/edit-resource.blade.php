@@ -51,8 +51,8 @@
     <li class="edit-area-picture-row">
         <label class="edit-area-label">图片</label>
         <div class="picture-wrap">
-            <input name="image" type="file" class="picture-input-btn">
-            <img src="{{$resource->image_url}}" class="thumbnail">
+            <input name="image" type="file" class="picture-input-btn" id="cover-image">
+            <img src="{{$resource->image_url}}" class="thumbnail" id="resource-image">
         </div>
         <div class="input-file-name-wrap">
             已选择文件: <span class="input-file-name"></span>
@@ -72,5 +72,9 @@
 @stop
 
 @section( 'scripts' )
-@parent
+    @parent
+
+    <script type="text/javascript" src="/lib/scripts/jquery.ui.widget.js"></script>
+    <script type="text/javascript" src="/lib/scripts/jquery.fileupload.js"></script>
+    <script type="text/javascript" src="/dist/admin/js/pages/edit-resource.js"></script>
 @stop

@@ -33,7 +33,7 @@
     <li class="edit-area-picture-row">
         <label class="edit-area-label">封面图片</label>
         <div class="picture-wrap">
-            <input name="image" type="file" class="picture-input-btn">
+            <input name="image" type="file" id="cover-image" class="picture-input-btn">
             <img src="{{$album->image_url}}" class="thumbnail">
         </div>
         <div class="input-file-name-wrap">
