@@ -61,7 +61,11 @@ $ ()->
 
     $('.operation-edit-blue-btn').on 'click', ( event )->
 
-        $(this).parent().siblings( '.edit-area-input' ).prop 'readonly', ( i, val )->
+        _this = $ this
+
+        _this.siblings( '.operation-modify-blue-btn' ).removeClass 'operation-invalid-btn'
+
+        _this.parent().siblings( '.edit-area-input' ).prop 'readonly', ( i, val )->
             return !val
 
     $('.operation-delete-blue-btn').on 'click', ( event )->
@@ -94,5 +98,6 @@ $ ()->
                 if response.errCode is '0'
                     alert '修改成功'
                     _edit_area_input.prop 'readonly', true
+                    _this.addClass 'operation-invalid-btn'
                 else
                     alert response.message
