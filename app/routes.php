@@ -24,6 +24,8 @@ Route::group(array('prefix'=>'wechat'),function(){
 	Route::get('adward','FontendPageController@award');
 	//相册
 	Route::get('album','FontendPageController@album');
+	//视频
+	Route::get('video','FontendPageController@video');
 	//相册图片
 	Route::get('photos','FontendPageController@subAlbum');
 	//首页分页

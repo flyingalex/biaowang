@@ -111,6 +111,19 @@ class FontendPageController extends BaseController{
 					]);
 	}
 
+	//微视频
+	public function video()
+	{
+		$adverts 	 = Advertisement::where('type',3)->get(); 
+		$videos 	 = Video::all();
+		$albums	 	 = Album::all();
+		return View::make('wechat.pages.album')->with([
+					'adverts'		=>$adverts,
+					'albums'		=>$albums,
+					'videos'		=>$videos
+					]);
+	}
+
 
 	//相册
 	public function subAlbum()
