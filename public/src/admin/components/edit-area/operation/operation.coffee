@@ -1,7 +1,19 @@
 
 $ ()->
 
+    $( '.picture-input-btn' ).on 'change', ( event )->
+        
+        _this = $ this
+
+        _file_name = _this.val().split('\\').pop();
+
+        _input_file_name_wrap = _this.parent().siblings( '.input-file-name-wrap' )
+
+        _input_file_name_wrap.show()
+        _input_file_name_wrap.find( '.input-file-name' ).text _file_name
+
     $( '.edit-area-row' ).on 'click', '.operation-btn', ( event )->
+        
         _this = $ this
 
         _post_info_element = _this.parent().siblings( '.operation-id' )
@@ -29,7 +41,9 @@ $ ()->
                     alert response.message
 
     $( '#form-target' ).load ()->
+        
         _this = $ this
+
         _response =  $.parseJSON _this.contents().find("html").text()
         
         if _response.errCode is '0'
@@ -63,9 +77,14 @@ $ ()->
 
         _this = $ this
 
-        _this.siblings( '.operation-modify-blue-btn' ).removeClass 'operation-invalid-btn'
+        _this.siblings( '.operation-modify-blue-btn' ).toggleClass 'operation-invalid-btn'
 
         _this.parent().siblings( '.edit-area-input' ).prop 'readonly', ( i, val )->
+            if val
+                _this.text '取消'
+            else
+                _this.text '编辑'
+
             return !val
 
     $('.operation-delete-blue-btn').on 'click', ( event )->
@@ -85,6 +104,7 @@ $ ()->
     $('.operation-modify-blue-btn').on 'click', ( event )->
 
         _this = $ this
+
         _edit_area_input = _this.parent().siblings( '.edit-area-input' )
 
         if !_edit_area_input.prop 'readonly'
@@ -99,5 +119,6 @@ $ ()->
                     alert '修改成功'
                     _edit_area_input.prop 'readonly', true
                     _this.addClass 'operation-invalid-btn'
+                    _this.siblings( '.operation-edit-blue-btn' ).text '编辑'
                 else
                     alert response.message

@@ -37,7 +37,7 @@
         <th class="edit-area-item table-column resource-picture">缩略图</th>
         <th class="edit-area-item table-column resource-title">标题</th>
         <th class="edit-area-item table-column resource-content">正文</th>
-        <th class="edit-area-item table-column resource-link">链接</th>
+        <th class="edit-area-item table-column edit-area-item-link resource-link">链接</th>
         <th class="edit-area-item table-column resource-order">排序</th>
         <th class="edit-area-item table-column edit-area-item-operation">操作</th>
     </tr>
@@ -54,7 +54,7 @@
          <td class="edit-area-item resource-content">
             {{$resource->brief}}
         </td>
-        <td class="edit-area-item resource-link">
+        <td class="edit-area-item edit-area-item-link resource-link">
             {{$resource->url}}
         </td>
         <td class="edit-area-item resource-order">

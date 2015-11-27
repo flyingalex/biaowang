@@ -20,7 +20,7 @@
     <tr class="edit-area-header">
         <th class="edit-area-item table-column content-picture">缩略图</th>
         <th class="edit-area-item table-column content-title">标题</th>
-        <th class="edit-area-item table-column content-link">链接</th>
+        <th class="edit-area-item table-column edit-area-item-link content-link">链接</th>
         <th class="edit-area-item table-column content-vote-count">投票数</th>
         <th class="edit-area-item table-column content-vote-project">所属项目</th>
         <th class="edit-area-item table-column edit-area-item-operation">操作</th>
@@ -34,7 +34,7 @@
         <td class="edit-area-item content-title">
             {{$work->title}}
         </td>
-        <td class="edit-area-item content-link">
+        <td class="edit-area-item edit-area-item-link content-link">
             {{$work->url}}
         </td>
         <td class="edit-area-item content-vote-count">

@@ -21,7 +21,7 @@
         <th class="edit-area-item table-column">封面照片</th>
         <th class="edit-area-item table-column">标题</th>
         <th class="edit-area-item table-column">栏目</th>
-        <th class="edit-area-item table-column">链接</th>
+        <th class="edit-area-item table-column edit-area-item-link">链接</th>
         <th class="edit-area-item table-column edit-area-item-operation">操作</th>
     </tr>   
     @if( isset( $videos ) )
@@ -36,7 +36,7 @@
          <td class="edit-area-item">
             栏目
         </td>
-        <td class="edit-area-item">
+        <td class="edit-area-item edit-area-item-link">
             {{$video->url}}
         </td>
         <td class="edit-area-item edit-area-item-operation">
