@@ -8,8 +8,11 @@
 @section( 'content' )
 <div class="section-wrap">
     <div class="section-content">
-        <div class="section-column section-column-left">
-            <h2 class="section-column-title">标王相册</h2>
+        <div class="section-link">
+            <a href="/wechat/album" class="section-column-title">标王相册</a>
+            <a href="/wechat/video" class="section-column-title">标王视频</a>
+        </div>
+        <div class="section-list">
             @if( isset( $albums ) )
             @foreach( $albums as $album )
                 <a href="/wechat/photos?album_id={{ $album->id }}" class="section-column-item">
@@ -22,14 +25,10 @@
                 </a>
             @endforeach
             @endif
-          
-          
-        </div>
-        <div class="section-column">
-            <h2 class="section-column-title">标王视频</h2>
-         @if( isset( $videos ) )
+
+            @if( isset( $videos ) )
             @foreach( $videos as $video )
-                <a href="{{ $video->url }}" class="section-column-item">
+                <a href="{{$video->url}}" class="section-column-item">
                     <div class="section-column-img-wrap">
                         <img src="{{$video->image_url}}" class="section-column-img">
                     </div>
@@ -38,8 +37,7 @@
                     </div>
                 </a>
             @endforeach
-        @endif
-          
+            @endif
         </div>
     </div>
 </div>
