@@ -37,6 +37,9 @@
                 <div>添加图片</div>
             </div>
          </div>
+         <div class="input-file-name-wrap">
+            已选择文件: <span class="input-file-name"></span>
+        </div>
     </li>
     
     <input type="submit" class="operation-confirm btn" value="发布">
