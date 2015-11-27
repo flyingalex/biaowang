@@ -112,26 +112,28 @@
         <img src="/images/active-project.png">
     </div>
     <div class="section-content">
-        <div class="section-column section-column-left">
-            <h2 class="section-column-title">最新项目</h2>
-            
-            @if( isset( $work_news ))
-                @foreach( $work_news as $work_new )
+        <div class="section-link">
+            <a href="/wechat/vote?type=new" class="section-column-title">最新项目</a>
+            <a href="/wechat/vote?type=hot" class="section-column-title">热门项目</a>
+        </div>
+        <div class="section-list">
+            @if( isset( $works ))
+                @foreach( $works as $work )
             <div class="section-column-item">
-                <a href="{{{ $work_new->url }}}" class="section-column-img-wrap">
-                    <img src="{{$work_new->image_url}}" class="section-column-img">
+                <a href="{{{ $work->url }}}" class="section-column-img-wrap">
+                    <img src="{{$work->image_url}}" class="section-column-img">
                 </a>
                 <div class="section-column-info">
                     <div class="section-column-info-item">
                         <input type="hidden" name="project_id" value="{{ $project->id }}" class="action-parameter">
-                        <input type="hidden" name="work_id" value="{{ $work_new->id }}" class="action-parameter">
+                        <input type="hidden" name="work_id" value="{{ $work->id }}" class="action-parameter">
                         <button class="section-column-btn" 
                         action="/wechat/vote"
                         success-message="投票成功">投票</button>
                     </div>
                     <div class="section-column-info-item">
                         <span class="vote-num">
-                            {{$work_new->vote_number}}
+                            {{$work->vote_number}}
                         </span>
                         票
                     </div>
@@ -141,33 +143,6 @@
             @endif
            
         </div>
-        <div class="section-column">
-            <h2 class="section-column-title">热门项目</h2>
-          
-            @if( isset( $work_numbers ))
-                @foreach( $work_numbers as $work_number )
-            <div class="section-column-item">
-                <a href="{{{ $work_number->url }}}" class="section-column-img-wrap">
-                    <img src="{{$work_number->image_url}}" class="section-column-img">
-                </a>
-                <div class="section-column-info">
-                    <div class="section-column-info-item">
-                        <input type="hidden" name="project_id" value="{{ $project->id }}" class="action-parameter">
-                        <input type="hidden" name="work_id" value="{{ $work_number->id }}" class="action-parameter">
-                        <button class="section-column-btn" 
-                        action="/wechat/vote"
-                        success-message="投票成功">投票</button>
-                    </div>
-                    <div class="section-column-info-item">
-                        <span class="vote-num">
-                            {{$work_number->vote_number}}
-                        </span>
-                        票
-                    </div>
-                </div>
-            </div>
-                @endforeach
-            @endif
 
         </div>
     </div>

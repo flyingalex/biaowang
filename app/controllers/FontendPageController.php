@@ -37,9 +37,19 @@ class FontendPageController extends BaseController{
 			return BiaoExceptionController::pageError( BiaoException::$noProject['message'] );
 		$project->view_total += 1;
 		$project->save();
-		$work_news		= Work::where('project_id',$project->id)->orderBy('created_at','desc')->get(); 
-		$work_numbers	= Work::where('project_id',$project->id)->orderBy('vote_number','desc')->get(); 
-		
+
+		$type = Input::get('type');
+		if( Input::has('type'))
+		{
+			if( $type == 'new' )
+			{
+				$works		= Work::where('project_id',$project->id)->orderBy('created_at','desc')->get(); 
+			}else{
+				$works	= Work::where('project_id',$project->id)->orderBy('vote_number','desc')->get(); 
+			}
+		}else{
+				$works		= Work::where('project_id',$project->id)->orderBy('created_at','desc')->get(); 
+		}
 		//计算时间
 		$zero1 =  strtotime(date("y-m-d h:i:s")); 
 		$zero2 = strtotime( $project->vote_stop );
@@ -60,8 +70,7 @@ class FontendPageController extends BaseController{
 		return View::make('wechat.pages.vote')->with([
 							'adverts'		=> $adverts,
 							'project'		=> $project,
-							'work_news'		=> $work_news,
-							'work_numbers'	=> $work_numbers,
+							'works'		=> $works,
 							'isClosed' 		=> $isClosed,
 							'days'			=> $days,
 							'hours'			=> $hours,
@@ -107,7 +116,6 @@ class FontendPageController extends BaseController{
 		return View::make('wechat.pages.album')->with([
 					'adverts'		=>$adverts,
 					'albums'		=>$albums,
-					'videos'		=>$videos
 					]);
 	}
 
@@ -119,7 +127,6 @@ class FontendPageController extends BaseController{
 		$albums	 	 = Album::all();
 		return View::make('wechat.pages.album')->with([
 					'adverts'		=>$adverts,
-					'albums'		=>$albums,
 					'videos'		=>$videos
 					]);
 	}
