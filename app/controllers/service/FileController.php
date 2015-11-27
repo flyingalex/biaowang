@@ -2,7 +2,7 @@
  class FileController extends BaseController{
 
  	// const SIZE = '11024';
- 	const SIZE = '10240';
+ 	const SIZE = '1000000';
  	//文件上传
  	public static function upload( $file, $path )
  	{	
@@ -14,7 +14,7 @@
 		// $mime = $file->getMimeType();
 		// if( $mime != 'image/jpeg' || $mime != 'image/gif' || $mime != 'image/jpeg' || $mine != 'image/png')
 		// 	throw new Exception("type wrong", 2);
-		
+
 		//文件大小
 		if( self::SIZE < $file->getSize() )
 			throw new Exception("size wrong", 3);

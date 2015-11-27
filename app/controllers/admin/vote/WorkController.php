@@ -56,7 +56,6 @@ class WorkController extends BaseController{
 		$result = FileController::isFileUpload($work,$file,$fullArr,$littleArr,$path,$dataPath);
 		if( $result != 'true' )
 			return $result;
-
 		if( !empty( $vote_number ) )
 		{
 			if( !is_numeric( $vote_number ) )
