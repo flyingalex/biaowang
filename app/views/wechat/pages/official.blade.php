@@ -5,6 +5,11 @@
 <link rel="stylesheet" href="/dist/wechat/css/pages/official.css">
 @stop
 
+@section( 'scripts' )
+@parent
+<script src="/dist/wechat/js/pages/official.js"></script>
+@stop
+
 @section( 'news' )
 @include( 'wechat.components.news' )
 @stop
