@@ -25,7 +25,7 @@
 
     <li class="edit-area-row">
         <label class="edit-area-label">栏目</label>
-        <input type="text" class="edit-area-input" value="标王视频">
+        <input type="text" class="edit-area-input" value="标王视频" readonly="readonly">
     </li>
 
     <li class="edit-area-row">
