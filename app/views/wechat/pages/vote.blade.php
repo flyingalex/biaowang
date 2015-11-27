@@ -94,10 +94,11 @@
         </div>
         <div class="vote-info-item">
             <div class="vote-info-item-content vote-info-intro-wrap vote-info-intro-content vote-info-intro-content-init">
-                {{$project->content}},不是吧，是的反腐干的噶山东高速，什么鬼，什么鬼，什么鬼，什么鬼，什么鬼，
+                {{$project->content}}{{$project->content}}{{$project->content}}{{$project->content}}{{$project->content}}
             </div>
-            <button class="vote-intro-content-display-btn">
-                <img src="/images/icon/arrow.png">
+            <button class="vote-intro-content-display-btn vote-content-btn-normal">
+                <img class="vote-content-btn-close-img" src="/images/icon/arrow-close.png">
+                <img class="vote-content-btn-normal-img" src="/images/icon/arrow-normal.png">
             </button>
         </div>
     </div>
