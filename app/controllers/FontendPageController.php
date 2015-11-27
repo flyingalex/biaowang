@@ -111,7 +111,7 @@ class FontendPageController extends BaseController{
 	public function album()
 	{
 		$adverts 	 = Advertisement::where('type',3)->get(); 
-		$albums	 	 = Album::table(4)->get();
+		$albums	 	 = Album::take(4)->get();
 		return View::make('wechat.pages.album')->with([
 					'adverts'		=>$adverts,
 					'albums'		=>$albums,
@@ -122,7 +122,7 @@ class FontendPageController extends BaseController{
 	public function video()
 	{
 		$adverts 	 = Advertisement::where('type',3)->get(); 
-		$videos 	 = Video::table(4)->get();
+		$videos 	 = Video::take(4)->get();
 		return View::make('wechat.pages.album')->with([
 					'adverts'		=>$adverts,
 					'videos'		=>$videos
