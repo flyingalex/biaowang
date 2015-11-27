@@ -87,7 +87,7 @@
         <input type="text" name="classification" class="edit-area-input"  value="{{$column_title->classification}}" readonly="readonly">
         <span class="operation-wrap">
             <button class="operation-edit-blue-btn operation-blue-btn btn">编辑</button>
-            <button class="operation-modify-blue-btn operation-blue-btn btn" action="/admin/official/title/column-title-edit" method="POST">确认</button>
+            <button class="operation-modify-blue-btn operation-blue-btn operation-invalid-btn btn" action="/admin/official/title/column-title-edit" method="POST">确认</button>
         </span>
     </li>
         @endforeach
