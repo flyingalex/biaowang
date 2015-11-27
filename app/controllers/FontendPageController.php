@@ -43,7 +43,7 @@ class FontendPageController extends BaseController{
 		//计算时间
 		$zero1 =  strtotime(date("y-m-d h:i:s")); 
 		$zero2 = strtotime( $project->vote_stop );
-		if( !($zero1 >= $zero2) )
+		if( $zero1 >= $zero2 )
 		{
 			$isClosed = true;
 			$project->created_at = 1;
