@@ -8,8 +8,7 @@ class ActivityAdvertController extends BaseController{
 
 	public function edit()
 	{
-		// $activty_id = Input::get('activity_id');
-		$activity_id = 1;
+		$activity_id = Input::get('activity_id');
 		$activity_advert = ActivityAdvertisement::find( $activity_id );
 		if( !isset( $activity_advert ) )
 			return View::make('errors.error')->with(['error'=>BiaoException::$notExist['message']]);

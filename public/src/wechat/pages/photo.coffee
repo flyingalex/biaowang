@@ -33,8 +33,9 @@ $ ()->
     }
 
     albumNormal = new Swiper '.album-normal-container', {
-        autoplay: 3000
         spaceBetween: 15
+        autoplay: 3000
+        autoplayDisableOnInteraction: false
     }
 
     albumNormal.stopAutoplay()

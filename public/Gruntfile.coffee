@@ -59,6 +59,9 @@ module.exports = (grunt)->
                     'dist/wechat/js/pages/photo.js': [
                         'src/wechat/pages/photo.coffee'
                     ]
+                    'dist/wechat/js/pages/official.js': [
+                        'src/wechat/pages/official.coffee'
+                    ]
                 }
 
         watch:

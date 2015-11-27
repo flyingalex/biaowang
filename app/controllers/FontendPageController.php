@@ -14,9 +14,11 @@ class FontendPageController extends BaseController{
 		
 		if( !isset( $column_title_id ) )
 		{
-			$resources 	= Resource::where('column_title_id',1)->select('title','brief','image_url','url')->take(3)->get();
+			$resources 	= Resource::where('column_title_id',1)->select('title','brief','image_url','url')->get();
+			// $resources 	= Resource::where('column_title_id',1)->select('title','brief','image_url','url')->take(3)->get();
 		}else{
-			$resources 	= Resource::where('column_title_id',$column_title_id)->select('title','brief','image_url','url')->take(3)->get();
+			$resources 	= Resource::where('column_title_id',$column_title_id)->select('title','brief','image_url','url')->get();
+			// $resources 	= Resource::where('column_title_id',$column_title_id)->select('title','brief','image_url','url')->take(3)->get();
 		}
 
 		return View::make('wechat.pages.official')->with([
@@ -43,12 +45,15 @@ class FontendPageController extends BaseController{
 		{
 			if( $type == 'new' )
 			{
-				$works		= Work::where('project_id',$project->id)->orderBy('created_at','desc')->take(4)->get(); 
+				$works		= Work::where('project_id',$project->id)->orderBy('created_at','desc')->get(); 
+				// $works		= Work::where('project_id',$project->id)->orderBy('created_at','desc')->take(4)->get(); 
 			}else{
-				$works	= Work::where('project_id',$project->id)->orderBy('vote_number','desc')->take(4)->get(); 
+				$works	= Work::where('project_id',$project->id)->orderBy('vote_number','desc')->get(); 
+				// $works	= Work::where('project_id',$project->id)->orderBy('vote_number','desc')->take(4)->get(); 
 			}
 		}else{
-				$works		= Work::where('project_id',$project->id)->orderBy('created_at','desc')->take(4)->get(); 
+				$works		= Work::where('project_id',$project->id)->orderBy('created_at','desc')->get(); 
+				// $works		= Work::where('project_id',$project->id)->orderBy('created_at','desc')->take(4)->get(); 
 		}
 		//计算时间
 		$zero1 =  strtotime(date("y-m-d h:i:s")); 
@@ -78,6 +83,7 @@ class FontendPageController extends BaseController{
 							'seconds' 		=> $seconds
 							]);
 	}
+
 
 	//活动规则	
 	public function rule()
@@ -111,7 +117,8 @@ class FontendPageController extends BaseController{
 	public function album()
 	{
 		$adverts 	 = Advertisement::where('type',3)->get(); 
-		$albums	 	 = Album::take(4)->get();
+		$albums	 	 = Album::all();
+		// $albums	 	 = Album::take(4)->get();
 		return View::make('wechat.pages.album')->with([
 					'adverts'		=>$adverts,
 					'albums'		=>$albums,
@@ -122,7 +129,8 @@ class FontendPageController extends BaseController{
 	public function video()
 	{
 		$adverts 	 = Advertisement::where('type',3)->get(); 
-		$videos 	 = Video::take(4)->get();
+		$videos 	 = Video::all();
+		// $videos 	 = Video::take(4)->get();
 		return View::make('wechat.pages.album')->with([
 					'adverts'		=>$adverts,
 					'videos'		=>$videos
