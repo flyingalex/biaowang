@@ -77,6 +77,15 @@
 .@{edit-area-class-prefix}-input{
     width: 600px;
     .input-common();
+    &[readonly="readonly"]{
+        background: none;
+    }
+    &[readonly="true"]{
+        background: none;
+    }
+    &[readonly]{
+        background: none;
+    }
 }
 
 .@{edit-area-class-prefix}-date-input{

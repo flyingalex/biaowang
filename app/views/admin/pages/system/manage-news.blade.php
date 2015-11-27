@@ -25,7 +25,7 @@
         <span class="operation-wrap">
             <button class="operation-edit-blue-btn operation-blue-btn btn">编辑</button>
             <button class="operation-delete-blue-btn operation-blue-btn btn" action="/admin/system/news-delete" method="POST">删除</button>
-            <button class="operation-modify-blue-btn operation-blue-btn btn" action="/admin/system/news-create-edit" method="POST">确认</button>
+            <button class="operation-modify-blue-btn operation-blue-btn operation-invalid-btn btn" action="/admin/system/news-create-edit" method="POST">确认</button>
         </span>
     </li>
         @endforeach

@@ -50,6 +50,7 @@ module.exports = (grunt)->
                 flatten: true
                 files: {
                     'dist/wechat/js/component.js': [
+                        'src/wechat/components/news/news.coffee'
                         'src/wechat/components/advert/advert.coffee'
                     ]
                     'dist/wechat/js/pages/vote.js': [
