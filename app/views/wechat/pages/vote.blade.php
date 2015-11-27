@@ -121,32 +121,59 @@
         </div>
         <div class="section-list">
             @if( isset( $works ))
-                @foreach( $works as $work )
-            <div class="section-column-item">
-                <a href="{{{ $work->url }}}" class="section-column-img-wrap">
-                    <img src="{{$work->image_url}}" class="section-column-img">
-                </a>
-                <div class="section-column-info">
-                    <div class="section-column-info-item">
-                        <input type="hidden" name="project_id" value="{{ $project->id }}" class="action-parameter">
-                        <input type="hidden" name="work_id" value="{{ $work->id }}" class="action-parameter">
-                        <button class="section-column-btn" 
-                        action="/wechat/vote"
-                        success-message="投票成功">投票</button>
-                    </div>
-                    <div class="section-column-info-item">
-                        <span class="vote-num">
-                            {{$work->vote_number}}
-                        </span>
-                        票
-                    </div>
+                <div class="section-left-column">
+                <?php for($i = 0, $length = count($works); $i < $length; $i ++) { ?>
+                    <?php if($i % 2 == 0) { ?>
+                        <div class="section-column-item">
+                            <a href="{{{ $works[$i]->url }}}" class="section-column-img-wrap">
+                                <img src="{{$works[$i]->image_url}}" class="section-column-img">
+                            </a>
+                            <div class="section-column-info">
+                                <div class="section-column-info-item">
+                                    <input type="hidden" name="project_id" value="{{ $project->id }}" class="action-parameter">
+                                    <input type="hidden" name="work_id" value="{{ $works[$i]->id }}" class="action-parameter">
+                                    <button class="section-column-btn" 
+                                    action="/wechat/vote"
+                                    success-message="投票成功">投票</button>
+                                </div>
+                                <div class="section-column-info-item">
+                                    <span class="vote-num">
+                                        {{$works[$i]->vote_number}}
+                                    </span>
+                                    票
+                                </div>
+                            </div>
+                        </div>
+                    <?php } ?>
+                <?php } ?>
                 </div>
-            </div>
-                @endforeach
+                <div class="section-right-column">
+                <?php for($i = 0, $length = count($works); $i < $length; $i ++) { ?>
+                    <?php if($i % 2 != 0) { ?>
+                        <div class="section-column-item">
+                            <a href="{{{ $works[$i]->url }}}" class="section-column-img-wrap">
+                                <img src="{{$works[$i]->image_url}}" class="section-column-img">
+                            </a>
+                            <div class="section-column-info">
+                                <div class="section-column-info-item">
+                                    <input type="hidden" name="project_id" value="{{ $project->id }}" class="action-parameter">
+                                    <input type="hidden" name="work_id" value="{{ $works[$i]->id }}" class="action-parameter">
+                                    <button class="section-column-btn" 
+                                    action="/wechat/vote"
+                                    success-message="投票成功">投票</button>
+                                </div>
+                                <div class="section-column-info-item">
+                                    <span class="vote-num">
+                                        {{$works[$i]->vote_number}}
+                                    </span>
+                                    票
+                                </div>
+                            </div>
+                        </div>
+                    <?php } ?>
+                <?php } ?>
+                </div>
             @endif
-           
-        </div>
-
         </div>
     </div>
 </div>
