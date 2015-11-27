@@ -37,7 +37,7 @@
 	请求参数：
 			project_id，
 			page,
-			sequence_type,
+			sequence_type,			// 1=最新项目，2=人气项目
 	返回参数：
 			{
 				errCode, 			0返回正常
@@ -69,6 +69,17 @@
 					},....
 				],
 				album_total,		相册总页数
+			}
+
+5.微视频分页
+	请求方式：POST
+	请求路由：/wechat/video-pagination
+	请求参数：
+			page,
+	返回参数：
+			{
+				errCode, 			0返回正常
+				message,			非0时返回此信息
 				video_data:[
 					{
 						title,		视频标题
@@ -78,6 +89,8 @@
 				],
 				video_total, 		视频总页数
 			}
+
+
 
 5.相册详情
 	请求方式：POST

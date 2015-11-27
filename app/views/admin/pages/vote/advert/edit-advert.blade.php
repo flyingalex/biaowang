@@ -18,7 +18,7 @@
 
 <ul class="edit-area-body">
 
-    <input type="hidden" name="type" value="3">
+    <input type="hidden" name="type" value="2">
     <input name="advert_id" type="hidden" value="{{ $advert->id }}">
 
     <li class="edit-area-row">
