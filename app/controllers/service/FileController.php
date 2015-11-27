@@ -9,11 +9,11 @@
  		$fileName = time().rand(11111,99999);
 		if( !$file->isValid() )
 			throw new Exception("file unvalid", 1);
-		//文件类型
+		// //文件类型
 		
-		$mime = $file->getMimeType();
-		if( $mime != 'image/jpeg' || $mime != 'image/gif' || $mime != 'image/jpeg' || $mine != 'image/png')
-			throw new Exception("type wrong", 2);
+		// $mime = $file->getMimeType();
+		// if( $mime != 'image/jpeg' || $mime != 'image/gif' || $mime != 'image/jpeg' || $mine != 'image/png')
+		// 	throw new Exception("type wrong", 2);
 		
 		//文件大小
 		if( self::SIZE < $file->getSize() )
