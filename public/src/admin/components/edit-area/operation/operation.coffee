@@ -63,9 +63,14 @@ $ ()->
 
         _this = $ this
 
-        _this.siblings( '.operation-modify-blue-btn' ).removeClass 'operation-invalid-btn'
+        _this.siblings( '.operation-modify-blue-btn' ).toggleClass 'operation-invalid-btn'
 
         _this.parent().siblings( '.edit-area-input' ).prop 'readonly', ( i, val )->
+            if val
+                _this.text '取消'
+            else
+                _this.text '编辑'
+
             return !val
 
     $('.operation-delete-blue-btn').on 'click', ( event )->
