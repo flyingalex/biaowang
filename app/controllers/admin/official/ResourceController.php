@@ -86,7 +86,7 @@ class ResourceController extends BaseController{
 		{
 			return Response::json( BiaoException::$isNotInt );
 		}else{
-			$sequences = Resource::select('id','sequence')->get();
+			$sequences = Resource::select('id','sequence')->where('column_title_id',$column_title_id)->get();
 			if( InputController::isNotUnique($resource->id,$sequence,$sequences ) )
 				return Response::json( BiaoException::$isNotUnique );
 		}
