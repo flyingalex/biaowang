@@ -15,7 +15,10 @@ $ ()->
         _this = $ this
 
         if _this.width() > _this.height()
+            _this.parent().width ( _this.parent().height() * _this.width() / _this.height() )
             _this.height '100%'
+        else
+            _this.width '100%'
     .each ()->
         if this.complete
             $(this).load()
