@@ -104,5 +104,6 @@ $ ()->
                     alert '修改成功'
                     _edit_area_input.prop 'readonly', true
                     _this.addClass 'operation-invalid-btn'
+                    _this.siblings( '.operation-edit-blue-btn' ).text '编辑'
                 else
                     alert response.message
