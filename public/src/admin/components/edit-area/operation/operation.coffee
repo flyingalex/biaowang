@@ -1,7 +1,19 @@
 
 $ ()->
 
+    $( '.picture-input-btn' ).on 'change', ( event )->
+        
+        _this = $ this
+
+        _file_name = _this.val().split('\\').pop();
+
+        _input_file_name_wrap = _this.parent().siblings( '.input-file-name-wrap' )
+
+        _input_file_name_wrap.show()
+        _input_file_name_wrap.find( '.input-file-name' ).text _file_name
+
     $( '.edit-area-row' ).on 'click', '.operation-btn', ( event )->
+        
         _this = $ this
 
         _post_info_element = _this.parent().siblings( '.operation-id' )
@@ -29,7 +41,9 @@ $ ()->
                     alert response.message
 
     $( '#form-target' ).load ()->
+        
         _this = $ this
+
         _response =  $.parseJSON _this.contents().find("html").text()
         
         if _response.errCode is '0'
@@ -90,6 +104,7 @@ $ ()->
     $('.operation-modify-blue-btn').on 'click', ( event )->
 
         _this = $ this
+
         _edit_area_input = _this.parent().siblings( '.edit-area-input' )
 
         if !_edit_area_input.prop 'readonly'

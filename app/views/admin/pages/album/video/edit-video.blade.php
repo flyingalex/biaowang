@@ -41,6 +41,9 @@
             <input name="image" type="file" class="picture-input-btn">
             <img src="{{$video->image_url}}" class="thumbnail">
         </div>
+        <div class="input-file-name-wrap">
+            已选择文件: <span class="input-file-name"></span>
+        </div>
     </li>
 
     <input type="submit" class="operation-confirm btn" value="发布">
