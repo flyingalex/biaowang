@@ -1,5 +1,6 @@
 
 @import './../common/settings.less';
+@import './../common/fullscreen.less';
 
 @thumbs-current-page: 5;
 @thumbs-size: unit( 140px / @rem-design-unit, rem );
@@ -40,24 +41,28 @@ body{
     border: solid #004493 2px;
 }
 
-.album-normal{
+.album-normal-item{
+    white-space: nowrap;
+}
+
+.album-normal-img{
     width: 100%;
 }
 
-.album-play-btn-container{
+.album-fullscreen-play-btn-container{
     bottom: 0;
     width: 100%;
     position: fixed;
     background: rgba(255, 255, 255, 0.2);
 }
 
-.album-play-btn{
+.album-fullscreen-play-btn{
     cursor: pointer;
     text-align: center;
     line-height: @album-play-btn-height;
 }
 
-.album-play-btn-img{
+.album-fullscreen-play-btn-img{
     vertical-align: middle;
     width: unit( 40px / @rem-design-unit, rem );
 }
@@ -69,3 +74,4 @@ body{
 .swiper-slide-active{
     opacity: 1;
 }
+
