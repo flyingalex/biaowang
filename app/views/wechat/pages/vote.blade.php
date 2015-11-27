@@ -56,7 +56,10 @@
                     </span>
                 @else
                     <span class="vote-info-item-message">
-                        {{$days}}天{{$hours}}小时{{$mins}}分种{{$seconds}}秒
+                        <span>{{$days}}</span>天
+                        <span>{{$hours}}</span>小时
+                        <span>{{$mins}}</span>分种
+                        <span>{{$seconds}}</span>秒
                     </span>
                 @endif
             </div>
