@@ -67,11 +67,11 @@ class FontendController extends BaseController{
 		$total_page = ceil($total_count/$per_page);
 		//除数检查
 		if($per_page <= 0)
-			return array();
+			return array( 'arr'=>array(),'total_page'=>0 );
 
 		//截取需要的数据
 		if($page>$total_page)
-			return array();
+			return array( 'arr'=>array(),'total_page'=>0 );
 
 		//第一条数据的索引
 		$first =  ($page-1)*$per_page;
@@ -128,23 +128,38 @@ class FontendController extends BaseController{
 	//微相册分页
 	public function albumPagination()
 	{
-		$album	 = Album::where('type',1)->orderBy('sequence','desc')->get();
-		$video 	 = Video::where('type',2)->orderBy('sequence','desc')->get();
+		$album	 = Album::where('type',1)->orderBy('sequence','desc')->take(4)->get();
 		$page 			= Input::get('page');
 		if( !is_numeric($page) )
 			return Response::json( BiaoException::$isNotInt );
 
 		$album_data = $this->page(2,$page,$album);
-		$video_data = $this->page(2,$page,$video);
 
 		return Response::json([ 
 							'errCode'		=>0,
 							'album_data'	=>$album_data['arr'],
 							'album_total' 	=> $album_data['total_page'],
+ 							]);
+	}
+
+	//微视频分页
+	public function videoPagination()
+	{
+		$video 	 = Video::where('type',2)->orderBy('sequence','desc')->take(4)->get();
+		$page 			= Input::get('page');
+		if( !is_numeric($page) )
+			return Response::json( BiaoException::$isNotInt );
+
+		$video_data = $this->page(2,$page,$video);
+
+		return Response::json([ 
+							'errCode'		=>0,
 							'video_data' 	=> $video_data['arr'],
 							'video_total'	=> $video_data['total_page']
  							]);
 	}
+
+
 
 	//微相册详细
 	public function albumDetail()

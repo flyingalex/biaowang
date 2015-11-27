@@ -76,7 +76,7 @@ class ResourceController extends BaseController{
 
 		$fullArr = array( $file,$title,$brief,$url );
 		$littleArr = array( $title,$brief,$url );
-		$dataPath = '/upload/album/';
+		$dataPath = '/upload/official/';
 		$result = FileController::isFileUpload($resource,$file,$fullArr,$littleArr,$path,$dataPath);
 		if( $result != 'true' )
 			return $result;

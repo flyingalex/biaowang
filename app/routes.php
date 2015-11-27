@@ -34,6 +34,8 @@ Route::group(array('prefix'=>'wechat'),function(){
 	Route::post('vote-pagination','FontendController@votePagination');
 	//微相册分页
 	Route::post('album-pagination','FontendController@albumPagination');
+	//微视频分页
+	Route::post('video-pagination','FontendController@videoPagination');
 	//相册详细页
 	Route::get('album-detail','FontendController@albumDetail');
 });

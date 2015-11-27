@@ -56,20 +56,64 @@
         <img src="/images/resource-title.png">
     </div>
     <ul class="resource-type-list">
-       @if( isset( $column_titles ) )
-            @foreach( $column_titles as $column_title )
+     
         <li class="resource-type-item">
-            <a href="?column_title_id={{ $column_title->id }}" class="resource-type-link">
-                <div class="resource-type-img-wrap">
+            <a href="?column_title_id={{ $column_titles[0]->id }}" class="resource-type-link">
+                <div class="resource-type-img-wrap">    
                     <img src="/images/icon/resource-type-lesson.png" class="resource-type-img">
                 </div>
                 <div class="resource-type-text">
-                    {{$column_title->classification}}
+                    课堂
                 </div>
             </a>
         </li>
-            @endforeach
-        @endif
+
+        <li class="resource-type-item">
+            <a href="?column_title_id={{ $column_titles[1]->id }}" class="resource-type-link">
+                <div class="resource-type-img-wrap">    
+                    <img src="/images/icon/resource-type-case.png" class="resource-type-img">
+                </div>
+                <div class="resource-type-text">
+                    案例
+                </div>
+            </a>
+        </li>
+
+        <li class="resource-type-item">
+            <a href="?column_title_id={{ $column_titles[2]->id }}" class="resource-type-link">
+                <div class="resource-type-img-wrap">    
+                    <img src="/images/icon/resource-type-note.png" class="resource-type-img">
+                </div>
+                <div class="resource-type-text">
+                    笔记
+                </div>
+            </a>
+        </li>
+
+        <li class="resource-type-item">
+            <a href="?column_title_id={{ $column_titles[3]->id }}" class="resource-type-link">
+                <div class="resource-type-img-wrap">    
+                    <img src="/images/icon/resource-type-chart.png" class="resource-type-img">
+                </div>
+                <div class="resource-type-text">
+                    榜单
+                </div>
+            </a>
+        </li>
+
+        <li class="resource-type-item">
+            <a href="?column_title_id={{ $column_titles[4]->id }}" class="resource-type-link">
+                <div class="resource-type-img-wrap">    
+                    <img src="/images/icon/resource-type-register.png" class="resource-type-img">
+                </div>
+                <div class="resource-type-text">
+                    报名
+                </div>
+            </a>
+        </li>
+        
+        
+
     </ul>
     <ul class="resource-list">
         @if( isset( $resources ) )
