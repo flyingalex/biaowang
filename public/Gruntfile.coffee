@@ -34,6 +34,7 @@ module.exports = (grunt)->
                 flatten: true
                 files: {
                     'dist/admin/js/component.js': [
+                        'src/admin/components/imageupload.coffee'
                         'src/admin/components/sidebar/sidebar.coffee'
                         'src/admin/components/content/content.coffee'
                         'src/admin/components/edit-area/common.coffee'
@@ -58,6 +59,9 @@ module.exports = (grunt)->
                     ]
                     'dist/wechat/js/pages/photo.js': [
                         'src/wechat/pages/photo.coffee'
+                    ]
+                    'dist/wechat/js/pages/official.js': [
+                        'src/wechat/pages/official.coffee'
                     ]
                 }
 

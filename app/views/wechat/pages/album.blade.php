@@ -14,29 +14,65 @@
         </div>
         <div class="section-list">
             @if( isset( $albums ) )
-            @foreach( $albums as $album )
-                <a href="/wechat/photos?album_id={{ $album->id }}" class="section-column-item">
-                    <div class="section-column-img-wrap">
-                        <img src="{{$album->image_url}}" class="section-column-img">
-                    </div>
-                    <div class="section-column-info">
-                        <div class="section-column-info-item-message">{{$album->title}}</div>
-                    </div>
-                </a>
-            @endforeach
+                <div class="section-left-column">
+                <?php for($i = 0, $length = count($albums); $i < $length; $i ++) { ?>
+                    <?php if($i % 2 == 0) { ?>
+                        <a href="/wechat/photos?album_id={{ $albums[$i]->id }}" class="section-column-item">
+                            <div class="section-column-img-wrap">
+                                <img src="{{$albums[$i]->image_url}}" class="section-column-img">
+                            </div>
+                            <div class="section-column-info">
+                                <div class="section-column-info-item-message">{{$albums[$i]->title}}</div>
+                            </div>
+                        </a>
+                    <?php } ?>
+                <?php } ?>
+                </div>
+                <div class="section-right-column">
+                <?php for($i = 0, $length = count($albums); $i < $length; $i ++) { ?>
+                    <?php if($i % 2 != 0) { ?>
+                        <a href="/wechat/photos?album_id={{ $albums[$i]->id }}" class="section-column-item">
+                            <div class="section-column-img-wrap">
+                                <img src="{{$albums[$i]->image_url}}" class="section-column-img">
+                            </div>
+                            <div class="section-column-info">
+                                <div class="section-column-info-item-message">{{$albums[$i]->title}}</div>
+                            </div>
+                        </a>
+                    <?php } ?>
+                <?php } ?>
+                </div>
             @endif
 
             @if( isset( $videos ) )
-            @foreach( $videos as $video )
-                <a href="{{$video->url}}" class="section-column-item">
-                    <div class="section-column-img-wrap">
-                        <img src="{{$video->image_url}}" class="section-column-img">
-                    </div>
-                    <div class="section-column-info">
-                        <div class="section-column-info-item-message">{{$video->title}}</div>
-                    </div>
-                </a>
-            @endforeach
+            <div class="section-left-column">
+                <?php for($i = 0, $length = count($videos); $i < $length; $i ++) { ?>
+                    <?php if($i % 2 == 0) { ?>
+                        <a href="{{$videos[$i]->url}}" class="section-column-item">
+                            <div class="section-column-img-wrap">
+                                <img src="{{$videos[$i]->image_url}}" class="section-column-img">
+                            </div>
+                            <div class="section-column-info">
+                                <div class="section-column-info-item-message">{{$videos[$i]->title}}</div>
+                            </div>
+                        </a>
+                    <?php } ?>
+                <?php } ?>
+            </div>
+            <div class="section-right-column">
+                <?php for($i = 0, $length = count($videos); $i < $length; $i ++) { ?>
+                    <?php if($i % 2 != 0) { ?>
+                        <a href="{{$videos[$i]->url}}" class="section-column-item">
+                            <div class="section-column-img-wrap">
+                                <img src="{{$videos[$i]->image_url}}" class="section-column-img">
+                            </div>
+                            <div class="section-column-info">
+                                <div class="section-column-info-item-message">{{$videos[$i]->title}}</div>
+                            </div>
+                        </a>
+                    <?php } ?>
+                <?php } ?>
+            </div>
             @endif
         </div>
     </div>

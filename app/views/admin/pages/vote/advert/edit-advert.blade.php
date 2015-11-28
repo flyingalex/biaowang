@@ -18,7 +18,7 @@
 
 <ul class="edit-area-body">
 
-    <input type="hidden" name="type" value="3">
+    <input type="hidden" name="type" value="2">
     <input name="advert_id" type="hidden" value="{{ $advert->id }}">
 
     <li class="edit-area-row">
@@ -39,9 +39,13 @@
     <li class="edit-area-picture-row">
         <label class="edit-area-label">缩略图</label>
         <div class="picture-wrap">
-            <input name="image" type="file" class="picture-input-btn">
+            <input name="image" type="file" class="picture-input-btn" id="cover-image">
             <img src="{{$advert->image_url}}" class="thumbnail">
         </div>
+        <div class="input-file-name-wrap">
+            已选择文件: <span class="input-file-name"></span>
+        </div>
+        <input type="hidden" id="image-url" name="image" />
     </li>
     
     <input type="submit" class="operation-confirm btn" value="发布">

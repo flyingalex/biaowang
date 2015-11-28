@@ -34,6 +34,8 @@ Route::group(array('prefix'=>'wechat'),function(){
 	Route::post('vote-pagination','FontendController@votePagination');
 	//微相册分页
 	Route::post('album-pagination','FontendController@albumPagination');
+	//微视频分页
+	Route::post('video-pagination','FontendController@videoPagination');
 	//相册详细页
 	Route::get('album-detail','FontendController@albumDetail');
 });
@@ -49,6 +51,10 @@ Route::group(array('prefix'=>'admin'), function(){
 	Route::group(array('before'=>'auth'),function(){
 
 		Route::post('logout','LoginController@logout');
+		
+		Route::post('image-upload','FileController@imageUpload');
+		Route::post('isvalid-image','FileController@isValidImage');
+
 		//微官网
 		Route::group(array('prefix'=>'official'),function(){
 

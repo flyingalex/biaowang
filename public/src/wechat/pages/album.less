@@ -2,23 +2,43 @@
 @import './../common/settings.less';
 
 .section-content{
+    @item-width: 4.2rem;
+    @item-margin: 0.12rem;
+
     overflow: hidden;
     padding: unit( 15px / @rem-design-unit, rem );
     margin-top: unit( 15px / @rem-design-unit, rem );
 
     .section-link {
+        width: @item-width * 2 + @item-margin * 4;
+        margin: 0 auto;
+        
 		.section-column-title {
 			display: inline-block;
-			width: 4.4rem;
+            width: (@item-width * 2 + @item-margin * 4) / 2 - 0.14rem;
 		}
     }
 
     .section-list {
-    	.section-column-item {
-    		display: inline-block;
-    		width: 4.2rem;
-			margin: 0.12rem 0.12rem;
-    	}
+    	width: @item-width * 2 + @item-margin * 4 + 0.2rem;
+        margin: 0 auto;
+
+        .section-left-column {
+            width: @item-width + @item-margin * 2;
+            display: inline-block;
+        }
+
+        .section-right-column {
+            width: @item-width + @item-margin * 2;
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        .section-column-item {
+            display: inline-block;
+            width:  @item-width;
+            margin: @item-margin;
+        }
     }
 }
 

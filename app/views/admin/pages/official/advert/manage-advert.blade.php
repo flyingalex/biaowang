@@ -20,7 +20,7 @@
     <tr class="edit-area-header">
         <th class="edit-area-item table-column advert-picture">缩略图</th>
         <th class="edit-area-item table-column advert-title">标题</th>
-        <th class="edit-area-item table-column advert-link">链接</th>
+        <th class="edit-area-item table-column edit-area-item-link advert-link">链接</th>
         <th class="edit-area-item table-column advert-order">排序</th>
         <th class="edit-area-item table-column edit-area-item-operation">操作</th>
     </tr>
@@ -33,7 +33,7 @@
         <td class="edit-area-item advert-title">
             {{$advert->title}}
         </td>
-        <td class="edit-area-item advert-link">
+        <td class="edit-area-item edit-area-item-link advert-link">
             {{$advert->url}}
         </td>
         <td class="edit-area-item advert-order">
@@ -77,7 +77,7 @@
         <th class="edit-area-item table-column activity-advert-picture">缩略图</th>
         <th class="edit-area-item table-column activity-advert-title">标题</th>
         <th class="edit-area-item table-column activity-advert-subtitle">副标题</th>
-        <th class="edit-area-item table-column activity-advert-link">链接</th>
+        <th class="edit-area-item table-column edit-area-item-link activity-advert-link">链接</th>
         <th class="edit-area-item table-column activity-advert-order">排序</th>
         <th class="edit-area-item table-column edit-area-item-operation">操作</th>
     </tr>
@@ -97,7 +97,7 @@
         <td class="edit-area-item activity-advert-subtitle">
             {{$activity_advert->sub_title}}
         </td>
-        <td class="edit-area-item activity-advert-link">
+        <td class="edit-area-item edit-area-item-link activity-advert-link">
             {{$activity_advert->url}}
         </td>
         <td class="edit-area-item activity-advert-order">

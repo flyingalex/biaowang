@@ -51,9 +51,13 @@
     <li class="edit-area-picture-row">
         <label class="edit-area-label">图片</label>
         <div class="picture-wrap">
-            <input name="image" type="file" class="picture-input-btn">
-            <img src="{{$resource->image_url}}" class="thumbnail">
+            <input name="image" type="file" class="picture-input-btn" id="cover-image">
+            <img src="{{$resource->image_url}}" class="thumbnail" id="resource-image">
         </div>
+        <div class="input-file-name-wrap">
+            已选择文件: <span class="input-file-name"></span>
+        </div>
+        <input type="hidden" id="image-url" name="image" />
     </li>
 
     <input type="submit" class="operation-confirm btn" value="发布">
@@ -69,5 +73,5 @@
 @stop
 
 @section( 'scripts' )
-@parent
+    @parent
 @stop
