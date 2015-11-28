@@ -30,19 +30,23 @@ invoke_resize_img = ()->
         if this.complete
             $(this).load()
 
-resource_img_added_event_handler = ( event )->
+resource_list_load_change_event_handler = ( event )->
 
     _resource_imgs = $ '.resource-img'
     invoke_resize_img()
 
 bind_resource_img_added_event = ()->
 
-    $(document).on 'DOMNodeInserted', resource_img_added_event_handler
+    $(document).on 'DOMNodeInserted', resource_list_load_change_event_handler
 
 $ ()->
 
+    # 缓存dom元素
     init()
     
+    # 调整图片尺寸
     invoke_resize_img()
 
+    # 绑定图片元素添加事件，
+    # 使图片新添时可以调整尺寸
     bind_resource_img_added_event()
