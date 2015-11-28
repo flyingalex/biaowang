@@ -11,6 +11,6 @@
         @foreach ( $parameters as $key => $value )
         <input type="hidden" name="{{ $key }}" value="{{ $value }}">
         @endforeach
-        <input type="hidden" id="next-page" name="page" value="{{ $init_next_page or 2 }}">
+        <input type="hidden" id="load-btn-next-page" name="page" value="{{ $init_next_page or 2 }}">
     </form>
 </div>
