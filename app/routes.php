@@ -29,13 +29,13 @@ Route::group(array('prefix'=>'wechat'),function(){
 	//相册图片
 	Route::get('photos','FontendPageController@subAlbum');
 	//首页分页
-	Route::post('home-pagination','FontendController@homePagination');
+	Route::get('home-pagination','FontendController@homePagination');
 	//投票分页
-	Route::post('vote-pagination','FontendController@votePagination');
+	Route::get('vote-pagination','FontendController@votePagination');
 	//微相册分页
-	Route::post('album-pagination','FontendController@albumPagination');
+	Route::get('album-pagination','FontendController@albumPagination');
 	//微视频分页
-	Route::post('video-pagination','FontendController@videoPagination');
+	Route::get('video-pagination','FontendController@videoPagination');
 	//相册详细页
 	Route::get('album-detail','FontendController@albumDetail');
 });

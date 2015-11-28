@@ -11,7 +11,7 @@
 			}
 
 2.首页分页
-	请求方式：POST
+	请求方式：GET
 	请求路由：/wechat/home-pagination
 	请求参数：
 			column_title_id,		栏目id
@@ -32,7 +32,7 @@
 			}
 
 3.投票分页
-	请求方式：POST
+	请求方式：GET
 	请求路由：/wechat/vote-pagination
 	请求参数：
 			project_id，
@@ -53,7 +53,7 @@
 			}
 
 4.微相册分页
-	请求方式：POST
+	请求方式：GET
 	请求路由：/wechat/album-pagination
 	请求参数：
 			page,
@@ -72,7 +72,7 @@
 			}
 
 5.微视频分页
-	请求方式：POST
+	请求方式：GET
 	请求路由：/wechat/video-pagination
 	请求参数：
 			page,
@@ -93,7 +93,7 @@
 
 
 5.相册详情
-	请求方式：POST
+	请求方式：GET
 	请求路由：/wechat/album-detail
 	请求参数：
 			album_id,				相册id
