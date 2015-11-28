@@ -53,6 +53,7 @@ module.exports = (grunt)->
                     'dist/wechat/js/component.js': [
                         'src/wechat/components/news/news.coffee'
                         'src/wechat/components/advert/advert.coffee'
+                        'src/wechat/components/load-btn/load-btn.coffee'
                     ]
                     'dist/wechat/js/pages/vote.js': [
                         'src/wechat/pages/vote.coffee'
@@ -104,6 +105,7 @@ module.exports = (grunt)->
                         'src/wechat/components/advert/advert.less'
                         'src/wechat/components/header/header.less'
                         'src/wechat/components/section/section.less'
+                        'src/wechat/components/load-btn/load-btn.less'
                         'src/wechat/components/navigation/navigation.less'
                     ]
                     'dist/wechat/css/pages/vote.css': ['src/wechat/pages/vote.less']

@@ -7,7 +7,8 @@
 
 @section( 'scripts' )
 @parent
-<script src="/dist/wechat/js/pages/official.js"></script>
+<script type="text/javascript" src="/lib/scripts/lodash.min.js"></script>
+<script type="text/javascript" src="/dist/wechat/js/pages/official.js"></script>
 @stop
 
 @section( 'news' )
@@ -116,11 +117,9 @@
                 </div>
             </a>
         </li>
-        
-        
-
     </ul>
-    <ul class="resource-list">
+
+    <ul class="resource-list" id="resource-list">
         @if( isset( $resources ) )
             @foreach( $resources as $resource )
         <li class="resource-item">
@@ -138,9 +137,33 @@
 </div>
 <!-- 软文干货 end -->
 
+<script type="text/template" id="resource-template">
+    <% for ( var i = 0; i != data.length; ++i ){ %>
+    <li class="resource-item">
+        <span class="resource-img-wrap">
+            <img src="<%- data[i].image_url %>" class="resource-img">
+        </span><!--
+        --><span class="resource-info-wrap">
+            <a href="<%- data[i].url %>" class="resource-title"><%- data[i].title %></a>
+            <div class="resource-content"><%- data[i].brief %></div>
+        </span>
+    </li>
+    <% } %>
+</script>
+
 @stop
 
 @section( 'navigation' )
+
+@include( 'wechat.components.load-btn', [
+    'url'           =>      '/wechat/home-pagination',
+    'list_id'          =>      '#resource-list',
+    'template_id'      =>      '#resource-template',
+    'parameters'    =>      [
+        'column_title_id' => Input::get('column_title_id')
+    ]
+])
+
 <div class="navigation-wrap">
     <div class="navigation-container">
         <a href="http://weidian.com/?userid=518781735&wfr=c" class="navigation-link-home">
