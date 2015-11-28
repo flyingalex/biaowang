@@ -30,18 +30,24 @@ class ActivityAdvertController extends BaseController{
 		}else{
 			$activity_advert = new ActivityAdvertisement;
 		}
-		$file 		= Input::file('image');
+		$file 		= Input::get('image');
 		$title 		= Input::get('title');
 		$subtitle 	= Input::get('subtitle');
 		$sequence 	= Input::get('sequence');
 		$url 		= Input::get('url');
-		//讲照片存入public目录
-		$path = public_path().'/upload/official/';
+		// //讲照片存入public目录
+		// $path = public_path().'/upload/official/';
 		
+		// $fullArr = array( $file,$title,$subtitle,$url );
+		// $littleArr = array( $title,$subtitle,$url );
+		// $dataPath = '/upload/official/';
+		// $result = FileController::isFileUpload($activity_advert,$file,$fullArr,$littleArr,$path,$dataPath);
+		// if( $result != 'true' )
+		// 	return $result;
+
 		$fullArr = array( $file,$title,$subtitle,$url );
 		$littleArr = array( $title,$subtitle,$url );
-		$dataPath = '/upload/official/';
-		$result = FileController::isFileUpload($activity_advert,$file,$fullArr,$littleArr,$path,$dataPath);
+		$result = FileController::isImageUpload($activity_advert,$file,$fullArr,$littleArr);
 		if( $result != 'true' )
 			return $result;
 

@@ -57,7 +57,7 @@
         <div class="input-file-name-wrap">
             已选择文件: <span class="input-file-name"></span>
         </div>
-        <input type="hidden" id="image-url" name="image-url" />
+        <input type="hidden" id="image-url" name="image" />
     </li>
 
     <input type="submit" class="operation-confirm btn" value="发布">
@@ -74,8 +74,4 @@
 
 @section( 'scripts' )
     @parent
-
-    <script type="text/javascript" src="/lib/scripts/jquery.ui.widget.js"></script>
-    <script type="text/javascript" src="/lib/scripts/jquery.fileupload.js"></script>
-    <script type="text/javascript" src="/dist/admin/js/pages/edit-resource.js"></script>
 @stop

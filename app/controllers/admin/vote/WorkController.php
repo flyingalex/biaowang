@@ -44,18 +44,27 @@ class WorkController extends BaseController{
 		$url 			= Input::get('url');
 		$vote_number 	= Input::get('vote_number');
 		// $vote_number = 10;
-		$file 			= Input::file('image');
+		$file 			= Input::get('image');
 
-		//讲照片存入public目录
-		$path = public_path().'/upload/vote/';
+		// //讲照片存入public目录
+		// $path = public_path().'/upload/vote/';
 
 
-		$fullArr = array( $file,$title,$url );
-		$littleArr = array( $title,$url );
-		$dataPath = '/upload/vote/';
-		$result = FileController::isFileUpload($work,$file,$fullArr,$littleArr,$path,$dataPath);
+		// $fullArr = array( $file,$title,$url );
+		// $littleArr = array( $title,$url );
+		// $dataPath = '/upload/vote/';
+		// $result = FileController::isFileUpload($work,$file,$fullArr,$littleArr,$path,$dataPath);
+		// if( $result != 'true' )
+		// 	return $result;
+		
+		$fullArr = array( $file,$title,$url,$vote_number );
+		$littleArr = array( $title,$url,$vote_number );
+		$result = FileController::isImageUpload($work,$file,$fullArr,$littleArr);
 		if( $result != 'true' )
-			return $result;
+			return $result; 	
+		
+
+
 		if( !empty( $vote_number ) )
 		{
 			if( !is_numeric( $vote_number ) )

@@ -84,4 +84,63 @@
 		}
 		return 'true';
 	}
+
+	public function imageUpload()
+	{	
+		if( !Input::hasFile( 'image' ) )
+			return Response::json( BiaoException::$inputErr );
+
+		$file = Input::file('image');
+		$path = public_path().'/upload/';
+		try{
+			$image_url = self::upload( $file,$path );
+		}catch( Exception $e ){
+			return self::errMessage( $e->getCode() );
+		}
+
+		return Response::json([ 'errCode'=>'0','image_url'=>'/upload/'.$image_url ]);
+	}
+
+	public static function isValidImage( $file )
+	{		
+		if(  !file_exists( public_path().$file ) )
+		{	
+			throw new Exception( );
+		}
+		copy( public_path().$file, public_path().'/admin'.$file);
+		return '/admin'.$file;
+	}
+
+	public static function isImageUpload($object,$file,$fullArr,$littlArr)
+	{
+		if( isset( $object->id ) )
+		{	
+			//判空
+			if( isset($file) )
+			{	
+				try{
+					$image_url = self::isValidImage( $file );
+				}catch( Exception $e ){
+					return Response::json( BiaoException::$notExist ) ;
+				}
+				$object->image_url = $image_url;
+
+				if( InputController::isNullInArray( $fullArr ) )
+					return Response::json( BiaoException::$parameterIncomplete );
+			}else{
+				if( InputController::isNullInArray( $littlArr ) )
+					return Response::json( BiaoException::$parameterIncomplete );
+			}
+		}else{
+			if( InputController::isNullInArray( $fullArr ) )
+				return Response::json( BiaoException::$parameterIncomplete );
+			try{
+				$image_url = self::isValidImage( $file );
+			}catch( Exception $e ){
+				return Response::json( BiaoException::$notExist ) ;
+			}
+			$object->image_url = $image_url;
+		}
+		return 'true';
+	}
 }

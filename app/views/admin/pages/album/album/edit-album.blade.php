@@ -39,6 +39,7 @@
         <div class="input-file-name-wrap">
             已选择文件: <span class="input-file-name"></span>
         </div>
+        <input type="hidden" id="image-url" name="image" />
     </li>
 
     <input type="submit" class="operation-confirm btn" value="发布">

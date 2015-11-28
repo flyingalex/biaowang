@@ -34,6 +34,7 @@ module.exports = (grunt)->
                 flatten: true
                 files: {
                     'dist/admin/js/component.js': [
+                        'src/admin/components/imageupload.coffee'
                         'src/admin/components/sidebar/sidebar.coffee'
                         'src/admin/components/content/content.coffee'
                         'src/admin/components/edit-area/common.coffee'

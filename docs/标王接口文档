@@ -502,8 +502,17 @@
 				errCode, 			0返回正常
 				message,			错误信息
 			}
-
-
+图片上传：
+	请求方式：POST
+	请求路由：/admin/image-upload
+	请求参数：
+			image, 		图片
+	返回参数：
+			{
+				errCode, 			0返回正常
+				message,			错误信息
+				image_url, 			正确时返回图片路径
+			}
 
 请求方式：
 请求路由：

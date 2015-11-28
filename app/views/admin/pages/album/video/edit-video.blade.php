@@ -38,12 +38,13 @@
     <li class="edit-area-picture-row">
         <label class="edit-area-label">封面照片</label>
         <div class="picture-wrap">
-            <input name="image" type="file" class="picture-input-btn">
+            <input name="image" type="file" class="picture-input-btn" id="cover-image">
             <img src="{{$video->image_url}}" class="thumbnail">
         </div>
         <div class="input-file-name-wrap">
             已选择文件: <span class="input-file-name"></span>
         </div>
+        <input type="hidden" id="image-url" name="image" />
     </li>
 
     <input type="submit" class="operation-confirm btn" value="发布">

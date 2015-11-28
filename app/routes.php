@@ -51,6 +51,10 @@ Route::group(array('prefix'=>'admin'), function(){
 	Route::group(array('before'=>'auth'),function(){
 
 		Route::post('logout','LoginController@logout');
+		
+		Route::post('image-upload','FileController@imageUpload');
+		Route::post('isvalid-image','FileController@isValidImage');
+
 		//微官网
 		Route::group(array('prefix'=>'official'),function(){
 

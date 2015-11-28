@@ -32,17 +32,24 @@ class AlbumController extends BaseController{
 			$album = new Album;
 		}
 		$title = Input::get('title');
-		$file = Input::file('image');
+		$file = Input::get('image');
 		
-		//讲照片存入public目录
-		$path = public_path().'/upload/album/';
+		// //讲照片存入public目录
+		// $path = public_path().'/upload/album/';
 
-		$fullArr = array( $title, $file );
+		// $fullArr = array( $title, $file );
+		// $littleArr = array( $title);
+		// $dataPath = '/upload/album/';
+		// $result = FileController::isFileUpload($album,$file,$fullArr,$littleArr,$path,$dataPath);
+		// if( $result != 'true' )
+		// 	return $result;
+		
+		$fullArr = array( $file,$title );
 		$littleArr = array( $title);
-		$dataPath = '/upload/album/';
-		$result = FileController::isFileUpload($album,$file,$fullArr,$littleArr,$path,$dataPath);
+		$result = FileController::isImageUpload($album,$file,$fullArr,$littleArr);
 		if( $result != 'true' )
-			return $result;
+			return $result; 	
+	
 		//存
 		$album->title = $title;
 		if( !$album->save() )
