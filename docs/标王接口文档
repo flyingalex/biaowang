@@ -14,8 +14,8 @@
 	请求方式：GET
 	请求路由：/wechat/home-pagination
 	请求参数：
-			column_title_id,
-			page, 
+			column_title_id,		栏目id
+			page, 					第几页
 	返回参数：
 			{
 				errCode, 			0返回正常
