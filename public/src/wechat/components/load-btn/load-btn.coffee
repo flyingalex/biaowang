@@ -11,12 +11,16 @@ get_data_callback = ( response )->
 
     if response.errCode is 0
 
-        if response.data.length
+        if response.total_page <= parseInt _load_btn_next_page.val()
+            _load_btn.text _load_btn.attr 'data-empty-text'
+        else
             _load_btn.text _load_btn.attr 'data-loaded-text'
+
+        if response.data.length
             _load_btn_next_page.val parseInt( _load_btn_next_page.val() ) + 1
             _load_btn_action_list.append _load_btn_action_template_compiled { data: response.data }
         else
-            _load_btn.text _load_btn.attr 'data-empty-text'
+            _load_btn.off 'click'
     else
         console.log response.message
 

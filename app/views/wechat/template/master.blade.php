@@ -11,7 +11,7 @@
 <meta name="format-detection" content="telephone=no,email=no">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
 
-<script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js"></script>
+<script src="/lib/scripts/tb-flexible.js"></script>
 
 @section( 'styles' )
 <link rel="stylesheet" href="/dist/wechat/css/common.css">
