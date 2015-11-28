@@ -107,8 +107,8 @@
 		{	
 			throw new Exception( );
 		}
-		rename( public_path().$file, public_path().'/admin'.$file);
-		return $file;
+		copy( public_path().$file, public_path().'/admin'.$file);
+		return '/admin'.$file;
 	}
 
 	public static function isImageUpload($object,$file,$fullArr,$littlArr)

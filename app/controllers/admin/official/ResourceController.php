@@ -65,19 +65,25 @@ class ResourceController extends BaseController{
 		}else{
 			$resource = new Resource;
 		}
-		$file 				= Input::file('image');
+		$file 				= Input::get('image');
 		$title 				= Input::get('title');
 		$brief 				= Input::get('brief');
 		$sequence 			= Input::get('sequence');
 		$url 				= Input::get('url');
-		//讲照片存入public目录
-		$path = public_path().'/upload/official/';
+		// //讲照片存入public目录
+		// $path = public_path().'/upload/official/';
 
 
-		$fullArr = array( $file,$title,$brief,$url );
-		$littleArr = array( $title,$brief,$url );
-		$dataPath = '/upload/official/';
-		$result = FileController::isFileUpload($resource,$file,$fullArr,$littleArr,$path,$dataPath);
+		// $fullArr = array( $file,$title,$brief,$url );
+		// $littleArr = array( $title,$brief,$url );
+		// $dataPath = '/upload/official/';
+		// $result = FileController::isFileUpload($resource,$file,$fullArr,$littleArr,$path,$dataPath);
+		// if( $result != 'true' )
+		// 	return $result;
+		 	
+		$fullArr = array( $file,$title,$brief,$sequence,$url );
+		$littleArr = array( $title,$brief,$sequence,$url);
+		$result = FileController::isImageUpload($resource,$file,$fullArr,$littleArr);
 		if( $result != 'true' )
 			return $result;
 		

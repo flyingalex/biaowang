@@ -45,6 +45,8 @@
 
 @section( 'scripts' )
 <script type="text/javascript" src="/lib/scripts/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="/lib/scripts/jquery.ui.widget.js"></script>
+<script type="text/javascript" src="/lib/scripts/jquery.fileupload.js"></script>
 <script type="text/javascript" src="/dist/admin/js/component.js"></script>
 @show
 

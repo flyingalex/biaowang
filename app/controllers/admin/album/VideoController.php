@@ -34,17 +34,23 @@
 
 		$title 	= Input::get('title');
 		$url 	= Input::get('url');
-		$file 	= Input::file('image');
+		$file 	= Input::get('image');
 
-		//讲照片存入public目录
-		$path = public_path().'/upload/album/';
+		// //讲照片存入public目录
+		// $path = public_path().'/upload/album/';
 
-		$fullArr = array( $title, $file,$url );
-		$littleArr = array( $title, $url);
-		$dataPath = '/upload/album/';
-		$result = FileController::isFileUpload($video,$file,$fullArr,$littleArr,$path,$dataPath);
+		// $fullArr = array( $title, $file,$url );
+		// $littleArr = array( $title, $url);
+		// $dataPath = '/upload/album/';
+		// $result = FileController::isFileUpload($video,$file,$fullArr,$littleArr,$path,$dataPath);
+		// if( $result != 'true' )
+		// 	return $result;
+		$fullArr = array( $file,$title,$url );
+		$littleArr = array( $title,$url );
+		$result = FileController::isImageUpload($video,$file,$fullArr,$littleArr);
 		if( $result != 'true' )
-			return $result;
+			return $result; 	
+		
 
 		$video->title = $title;
 		$video->url = $url;
