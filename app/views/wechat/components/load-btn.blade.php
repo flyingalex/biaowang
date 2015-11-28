@@ -1,5 +1,5 @@
 <div class="load-btn-wrap">
-    <div class="load-btn">
+    <div class="load-btn" data-loaded-text="点击加载更多" data-empty-text="已全部加载">
         点击加载更多
     </div>
     <form class="load-btn-action-info">

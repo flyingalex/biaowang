@@ -32,12 +32,15 @@ invoke_resize_img = ()->
 
 resource_img_added_event_handler = ( event )->
 
-    _resource_imgs = $ '.resource-img'
-    invoke_resize_img()
+    _this = $ this
+
+    _this.children( '.resource-img' ).each ( index, img )->
+
+        _reszie_img img
 
 bind_resource_img_added_event = ()->
 
-    $(document).on 'DOMNodeInserted', resource_img_added_event_handler
+    _resource_list.livequery resource_img_added_event_handler
 
 $ ()->
 
