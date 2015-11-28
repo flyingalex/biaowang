@@ -1,5 +1,5 @@
 <div class="load-btn-wrap">
-    <div class="load-btn">
+    <div class="load-btn" data-loaded-text="点击加载更多" data-empty-text="已全部加载">
         点击加载更多
     </div>
     <form class="load-btn-action-info">
@@ -11,6 +11,6 @@
         @foreach ( $parameters as $key => $value )
         <input type="hidden" name="{{ $key }}" value="{{ $value }}">
         @endforeach
-        <input type="hidden" id="next-page" name="page" value="{{ $init_next_page or 2 }}">
+        <input type="hidden" id="load-btn-next-page" name="page" value="{{ $init_next_page or 2 }}">
     </form>
 </div>
