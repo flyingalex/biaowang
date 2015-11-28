@@ -103,6 +103,7 @@
 
 	public static function isValidImage( $file )
 	{		
+
 		if(  !file_exists( public_path().$file ) )
 		{	
 			throw new Exception( );
@@ -111,12 +112,21 @@
 		return '/admin'.$file;
 	}
 
-	public static function isImageUpload($object,$file,$fullArr,$littlArr)
+	public static function isValidAdminUpload( $file )
 	{
-		if( isset( $object->id ) )
+
+		if(  !file_exists( public_path().$file ) )
 		{	
-			//判空
-			if( isset($file) )
+			throw new Exception( );
+		}
+		return $file;
+	}
+
+	public static function isImageUpload($object,$file,$fullArr,$littlArr)
+	{	
+		if( isset( $object->id ) )
+		{	//编辑
+			if( $file != null )
 			{	
 				try{
 					$image_url = self::isValidImage( $file );
