@@ -14,11 +14,12 @@ class FontendPageController extends BaseController{
 		
 		if( !isset( $column_title_id ) )
 		{
-			$resources 	= Resource::where('column_title_id',1)->select('title','brief','image_url','url')->get();
-			// $resources 	= Resource::where('column_title_id',1)->select('title','brief','image_url','url')->take(3)->get();
+			//$resources 	= Resource::where('column_title_id',1)->select('title','brief','image_url','url')->get();
+			$resources 	= Resource::where('column_title_id',1)->select('title','brief','image_url','url')->orderBy('sequence','desc')->take(3)->get();
+			Input::merge([ 'column_title_id' => 1 ]);
 		}else{
-			$resources 	= Resource::where('column_title_id',$column_title_id)->select('title','brief','image_url','url')->get();
-			// $resources 	= Resource::where('column_title_id',$column_title_id)->select('title','brief','image_url','url')->take(3)->get();
+			//$resources 	= Resource::where('column_title_id',$column_title_id)->select('title','brief','image_url','url')->get();
+			$resources 	= Resource::where('column_title_id',$column_title_id)->select('title','brief','image_url','url')->orderBy('sequence','desc')->take(3)->get();
 		}
 
 		return View::make('wechat.pages.official')->with([
