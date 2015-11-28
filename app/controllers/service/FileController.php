@@ -126,7 +126,7 @@
 	{	
 		if( isset( $object->id ) )
 		{	//编辑
-			if( !empty($file) )
+			if( $file != null )
 			{	
 				try{
 					$image_url = self::isValidImage( $file );
