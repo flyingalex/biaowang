@@ -10,6 +10,10 @@ Route::get('admin',function(){
 	return View::make('admin.pages.official.advert.manage-advert');
 });
 
+//重定向
+Route::get('/',function(){
+	return Redirect::to('/wechat/official');
+});
 
 //前端
 Route::group(array('prefix'=>'wechat'),function(){
