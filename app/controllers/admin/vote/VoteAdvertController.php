@@ -1,5 +1,5 @@
 <?php  
-class VoteAdvertController extends Basecontroller{
+class VoteAdvertController extends BaseController{
 
 	public function add()
 	{

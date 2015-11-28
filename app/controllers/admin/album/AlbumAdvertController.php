@@ -1,5 +1,5 @@
 <?php  
-class AlbumAdvertController extends Basecontroller{
+class AlbumAdvertController extends BaseController{
 
 	public function add()
 	{
