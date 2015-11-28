@@ -72,7 +72,7 @@ class ResourceController extends BaseController{
 		$url 				= Input::get('url');
 		// //讲照片存入public目录
 		// $path = public_path().'/upload/official/';
-
+		// dd( Input::all() );
 
 		// $fullArr = array( $file,$title,$brief,$url );
 		// $littleArr = array( $title,$brief,$url );
@@ -81,8 +81,8 @@ class ResourceController extends BaseController{
 		// if( $result != 'true' )
 		// 	return $result;
 		 	
-		$fullArr = array( $file,$title,$brief,$sequence,$url );
-		$littleArr = array( $title,$brief,$sequence,$url);
+		$fullArr = array( $file,$title,$brief,$url );
+		$littleArr = array( $title,$brief,$url);
 		$result = FileController::isImageUpload($resource,$file,$fullArr,$littleArr);
 		if( $result != 'true' )
 			return $result;
