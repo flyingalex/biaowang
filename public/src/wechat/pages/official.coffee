@@ -1,4 +1,5 @@
 
+util = require './../components/util.coffee'
 news = require './../components/news/news.coffee'
 advert = require './../components/advert/advert.coffee'
 pagination = require './../components/pagination/pagination.coffee'
@@ -8,35 +9,23 @@ _resource_list = null
 _resource_template = null
 _resource_template_render_func = null
 
+_activity_imgs = null
+
 init = ()->
     _resource_imgs = $ '.resource-img'
     _resource_list = $ '#resource-list'
     _resource_template = $ '#resource-template'
     _resource_template_render_func = _.template _resource_template.text()
 
-_reszie_img = ( img )->
+    _activity_imgs = $ '.activity-img'
 
-    if img.width() > img.height()
-
-        img.height img.parent().height()
-    else
-
-        img.width img.parent().width()
-
-invoke_resize_img = ()->
-
-    _resource_imgs.one 'load', ()->
-
-        _reszie_img $ this
-        
-    .each ()->
-        if this.complete
-            $(this).load()
+    util.resize_imgs_onload _activity_imgs
+    util.resize_imgs_onload _resource_imgs
 
 resource_list_load_change_event_handler = ( event )->
 
     _resource_imgs = $ '.resource-img'
-    invoke_resize_img()
+    util.resize_imgs_onload _resource_imgs
 
 bind_resource_img_added_event = ()->
 
@@ -55,9 +44,6 @@ $ ()->
 
     # 初始化分页组件
     pagination.init()
-
-    # 调整图片尺寸
-    invoke_resize_img()
 
     # 绑定图片元素添加事件，
     # 使图片新添时可以调整尺寸

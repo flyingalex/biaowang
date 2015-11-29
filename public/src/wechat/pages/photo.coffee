@@ -1,6 +1,7 @@
 
-_fade_speed = 500
+util = require './../components/util.coffee'
 
+_fade_speed = 500
 _document = null
 _main_container = null
 _album_thumbs_imgs = null
@@ -52,12 +53,8 @@ adjust_thumbs_size = ()->
     _album_thumbs_imgs.one 'load', ()->
         _this = $ this
 
-        if _this.width() > _this.height()
-            _this.height '100%'
-            _this.css 'left', - ( _this.width() - _this.parent().width() ) / 2
-        else
-            _this.width '100%'
-            _this.css 'top', - ( _this.height() - _this.parent().height() ) / 2
+        util.resize_img $ this
+
     .each ()->
         if this.complete
             $(this).load()
