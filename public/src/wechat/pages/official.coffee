@@ -1,5 +1,8 @@
 
-next_page = 2
+news = require './../components/news/news.coffee'
+advert = require './../components/advert/advert.coffee'
+pagination = require './../components/pagination/pagination.coffee'
+
 _resource_imgs = null
 _resource_list = null
 _resource_template = null
@@ -44,6 +47,15 @@ $ ()->
     # 缓存dom元素
     init()
     
+    # 初始化广告组件
+    advert.init()
+
+    # 初始化新闻组件
+    news.init()
+
+    # 初始化分页组件
+    pagination.init()
+
     # 调整图片尺寸
     invoke_resize_img()
 

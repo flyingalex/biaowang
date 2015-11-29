@@ -1,5 +1,10 @@
 @extends( 'wechat.template.master' )
 
+@section( 'scripts' )
+@parent
+<script type="text/javascript" src="/dist/wechat/js/pages/rules.js"></script>
+@stop
+
 @section( 'content' )
     @if( isset( $project ) )
 <div class="section-wrap">

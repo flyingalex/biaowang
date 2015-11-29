@@ -1,5 +1,9 @@
 
+advert = require './../components/advert/advert.coffee'
+
 $ ()->
+
+    advert.init()
 
     $('.section-column-btn').on 'click', ( event )->
 

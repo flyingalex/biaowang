@@ -156,7 +156,7 @@
 
 @section( 'navigation' )
 
-@include( 'wechat.components.load-btn', [
+@include( 'wechat.components.pagination', [
     'url'           =>      '/wechat/home-pagination',
     'list_id'          =>      '#resource-list',
     'template_id'      =>      '#resource-template',

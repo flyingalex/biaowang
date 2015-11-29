@@ -42,12 +42,8 @@
 <!-- main start -->
 <div class="main">
 
-<hr class="split-line">
-
 @section( 'content' )
 @show
-
-<hr class="split-line">
 
 </div>
 <!-- main end -->
@@ -58,7 +54,6 @@
 @section( 'scripts' )
 <script type="text/javascript" src="/lib/scripts/jquery-1.11.3.min.js"></script>
 <script type="text/javascript" src="/lib/scripts/swiper.jquery.min.js"></script>
-<script type="text/javascript" src="/dist/wechat/js/component.js"></script>
 @show
 
 </body>

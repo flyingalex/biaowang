@@ -5,7 +5,15 @@
 <link rel="stylesheet" href="/dist/wechat/css/pages/album.css">
 @stop
 
+@section( 'scripts' )
+@parent
+<script type="text/javascript" src="/dist/wechat/js/pages/album.js"></script>
+@stop
+
 @section( 'content' )
+
+<hr class="split-line">
+
 <div class="section-wrap">
     <div class="section-content">
         <div class="section-link">

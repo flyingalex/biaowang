@@ -1,6 +1,13 @@
 @extends( 'wechat.template.master' )
 
+@section( 'scripts' )
+@parent
+<script type="text/javascript" src="/dist/wechat/js/pages/adward.js"></script>
+@stop
+
 @section( 'content' )
+
+<hr class="split-line">
 
 <div class="section-wrap">
     <div class="section-header">
@@ -12,6 +19,8 @@
     </div>
     @endif
 </div>
+
+<hr class="split-line">
 
 @stop
 
