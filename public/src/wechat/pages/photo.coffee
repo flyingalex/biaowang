@@ -44,17 +44,20 @@ init_slider = ()->
     _album_norml_slider.params.control = _album_thumbs_slider
     _album_thumbs_slider.params.control = _album_norml_slider
 
-# 动态调整图片高度，
-# 使高度大于宽度的图片在水平方向上对齐，同时保持原图片比例
+# 动态调整图片高度
+# 1. 高度大于宽度的图片在水平方向上对齐，同时保持原图片比例
+# 2. 调整图片尺寸后，根据调整后图片的溢出方向，在对应方向中居中
+#    使图片中间部分能够展现
 adjust_thumbs_size = ()->
     _album_thumbs_imgs.one 'load', ()->
         _this = $ this
 
         if _this.width() > _this.height()
-            _this.parent().width ( _this.parent().height() * _this.width() / _this.height() )
             _this.height '100%'
+            _this.css 'left', - ( _this.width() - _this.parent().width() ) / 2
         else
             _this.width '100%'
+            _this.css 'top', - ( _this.height() - _this.parent().height() ) / 2
     .each ()->
         if this.complete
             $(this).load()
@@ -138,7 +141,7 @@ fullscreen_caller = ( event )->
 # 调用取消全屏函数
 fullscreen_click_event = ( event )->
 
-    # 先取消全屏点击事件，防止动作执行时重复触发
+    # 先解绑全屏点击事件，防止动作执行时重复触发
     unbind_fullscreen_click_event()
 
     cancel_full_screen event, cancel_full_screen_callback
