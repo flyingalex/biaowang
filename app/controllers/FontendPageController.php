@@ -46,15 +46,15 @@ class FontendPageController extends BaseController{
 		{
 			if( $type == 'new' )
 			{
-				$works		= Work::where('project_id',$project->id)->orderBy('created_at','desc')->get(); 
-				// $works		= Work::where('project_id',$project->id)->orderBy('created_at','desc')->take(4)->get(); 
+				//$works		= Work::where('project_id',$project->id)->orderBy('created_at','desc')->get(); 
+				$works		= Work::where('project_id',$project->id)->orderBy('created_at','desc')->take(4)->get(); 
 			}else{
-				$works	= Work::where('project_id',$project->id)->orderBy('vote_number','desc')->get(); 
-				// $works	= Work::where('project_id',$project->id)->orderBy('vote_number','desc')->take(4)->get(); 
+				//$works	= Work::where('project_id',$project->id)->orderBy('vote_number','desc')->get(); 
+				$works	= Work::where('project_id',$project->id)->orderBy('vote_number','desc')->take(4)->get(); 
 			}
 		}else{
-				$works		= Work::where('project_id',$project->id)->orderBy('created_at','desc')->get(); 
-				// $works		= Work::where('project_id',$project->id)->orderBy('created_at','desc')->take(4)->get(); 
+				//$works		= Work::where('project_id',$project->id)->orderBy('created_at','desc')->get(); 
+				$works		= Work::where('project_id',$project->id)->orderBy('created_at','desc')->take(4)->get(); 
 		}
 		//计算时间
 		$zero1 =  strtotime(date("y-m-d h:i:s")); 

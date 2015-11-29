@@ -115,12 +115,12 @@ class FontendController extends BaseController{
 		if( $sequence_type != 1 && $sequence_type != 2 )
 			return Response::json( BiaoException::$sequenceTypeWrong );
 		if( $sequence_type == 1 )
-			$works	= Work::where('project_id',$project->id)->orderBy('created_at','desc')->get(); 
+			$works	= Work::where('project_id',$project_id)->orderBy('created_at','desc')->get(); 
 		if( $sequence_type == 2 )
-			$works	= Work::where('project_id',$project->id)->orderBy('vote_number','desc')->get(); 
+			$works	= Work::where('project_id',$project_id)->orderBy('vote_number','desc')->get(); 
 
 
-		$data = $this->page(4,$page,$work);
+		$data = $this->page(4,$page,$works);
 		return Response::json(['errCode'=>0,'data'=>$data['arr'],'total_page'=>$data['total_page'] ]);
 	}
 

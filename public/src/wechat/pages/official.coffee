@@ -5,18 +5,10 @@ advert = require './../components/advert/advert.coffee'
 pagination = require './../components/pagination/pagination.coffee'
 
 _resource_imgs = null
-_resource_list = null
-_resource_template = null
-_resource_template_render_func = null
-
 _activity_imgs = null
 
 init = ()->
     _resource_imgs = $ '.resource-img'
-    _resource_list = $ '#resource-list'
-    _resource_template = $ '#resource-template'
-    _resource_template_render_func = _.template _resource_template.text()
-
     _activity_imgs = $ '.activity-img'
 
     util.resize_imgs_onload _activity_imgs
