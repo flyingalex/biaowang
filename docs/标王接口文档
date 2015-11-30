@@ -61,14 +61,14 @@
 			{
 				errCode, 			0返回正常
 				message,			非0时返回此信息
-				album_data:[
+				data:[
 					{
 						id,			相册id
 						title,		相册标题
 						image_url,	相册封面图片路径
 					},....
 				],
-				album_total,		相册总页数
+				total_page,		相册总页数
 			}
 
 5.微视频分页
@@ -80,14 +80,14 @@
 			{
 				errCode, 			0返回正常
 				message,			非0时返回此信息
-				video_data:[
+				data:[
 					{
 						title,		视频标题
 						url,		外链
 						image_url	视频封面图片路径
 					},....
 				],
-				video_total, 		视频总页数
+				total_page, 		视频总页数
 			}
 
 

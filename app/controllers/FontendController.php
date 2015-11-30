@@ -127,10 +127,15 @@ class FontendController extends BaseController{
 	public function albumPagination()
 	{
 		$paginator	 	= Album::paginate(4);
+		$albums 		= $paginator->getCollection();
+
+		foreach ( $albums as &$album ){
+			$album->url = '/wechat/photos?album_id='.$album->id;
+		}
 
 		return Response::json([
-			'errCode'		=>0,
-			'data'			=> $paginator->getCollection(),
+			'errCode'		=> 0,
+			'data'			=> $albums,
 			'total_page' 	=> $paginator->getLastPage(),
  		]);
 	}

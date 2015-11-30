@@ -29,4 +29,11 @@ util.resize_imgs_onload = ( imgs )->
         if this.complete
             $(this).load()
 
+# 渲染函数
+util.render_helper = ( target, data, template_compiled )->
+
+    _.forEach data, ( value, key )->
+
+        target.append template_compiled value
+
 module.exports = util
