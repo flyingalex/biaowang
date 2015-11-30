@@ -2,7 +2,7 @@
     <div class="navigation-container">
         <a href="/wechat/vote" class="navigation-link">
             <div class="navigation-img-wrap">
-                <img src="/images/icon/link-vote.png" class="navigation-img">
+                <img normal-src="/images/icon/link-vote-normal.png" active-src="/images/icon/link-vote-active.png" class="navigation-img">
             </div>
             <div class="navigation-text">
                 投票首页
@@ -10,7 +10,7 @@
         </a><!--
         --><a href="/wechat/rule?project_id={{$project->id}}" class="navigation-link">
             <div class="navigation-img-wrap">
-                <img src="/images/icon/link-rule.png" class="navigation-img">
+                <img normal-src="/images/icon/link-rule-normal.png" active-src="/images/icon/link-rule-active.png" class="navigation-img">
             </div>
             <div class="navigation-text">
                 活动规则
@@ -18,7 +18,7 @@
         </a><!--
         --><a href="/wechat/adward?project_id={{$project->id}}" class="navigation-link">
             <div class="navigation-img-wrap">
-                <img src="/images/icon/link-reward.png" class="navigation-img">
+                <img normal-src="/images/icon/link-reward-normal.png" active-src="/images/icon/link-reward-active.png" class="navigation-img">
             </div>
             <div class="navigation-text">
                 奖项设置

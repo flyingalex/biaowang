@@ -14,7 +14,7 @@ init = ()->
         direction: 'horizontal'                                 # 水平显示
         preloadImages: false                                    # 图片延迟加载
         lazyLoading: true                                       # 图片延迟加载
-        autoplay: 2500                                          # 自动播放
+        #autoplay: 2500                                          # 自动播放
         autoplayDisableOnInteraction: true                      # 交互时候不自动播放
         pagination: '.swiper-pagination',                       # 分页
         paginationClickable: true                               # 分页组件可点击
