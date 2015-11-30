@@ -70,7 +70,7 @@
                     <img src="/images/icon/resource-type-lesson.png" class="resource-type-img">
                 </div>
                 <div class="resource-type-text">
-                    课堂
+                    {{ $column_titles[0]->classification }}
                 </div>
             </a>
         </li>
@@ -81,7 +81,7 @@
                     <img src="/images/icon/resource-type-case.png" class="resource-type-img">
                 </div>
                 <div class="resource-type-text">
-                    案例
+                    {{ $column_titles[1]->classification }}
                 </div>
             </a>
         </li>
@@ -92,7 +92,7 @@
                     <img src="/images/icon/resource-type-note.png" class="resource-type-img">
                 </div>
                 <div class="resource-type-text">
-                    笔记
+                    {{ $column_titles[2]->classification }}
                 </div>
             </a>
         </li>
@@ -103,7 +103,7 @@
                     <img src="/images/icon/resource-type-chart.png" class="resource-type-img">
                 </div>
                 <div class="resource-type-text">
-                    榜单
+                    {{ $column_titles[3]->classification }}
                 </div>
             </a>
         </li>
@@ -114,7 +114,7 @@
                     <img src="/images/icon/resource-type-register.png" class="resource-type-img">
                 </div>
                 <div class="resource-type-text">
-                    报名
+                    {{ $column_titles[4]->classification }}
                 </div>
             </a>
         </li>
