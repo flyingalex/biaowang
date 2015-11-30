@@ -1,4 +1,5 @@
 
+util = require './../components/util.coffee'
 advert = require './../components/advert/advert.coffee'
 pagination = require './../components/pagination/pagination.coffee'
 
@@ -6,13 +7,6 @@ _content_list = null
 _content_list_left = null
 _content_list_right = null
 _content_template_compiled = null
-
-# 渲染函数
-render_helper = ( target, data, template_compiled )->
-
-    _.forEach data, ( value, key )->
-
-        target.append template_compiled value
 
 # 获取分页数据成功回调函数
 pagination_success_callback = ( response )->
@@ -23,13 +17,13 @@ pagination_success_callback = ( response )->
 
     if _content_list_left.children().length <= _content_list_right.children().length
 
-        render_helper( _content_list_left, _data_partition[0], _content_template_compiled )
-        render_helper( _content_list_right, _data_partition[1], _content_template_compiled )
+        util.render_helper( _content_list_left, _data_partition[0], _content_template_compiled )
+        util.render_helper( _content_list_right, _data_partition[1], _content_template_compiled )
 
     else
 
-        render_helper( _content_list_right, _data_partition[0], _content_template_compiled )
-        render_helper( _content_list_left, _data_partition[1], _content_template_compiled )
+        util.render_helper( _content_list_right, _data_partition[0], _content_template_compiled )
+        util.render_helper( _content_list_left, _data_partition[1], _content_template_compiled )
 
 # 缓存dom元素
 # 编译模板

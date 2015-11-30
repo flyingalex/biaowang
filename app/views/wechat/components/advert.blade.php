@@ -11,6 +11,8 @@
         @endforeach
     </div>
 
+    <div class="swiper-pagination advert-pagination"></div>
+
     <div class="advert-title-wrap">
         
         <form class="advert-title-list" id="advert-title-list">

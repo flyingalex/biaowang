@@ -7,7 +7,6 @@
 
 @section( 'scripts' )
 @parent
-<script type="text/javascript" src="/lib/scripts/jquery.livequery.min.js"></script>
 <script type="text/javascript" src="/lib/scripts/lodash.min.js"></script>
 <script type="text/javascript" src="/dist/wechat/js/pages/official.js"></script>
 @stop
