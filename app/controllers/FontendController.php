@@ -115,51 +115,42 @@ class FontendController extends BaseController{
 		if( $sequence_type != 1 && $sequence_type != 2 )
 			return Response::json( BiaoException::$sequenceTypeWrong );
 		if( $sequence_type == 1 )
-			$works	= Work::where('project_id',$project->id)->orderBy('created_at','desc')->get(); 
+			$works	= Work::where('project_id',$project_id)->orderBy('created_at','desc')->get(); 
 		if( $sequence_type == 2 )
-			$works	= Work::where('project_id',$project->id)->orderBy('vote_number','desc')->get(); 
+			$works	= Work::where('project_id',$project_id)->orderBy('vote_number','desc')->get(); 
 
-
-		$data = $this->page(4,$page,$work);
+		$data = $this->page(4,$page,$works);
 		return Response::json(['errCode'=>0,'data'=>$data['arr'],'total_page'=>$data['total_page'] ]);
 	}
-
 
 	//微相册分页
 	public function albumPagination()
 	{
-		$album	 = Album::where('type',1)->orderBy('sequence','desc')->take(4)->get();
-		$page 			= Input::get('page');
-		if( !is_numeric($page) )
-			return Response::json( BiaoException::$isNotInt );
+		$paginator	 	= Album::paginate(4);
+		$albums 		= $paginator->getCollection();
 
-		$album_data = $this->page(2,$page,$album);
+		foreach ( $albums as &$album ){
+			$album->url = '/wechat/photos?album_id='.$album->id;
+		}
 
-		return Response::json([ 
-							'errCode'		=>0,
-							'album_data'	=>$album_data['arr'],
-							'album_total' 	=> $album_data['total_page'],
- 							]);
+		return Response::json([
+			'errCode'		=> 0,
+			'data'			=> $albums,
+			'total_page' 	=> $paginator->getLastPage(),
+ 		]);
 	}
 
 	//微视频分页
 	public function videoPagination()
 	{
-		$video 	 = Video::where('type',2)->orderBy('sequence','desc')->take(4)->get();
-		$page 			= Input::get('page');
-		if( !is_numeric($page) )
-			return Response::json( BiaoException::$isNotInt );
-
-		$video_data = $this->page(2,$page,$video);
+		$paginator 	 = Video::paginate(4);
 
 		return Response::json([ 
-							'errCode'		=>0,
-							'video_data' 	=> $video_data['arr'],
-							'video_total'	=> $video_data['total_page']
- 							]);
+			'errCode'		=>0,
+			'data'			=> $paginator->getCollection(),
+			'total_page' 	=> $paginator->getLastPage(),
+ 		]);
 	}
-
-
 
 	//微相册详细
 	public function albumDetail()

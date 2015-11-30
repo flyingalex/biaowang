@@ -7,10 +7,13 @@
 
 @section( 'scripts' )
 @parent
+<script type="text/javascript" src="/lib/scripts/lodash.min.js"></script>
 <script type="text/javascript" src="/dist/wechat/js/pages/vote.js"></script>
 @stop
 
 @section( 'content' )
+
+<hr class="split-line">
 
 <div class="section-wrap">
     <div class="section-header">
@@ -56,10 +59,11 @@
                     </span>
                 @else
                     <span class="vote-info-item-message">
-                        <span>{{$days}}</span>天
-                        <span>{{$hours}}</span>小时
-                        <span>{{$mins}}</span>分种
-                        <span>{{$seconds}}</span>秒
+                        <input type="hidden" name="vote-expire" value="">
+                        <span id="countdown-days">{{$days}}</span>天
+                        <span id="countdown-hours">{{$hours}}</span>小时
+                        <span id="countdown-minutes">{{$mins}}</span>分种
+                        <!-- <span id="countdown-seconds">{{$seconds}}</span>秒 -->
                     </span>
                 @endif
             </div>
@@ -100,8 +104,8 @@
                 {{$project->content}}
             </div>
             <button class="vote-intro-content-display-btn vote-content-btn-normal">
-                <img class="vote-content-btn-close-img" src="/images/icon/arrow-close.png">
-                <img class="vote-content-btn-normal-img" src="/images/icon/arrow-normal.png">
+                <img class="vote-content-btn-close-img vote-content-btn-img" src="/images/icon/arrow-close.png">
+                <img class="vote-content-btn-normal-img vote-content-btn-img" src="/images/icon/arrow-normal.png">
             </button>
         </div>
     </div>
@@ -119,66 +123,95 @@
             <a href="/wechat/vote?type=new" class="section-column-title">最新项目</a>
             <a href="/wechat/vote?type=hot" class="section-column-title">热门项目</a>
         </div>
-        <div class="section-list">
+        <div class="section-list content-list" id="content-list">
             @if( isset( $works ))
-                <div class="section-left-column">
-                <?php for($i = 0, $length = count($works); $i < $length; $i ++) { ?>
-                    <?php if($i % 2 == 0) { ?>
-                        <div class="section-column-item">
-                            <a href="{{{ $works[$i]->url }}}" class="section-column-img-wrap">
-                                <img src="{{$works[$i]->image_url}}" class="section-column-img">
-                            </a>
-                            <div class="section-column-info">
-                                <div class="section-column-info-item">
-                                    <input type="hidden" name="project_id" value="{{ $project->id }}" class="action-parameter">
-                                    <input type="hidden" name="work_id" value="{{ $works[$i]->id }}" class="action-parameter">
-                                    <button class="section-column-btn" 
-                                    action="/wechat/vote"
-                                    success-message="投票成功">投票</button>
-                                </div>
-                                <div class="section-column-info-item">
-                                    <span class="vote-num">
-                                        {{$works[$i]->vote_number}}
-                                    </span>
-                                    票
-                                </div>
+                <div class="section-left-column" id="content-list-left">
+                @for( $i = 0, $length = count($works); $i < $length; $i += 2 )
+                    <div class="section-column-item">
+                        <a href="{{{ $works[$i]->url }}}" class="section-column-img-wrap">
+                            <img src="{{$works[$i]->image_url}}" class="section-column-img">
+                        </a>
+                        <div class="section-column-info">
+                            <div class="section-column-info-item">
+                                <input type="hidden" name="project_id" value="{{ $project->id }}" class="action-parameter">
+                                <input type="hidden" name="work_id" value="{{ $works[$i]->id }}" class="action-parameter">
+                                <button class="section-column-btn" 
+                                action="/wechat/vote"
+                                success-message="投票成功">投票</button>
+                            </div>
+                            <div class="section-column-info-item">
+                                <span class="vote-num">
+                                    {{$works[$i]->vote_number}}
+                                </span>
+                                票
                             </div>
                         </div>
-                    <?php } ?>
-                <?php } ?>
+                    </div>
+                @endfor
                 </div>
-                <div class="section-right-column">
-                <?php for($i = 0, $length = count($works); $i < $length; $i ++) { ?>
-                    <?php if($i % 2 != 0) { ?>
-                        <div class="section-column-item">
-                            <a href="{{{ $works[$i]->url }}}" class="section-column-img-wrap">
-                                <img src="{{$works[$i]->image_url}}" class="section-column-img">
-                            </a>
-                            <div class="section-column-info">
-                                <div class="section-column-info-item">
-                                    <input type="hidden" name="project_id" value="{{ $project->id }}" class="action-parameter">
-                                    <input type="hidden" name="work_id" value="{{ $works[$i]->id }}" class="action-parameter">
-                                    <button class="section-column-btn" 
-                                    action="/wechat/vote"
-                                    success-message="投票成功">投票</button>
-                                </div>
-                                <div class="section-column-info-item">
-                                    <span class="vote-num">
-                                        {{$works[$i]->vote_number}}
-                                    </span>
-                                    票
-                                </div>
+                <div class="section-right-column" id="content-list-right">
+                @for( $i = 1, $length = count($works); $i < $length; $i += 2 )
+                    <div class="section-column-item">
+                        <a href="{{{ $works[$i]->url }}}" class="section-column-img-wrap">
+                            <img src="{{$works[$i]->image_url}}" class="section-column-img">
+                        </a>
+                        <div class="section-column-info">
+                            <div class="section-column-info-item">
+                                <input type="hidden" name="project_id" value="{{ $project->id }}" class="action-parameter">
+                                <input type="hidden" name="work_id" value="{{ $works[$i]->id }}" class="action-parameter">
+                                <button class="section-column-btn" 
+                                action="/wechat/vote"
+                                success-message="投票成功">投票</button>
+                            </div>
+                            <div class="section-column-info-item">
+                                <span class="vote-num">
+                                    {{$works[$i]->vote_number}}
+                                </span>
+                                票
                             </div>
                         </div>
-                    <?php } ?>
-                <?php } ?>
+                    </div>
+                @endfor
                 </div>
             @endif
         </div>
     </div>
 </div>
+
+<script type="text/template" id="content-template">
+    <div class="section-column-item">
+        <a href="<%- url %>" class="section-column-img-wrap">
+            <img src="<%- image_url %>" class="section-column-img">
+        </a>
+        <div class="section-column-info">
+            <div class="section-column-info-item">
+                <input type="hidden" name="project_id" value="<%- id %>" class="action-parameter">
+                <input type="hidden" name="work_id" value="<%- id %>" class="action-parameter">
+                <button class="section-column-btn" 
+                action="/wechat/vote"
+                success-message="投票成功">投票</button>
+            </div>
+            <div class="section-column-info-item">
+                <span class="vote-num">
+                    <%- vote_number %>
+                </span>
+                票
+            </div>
+        </div>
+    </div>
+</script>
+
 @stop
 
 @section( 'navigation' )
+
+@include( 'wechat.components.pagination', [
+    'url'           =>      '/wechat/vote-pagination',
+    'parameters'    =>      [
+        'project_id'        => $project->id,
+        'sequence_type'     => Input::get( 'type' ) == 'hot' ? 2 : 1
+    ]
+])
+
 @include( 'wechat.components.navigation' )
 @stop

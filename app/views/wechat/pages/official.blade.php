@@ -7,7 +7,6 @@
 
 @section( 'scripts' )
 @parent
-<script type="text/javascript" src="/lib/scripts/jquery.livequery.min.js"></script>
 <script type="text/javascript" src="/lib/scripts/lodash.min.js"></script>
 <script type="text/javascript" src="/dist/wechat/js/pages/official.js"></script>
 @stop
@@ -156,7 +155,7 @@
 
 @section( 'navigation' )
 
-@include( 'wechat.components.load-btn', [
+@include( 'wechat.components.pagination', [
     'url'           =>      '/wechat/home-pagination',
     'list_id'          =>      '#resource-list',
     'template_id'      =>      '#resource-template',

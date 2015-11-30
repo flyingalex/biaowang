@@ -50,16 +50,20 @@ module.exports = (grunt)->
                 expand: true
                 flatten: true
                 files: {
-                    'dist/wechat/js/component.js': [
-                        'src/wechat/components/news/news.coffee'
-                        'src/wechat/components/advert/advert.coffee'
-                        'src/wechat/components/load-btn/load-btn.coffee'
-                    ]
                     'dist/wechat/js/pages/vote.js': [
                         'src/wechat/pages/vote.coffee'
                     ]
+                    'dist/wechat/js/pages/rules.js': [
+                        'src/wechat/pages/rules.coffee'
+                    ]
                     'dist/wechat/js/pages/photo.js': [
                         'src/wechat/pages/photo.coffee'
+                    ]
+                    'dist/wechat/js/pages/album.js': [
+                        'src/wechat/pages/album.coffee'
+                    ]
+                    'dist/wechat/js/pages/adward.js': [
+                        'src/wechat/pages/adward.coffee'
                     ]
                     'dist/wechat/js/pages/official.js': [
                         'src/wechat/pages/official.coffee'
@@ -105,7 +109,6 @@ module.exports = (grunt)->
                         'src/wechat/components/advert/advert.less'
                         'src/wechat/components/header/header.less'
                         'src/wechat/components/section/section.less'
-                        'src/wechat/components/load-btn/load-btn.less'
                         'src/wechat/components/navigation/navigation.less'
                     ]
                     'dist/wechat/css/pages/vote.css': ['src/wechat/pages/vote.less']
