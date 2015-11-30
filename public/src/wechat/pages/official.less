@@ -46,14 +46,14 @@
 
 .activity-title{
     color: #004493;
-    font-size: unit( 24px / @rem-design-unit , rem );
+    font-size: unit( 32px / @rem-design-unit , rem );
     line-height: unit( 36px / @rem-design-unit, rem );
 }
 
 .activity-content{
     @margin-vertical: unit( 5px / @rem-design-unit, rem );
     line-height: unit( 32px / @rem-design-unit, rem );
-    font-size: unit( 18px / @rem-design-unit , rem );
+    font-size: unit( 30px / @rem-design-unit , rem );
     margin-bottom: @margin-vertical;
     margin-top: @margin-vertical;
     color: #333;
@@ -122,17 +122,18 @@
 .resource-info-wrap{
     float: left;
     height: @resource-item-height;
-    width: unit( ( 710px - 175px ) / @rem-design-unit, rem );
+    width: unit( ( 710px - 160px ) / @rem-design-unit, rem );
     background-color: @content-background-color;
     padding-top: unit( 20px / @rem-design-unit, rem );
     padding-left: unit( 45px / @rem-design-unit, rem );
+    padding-right: unit( 15px / @rem-design-unit, rem );
     padding-bottom: unit( 20px / @rem-design-unit, rem );
 }
 
 .resource-title{
     display: block;
     color: #004493;
-    font-size: unit( 24px / @rem-design-unit , rem );
+    font-size: unit( 32px / @rem-design-unit , rem );
     line-height: unit( 40px / @rem-design-unit, rem );
 }
 
@@ -141,6 +142,7 @@
     @line-height: unit( 36px / @rem-design-unit, rem );
     line-height: @line-height;
     height: 2 * @line-height;
+    font-size: @content-font-size;
     overflow: hidden;
 }
 

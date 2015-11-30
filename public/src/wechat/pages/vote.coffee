@@ -2,6 +2,7 @@
 util = require './../components/util.coffee'
 advert = require './../components/advert/advert.coffee'
 pagination = require './../components/pagination/pagination.coffee'
+navigation = require './../components/navigation/navigation.coffee'
 
 _content_list = null
 _content_list_left = null
@@ -42,6 +43,9 @@ $ ()->
 
     # 初始化广告组件
     advert.init()
+
+    # 初始化底部导航栏
+    navigation.init()
 
     # 初始化分页组件
     pagination.init()

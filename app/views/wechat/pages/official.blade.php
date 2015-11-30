@@ -168,7 +168,7 @@
     <div class="navigation-container">
         <a href="http://weidian.com/?userid=518781735&wfr=c" class="navigation-link-home">
             <div class="navigation-img-wrap">
-                <img src="/images/icon/link-vote.png" class="navigation-img">
+                <img src="/images/icon/link-official.png" class="navigation-img">
             </div>
             <div class="navigation-text">
                 立刻报名
