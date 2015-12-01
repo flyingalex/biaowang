@@ -21,11 +21,11 @@ class FontendPageController extends BaseController{
 		}
 
 		return View::make('wechat.pages.official')->with([
-						'news'			=>$news,
+						'news'				=>$news,
 						'adverts'			=> $adverts,
 						'activity_adverts'	=> $activity_adverts,
-						'column_titles'	=> $column_titles,
-						'resources'		=> $resources
+						'column_titles'		=> $column_titles,
+						'resources'			=> $resources
 						]);
 	}
 

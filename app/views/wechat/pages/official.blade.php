@@ -58,8 +58,7 @@
 
 <!-- 软文干货 start -->
 <div class="section-wrap">
-    <div class="section-header">
-        <img src="/images/resource-title.png" class="section-header-img">
+    <div class="section-header resource-header">
     </div>
     <ul class="resource-type-list">
      
@@ -126,7 +125,7 @@
             <span class="resource-img-wrap">
                 <img src="{{$resource->image_url}}" class="resource-img">
             </span><!--
-            --><span class="resource-info-wrap">
+         --><span class="resource-info-wrap">
                 <a href="{{$resource->url}}" class="resource-title">{{$resource->title}}</a>
                 <div class="resource-content">{{$resource->brief}}</div>
             </span>
@@ -143,7 +142,7 @@
         <span class="resource-img-wrap">
             <img src="<%- data[i].image_url %>" class="resource-img">
         </span><!--
-        --><span class="resource-info-wrap">
+     --><span class="resource-info-wrap">
             <a href="<%- data[i].url %>" class="resource-title"><%- data[i].title %></a>
             <div class="resource-content"><%- data[i].brief %></div>
         </span>
@@ -157,8 +156,6 @@
 
 @include( 'wechat.components.pagination', [
     'url'           =>      '/wechat/home-pagination',
-    'list_id'          =>      '#resource-list',
-    'template_id'      =>      '#resource-template',
     'parameters'    =>      [
         'column_title_id' => Input::get('column_title_id')
     ]
