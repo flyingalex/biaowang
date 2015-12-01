@@ -103,9 +103,8 @@
             <div class="vote-info-item-content vote-info-intro-wrap vote-info-intro-content vote-info-intro-content-init">
                 {{$project->content}}
             </div>
-            <button class="vote-intro-content-display-btn vote-content-btn-normal">
-                <img class="vote-content-btn-close-img vote-content-btn-img" src="/images/icon/arrow-close.png">
-                <img class="vote-content-btn-normal-img vote-content-btn-img" src="/images/icon/arrow-normal.png">
+            <button class="vote-intro-content-display-btn vote-content-btn-show">
+                <img class="vote-content-btn-img" src="/images/icon/arrow-normal.png">
             </button>
         </div>
     </div>

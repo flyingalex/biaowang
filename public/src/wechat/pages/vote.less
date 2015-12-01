@@ -80,6 +80,15 @@ html{
     height: unit( 40px / @rem-design-unit, rem );
 }
 
+@keyframes vote-info-intro-content-all{
+    overflow: visible;
+    height: auto;
+}
+
+@keyframes vote-info-intro-content-short{
+    .vote-info-intro-content-init;
+}
+
 .vote-intro-content-display-btn{
     border: none;
     outline: none;
@@ -93,31 +102,6 @@ html{
 
 .vote-content-btn-img{
     width: 100%;
-}
-
-.vote-content-btn-normal{
-
-    .vote-content-btn-normal-img{
-        display: inline-block;
-    }
-
-    .vote-content-btn-close-img{
-        display: none;
-    }
-}
-
-.vote-content-btn-close{
-
-    width: unit( 32px / @rem-design-unit, rem );
-    height: unit( 16px / @rem-design-unit, rem );
-
-    .vote-content-btn-normal-img{
-        display: none;
-    }
-
-    .vote-content-btn-close-img{
-        display: inline-block;
-    }
 }
 
 .section-content {
