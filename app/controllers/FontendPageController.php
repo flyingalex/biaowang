@@ -9,7 +9,7 @@ class FontendPageController extends BaseController{
 
 		$news 				= News::all();//新闻
 		$adverts 			= Advertisement::where('type',1)->get(); 
-		$activity_adverts 	= ActivityAdvertisement::take(2)->get();	
+		$activity_adverts 	= ActivityAdvertisement::take(2)->get();
 		$column_titles  	= ColumnTitle::all();
 		
 		if( !isset( $column_title_id ) )
@@ -20,12 +20,20 @@ class FontendPageController extends BaseController{
 			$resources 	= Resource::where('column_title_id',$column_title_id)->select('title','brief','image_url','url')->orderBy('sequence','desc')->take(3)->get();
 		}
 
+		$resources = Resource::getExtremeFromEachColumn();
+		$resources_split = [];
+
+		foreach ( $resources as $resource ) {
+			$resources_split[ $resource->column_title_id ][] = $resource;
+		}
+
 		return View::make('wechat.pages.official')->with([
-						'news'				=>$news,
+						'news'				=> $news,
 						'adverts'			=> $adverts,
 						'activity_adverts'	=> $activity_adverts,
 						'column_titles'		=> $column_titles,
-						'resources'			=> $resources
+						'resources_split'	=> $resources_split,
+						'current_column' 	=> Input::get( 'column_title_id' )
 						]);
 	}
 

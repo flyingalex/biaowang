@@ -9,7 +9,7 @@
     </form>
     <form id="pagination-action-parameters">
         @foreach ( $parameters as $key => $value )
-        <input type="hidden" name="{{ $key }}" value="{{ $value }}">
+        <input type="hidden" id="pagination-parameter-{{ $key }}" name="{{ $key }}" value="{{ $value }}">
         @endforeach
         <input type="hidden" id="pagination-next-page" name="page" value="{{ $init_next_page or 2 }}">
     </form>

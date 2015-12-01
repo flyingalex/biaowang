@@ -63,9 +63,11 @@
     <ul class="resource-type-list">
      
         <li class="resource-type-item">
-            <a href="?column_title_id={{ $column_titles[0]->id }}" class="resource-type-link">
+            <a href="?column_title_id={{ $column_titles[0]->id }}" class="resource-type-link" 
+               id="resource-type-{{ $column_titles[0]->id }}" column-title-id="{{ $column_titles[0]->id }}" next-page=2 reach-last-page="false">
                 <div class="resource-type-img-wrap">    
-                    <img src="/images/icon/resource-type-lesson.png" class="resource-type-img">
+                    <img src="/images/icon/resource-type-lesson.png" class="resource-type-img"
+                         default-src="/images/icon/resource-type-lesson.png" active-src="/images/icon/resource-type-lesson-active.png" >
                 </div>
                 <div class="resource-type-text">
                     {{ $column_titles[0]->classification }}
@@ -74,9 +76,11 @@
         </li>
 
         <li class="resource-type-item">
-            <a href="?column_title_id={{ $column_titles[1]->id }}" class="resource-type-link">
+            <a href="?column_title_id={{ $column_titles[1]->id }}" class="resource-type-link" 
+               id="resource-type-{{ $column_titles[1]->id }}" column-title-id="{{ $column_titles[1]->id }}" next-page=2 reach-last-page="false">
                 <div class="resource-type-img-wrap">    
-                    <img src="/images/icon/resource-type-case.png" class="resource-type-img">
+                    <img src="/images/icon/resource-type-case.png" class="resource-type-img"
+                         default-src="/images/icon/resource-type-case.png" active-src="/images/icon/resource-type-case-active.png">
                 </div>
                 <div class="resource-type-text">
                     {{ $column_titles[1]->classification }}
@@ -85,9 +89,11 @@
         </li>
 
         <li class="resource-type-item">
-            <a href="?column_title_id={{ $column_titles[2]->id }}" class="resource-type-link">
+            <a href="?column_title_id={{ $column_titles[2]->id }}" class="resource-type-link" 
+               id="resource-type-{{ $column_titles[2]->id }}" column-title-id="{{ $column_titles[2]->id }}" next-page=2 reach-last-page="false">
                 <div class="resource-type-img-wrap">    
-                    <img src="/images/icon/resource-type-note.png" class="resource-type-img">
+                    <img src="/images/icon/resource-type-note.png" class="resource-type-img"
+                         default-src="/images/icon/resource-type-note.png" active-src="/images/icon/resource-type-note-active.png">
                 </div>
                 <div class="resource-type-text">
                     {{ $column_titles[2]->classification }}
@@ -96,9 +102,11 @@
         </li>
 
         <li class="resource-type-item">
-            <a href="?column_title_id={{ $column_titles[3]->id }}" class="resource-type-link">
+            <a href="?column_title_id={{ $column_titles[3]->id }}" class="resource-type-link" 
+               id="resource-type-{{ $column_titles[3]->id }}" column-title-id="{{ $column_titles[3]->id }}" next-page=2 reach-last-page="false">
                 <div class="resource-type-img-wrap">    
-                    <img src="/images/icon/resource-type-chart.png" class="resource-type-img">
+                    <img src="/images/icon/resource-type-chart.png" class="resource-type-img"
+                         default-src="/images/icon/resource-type-chart.png" active-src="/images/icon/resource-type-chart-active.png">
                 </div>
                 <div class="resource-type-text">
                     {{ $column_titles[3]->classification }}
@@ -107,9 +115,11 @@
         </li>
 
         <li class="resource-type-item">
-            <a href="?column_title_id={{ $column_titles[4]->id }}" class="resource-type-link">
+            <a href="?column_title_id={{ $column_titles[4]->id }}" class="resource-type-link" 
+               id="resource-type-{{ $column_titles[4]->id }}" column-title-id="{{ $column_titles[4]->id }}" next-page=2 reach-last-page="false">
                 <div class="resource-type-img-wrap">    
-                    <img src="/images/icon/resource-type-register.png" class="resource-type-img">
+                    <img src="/images/icon/resource-type-register.png" class="resource-type-img"
+                         default-src="/images/icon/resource-type-register.png" active-src="/images/icon/resource-type-register-active.png">
                 </div>
                 <div class="resource-type-text">
                     {{ $column_titles[4]->classification }}
@@ -118,21 +128,24 @@
         </li>
     </ul>
 
-    <ul class="resource-list" id="resource-list">
-        @if( isset( $resources ) )
+    <div class="resource-list-container">
+        @foreach ( $resources_split as $column_title_id => $resources )
+        <ul class="resource-list {{ $current_column == $column_title_id ? 'resource-list-active' : '' }}" 
+            id="resource-list-column-title-{{ $column_title_id }}" column-title-id="{{ $column_title_id }}">
             @foreach( $resources as $resource )
-        <li class="resource-item">
-            <span class="resource-img-wrap">
-                <img src="{{$resource->image_url}}" class="resource-img">
-            </span><!--
-         --><span class="resource-info-wrap">
-                <a href="{{$resource->url}}" class="resource-title">{{$resource->title}}</a>
-                <div class="resource-content">{{$resource->brief}}</div>
-            </span>
-        </li>
+            <li class="resource-item">
+                <span class="resource-img-wrap">
+                    <img src="{{$resource->image_url}}" class="resource-img">
+                </span><!--
+             --><span class="resource-info-wrap">
+                    <a href="{{$resource->url}}" class="resource-title">{{$resource->title}}</a>
+                    <div class="resource-content">{{$resource->brief}}</div>
+                </span>
+            </li>
             @endforeach
-        @endif
-    </ul>
+        </ul>
+        @endforeach
+    </div>
 </div>
 <!-- 软文干货 end -->
 
@@ -157,7 +170,7 @@
 @include( 'wechat.components.pagination', [
     'url'           =>      '/wechat/home-pagination',
     'parameters'    =>      [
-        'column_title_id' => Input::get('column_title_id')
+        'column_title_id' => $current_column
     ]
 ])
 
