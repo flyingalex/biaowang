@@ -10,14 +10,15 @@ _pagination_action_parameters_form = null
 _pagination_success_callback = null
 _pagination_fail_callback = null
 
+_preprocessor = null
+
 # 获取分页数据的回调函数
 get_pagination_data_callback = ( response )->
 
     if parseInt( response.errCode ) is 0
 
         if response.total_page <= parseInt _pagination_next_page.val()
-            _pagination.off 'click'
-            _pagination.text _pagination.attr 'data-empty-text'
+            on_reach_last_page()
         else
             _pagination.text _pagination.attr 'data-loaded-text'
 
@@ -29,6 +30,10 @@ get_pagination_data_callback = ( response )->
 
 # 获取分页
 get_pagination_data = ( event )->
+
+    if typeof _preprocessor is 'function'
+        if !_preprocessor()
+            return
 
     $.getJSON _pagination_action_url, _pagination_action_parameters_form.serialize(), get_pagination_data_callback
 
@@ -67,6 +72,21 @@ set_fail_callabck = ( fail_callback )->
 
     _pagination_fail_callback = fail_callback
 
+# 到达最后一页回调函数
+on_reach_last_page = ()->
+
+    _pagination.off 'click'
+    _pagination.text _pagination.attr 'data-empty-text'
+
+# 设置到达最后一页回调函数
+set_on_reach_last_page_handler = ( handler )->
+
+    on_reach_last_page = handler
+
+# 设置预处理函数
+set_preprocessor = ( processor )->
+    _preprocessor = processor
+
 init = ()->
 
     _pagination = $ '.pagination'
@@ -84,6 +104,10 @@ module.exports =
 
     init: init
 
-    set_success_callback: set_success_callback
+    set_preprocessor: set_preprocessor
 
     set_fail_callabck: set_fail_callabck
+
+    set_success_callback: set_success_callback
+
+    set_on_reach_last_page_handler: set_on_reach_last_page_handler
