@@ -26,7 +26,7 @@ class Resource extends \Eloquent {
 	                @num := if ( @column_title = column_title_id, @num + 1, 1 ) as row_number,
 	                @column_title := column_title_id as column_title
 	                from resource
-	                order by column_title_id, id
+	                order by column_title_id asc, sequence desc
 	        ) as tmp
 	        where tmp.row_number <= 3;
 	    "));
