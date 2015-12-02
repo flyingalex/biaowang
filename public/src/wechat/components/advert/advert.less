@@ -1,6 +1,8 @@
 
 @import './../../common/settings.less';
 
+@advert-title-height: unit( 45px / @rem-design-unit, rem );
+
 // ----- 广告图片模块 start -----
 
 .advert-container{
@@ -27,11 +29,37 @@
     width: 100%;
 }
 
+.advert-pagination{
+    right: 0;
+    z-index: 2015 !important;
+    left: auto !important;
+    bottom: 0 !important;
+    text-align: right !important;
+    height: @advert-title-height;
+    padding-right: @horizontal-margin;
+}
+
+.swiper-pagination-bullet{
+    margin-top: unit( 12px / @rem-design-unit , rem ) !important;
+}
+
+.swiper-pagination-bullet{
+    border: solid #004693 1px;
+    opacity: inherit !important;
+    background: none !important;
+}
+
+.swiper-pagination-bullet-active{
+    background: #004693 !important;
+}
+
 // ----- 广告图片模块 end -----
 
 // ----- 广告标题模块 start -----
 
-@advert-title-height: unit( 45px / @rem-design-unit, rem );
+.advert-title-list{
+    display: none;
+}
 
 .advert-title-wrap{
     bottom: 0px;
@@ -45,13 +73,12 @@
 .advert-title-mask{
     width: 100%;
     height: 100%;
-    opacity: 0.25;
     position: absolute;
-    background: #fff;
+    background: rgba(255, 255, 255, 0.70);
 }
 
-.advert-title-content{
-    color: #333;
+.advert-title-current{
+    color: #242424;
     position: relative;
     line-height: @advert-title-height;
     font-size: unit( 22px / @rem-design-unit, rem );

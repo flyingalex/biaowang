@@ -7,7 +7,6 @@
 
 @section( 'scripts' )
 @parent
-<script type="text/javascript" src="/lib/scripts/jquery.livequery.min.js"></script>
 <script type="text/javascript" src="/lib/scripts/lodash.min.js"></script>
 <script type="text/javascript" src="/dist/wechat/js/pages/official.js"></script>
 @stop
@@ -59,8 +58,7 @@
 
 <!-- 软文干货 start -->
 <div class="section-wrap">
-    <div class="section-header">
-        <img src="/images/resource-title.png" class="section-header-img">
+    <div class="section-header resource-header">
     </div>
     <ul class="resource-type-list">
      
@@ -70,7 +68,7 @@
                     <img src="/images/icon/resource-type-lesson.png" class="resource-type-img">
                 </div>
                 <div class="resource-type-text">
-                    课堂
+                    {{ $column_titles[0]->classification }}
                 </div>
             </a>
         </li>
@@ -81,7 +79,7 @@
                     <img src="/images/icon/resource-type-case.png" class="resource-type-img">
                 </div>
                 <div class="resource-type-text">
-                    案例
+                    {{ $column_titles[1]->classification }}
                 </div>
             </a>
         </li>
@@ -92,7 +90,7 @@
                     <img src="/images/icon/resource-type-note.png" class="resource-type-img">
                 </div>
                 <div class="resource-type-text">
-                    笔记
+                    {{ $column_titles[2]->classification }}
                 </div>
             </a>
         </li>
@@ -103,7 +101,7 @@
                     <img src="/images/icon/resource-type-chart.png" class="resource-type-img">
                 </div>
                 <div class="resource-type-text">
-                    榜单
+                    {{ $column_titles[3]->classification }}
                 </div>
             </a>
         </li>
@@ -114,7 +112,7 @@
                     <img src="/images/icon/resource-type-register.png" class="resource-type-img">
                 </div>
                 <div class="resource-type-text">
-                    报名
+                    {{ $column_titles[4]->classification }}
                 </div>
             </a>
         </li>
@@ -127,7 +125,7 @@
             <span class="resource-img-wrap">
                 <img src="{{$resource->image_url}}" class="resource-img">
             </span><!--
-            --><span class="resource-info-wrap">
+         --><span class="resource-info-wrap">
                 <a href="{{$resource->url}}" class="resource-title">{{$resource->title}}</a>
                 <div class="resource-content">{{$resource->brief}}</div>
             </span>
@@ -144,7 +142,7 @@
         <span class="resource-img-wrap">
             <img src="<%- data[i].image_url %>" class="resource-img">
         </span><!--
-        --><span class="resource-info-wrap">
+     --><span class="resource-info-wrap">
             <a href="<%- data[i].url %>" class="resource-title"><%- data[i].title %></a>
             <div class="resource-content"><%- data[i].brief %></div>
         </span>
@@ -156,10 +154,8 @@
 
 @section( 'navigation' )
 
-@include( 'wechat.components.load-btn', [
+@include( 'wechat.components.pagination', [
     'url'           =>      '/wechat/home-pagination',
-    'list_id'          =>      '#resource-list',
-    'template_id'      =>      '#resource-template',
     'parameters'    =>      [
         'column_title_id' => Input::get('column_title_id')
     ]
@@ -169,7 +165,7 @@
     <div class="navigation-container">
         <a href="http://weidian.com/?userid=518781735&wfr=c" class="navigation-link-home">
             <div class="navigation-img-wrap">
-                <img src="/images/icon/link-vote.png" class="navigation-img">
+                <img src="/images/icon/link-official.png" class="navigation-img">
             </div>
             <div class="navigation-text">
                 立刻报名

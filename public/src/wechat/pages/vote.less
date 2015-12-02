@@ -1,5 +1,6 @@
 
 @import './../common/settings.less';
+@import './../components/pagination/pagination.less';
 
 @border-style: dotted #619bbe 1px;
 
@@ -54,6 +55,7 @@ html{
 
 .vote-info-item-content{
     float: left;
+    font-size: @content-font-size;
     width: unit( 580px / @rem-design-unit, rem ); 
     line-height: unit( 85px / @rem-design-unit, rem );
 }
@@ -78,6 +80,15 @@ html{
     height: unit( 40px / @rem-design-unit, rem );
 }
 
+@keyframes vote-info-intro-content-all{
+    overflow: visible;
+    height: auto;
+}
+
+@keyframes vote-info-intro-content-short{
+    .vote-info-intro-content-init;
+}
+
 .vote-intro-content-display-btn{
     border: none;
     outline: none;
@@ -89,29 +100,8 @@ html{
     height: unit( 32px / @rem-design-unit, rem );
 }
 
-.vote-content-btn-normal{
-
-    .vote-content-btn-normal-img{
-        display: inline-block;
-    }
-
-    .vote-content-btn-close-img{
-        display: none;
-    }
-}
-
-.vote-content-btn-close{
-
-    width: unit( 32px / @rem-design-unit, rem );
-    height: unit( 16px / @rem-design-unit, rem );
-
-    .vote-content-btn-normal-img{
-        display: none;
-    }
-
-    .vote-content-btn-close-img{
-        display: inline-block;
-    }
+.vote-content-btn-img{
+    width: 100%;
 }
 
 .section-content {

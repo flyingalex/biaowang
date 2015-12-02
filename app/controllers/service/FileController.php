@@ -88,7 +88,7 @@
 	public function imageUpload()
 	{	
 		if( !Input::hasFile( 'image' ) )
-			return Response::json( BiaoException::$inputErr );
+			return Response::json( BiaoException::$imageErr );
 
 		$file = Input::file('image');
 		$path = public_path().'/upload/';
