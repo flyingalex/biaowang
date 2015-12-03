@@ -131,7 +131,8 @@
     <div class="resource-list-container">
         @foreach ( $resources_split as $column_title_id => $resources )
         <ul class="resource-list {{ $current_column == $column_title_id ? 'resource-list-active' : '' }}" 
-            id="resource-list-column-title-{{ $column_title_id }}" column-title-id="{{ $column_title_id }}">
+            id="resource-list-column-title-{{ $column_title_id }}" column-title-id="{{ $column_title_id }}"
+            first-load="{{ $current_column == $column_title_id ? 'true' : 'false' }}">
             @foreach( $resources as $resource )
             <li class="resource-item">
                 <span class="resource-img-wrap">

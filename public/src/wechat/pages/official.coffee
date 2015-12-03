@@ -70,6 +70,11 @@ switch_resource_list = ( event )->
 
     _resource_list.show()
 
+    if _resource_list.attr( 'first-load' ) is 'false'
+        _resource_list.find( '.resource-img' ).each (idx, ele)->
+            util.resize_img $ ele
+        _resource_list.attr 'first-load', 'true'
+
     _pagination_parameter_next_page.val _this.attr 'next-page'
     _pagination_parameter_column_title_id.val _this.attr 'column-title-id'
 
@@ -83,11 +88,12 @@ active_resource_type_img = ( _current_type_img )->
     _current_type_img.prop 'src', _current_type_img.attr 'active-src'
 
 init = ()->
-    _resource_imgs = $ '.resource-img'
-    _activity_imgs = $ '.activity-img'
 
-    util.resize_imgs_onload _activity_imgs
+    _activity_imgs = $ '.activity-img'
+    _resource_imgs = $ '.resource-list-active .resource-img'
+
     util.resize_imgs_onload _resource_imgs
+    util.resize_imgs_onload _activity_imgs
 
     _resource_type_imgs = $ '.resource-type-img'
     _resource_type_links = $ '.resource-type-link'
