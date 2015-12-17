@@ -18,8 +18,8 @@
 <div class="section-wrap">
     <div class="section-content">
         <div class="section-link">
-            <a href="/wechat/album" class="section-column-title">标王相册</a>
-            <a href="/wechat/video" class="section-column-title">标王视频</a>
+            <a href="/wechat/album" class="section-column-title">活动相册</a><!--
+         --><a href="/wechat/video" class="section-column-title">标王视频</a>
         </div>
         <div class="section-list">
             @if( isset( $items ) )
@@ -34,8 +34,8 @@
                     </div>
                 </a>
             @endfor
-            </div>
-            <div class="section-right-column">
+            </div><!--
+         --><div class="section-right-column">
             @for($i = 1, $length = count($items); $i < $length; $i += 2)
                 <a href="{{ $items[$i]->url }}" class="section-column-item">
                     <div class="section-column-img-wrap">

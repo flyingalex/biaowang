@@ -11,7 +11,7 @@
 
 <div class="section-wrap">
     <div class="section-header">
-        <img src="/images/reward-desc.png" class="section-header-img">
+        奖项设置
     </div>
     @if( isset( $project ) )
     <div class="section-content">

@@ -171,5 +171,4 @@ class FontendController extends BaseController{
 			return Response::json( BiaoException::$notExist );
 		return Response::json(['errCode'=>'0','resources'=> $resources]);
 	} 
-
 }

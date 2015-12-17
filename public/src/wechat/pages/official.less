@@ -13,7 +13,6 @@
 .activity-column{
     float: left;
     overflow: hidden;
-    border-radius: 0.2rem;
     width: unit( 345px / @rem-design-unit, rem );
 }
 
@@ -28,6 +27,8 @@
 .activity-img-wrap{
     display: block;
     overflow: hidden;
+    border: solid #d6d6d6 1px;
+    border-radius: unit( 15px / @rem-design-unit, rem );
     height: unit( 360px / @rem-design-unit, rem );
 }
 
@@ -67,8 +68,6 @@
 @resource-item-height: unit( 160px / @rem-design-unit, rem );
 
 .resource-header{
-    background: url('/images/resource-title.png') no-repeat center;
-    background-size: 100%;
 }
 
 .resource-type-list{
@@ -96,9 +95,16 @@
 }
 
 .resource-type-text{
-    color: #fff;
-    font-size: unit( 24px / @rem-design-unit, rem );
+    color: #000;
+    letter-spacing: 0.1rem;
+    font-size: unit( 32px / @rem-design-unit, rem );
     line-height: unit( 40px / @rem-design-unit, rem );
+}
+
+.resource-type-highlight{
+    .resource-type-text{
+        color: #0677fa;
+    }
 }
 
 .resource-list{
@@ -124,6 +130,8 @@
     overflow: hidden;
     width: @resource-item-height;
     height: @resource-item-height;
+    border: solid #d6d6d6 1px;
+    border-radius: 0.15rem;
 }
 
 .resource-info-wrap{

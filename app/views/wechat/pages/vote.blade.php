@@ -17,7 +17,7 @@
 
 <div class="section-wrap">
     <div class="section-header">
-        <img src="/images/statistic-title.png" class="section-header-img">
+        数据统计
     </div>
     <div class="section-content vote-statistics-wrap">
         @if( isset( $project ))
@@ -42,7 +42,7 @@
 <div class="section-wrap">
     @if( $project )
     <div class="section-header">
-        <img src="/images/active-status.png" class="section-header-img">
+        活动状态
     </div>
     <div class="section-content">
         <div class="vote-info-item">
@@ -115,12 +115,16 @@
 
 <div class="section-wrap">
     <div class="section-header">
-        <img src="/images/active-project.png" class="section-header-img">
+        参赛项目
     </div>
     <div class="section-content">
         <div class="section-link">
-            <a href="/wechat/vote?type=new" class="section-column-title">最新项目</a>
-            <a href="/wechat/vote?type=hot" class="section-column-title">热门项目</a>
+            <div class="section-column-title">
+                <a href="/wechat/vote?type=new" class="section-column-title-link">最新项目</a>
+            </div><!--
+         --><div class="section-column-title">
+                <a href="/wechat/vote?type=hot" class="section-column-title-link">热门项目</a>
+            </div>
         </div>
         <div class="section-list content-list" id="content-list">
             @if( isset( $works ))
@@ -130,6 +134,9 @@
                         <a href="{{{ $works[$i]->url }}}" class="section-column-img-wrap">
                             <img src="{{$works[$i]->image_url}}" class="section-column-img">
                         </a>
+                        <div class="section-column-info content-desc">
+                            {{{ $works[$i]->title }}}
+                        </div>
                         <div class="section-column-info">
                             <div class="section-column-info-item">
                                 <input type="hidden" name="project_id" value="{{ $project->id }}" class="action-parameter">
@@ -147,13 +154,16 @@
                         </div>
                     </div>
                 @endfor
-                </div>
-                <div class="section-right-column" id="content-list-right">
+                </div><!--
+                --><div class="section-right-column" id="content-list-right">
                 @for( $i = 1, $length = count($works); $i < $length; $i += 2 )
                     <div class="section-column-item">
                         <a href="{{{ $works[$i]->url }}}" class="section-column-img-wrap">
                             <img src="{{$works[$i]->image_url}}" class="section-column-img">
                         </a>
+                        <div class="section-column-info content-desc">
+                            {{{ $works[$i]->title }}}
+                        </div>
                         <div class="section-column-info">
                             <div class="section-column-info-item">
                                 <input type="hidden" name="project_id" value="{{ $project->id }}" class="action-parameter">

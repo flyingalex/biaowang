@@ -8,7 +8,7 @@ _resource_imgs = null
 _activity_imgs = null
 
 _resource_type_links = null
-_resource_type_imgs  = null
+_resource_type_link_active = null
 
 _resource_list = null
 _resource_template_compiled = null
@@ -37,7 +37,7 @@ on_reach_last_page = ()->
 pagination_success_callback = ( response )->
 
     # 先创建节点
-    _resource_items = $ _resource_template_compiled { 
+    _resource_items = $ _resource_template_compiled {
         data: response.data
     }
 
@@ -54,6 +54,10 @@ switch_resource_list = ( event )->
 
     _this = $ this
 
+    _resource_type_link_active.removeClass 'resource-type-highlight'
+    _this.addClass 'resource-type-highlight'
+    _resource_type_link_active = _this
+
     if _this.attr( 'reach-last-page' ) is 'true'
         _processable = false
         _pagination.text _pagination.attr 'data-empty-text'
@@ -61,7 +65,6 @@ switch_resource_list = ( event )->
         _processable = true
         _pagination.text _pagination.attr 'data-loaded-text'
 
-    reset_type_img()
     active_resource_type_img _this.find '.resource-type-img'
 
     _resource_list.hide()
@@ -78,11 +81,6 @@ switch_resource_list = ( event )->
     _pagination_parameter_next_page.val _this.attr 'next-page'
     _pagination_parameter_column_title_id.val _this.attr 'column-title-id'
 
-reset_type_img = ()->
-    _resource_type_imgs.each ( idx, ele )->
-        _ele = $ ele
-        _ele.prop 'src', _ele.attr 'default-src'
-
 active_resource_type_img = ( _current_type_img )->
     
     _current_type_img.prop 'src', _current_type_img.attr 'active-src'
@@ -95,9 +93,11 @@ init = ()->
     util.resize_imgs_onload _resource_imgs
     util.resize_imgs_onload _activity_imgs
 
-    _resource_type_imgs = $ '.resource-type-img'
     _resource_type_links = $ '.resource-type-link'
     _resource_type_links.on 'click', switch_resource_list
+    _resource_type_link_active = $ '.resource-type-highlight'
+
+    console.log _resource_type_link_active
 
     _pagination = $ '.pagination'
     _pagination_parameter_next_page = $ '#pagination-next-page'
@@ -107,10 +107,6 @@ init = ()->
     _resource_template_compiled = _.template $( '#resource-template' ).text()
 
     _current_column = _pagination_parameter_column_title_id.val()
-
-    _current_type_img = $( '#resource-type-' + _current_column + ' .resource-type-img' )
-
-    active_resource_type_img( _current_type_img )
 
 $ ()->
 

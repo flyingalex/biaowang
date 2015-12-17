@@ -12,8 +12,10 @@
 }
 
 .section-header{
-    text-align: center;
-    height: unit( 128px / @rem-design-unit, rem );
+    font-size: 14px;
+    color: #004493;
+    margin-top: 0.3rem;
+    margin-bottom: 0.3rem;
 }
 
 .section-header-img{
@@ -50,7 +52,8 @@
     color: @font-color-blue;
     text-align: center;
     font-size: unit( 32px / @rem-design-unit, rem );
-    line-height: unit( 75px / @rem-design-unit, rem );
+    padding-top: unit( 20px / @rem-design-unit, rem );  
+    padding-bottom: unit( 20px / @rem-design-unit, rem );  
 }
 
 .section-column-left{
@@ -68,23 +71,19 @@
 }
 
 .section-column-info{
-    background-color: #3f84d4;
     text-align: center;
     overflow: hidden;
+    margin-top: unit( 18px / @rem-design-unit, rem );
 }
 
 .section-column-info-item-message{
-    color: #fff;
+    color: #333;
     font-size: unit( 24px / @rem-design-unit, rem );
     line-height: unit( 70px / @rem-design-unit, rem );
 }
 
 .section-column-info-item{
     line-height: unit( 50px / @rem-design-unit, rem );
-    @margin-vertical: unit( 10px / @rem-design-unit, rem );
-    margin-bottom: @margin-vertical;
-    margin-top: @margin-vertical;
-    color: #fff;
     float: left;
     width: 50%;
 }
@@ -98,7 +97,7 @@
     overflow: hidden;
     text-align: center;
     border-radius: 0.2em;
-    background: url( '/images/btn-bg.png' );
+    background: #3f84d4;
     width: unit( 130px / @rem-design-unit, rem );
     line-height: unit( 50px / @rem-design-unit, rem );
 }
