@@ -38,7 +38,7 @@ class InputController extends BaseController{
 	{
 		foreach( $arrs as $arr )
 		{
-			if( !preg_match( '/^[0-9]{4}-[0,1][0-9]-[0-3][0-9]$/', $arr ) )
+			if( !preg_match( '/^[0-9]{4}-[0,1][0-9]-[0-3][0-9][\s]+[0-2][0-4]:[0-5][0-9]:[0-5][0-9]$/', trim($arr) ) )
 				return false;
 		}
 		return true;
