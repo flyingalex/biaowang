@@ -63,10 +63,10 @@ class ProjectController extends BaseController{
 		//存储到数据库
 		$project->title 		= $title;
 		$project->content 		= $content;
-		$project->sign_up_start = $sign_up_start;
-		$project->sign_up_stop	= $sign_up_stop;
-		$project->vote_start 	= $vote_start;
-		$project->vote_stop 	= $vote_stop;
+		$project->sign_up_start = date("Y-m-d H:i:s", $sign_up_start);
+		$project->sign_up_stop	= date("Y-m-d H:i:s", $sign_up_stop);
+		$project->vote_start 	= date("Y-m-d H:i:s", $vote_start);
+		$project->vote_stop 	= date("Y-m-d H:i:s", $vote_stop);
 		$project->activity_rule = $activity_rule;
 		$project->award_site 	= $award_site;
 		if( !$project->save() )

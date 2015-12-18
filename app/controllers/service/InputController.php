@@ -38,10 +38,13 @@ class InputController extends BaseController{
 	{
 		foreach( $arrs as $arr )
 		{	
+			$d=strtotime( $arr );
+			if( date("Y-m-d H:i:s", $d) == '1970-01-01 08:00:00')
+				return false;
 			// if( !preg_match( '/^[0-9]{4}-[0,1][0-9]-[0-3][0-9][\s]+[0-2][0-4]:[0-5][0-9]:[0-5][0-9]$/', trim($arr) ) )
 				// return false;
-			if( !preg_match( '/^[0-9]{4}-[0,1][0-9]-[0-3][0-9]$/', trim($arr) ) )
-				return false;
+			// if( !preg_match( '/^[0-9]{4}-[0,1][0-9]-[0-3][0-9]$/', trim($arr) ) )
+			// 	return false;
 		}
 		return true;
 	}
