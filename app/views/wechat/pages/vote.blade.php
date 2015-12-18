@@ -194,7 +194,7 @@
         </a>
         <div class="section-column-info">
             <div class="section-column-info-item">
-                <input type="hidden" name="project_id" value="<%- id %>" class="action-parameter">
+                <input type="hidden" name="project_id" value="<%- project_id %>" class="action-parameter">
                 <input type="hidden" name="work_id" value="<%- id %>" class="action-parameter">
                 <button class="section-column-btn" 
                 action="/wechat/vote"

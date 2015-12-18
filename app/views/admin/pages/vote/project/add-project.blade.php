@@ -70,6 +70,4 @@
 @section( 'scripts' )
 @parent
 <script type="text/javascript" src="/lib/ckeditor/ckeditor.js"></script>
-<script type="text/javascript" src="/lib/scripts/jquery-ui.min.js"></script>
-<script type="text/javascript" src="/dist/admin/js/pages/add-project.js"></script>
-@stop
+<script type="text/javascript" src="/lib/scripts/jquery.datetimepicker.full.min.js"></script>

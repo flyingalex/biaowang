@@ -70,11 +70,14 @@ class FontendPageController extends BaseController{
 		}else{
 			$isClosed = false;
 		}
-			$days =ceil(($zero2-$zero1)/86400);
-			$hours = 23 - date('h');
-			$mins = 60 - date( 'i');
-			$seconds = 60 -date( 's' );
 
+        $days =ceil(($zero2-$zero1)/86400);
+        $hours = 23 - date('h');
+        $mins = 60 - date( 'i');
+        $seconds = 60 -date( 's' );
+
+        $project->vote_start = date_format( date_create( $project->vote_start ), 'Y-m-d H:i' );
+        $project->vote_end   = date_format( date_create( $project->vote_end ), 'Y-m-d H:i' );
 
 		return View::make('wechat.pages.vote')->with([
 							'adverts'		=> $adverts,

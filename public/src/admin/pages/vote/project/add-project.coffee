@@ -1,7 +1,5 @@
 $ ()->
-    $('.edit-area-date-input').datepicker {
-        dateFormat: 'yy-mm-dd'
-    }
+    $('.edit-area-date-input').datetimepicker()
 
     CKEDITOR.replace 'content'
     CKEDITOR.replace 'activity_rule'
