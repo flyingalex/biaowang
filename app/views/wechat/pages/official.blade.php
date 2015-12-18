@@ -20,7 +20,7 @@
 <!-- 活动现场 start -->
 <div class="section-wrap">
     <div class="section-header">
-        <img src="/images/activity.png" class="section-header-img">
+        活动现场
     </div>
     <div class="activity-column-wrap">
         <div class="activity-column activity-column-left">   
@@ -59,16 +59,13 @@
 <!-- 软文干货 start -->
 <div class="section-wrap">
     <div class="section-header resource-header">
+        软文干货
     </div>
+
     <ul class="resource-type-list">
-     
         <li class="resource-type-item">
-            <a href="?column_title_id={{ $column_titles[0]->id }}" class="resource-type-link" 
+            <a href="?column_title_id={{ $column_titles[0]->id }}" class="resource-type-link resource-type-highlight" 
                id="resource-type-{{ $column_titles[0]->id }}" column-title-id="{{ $column_titles[0]->id }}" next-page=2 reach-last-page="false">
-                <div class="resource-type-img-wrap">    
-                    <img src="/images/icon/resource-type-lesson.png" class="resource-type-img"
-                         default-src="/images/icon/resource-type-lesson.png" active-src="/images/icon/resource-type-lesson-active.png" >
-                </div>
                 <div class="resource-type-text">
                     {{ $column_titles[0]->classification }}
                 </div>
@@ -78,10 +75,6 @@
         <li class="resource-type-item">
             <a href="?column_title_id={{ $column_titles[1]->id }}" class="resource-type-link" 
                id="resource-type-{{ $column_titles[1]->id }}" column-title-id="{{ $column_titles[1]->id }}" next-page=2 reach-last-page="false">
-                <div class="resource-type-img-wrap">    
-                    <img src="/images/icon/resource-type-case.png" class="resource-type-img"
-                         default-src="/images/icon/resource-type-case.png" active-src="/images/icon/resource-type-case-active.png">
-                </div>
                 <div class="resource-type-text">
                     {{ $column_titles[1]->classification }}
                 </div>
@@ -91,10 +84,6 @@
         <li class="resource-type-item">
             <a href="?column_title_id={{ $column_titles[2]->id }}" class="resource-type-link" 
                id="resource-type-{{ $column_titles[2]->id }}" column-title-id="{{ $column_titles[2]->id }}" next-page=2 reach-last-page="false">
-                <div class="resource-type-img-wrap">    
-                    <img src="/images/icon/resource-type-note.png" class="resource-type-img"
-                         default-src="/images/icon/resource-type-note.png" active-src="/images/icon/resource-type-note-active.png">
-                </div>
                 <div class="resource-type-text">
                     {{ $column_titles[2]->classification }}
                 </div>
@@ -104,10 +93,6 @@
         <li class="resource-type-item">
             <a href="?column_title_id={{ $column_titles[3]->id }}" class="resource-type-link" 
                id="resource-type-{{ $column_titles[3]->id }}" column-title-id="{{ $column_titles[3]->id }}" next-page=2 reach-last-page="false">
-                <div class="resource-type-img-wrap">    
-                    <img src="/images/icon/resource-type-chart.png" class="resource-type-img"
-                         default-src="/images/icon/resource-type-chart.png" active-src="/images/icon/resource-type-chart-active.png">
-                </div>
                 <div class="resource-type-text">
                     {{ $column_titles[3]->classification }}
                 </div>
@@ -117,10 +102,6 @@
         <li class="resource-type-item">
             <a href="?column_title_id={{ $column_titles[4]->id }}" class="resource-type-link" 
                id="resource-type-{{ $column_titles[4]->id }}" column-title-id="{{ $column_titles[4]->id }}" next-page=2 reach-last-page="false">
-                <div class="resource-type-img-wrap">    
-                    <img src="/images/icon/resource-type-register.png" class="resource-type-img"
-                         default-src="/images/icon/resource-type-register.png" active-src="/images/icon/resource-type-register-active.png">
-                </div>
                 <div class="resource-type-text">
                     {{ $column_titles[4]->classification }}
                 </div>

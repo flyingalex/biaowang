@@ -2,6 +2,7 @@ module.exports = (grunt)->
 
     stringify = require 'stringify'
     coffeeify = require 'coffeeify'
+    coffee_reactify = require 'coffee-reactify'
 
     grunt.initConfig
         concurrent:
@@ -28,7 +29,7 @@ module.exports = (grunt)->
             admin_components:
                 options:
                   preBundleCB: (b)->
-                    b.transform(coffeeify)
+                    b.transform(coffee_reactify)
                     b.transform(stringify({extensions: ['.hbs', '.html', '.tpl', '.txt']}))
                 expand: true
                 flatten: true
@@ -45,7 +46,7 @@ module.exports = (grunt)->
             wechat:
                 options:
                   preBundleCB: (b)->
-                    b.transform(coffeeify)
+                    b.transform(coffee_reactify)
                     b.transform(stringify({extensions: ['.hbs', '.html', '.tpl', '.txt']}))
                 expand: true
                 flatten: true
@@ -101,6 +102,7 @@ module.exports = (grunt)->
                     ]
                     'dist/admin/css/pages/login.css': ['src/admin/pages/login/login.less']
                     'dist/admin/css/pages/offical/manage-resource.css': ['src/admin/pages/official/resource/manage-resource.less']
+                    'dist/admin/css/pages/vote/add-project.css': ['./src/admin/pages/vote/project/add-project.less']
             wechat:
                 files:
                     'dist/wechat/css/common.css': [

@@ -42,6 +42,8 @@ Route::group(array('prefix'=>'wechat'),function(){
 	Route::get('video-pagination','FontendController@videoPagination');
 	//相册详细页
 	Route::get('album-detail','FontendController@albumDetail');
+
+    Route::get('album-all','FontendController@albumAll');
 });
 
 
