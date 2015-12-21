@@ -120,10 +120,18 @@
     <div class="section-content">
         <div class="section-link">
             <div class="section-column-title">
+                @if ( Input::get( 'type' ) == 'new' )
+                <a href="/wechat/vote?type=new" class="section-column-title-link active-title">最新项目</a>
+                @else
                 <a href="/wechat/vote?type=new" class="section-column-title-link">最新项目</a>
+                @endif
             </div><!--
          --><div class="section-column-title">
+                @if ( Input::get( 'type' ) == 'hot' )
+                <a href="/wechat/vote?type=hot" class="section-column-title-link active-title">热门项目</a>
+                @else
                 <a href="/wechat/vote?type=hot" class="section-column-title-link">热门项目</a>
+                @endif
             </div>
         </div>
         <div class="section-list content-list" id="content-list">
