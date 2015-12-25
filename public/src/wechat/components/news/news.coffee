@@ -6,6 +6,6 @@ init = ()->
         autoplay: 2500
     }
 
-module.exports = 
+module.exports =
 
     init: init

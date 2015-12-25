@@ -1,12 +1,12 @@
 <div class="swiper-container news-container">
-    <div class="swiper-wrapper">
-        @if( isset( $news ) )
-            @foreach( $news as $new )
-        <div class="news-item swiper-slide">
-            <img src="/images/icon/video.png" class="news-icon">
-            <span class="news-content">新闻：{{$new->content}}</span>
-        </div>
-            @endforeach
-        @endif
+    <div class="news-icon-wrap">
+        <img src="/images/icon/video.png" class="news-icon">
+    </div>
+    <div class="swiper-wrapper news-wrapper">
+        @foreach( $videos as $video)
+        <a class="news-item swiper-slide" href="{{$video->url}}">
+            <span class="news-content">{{$video->title}}</span>
+        </a>
+        @endforeach
     </div>
 </div>

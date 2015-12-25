@@ -9,11 +9,23 @@
     background: url( '/images/news-bg.png' );
 }
 
+.news-wrapper{
+    position: relative;
+}
+
 .news-item{
     color: #004493;
+    display: block;
     line-height: @news-height;
     font-size: unit( 24px / @rem-design-unit, rem );
-    text-indent: unit( 20px / @rem-design-unit, rem );
+    margin-left: unit( 60px / @rem-design-unit, rem );
+}
+
+.news-icon-wrap{
+    position: absolute; 
+    text-align: center;
+    line-height: @news-height;
+    width: unit( 60px / @rem-design-unit, rem );
 }
 
 .news-icon{
@@ -23,5 +35,4 @@
 
 .news-content{
     font-size: unit( 26px / @rem-design-unit, rem );
-    margin-left: unit( 12px / @rem-design-unit, rem );
 }

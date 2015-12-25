@@ -28,7 +28,7 @@ class FontendPageController extends BaseController{
 		}
 
 		return View::make('wechat.pages.official')->with([
-						'news'				=> $news,
+                        'videos'             => Video::select('title', 'url')->get(),
 						'adverts'			=> $adverts,
 						'activity_adverts'	=> $activity_adverts,
 						'column_titles'		=> $column_titles,
