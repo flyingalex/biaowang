@@ -1,5 +1,9 @@
 @extends( 'wechat.template.master' )
 
+@section( 'title' )
+标王众筹 - 活动相册
+@stop
+
 @section( 'styles' )
 @parent
 <link rel="stylesheet" href="/dist/wechat/css/pages/album.css">
@@ -19,7 +23,7 @@
     <div class="section-content">
         <div class="section-link">
             <a href="/wechat/album" class="section-column-title">活动相册</a><!--
-         --><a href="/wechat/video" class="section-column-title">标王视频</a>
+         --><a href="/wechat/video" class="section-column-title">活动相册</a>
         </div>
         <div class="section-list">
             @if( isset( $items ) )

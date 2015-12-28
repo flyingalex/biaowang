@@ -3,13 +3,20 @@
 
 <head>
 
-<title>标王</title>
+<title>
+@section( 'title' )
+标王
+@show
+</title>
 
 <meta charset="utf-8">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-touch-fullscreen" content="yes">
 <meta name="format-detection" content="telephone=no,email=no">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+
+@section( 'meta-description' )
+@show
 
 <script src="/lib/scripts/tb-flexible.js"></script>
 

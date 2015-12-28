@@ -1,5 +1,13 @@
 @extends( 'wechat.template.master' )
 
+@section( 'title' )
+标王众筹-官网
+@stop
+
+@section( 'meta-description' )
+<meta name="description" content="">
+@show
+
 @section( 'styles' )
 @parent
 <link rel="stylesheet" href="/dist/wechat/css/pages/official.css">

@@ -1,5 +1,9 @@
 @extends( 'wechat.template.master' )
 
+@section( 'title' )
+标王众筹 - 项目投票
+@stop
+
 @section( 'styles' )
 @parent
 <link rel="stylesheet" href="/dist/wechat/css/pages/vote.css">
@@ -200,6 +204,9 @@
         <a href="<%- url %>" class="section-column-img-wrap">
             <img src="<%- image_url %>" class="section-column-img">
         </a>
+        <div class="section-column-info content-desc">
+             <%- title %>
+        </div>
         <div class="section-column-info">
             <div class="section-column-info-item">
                 <input type="hidden" name="project_id" value="<%- project_id %>" class="action-parameter">

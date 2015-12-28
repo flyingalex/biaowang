@@ -97,8 +97,6 @@ init = ()->
     _resource_type_links.on 'click', switch_resource_list
     _resource_type_link_active = $ '.resource-type-highlight'
 
-    console.log _resource_type_link_active
-
     _pagination = $ '.pagination'
     _pagination_parameter_next_page = $ '#pagination-next-page'
     _pagination_parameter_column_title_id = $ '#pagination-parameter-column_title_id'
