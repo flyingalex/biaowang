@@ -118,6 +118,48 @@ module.exports = (grunt)->
                     'dist/wechat/css/pages/album.css': ['src/wechat/pages/album.less']
                     'dist/wechat/css/pages/photo.css': ['src/wechat/pages/photo.less']
 
+        cssmin:
+            admin:
+                files:[
+                    {
+                        expand: true
+                        cwd: './dist/admin/css'
+                        src: ['**/*.css', '!*.min.css'],
+                        dest: './dist/admin/css'
+                        ext: '.css'
+                    }
+                ]
+            wechat:
+                files:[
+                    {
+                        expand: true
+                        cwd: './dist/wechat/css'
+                        src: ['**/*.css', '!*.min.css']
+                        dest: './dist/wechat/css'
+                        ext: '.css'
+                    }
+                ]
+
+        uglify:
+            admin:
+                files:[
+                    {
+                        expand: true
+                        cwd: './dist/admin/js'
+                        src: '**/*.js'
+                        dest: './dist/admin/js'
+                    }
+                ]
+            wechat:
+                files:[
+                    {
+                        expand: true
+                        cwd: './dist/wechat/js'
+                        src: '**/*.js'
+                        dest: './dist/wechat/js'
+                    }
+                ]
+
     grunt.loadNpmTasks 'grunt-browserify'
     grunt.loadNpmTasks 'grunt-contrib-less'
     grunt.loadNpmTasks 'grunt-contrib-clean'
