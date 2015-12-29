@@ -4,9 +4,7 @@
 <head>
 
 <title>
-@section( 'title' )
-标王
-@show
+@section( 'title' ) 标王 @show
 </title>
 
 <meta charset="utf-8">
