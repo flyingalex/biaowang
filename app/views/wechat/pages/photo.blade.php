@@ -15,24 +15,14 @@
 @stop
 
 @section( 'header' )
-<div class="swiper-container album-thumbs-container" id="album-thumbs-container"><!--
-    <div class="swiper-wrapper album-thumbs-wrap">
-        <div class="swiper-slide album-thumbs-item">
-        </div>
-    </div>
-    -->
+<div class="swiper-container album-thumbs-container" id="album-thumbs-container">
 </div>
 @stop
 
 @section( 'content' )
-<div class="swiper-container img-container album-normal-container" id="album-normal-container"><!--
-    <div class="swiper-wrapper album-normal-wrap">
-        <div class="swiper-slide album-normal-item">
-            <span class="img-vertical-middle-helper"></span>
-        </div>    
-    </div>
-    -->
+<div class="swiper-container img-container album-normal-container" id="album-normal-container">
 </div>
+<input type="hidden" id="album_id" name="album_id" value="{{ Input::get( 'album_id' ) }}">
 @stop
 
 @section( 'navigation' )

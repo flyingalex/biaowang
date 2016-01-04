@@ -46,7 +46,7 @@ albumNormalWrap = React.createClass {
 
 aysnGetGalleryAll = ( getMessageCallback, renderMessageCallback )->
     
-    $.get '/wechat/album-detail', { album_id: 1 }, ( message )->
+    $.get '/wechat/album-detail', { album_id: $('#album_id').val() }, ( message )->
         
         getMessageCallback message, renderMessageCallback
 
