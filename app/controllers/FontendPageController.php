@@ -27,14 +27,19 @@ class FontendPageController extends BaseController{
 			$resources_split[ $resource->column_title_id ][] = $resource;
 		}
 
+		$app_id = Config::get('weixin.app_id');
+		$sign_package = WeixinSDK::getSignPackage();
+
 		return View::make('wechat.pages.official')->with([
-                        'videos'             => Video::select('title', 'url')->get(),
-						'adverts'			=> $adverts,
-						'activity_adverts'	=> $activity_adverts,
-						'column_titles'		=> $column_titles,
-						'resources_split'	=> $resources_split,
-						'current_column' 	=> Input::get( 'column_title_id' )
-						]);
+			'videos'             => Video::select('title', 'url')->get(),
+			'adverts'			=> $adverts,
+			'activity_adverts'	=> $activity_adverts,
+			'column_titles'		=> $column_titles,
+			'resources_split'	=> $resources_split,
+			'current_column' 	=> Input::get( 'column_title_id' ),
+			'app_id'			=> $app_id,
+			'sign_package'		=> $sign_package,
+		]);
 	}
 
 	//微投票
@@ -79,18 +84,22 @@ class FontendPageController extends BaseController{
         $project->vote_start = date_format( date_create( $project->vote_start ), 'Y-m-d H:i' );
         $project->vote_end   = date_format( date_create( $project->vote_end ), 'Y-m-d H:i' );
 
-		return View::make('wechat.pages.vote')->with([
-							'adverts'		=> $adverts,
-							'project'		=> $project,
-							'works'			=> $works,
-							'isClosed' 		=> $isClosed,
-							'days'			=> $days,
-							'hours'			=> $hours,
-							'mins' 			=> $mins,
-							'seconds' 		=> $seconds
-							]);
-	}
+        $app_id = Config::get('weixin.app_id');
+		$sign_package = WeixinSDK::getSignPackage();
 
+		return View::make('wechat.pages.vote')->with([
+			'adverts'			=> $adverts,
+			'project'			=> $project,
+			'works'				=> $works,
+			'isClosed' 			=> $isClosed,
+			'days'				=> $days,
+			'hours'				=> $hours,
+			'mins' 				=> $mins,
+			'seconds' 			=> $seconds,
+			'app_id'			=> $app_id,
+			'sign_package'		=> $sign_package,
+		]);
+	}
 
 	//活动规则	
 	public function rule()
@@ -102,9 +111,9 @@ class FontendPageController extends BaseController{
 			return BiaoExceptionController::pageError( BiaoException::$noProject['message'] );
 		
 		return View::make('wechat.pages.rules')->with([
-					'project'	=>$project,
-					'adverts'	=>$adverts
-					]);
+			'project'	=>	$project,
+			'adverts'	=>	$adverts
+		]);
 	}
 
 	//奖项设置
@@ -115,41 +124,45 @@ class FontendPageController extends BaseController{
 			return BiaoExceptionController::pageError( BiaoException::$noProject['message'] );
 		$adverts 	= Advertisement::where('type',2)->get(); 
 		return View::make('wechat.pages.adward')->with([
-					'project'	=>$project,
-					'adverts'	=>$adverts
-					]);
+			'project'	=>	$project,
+			'adverts'	=>	$adverts
+		]);
 	}
 
 	//微相册
 	public function album()
 	{
-		$adverts 	 = Advertisement::where('type',3)->get(); 
+		$adverts 	 = Advertisement::where('type',3)->get();
 		$albums	 	 = Album::take(4)->get();
 
 		foreach ( $albums as &$album ){
 			$album->url = '/wechat/photos?album_id='.$album->id;
 		}
 
+		$app_id = Config::get('weixin.app_id');
+		$sign_package = WeixinSDK::getSignPackage();
+
 		return View::make('wechat.pages.album')->with([
-					'adverts'		=>	$adverts,
-					'items'		=>	$albums,
-					'paginate_url'	=> 	'/wechat/album-pagination'
-					]);
+			'adverts'			=>	$adverts,
+			'items'				=>	$albums,
+			'paginate_url'		=> 	'/wechat/album-pagination',
+			'app_id'			=>  $app_id,
+			'sign_package'		=>  $sign_package,
+		]);
 	}
 
 	//微视频
 	public function video()
 	{
-		$adverts 	 = Advertisement::where('type',3)->get(); 
+		$adverts 	 = Advertisement::where('type',3)->get();
 		$videos 	 = Video::take(4)->get();
 
 		return View::make('wechat.pages.album')->with([
-					'adverts'		=>	$adverts,
-					'items'		=>	$videos,
-					'paginate_url'	=> 	'/wechat/video-pagination'
-					]);
+			'adverts'		=>	$adverts,
+			'items'			=>	$videos,
+			'paginate_url'	=> 	'/wechat/video-pagination',
+		]);
 	}
-
 
 	//相册
 	public function subAlbum()
@@ -157,10 +170,7 @@ class FontendPageController extends BaseController{
 		$album_id 	= Input::get('album_id');
 		$photograph = Photograph::where('album_id',$album_id)->get();
 		return View::make('wechat.pages.photo')->with([
-					'photos'=>$photograph
-					]);
+			'photos'=>$photograph
+		]);
 	}
-
-
 }
-

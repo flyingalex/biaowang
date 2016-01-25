@@ -1,5 +1,6 @@
 
 util = require './../components/util.coffee'
+wechat = require './../components/wechat.coffee'
 news = require './../components/news/news.coffee'
 advert = require './../components/advert/advert.coffee'
 pagination = require './../components/pagination/pagination.coffee'
@@ -110,6 +111,9 @@ $ ()->
 
     # 缓存dom元素
     init()
+
+    # 初始化微信组件信息
+    wechat.share()
 
     # 初始化广告组件
     advert.init()

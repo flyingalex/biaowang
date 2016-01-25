@@ -11,6 +11,7 @@
 
 @section( 'scripts' )
 @parent
+<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 <script type="text/javascript" src="/lib/scripts/lodash.min.js"></script>
 <script type="text/javascript" src="/dist/wechat/js/pages/official.js"></script>
 @stop
@@ -148,6 +149,30 @@
     </li>
     <% } %>
 </script>
+
+<script type="text/template" id="wechat-sign-info">
+    <?php json_encode($sign_package) ?>
+</script>
+
+<script type="text/javascript" id="wechat-on-menu-share-timeline-info">
+    {
+        "title": "微官网",
+        "link": "{{ Request::url() }}",
+        "imgUrl": "{{ $adverts[0]->image_url }}"
+    }
+</script>
+
+<script type="text/javascript" id="wechat-on-menu-share-app-message-info">
+    {
+        "title": "微官网",
+        "desc": "点击进入标王众筹的世界",
+        "link": "{{ Request::url() }}",
+        "imgUrl": "{{ $adverts[0]->image_url }}",
+        "type": "link",
+    }
+</script>
+
+<input id="app-id" type="hidden" name="app_id" value="{{ $app_id }}">
 
 @stop
 
