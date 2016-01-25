@@ -10,8 +10,7 @@ albumThumbItem = React.createClass {
 
 albumThumbWrap = React.createClass {
     render: ()->
-        
-        albumThumbNodes = this.props.data.map ( albumThumb )->
+        albumThumbNodes = this.props.data.map (albumThumb)->
             return ( <albumThumbItem key={albumThumb.id} image_url={albumThumb.image_url} title={albumThumb.title} />)
 
         return (
@@ -33,8 +32,7 @@ albumNormalItem = React.createClass {
 
 albumNormalWrap = React.createClass {
     render: ()->
-
-        albumNormalNodes = this.props.data.map  ( albumNormal )->
+        albumNormalNodes = this.props.data.map  (albumNormal)->
             return ( <albumNormalItem key={albumNormal.id} image_url={albumNormal.image_url} title={albumNormal.title} />)
 
         return (
@@ -45,24 +43,19 @@ albumNormalWrap = React.createClass {
 }
 
 aysnGetGalleryAll = ( getMessageCallback, renderMessageCallback )->
-    
-    $.get '/wechat/album-detail', { album_id: $('#album_id').val() }, ( message )->
+    $.get '/wechat/album-detail', { album_id: $('#album_id').val() }, (message)->
         
         getMessageCallback message, renderMessageCallback
 
     , 'json'
 
-renderPage = ( message, renderMessageCallback )->
-    
-    if parseInt( message.errCode ) is 0
-
-        React.render <albumNormalWrap data={message.data} />, document.getElementById( 'album-normal-container' )
-        React.render <albumThumbWrap data={message.data} />, document.getElementById( 'album-thumbs-container')
+renderPage = (message, renderMessageCallback)->
+    if parseInt(message.errCode) is 0
+        React.render <albumNormalWrap data={message.data} />, document.getElementById('album-normal-container')
+        React.render <albumThumbWrap data={message.data} />, document.getElementById('album-thumbs-container')
         renderMessageCallback()
 
 module.exports =
-
-    render: ( renderMessageCallback )->
-
+    render: (renderMessageCallback)->
         aysnGetGalleryAll renderPage, renderMessageCallback
 
