@@ -2,7 +2,7 @@
 
 class WeixinController extends BaseController{
 
-    protected static $token = "ziruikeji";
+    protected static $token = "biaowang";
 
     protected static function check_signature(){
 

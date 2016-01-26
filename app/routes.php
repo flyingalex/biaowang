@@ -17,6 +17,10 @@ Route::get('/',function(){
 
 //前端
 Route::group(array('prefix'=>'wechat'),function(){
+
+    // 微信验证服务器有效性接口
+    Route::get('/', 'WechatController@response_token');
+
 	//首页
 	Route::get('official','FontendPageController@home');
 	//投票
