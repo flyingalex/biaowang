@@ -1,6 +1,6 @@
 <?php
 
-class WeixinController extends BaseController{
+class WechatController extends BaseController{
 
     protected static $token = "biaowang";
 
