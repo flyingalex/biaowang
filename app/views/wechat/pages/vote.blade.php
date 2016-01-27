@@ -230,13 +230,5 @@
 
 @section( 'navigation' )
 
-@include( 'wechat.components.pagination', [
-    'url'           =>      '/wechat/vote-pagination',
-    'parameters'    =>      [
-        'project_id'        => $project->id,
-        'sequence_type'     => Input::get( 'type' ) == 'hot' ? 2 : 1
-    ]
-])
-
 @include( 'wechat.components.navigation' )
 @stop

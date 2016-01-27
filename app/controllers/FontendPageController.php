@@ -50,12 +50,12 @@ class FontendPageController extends BaseController{
 		{
 			if( $type == 'new' )
 			{
-				$works		= Work::where('project_id',$project->id)->orderBy('created_at','desc')->take(4)->get(); 
+				$works		= Work::where('project_id',$project->id)->orderBy('created_at','desc')->get(); 
 			}else{
-				$works	= Work::where('project_id',$project->id)->orderBy('vote_number','desc')->take(4)->get(); 
+				$works	= Work::where('project_id',$project->id)->orderBy('vote_number','desc')->get(); 
 			}
 		}else{
-				$works		= Work::where('project_id',$project->id)->orderBy('created_at','desc')->take(4)->get(); 
+				$works		= Work::where('project_id',$project->id)->orderBy('created_at','desc')->get(); 
 		}
 		//计算时间
 		$zero1 =  strtotime(date("y-m-d h:i:s")); 
@@ -76,9 +76,6 @@ class FontendPageController extends BaseController{
 
         $project->vote_start = date_format( date_create( $project->vote_start ), 'Y-m-d H:i' );
         $project->vote_end   = date_format( date_create( $project->vote_end ), 'Y-m-d H:i' );
-
-        $app_id = Config::get('weixin.app_id');
-		$sign_package = WeixinSDK::getSignPackage();
 
 		return View::make('wechat.pages.vote')->with([
 			'adverts'			=> $adverts,

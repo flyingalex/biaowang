@@ -2,30 +2,11 @@
 util = require './../components/util.coffee'
 wechat = require './../components/wechat.coffee'
 advert = require './../components/advert/advert.coffee'
-pagination = require './../components/pagination/pagination.coffee'
 navigation = require './../components/navigation/navigation.coffee'
 
 _content_list = null
 _content_list_left = null
 _content_list_right = null
-_content_template_compiled = null
-
-# 获取分页数据成功回调函数
-pagination_success_callback = ( response )->
-
-    # 奇偶索引的数据分割成两个数组
-    _data_partition = _.partition response.data, ( value, key )->
-        return key % 2 == 0
-
-    if _content_list_left.children().length <= _content_list_right.children().length
-
-        util.render_helper( _content_list_left, _data_partition[0], _content_template_compiled )
-        util.render_helper( _content_list_right, _data_partition[1], _content_template_compiled )
-
-    else
-
-        util.render_helper( _content_list_right, _data_partition[0], _content_template_compiled )
-        util.render_helper( _content_list_left, _data_partition[1], _content_template_compiled )
 
 # 缓存dom元素
 # 编译模板
@@ -34,7 +15,6 @@ init = ()->
     _content_list = $ '#content-list'
     _content_list_left = $ '#content-list-left'
     _content_list_right = $ '#content-list-right'
-    _content_template_compiled = _.template $( '#content-template' ).text()
 
 show_content_event = ( event )->
 
@@ -96,12 +76,6 @@ $ ()->
 
     # 初始化底部导航栏
     navigation.init()
-
-    # 初始化分页组件
-    pagination.init()
-
-    # 设置获取分页数据成功回调函数
-    pagination.set_success_callback pagination_success_callback
 
     # 投票按钮点击事件
     _content_list.on 'click', '.section-column-btn', vote_action_handler
