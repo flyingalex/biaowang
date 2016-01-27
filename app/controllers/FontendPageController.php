@@ -14,21 +14,16 @@ class FontendPageController extends BaseController{
 		
 		if( !isset( $column_title_id ) )
 		{
-			$resources 	= Resource::where('column_title_id',1)->select('title','brief','image_url','url')->orderBy('sequence','desc')->take(3)->get();
 			Input::merge([ 'column_title_id' => 1 ]);
-		}else{
-			$resources 	= Resource::where('column_title_id',$column_title_id)->select('title','brief','image_url','url')->orderBy('sequence','desc')->take(3)->get();
 		}
 
-		$resources = Resource::getExtremeFromEachColumn();
+        $resources 	= Resource::select('column_title_id', 'title','brief','image_url','url')
+                              ->orderBy('sequence','desc')->get();
 		$resources_split = [];
 
 		foreach ( $resources as $resource ) {
 			$resources_split[ $resource->column_title_id ][] = $resource;
 		}
-
-		$app_id = Config::get('weixin.app_id');
-		$sign_package = WeixinSDK::getSignPackage();
 
 		return View::make('wechat.pages.official')->with([
 			'videos'             => Video::select('title', 'url')->get(),
@@ -37,8 +32,6 @@ class FontendPageController extends BaseController{
 			'column_titles'		=> $column_titles,
 			'resources_split'	=> $resources_split,
 			'current_column' 	=> Input::get( 'column_title_id' ),
-			'app_id'			=> $app_id,
-			'sign_package'		=> $sign_package,
 		]);
 	}
 
@@ -96,8 +89,6 @@ class FontendPageController extends BaseController{
 			'hours'				=> $hours,
 			'mins' 				=> $mins,
 			'seconds' 			=> $seconds,
-			'app_id'			=> $app_id,
-			'sign_package'		=> $sign_package,
 		]);
 	}
 
@@ -139,15 +130,10 @@ class FontendPageController extends BaseController{
 			$album->url = '/wechat/photos?album_id='.$album->id;
 		}
 
-		$app_id = Config::get('weixin.app_id');
-		$sign_package = WeixinSDK::getSignPackage();
-
 		return View::make('wechat.pages.album')->with([
 			'adverts'			=>	$adverts,
 			'items'				=>	$albums,
 			'paginate_url'		=> 	'/wechat/album-pagination',
-			'app_id'			=>  $app_id,
-			'sign_package'		=>  $sign_package,
 		]);
 	}
 

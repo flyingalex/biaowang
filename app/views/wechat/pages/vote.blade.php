@@ -226,30 +226,6 @@
     </div>
 </script>
 
-<script type="text/template" id="wechat-sign-info">
-    <?php json_encode($sign_package) ?>
-</script>
-
-<script type="text/javascript" id="wechat-on-menu-share-timeline-info">
-    {
-        "title": "投票",
-        "link": "{{ Request::url() }}",
-        "imgUrl": "{{ $adverts[0]->image_url }}"
-    }
-</script>
-
-<script type="text/javascript" id="wechat-on-menu-share-app-message-info">
-    {
-        "title": "投票",
-        "desc": "标王众筹，汇聚全国最优质创业项目",
-        "link": "{{ Request::url() }}",
-        "imgUrl": "{{ $adverts[0]->image_url }}",
-        "type": "link",
-    }
-</script>
-
-<input id="app-id" type="hidden" name="app_id" value="{{ $app_id }}">
-
 @stop
 
 @section( 'navigation' )

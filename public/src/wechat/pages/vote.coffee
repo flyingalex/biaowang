@@ -89,7 +89,7 @@ $ ()->
     init()
 
     # 初始化微信组件信息
-    wechat.share()
+    # wechat.share()
 
     # 初始化广告组件
     advert.init()

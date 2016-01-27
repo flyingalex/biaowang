@@ -136,54 +136,9 @@
 </div>
 <!-- 软文干货 end -->
 
-<script type="text/template" id="resource-template">
-    <% for ( var i = 0; i != data.length; ++i ){ %>
-    <li class="resource-item">
-        <span class="resource-img-wrap">
-            <img src="<%- data[i].image_url %>" class="resource-img">
-        </span><!--
-     --><span class="resource-info-wrap">
-            <a href="<%- data[i].url %>" class="resource-title"><%- data[i].title %></a>
-            <div class="resource-content"><%- data[i].brief %></div>
-        </span>
-    </li>
-    <% } %>
-</script>
-
-<script type="text/template" id="wechat-sign-info">
-    <?php json_encode($sign_package) ?>
-</script>
-
-<script type="text/javascript" id="wechat-on-menu-share-timeline-info">
-    {
-        "title": "微官网",
-        "link": "{{ Request::url() }}",
-        "imgUrl": "{{ $adverts[0]->image_url }}"
-    }
-</script>
-
-<script type="text/javascript" id="wechat-on-menu-share-app-message-info">
-    {
-        "title": "微官网",
-        "desc": "点击进入标王众筹的世界",
-        "link": "{{ Request::url() }}",
-        "imgUrl": "{{ $adverts[0]->image_url }}",
-        "type": "link",
-    }
-</script>
-
-<input id="app-id" type="hidden" name="app_id" value="{{ $app_id }}">
-
 @stop
 
 @section( 'navigation' )
-
-@include( 'wechat.components.pagination', [
-    'url'           =>      '/wechat/home-pagination',
-    'parameters'    =>      [
-        'column_title_id' => $current_column
-    ]
-])
 
 <div class="navigation-wrap">
     <div class="navigation-container">
